@@ -18,6 +18,7 @@ use yii\web\IdentityInterface;
  * @property string $auth_key
  * @property integer $status
  * @property integer $role
+ * @property string $role_name 
  * @property string $cid 
  * @property string $prename
  * @property string $name 
