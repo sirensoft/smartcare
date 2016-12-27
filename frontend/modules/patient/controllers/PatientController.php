@@ -8,11 +8,12 @@ use frontend\models\PatientSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\components\AppController;
 
 /**
  * PatientController implements the CRUD actions for Patient model.
  */
-class PatientController extends Controller
+class PatientController extends AppController
 {
     /**
      * @inheritdoc
@@ -51,6 +52,7 @@ class PatientController extends Controller
      */
     public function actionView($id)
     {
+        $this->permitRole([2]);
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -63,6 +65,7 @@ class PatientController extends Controller
      */
     public function actionCreate()
     {
+        $this->permitRole([2]);
         $model = new Patient();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -82,6 +85,7 @@ class PatientController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->permitRole([2]);
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -101,6 +105,7 @@ class PatientController extends Controller
      */
     public function actionDelete($id)
     {
+        $this->permitRole([2]);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
