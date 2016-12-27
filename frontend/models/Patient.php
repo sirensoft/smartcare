@@ -11,6 +11,7 @@ use Yii;
  * @property string $prename
  * @property string $name
  * @property string $lname
+ * @property string $sex 
  * @property string $birth
  * @property string $province
  * @property string $district
@@ -19,9 +20,10 @@ use Yii;
  * @property string $village_name
  * @property string $house_no
  * @property integer $typearea
- * @property integer $nation
- * @property integer $region
- * @property integer $discharge
+ * @property string $nation
+ * @property string $region
+ * @property string $disease Description
+ * @property string $discharge
  * @property string $dupdate
  */
 class Patient extends \yii\db\ActiveRecord
@@ -40,11 +42,11 @@ class Patient extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cid','prename', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no',], 'required'],
+            [['cid','prename', 'name', 'lname', 'province', 'district','sex', 'subdistrict', 'village_no',], 'required'],
             [['birth', 'dupdate'], 'safe'],
-            [['typearea', 'nation', 'region', 'discharge'], 'integer'],
+            [['typearea', ], 'integer'],
             [['cid'], 'string', 'max' => 13],
-            [['prename', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no'], 'string', 'max' => 255],
+            [['prename','sex' ,'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no','disease','nation', 'region', 'discharge'], 'string', 'max' => 255],
         ];
     }
 
@@ -58,6 +60,7 @@ class Patient extends \yii\db\ActiveRecord
             'prename' => 'คำนำหน้า',
             'name' => 'ชื่อ',
             'lname' => 'สกุล',
+            'sex'=>'เพศ',
             'birth' => 'เกิด',
             'province' => 'จังหวัด',
             'district' => 'อำเภอ',
@@ -68,6 +71,7 @@ class Patient extends \yii\db\ActiveRecord
             'typearea' => 'ประเภทอยู่อาศัย',
             'nation' => 'สัญชาติ',
             'region' => 'เชื้อชาติ',
+            'disease'=>'โรคประจำตัว',
             'discharge' => 'การจำหน่าย',
             'dupdate' => 'วันอัพเดทข้อมูล',
         ];

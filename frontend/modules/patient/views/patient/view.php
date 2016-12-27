@@ -6,13 +6,13 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Patient */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Patients', 'url' => ['index']];
+$this->title = $model->name." (".$model->cid.")";
+$this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="patient-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+ 
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->cid], ['class' => 'btn btn-primary']) ?>
@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'prename',
             'name',
             'lname',
+            'sex',
             'birth',
             'province',
             'district',

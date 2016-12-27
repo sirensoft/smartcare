@@ -18,8 +18,8 @@ class PatientSearch extends Patient
     public function rules()
     {
         return [
-            [['cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'dupdate'], 'safe'],
-            [['typearea', 'nation', 'region', 'discharge'], 'integer'],
+            [['cid', 'prename', 'name', 'lname', 'birth', 'province', 'district','disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'dupdate', 'nation', 'region', 'discharge'], 'safe'],
+            [['typearea',], 'integer'],
         ];
     }
 
@@ -61,9 +61,9 @@ class PatientSearch extends Patient
         $query->andFilterWhere([
             'birth' => $this->birth,
             'typearea' => $this->typearea,
-            'nation' => $this->nation,
-            'region' => $this->region,
-            'discharge' => $this->discharge,
+            //'nation' => $this->nation,
+            //'region' => $this->region,
+            //'discharge' => $this->discharge,
             'dupdate' => $this->dupdate,
         ]);
 
@@ -76,7 +76,8 @@ class PatientSearch extends Patient
             ->andFilterWhere(['like', 'subdistrict', $this->subdistrict])
             ->andFilterWhere(['like', 'village_no', $this->village_no])
             ->andFilterWhere(['like', 'village_name', $this->village_name])
-            ->andFilterWhere(['like', 'house_no', $this->house_no]);
+            ->andFilterWhere(['like', 'house_no', $this->house_no])
+            ->andFilterWhere(['like', 'disease', $this->disease]);
 
         return $dataProvider;
     }
