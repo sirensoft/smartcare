@@ -6,4 +6,5 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
+    'modules' => require(__DIR__ . '/modules.php')
 ];
