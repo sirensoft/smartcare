@@ -6,5 +6,6 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
-    'modules' => require(__DIR__ . '/modules.php')
+    'modules' => require(__DIR__ . '/modules.php'),
+    'language'=>'th'
 ];
