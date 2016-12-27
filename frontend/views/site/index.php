@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'SmartCare V 1.161227';
 ?>
 <div class="site-index">
 
@@ -10,6 +10,7 @@ $this->title = 'My Yii Application';
         <?php
         if(!\Yii::$app->user->isGuest){
             echo \Yii::$app->user->identity->role;
+            echo \Yii::$app->user->identity->cid;
         }
         
         ?>
