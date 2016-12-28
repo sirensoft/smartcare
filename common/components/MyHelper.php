@@ -13,5 +13,10 @@ class MyHelper extends \yii\base\Component {
 
         return $items;
     }
+    public static function getLineApi(){
+        $LINE_API = "https://notify-api.line.me/api/notify";
+        https://notify-bot.line.me/my/
+        return $LINE_API;
+    }
 
 }

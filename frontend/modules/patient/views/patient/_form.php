@@ -16,7 +16,7 @@ use kartik\form\ActiveField;
     <?php
     $form = ActiveForm::begin([
                 'type' => ActiveForm::TYPE_HORIZONTAL,
-               // 'formConfig' => ['labelSpan' => 3, 'deviceSize' => ActiveForm::SIZE_SMALL,'showLabels'=>TRUE],
+               
     ]);
     ?>
     <div class="form-group kv-fieldset-inline">
@@ -124,7 +124,7 @@ use kartik\form\ActiveField;
     <?= $form->field($model, 'dupdate')->hiddenInput(['value' => date('Y-m-d')])->label(FALSE) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? '+ เพิ่ม' : ' แก้ไข ', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? '+ เพิ่ม' : '* แก้ไข ', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
