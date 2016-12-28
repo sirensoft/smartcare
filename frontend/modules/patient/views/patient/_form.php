@@ -44,10 +44,13 @@ use common\components\MyHelper;
     <?= $form->field($model, 'subdistrict')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'village_no')->textInput(['maxlength' => true]) ?>
+   
 
     <?= $form->field($model, 'village_name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'house_no')->textInput(['maxlength' => true]) ?>
+     <?= $form->field($model, 'lat')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'lon')->textInput(['maxlength' => true]) ?>
     <?php
      $items = MyHelper::dropDownItems(" SELECT t.typeareacode id,concat(t.typeareacode,'-',t.typeareaname) val from c_typearea t ", 'id', 'val');
     

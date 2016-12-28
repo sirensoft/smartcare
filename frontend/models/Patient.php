@@ -19,6 +19,8 @@ use Yii;
  * @property string $village_no
  * @property string $village_name
  * @property string $house_no
+ * @property string $lat 
+ * @property string $lon
  * @property integer $typearea
  * @property string $nation
  * @property string $region
@@ -46,7 +48,7 @@ class Patient extends \yii\db\ActiveRecord
             [['birth', 'dupdate'], 'safe'],
             [['typearea', ], 'integer'],
             [['cid'], 'string', 'max' => 13],
-            [['prename','sex' ,'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no','disease','nation', 'region', 'discharge'], 'string', 'max' => 255],
+            [['prename','sex' ,'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no','disease','nation', 'region', 'discharge','lat','lon'], 'string', 'max' => 255],
         ];
     }
 
@@ -68,6 +70,8 @@ class Patient extends \yii\db\ActiveRecord
             'village_no' => 'หมู่ที่',
             'village_name' => 'หมู่บ้าน',
             'house_no' => 'บลท.',
+            'lat'=>'พิกัด (LATITUDE)',
+            'lon'=>'พิกัด (LONGITUDE)',
             'typearea' => 'ประเภทอยู่อาศัย',
             'nation' => 'สัญชาติ',
             'region' => 'เชื้อชาติ',
