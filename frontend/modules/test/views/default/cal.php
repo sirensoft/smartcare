@@ -22,6 +22,9 @@ $events = array();
           'id'=>'cal1'
         //'firstDay'=>'3'
       ],
+      'clientOptions'=>[
+          'firstDay'=>'1'
+      ]
   ));
   
   
