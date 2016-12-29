@@ -37,11 +37,11 @@ $events[] = $Event;
         'lang' => 'th',
         'id' => 'cal1'
     ],
-     'header' => [
-      'center' => 'title',
-      'right' => 'month,agendaWeek,listWeek,listDay',
-      'left' => 'prev,next today'
-      ], 
+    'header' => [
+        'center' => 'title',
+        'right' => 'month,agendaWeek,listWeek,listDay',
+        'left' => 'prev,next today'
+    ],
     'clientOptions' => [
         'firstDay' => '1',
     //'defaultView'=>'listWeek',
