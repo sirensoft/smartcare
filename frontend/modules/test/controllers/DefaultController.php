@@ -35,7 +35,7 @@ class DefaultController extends AppController {
     }
 
     function actionIndex() {
-        $d  = date('Y-m-d H:i:s')." -ทดสอบระบบแจ้งเตือนอัตโนมัติ";
+        $d  = "เมื่อสักครู่...นางกัณหา วิริยขิตกุล ได้รับการดูแล ";
         $res=$this->line_notify($d);
         return $this->render('index',[
             'res'=>$res

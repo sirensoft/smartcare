@@ -1,5 +1,8 @@
 <?php
 
+$this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['/patient']];
+$this->params['breadcrumbs'][] = 'ทดสอบ';
+
 $events = array();
 //Testing
 $Event = new \yii2fullcalendar\models\Event();
