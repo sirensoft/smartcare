@@ -27,6 +27,13 @@ $Event->title = 'ทำความสะอาดสายยางให้อ
 $Event->start = '2016-12-30 09:00';
 $Event->end = '2016-12-30 10:00';
 $events[] = $Event;
+
+$Event = new \yii2fullcalendar\models\Event();
+$Event->id = 5;
+$Event->title = 'เยี่ยมติดตามสุขภาพทั่วไป';
+$Event->start = date('Y-m-d H:i');
+
+$events[] = $Event;
 ?>
 
 <?=
