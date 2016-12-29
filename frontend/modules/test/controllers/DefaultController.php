@@ -42,4 +42,7 @@ class DefaultController extends AppController {
         ]);
     }
 
+    public function actionCal(){
+        return $this->render('cal');
+    }
 }
