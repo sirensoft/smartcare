@@ -45,7 +45,8 @@ $events[] = $Event;
     'events' => $events,
     'options' => [
         'lang' => 'th',
-        'id' => 'cal1'
+        'id' => 'calendar',
+        
     ],
     'header' => [
         'center' => 'title',
@@ -57,4 +58,28 @@ $events[] = $Event;
     //'defaultView'=>'listWeek',
     ]
 ));
+
+
+
+$js = <<<JS
+   function get_calendar_height() {
+      return $(window).height() - 180;
+}
+
+//attacht resize event to window and set fullcalendar height property
+$(document).ready(function() {
+    $(window).resize(function() {
+        $('#calendar').fullCalendar('option', 'height', get_calendar_height());
+    });
+
+
+    //set fullcalendar height property
+    $('#calendar').fullCalendar({   
+            //options
+            height: get_calendar_height
+    });
+});     
+JS;
+
+//$this->registerJs($js);
 
