@@ -46,6 +46,7 @@ $events[] = $Event;
     'options' => [
         'lang' => 'th',
         'id' => 'calendar',
+       
         
     ],
     'header' => [
@@ -55,6 +56,7 @@ $events[] = $Event;
     ],
     'clientOptions' => [
         'firstDay' => '1',
+         'height'=>420
     //'defaultView'=>'listWeek',
     ]
 ));
