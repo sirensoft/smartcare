@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Url;
+use yii\web\JsExpression;
+
 $this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['/patient']];
 $this->params['breadcrumbs'][] = 'ทดสอบ';
 
@@ -35,14 +37,25 @@ $Event = new \yii2fullcalendar\models\Event();
 $Event->id = 5;
 $Event->title = 'เยี่ยมติดตามสุขภาพทั่วไป';
 $Event->start = date('Y-m-d H:i');
-$Event->url = Url::toRoute(['/site/index','cg'=>1,'id'=>2]) ;
+//$Event->url = Url::toRoute(['/site/index','cg'=>1,'id'=>2]) ;
 
 $events[] = $Event;
-?>
 
-<?=
 
-\yii2fullcalendar\yii2fullcalendar::widget(array(
+$expression_click = "function(calEvent, jsEvent, view) {
+        if(view.name=='listDay'){
+            alert('Event: ' + calEvent.id +'-'+ calEvent.title);
+            //alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+            //alert('View: ' + view.name);
+        }
+
+    }";
+
+
+
+
+
+echo \yii2fullcalendar\yii2fullcalendar::widget(array(
     'events' => $events,
     'options' => [
         'lang' => 'th',
@@ -57,34 +70,14 @@ $events[] = $Event;
     ],
     'clientOptions' => [
         'firstDay' => '1',
-         //'height'=>420
-    //'defaultView'=>'listWeek',
+        'height'=>new JsExpression('function(e){return $(window).height() - 100;}'),
+        'defaultView'=>'listWeek',
+        'eventClick'=> new JsExpression($expression_click)
     ]
 ));
 
 
 
-$js = <<<JS
-   
-  
-   function get_calendar_height() {
-      return $(window).height() - 180;
-   }
-
-//attacht resize event to window and set fullcalendar height property
-$(document).ready(function() {
-    $(window).resize(function() {
-        $('#calendar').fullCalendar('option', 'height', get_calendar_height());
-    });
 
 
-    //set fullcalendar height property
-    $('#calendar').fullCalendar({   
-            //options
-            height: get_calendar_height
-    });
-});     
-JS;
-
-$this->registerJs($js);
 
