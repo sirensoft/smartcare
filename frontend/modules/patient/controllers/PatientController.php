@@ -44,6 +44,10 @@ class PatientController extends AppController
             'dataProvider' => $dataProvider,
         ]);
     }
+    
+      public function actionModal(){
+        return $this->render('');
+    }
 
     /**
      * Displays a single Patient model.
@@ -125,5 +129,9 @@ class PatientController extends AppController
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    
+    public function actionNote(){
+        return $this->renderAjax('note');
     }
 }
