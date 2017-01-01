@@ -10,15 +10,23 @@ use Yii;
  * @property integer $id
  * @property string $patient_cid
  * @property string $title
- * @property string $start_datetime
- * @property string $end_datetime
+ * @property string $care_plan_start
+ * @property string $care_plan_end
  * @property string $color
  * @property string $bg_color
  * @property string $border_color
  * @property string $text_color
- * @property string $provider_id
+ * @property string $care_provider_id
  * @property string $care_datetime
- * @property string $care_note
+ * @property string $weight
+ * @property string $height
+ * @property string $pulse
+ * @property string $temp
+ * @property string $sbp
+ * @property string $dbp
+ * @property string $rr
+ * @property string $sugar
+ * @property string $note
  */
 class Plan extends \yii\db\ActiveRecord
 {
@@ -36,11 +44,11 @@ class Plan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['patient_cid', 'start_datetime'], 'required'],
-            [['title', 'care_note'], 'string'],
-            [['start_datetime', 'end_datetime', 'care_datetime'], 'safe'],
+            [['patient_cid', 'care_plan_start'], 'required'],
+            [['title', 'note'], 'string'],
+            [['care_plan_start', 'care_plan_end', 'care_datetime'], 'safe'],
             [['patient_cid'], 'string', 'max' => 13],
-            [['color', 'bg_color', 'border_color', 'text_color', 'provider_id'], 'string', 'max' => 255],
+            [['color', 'bg_color', 'border_color', 'text_color', 'care_provider_id', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar'], 'string', 'max' => 255],
         ];
     }
 
@@ -53,15 +61,23 @@ class Plan extends \yii\db\ActiveRecord
             'id' => 'ID',
             'patient_cid' => 'Patient Cid',
             'title' => 'Title',
-            'start_datetime' => 'Start Datetime',
-            'end_datetime' => 'End Datetime',
+            'care_plan_start' => 'Care Plan Start',
+            'care_plan_end' => 'Care Plan End',
             'color' => 'Color',
             'bg_color' => 'Bg Color',
             'border_color' => 'Border Color',
             'text_color' => 'Text Color',
-            'provider_id' => 'Provider ID',
+            'care_provider_id' => 'Care Provider ID',
             'care_datetime' => 'Care Datetime',
-            'care_note' => 'Care Note',
+            'weight' => 'Weight',
+            'height' => 'Height',
+            'pulse' => 'Pulse',
+            'temp' => 'Temp',
+            'sbp' => 'Sbp',
+            'dbp' => 'Dbp',
+            'rr' => 'Rr',
+            'sugar' => 'Sugar',
+            'note' => 'Note',
         ];
     }
 }

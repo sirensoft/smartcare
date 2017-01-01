@@ -21,9 +21,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'start_datetime') ?>
+    <?= $form->field($model, 'care_plan_start') ?>
 
-    <?= $form->field($model, 'end_datetime') ?>
+    <?= $form->field($model, 'care_plan_end') ?>
 
     <?php // echo $form->field($model, 'color') ?>
 
@@ -33,11 +33,27 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'text_color') ?>
 
-    <?php // echo $form->field($model, 'provider_id') ?>
+    <?php // echo $form->field($model, 'care_provider_id') ?>
 
     <?php // echo $form->field($model, 'care_datetime') ?>
 
-    <?php // echo $form->field($model, 'care_note') ?>
+    <?php // echo $form->field($model, 'weight') ?>
+
+    <?php // echo $form->field($model, 'height') ?>
+
+    <?php // echo $form->field($model, 'pulse') ?>
+
+    <?php // echo $form->field($model, 'temp') ?>
+
+    <?php // echo $form->field($model, 'sbp') ?>
+
+    <?php // echo $form->field($model, 'dbp') ?>
+
+    <?php // echo $form->field($model, 'rr') ?>
+
+    <?php // echo $form->field($model, 'sugar') ?>
+
+    <?php // echo $form->field($model, 'note') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

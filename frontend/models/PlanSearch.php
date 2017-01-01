@@ -19,7 +19,7 @@ class PlanSearch extends Plan
     {
         return [
             [['id'], 'integer'],
-            [['patient_cid', 'title', 'start_datetime', 'end_datetime', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'care_datetime', 'care_note'], 'safe'],
+            [['patient_cid', 'title', 'care_plan_start', 'care_plan_end', 'color', 'bg_color', 'border_color', 'text_color', 'care_provider_id', 'care_datetime', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar', 'note'], 'safe'],
         ];
     }
 
@@ -60,8 +60,8 @@ class PlanSearch extends Plan
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'start_datetime' => $this->start_datetime,
-            'end_datetime' => $this->end_datetime,
+            'care_plan_start' => $this->care_plan_start,
+            'care_plan_end' => $this->care_plan_end,
             'care_datetime' => $this->care_datetime,
         ]);
 
@@ -71,8 +71,16 @@ class PlanSearch extends Plan
             ->andFilterWhere(['like', 'bg_color', $this->bg_color])
             ->andFilterWhere(['like', 'border_color', $this->border_color])
             ->andFilterWhere(['like', 'text_color', $this->text_color])
-            ->andFilterWhere(['like', 'provider_id', $this->provider_id])
-            ->andFilterWhere(['like', 'care_note', $this->care_note]);
+            ->andFilterWhere(['like', 'care_provider_id', $this->care_provider_id])
+            ->andFilterWhere(['like', 'weight', $this->weight])
+            ->andFilterWhere(['like', 'height', $this->height])
+            ->andFilterWhere(['like', 'pulse', $this->pulse])
+            ->andFilterWhere(['like', 'temp', $this->temp])
+            ->andFilterWhere(['like', 'sbp', $this->sbp])
+            ->andFilterWhere(['like', 'dbp', $this->dbp])
+            ->andFilterWhere(['like', 'rr', $this->rr])
+            ->andFilterWhere(['like', 'sugar', $this->sugar])
+            ->andFilterWhere(['like', 'note', $this->note]);
 
         return $dataProvider;
     }

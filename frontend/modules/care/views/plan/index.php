@@ -31,7 +31,7 @@ $Event = new \yii2fullcalendar\models\Event();
 $Event->id = 3;
 $Event->title = 'ทำความสะอาดสายยางให้อาหาร';
 $Event->start = '2016-12-30 08:00:30';
-$Event->end = '2016-12-30 09:00';
+//$Event->end = '2016-12-30 09:00';
 $Event->backgroundColor = 'green';
 $events[] = $Event;
 
@@ -39,7 +39,31 @@ $Event = new \yii2fullcalendar\models\Event();
 $Event->id = 4;
 $Event->title = 'ทำความสะอาดสายยางให้อาหาร';
 $Event->start = '2016-12-30 09:00';
-$Event->end = '2016-12-30 10:00';
+//$Event->end = '2016-12-30 10:00';
+$Event->color = '#ff00ff';
+$events[] = $Event;
+
+$Event = new \yii2fullcalendar\models\Event();
+$Event->id = 4;
+$Event->title = 'ทำความสะอาดสายยางให้อาหาร';
+$Event->start = '2016-12-30 09:00';
+//$Event->end = '2016-12-30 10:00';
+$Event->color = '#ff00ff';
+$events[] = $Event;
+
+$Event = new \yii2fullcalendar\models\Event();
+$Event->id = 4;
+$Event->title = 'ทำความสะอาดสายยางให้อาหาร';
+$Event->start = '2016-12-30 09:00';
+//$Event->end = '2016-12-30 10:00';
+$Event->color = '#ff00ff';
+$events[] = $Event;
+
+$Event = new \yii2fullcalendar\models\Event();
+$Event->id = 4;
+$Event->title = 'ทำความสะอาดสายยางให้อาหาร';
+$Event->start = '2016-12-30 09:00';
+//$Event->end = '2016-12-30 10:00';
 $Event->color = '#ff00ff';
 $events[] = $Event;
 
@@ -47,7 +71,7 @@ $Event = new \yii2fullcalendar\models\Event();
 $Event->id = 5;
 $Event->title = 'เยี่ยมติดตามสุขภาพทั่วไป';
 $Event->start = date('Y-m-d H:i:s');
-$Event->url = Url::toRoute(['/patient/patient/note', 'cg' => 1, 'id' => 2]);
+$Event->url = Url::toRoute(['/care/plan/update','id' => 1]);
 $dt = new DateTime($Event->start);
 $dat = $dt->format('Y-m-d');
 if($dat == date("Y-m-d")){
@@ -91,6 +115,7 @@ echo \yii2fullcalendar\yii2fullcalendar::widget(array(
         //'defaultView' => 'listWeek',
         'eventClick' => new JsExpression($expression_click),
         'timeFormat' => 'H:mm',
+        'eventLimit'=> true,
     ]
 ));
 
