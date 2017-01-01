@@ -2,6 +2,9 @@
 use yii\helpers\Url;
 use yii\web\JsExpression;
 
+$this->registerCss($this->render('custom.css'));
+        
+
 $this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['/patient']];
 $this->params['breadcrumbs'][] = 'ทดสอบ';
 
@@ -60,6 +63,7 @@ echo \yii2fullcalendar\yii2fullcalendar::widget(array(
     'options' => [
         'lang' => 'th',
         'id' => 'calendar',
+        
        
         
     ],
@@ -72,7 +76,9 @@ echo \yii2fullcalendar\yii2fullcalendar::widget(array(
         'firstDay' => '1',
         'height'=>new JsExpression('function(e){return $(window).height() - 100;}'),
         'defaultView'=>'listWeek',
-        'eventClick'=> new JsExpression($expression_click)
+        'eventClick'=> new JsExpression($expression_click),
+        'timeFormat'=>'H:mm',
+        
     ]
 ));
 
