@@ -16,12 +16,14 @@ $Event = new \yii2fullcalendar\models\Event();
 $Event->id = 1;
 $Event->title = 'เปลี่ยนผ้าอ้อม';
 $Event->start = '2016-11-20 09:00';
+$Event->backgroundColor = 'green';
 $events[] = $Event;
 
 $Event = new \yii2fullcalendar\models\Event();
 $Event->id = 2;
 $Event->title = 'ทำความสะอาดสายยางให้อาหาร';
 $Event->start = '2016-12-31 08:00:00';
+$Event->backgroundColor = 'orange';
 $events[] = $Event;
 
 $Event = new \yii2fullcalendar\models\Event();
@@ -29,6 +31,7 @@ $Event->id = 3;
 $Event->title = 'ทำความสะอาดสายยางให้อาหาร';
 $Event->start = '2016-12-30 08:00';
 $Event->end = '2016-12-30 09:00';
+$Event->backgroundColor = 'green';
 $events[] = $Event;
 
 $Event = new \yii2fullcalendar\models\Event();
@@ -36,6 +39,7 @@ $Event->id = 4;
 $Event->title = 'ทำความสะอาดสายยางให้อาหาร';
 $Event->start = '2016-12-30 09:00';
 $Event->end = '2016-12-30 10:00';
+$Event->backgroundColor = 'green';
 $events[] = $Event;
 
 $Event = new \yii2fullcalendar\models\Event();
@@ -91,7 +95,7 @@ echo \yii2fullcalendar\yii2fullcalendar::widget(array(
 
 
 Modal::begin([
-    'header' => '<h4>Event</h4>',
+    'header' => 'บันทึกข้อมูลการดูแล',
     'size' => 'modal-lg',
     'id' => 'modal'
 ]);
