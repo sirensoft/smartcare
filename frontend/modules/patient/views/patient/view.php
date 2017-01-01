@@ -2,30 +2,43 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\bootstrap\ButtonGroup;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Patient */
 
-$this->title = $model->name." (".$model->cid.")";
+$this->title = $model->name . " (" . $model->cid . ")";
 $this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="patient-view">
 
- 
+
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->cid], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->cid], [
+        <?=
+        Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
-        ]) ?>
+        ])
+        ?>
+
+
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+
+
+        <?= Html::a('Care Plan', ['/care/plan/index', 'id' => $model->id], ['class' => 'btn btn-success ']) ?>
+
+
+
+
     </p>
 
-    <?= DetailView::widget([
+    <?=
+    DetailView::widget([
         'model' => $model,
         'attributes' => [
             'cid',
@@ -46,6 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'discharge',
             'dupdate',
         ],
-    ]) ?>
+    ])
+    ?>
 
 </div>

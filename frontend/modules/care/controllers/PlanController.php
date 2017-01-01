@@ -1,19 +1,18 @@
 <?php
 
-namespace frontend\modules\patient\controllers;
+namespace frontend\modules\care\controllers;
 
 use Yii;
-use frontend\models\Patient;
-use frontend\models\PatientSearch;
+use frontend\models\Plan;
+use frontend\models\PlanSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use common\components\AppController;
 
 /**
- * PatientController implements the CRUD actions for Patient model.
+ * PlanController implements the CRUD actions for Plan model.
  */
-class PatientController extends AppController
+class PlanController extends Controller
 {
     /**
      * @inheritdoc
@@ -31,46 +30,38 @@ class PatientController extends AppController
     }
 
     /**
-     * Lists all Patient models.
+     * Lists all Plan models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id)
     {
-        $searchModel = new PatientSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+           'id'=>$id
         ]);
-    }
-    
-      public function actionModal(){
-        return $this->render('');
     }
 
     /**
-     * Displays a single Patient model.
-     * @param string $id
+     * Displays a single Plan model.
+     * @param integer $id
      * @return mixed
      */
     public function actionView($id)
     {
-        $this->permitRole([2]);
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
 
     /**
-     * Creates a new Patient model.
+     * Creates a new Plan model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $this->permitRole([2]);
-        $model = new Patient();
+        $model = new Plan();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -82,14 +73,13 @@ class PatientController extends AppController
     }
 
     /**
-     * Updates an existing Patient model.
+     * Updates an existing Plan model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      */
     public function actionUpdate($id)
     {
-        $this->permitRole([2]);
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -102,36 +92,31 @@ class PatientController extends AppController
     }
 
     /**
-     * Deletes an existing Patient model.
+     * Deletes an existing Plan model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      */
     public function actionDelete($id)
     {
-        $this->permitRole([2]);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Patient model based on its primary key value.
+     * Finds the Plan model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return Patient the loaded model
+     * @param integer $id
+     * @return Plan the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Patient::findOne($id)) !== null) {
+        if (($model = Plan::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
-    }
-    
-    public function actionNote(){
-        return $this->renderAjax('note');
     }
 }

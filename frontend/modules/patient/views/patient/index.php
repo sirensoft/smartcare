@@ -28,19 +28,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'cid',
                 'format'=>'raw',
                 'value'=>function($model){
-                    return Html::a($model->cid,['/patient/patient/view','id'=>$model->cid]);
+                    return Html::a($model->cid,['/patient/patient/view','id'=>$model->id]);
                 }
             ],
-            'prename',
+            //'prename',
             'name',
             'lname',
             'birth',
             // 'province',
             // 'district',
-            // 'subdistrict',
-            // 'village_no',
+            'subdistrict',
+             'village_no',
             // 'village_name',
-            // 'house_no',
+            'house_no',
             // 'typearea',
             // 'nation',
             // 'region',

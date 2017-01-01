@@ -18,6 +18,7 @@ class PatientSearch extends Patient
     public function rules()
     {
         return [
+            [['id'], 'integer'],
             [['cid', 'prename', 'name', 'lname', 'birth', 'province', 'district','disease', 'subdistrict', 'village_no', 'village_name', 'house_no','lat','lon', 'dupdate', 'nation', 'region', 'discharge'], 'safe'],
             [['typearea',], 'integer'],
         ];
@@ -59,6 +60,7 @@ class PatientSearch extends Patient
 
         // grid filtering conditions
         $query->andFilterWhere([
+             'id' => $this->id,
             'birth' => $this->birth,
             'typearea' => $this->typearea,
             //'nation' => $this->nation,

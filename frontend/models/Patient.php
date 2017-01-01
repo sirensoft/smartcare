@@ -6,7 +6,7 @@ use Yii;
 
 /**
  * This is the model class for table "patient".
- *
+ * @property integer $id pk
  * @property string $cid
  * @property string $prename
  * @property string $name
@@ -58,6 +58,7 @@ class Patient extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'id' => 'ID',
             'cid' => 'เลข13หลัก',
             'prename' => 'คำนำหน้า',
             'name' => 'ชื่อ',
