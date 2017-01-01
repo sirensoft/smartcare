@@ -1,5 +1,5 @@
 <?php
-
+use yii\helpers\Url;
 $this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['/patient']];
 $this->params['breadcrumbs'][] = 'ทดสอบ';
 
@@ -35,6 +35,7 @@ $Event = new \yii2fullcalendar\models\Event();
 $Event->id = 5;
 $Event->title = 'เยี่ยมติดตามสุขภาพทั่วไป';
 $Event->start = date('Y-m-d H:i');
+$Event->url = Url::toRoute(['/site/index','cg'=>1,'id'=>2]) ;
 
 $events[] = $Event;
 ?>
@@ -56,7 +57,7 @@ $events[] = $Event;
     ],
     'clientOptions' => [
         'firstDay' => '1',
-         'height'=>420
+         //'height'=>420
     //'defaultView'=>'listWeek',
     ]
 ));
@@ -64,9 +65,11 @@ $events[] = $Event;
 
 
 $js = <<<JS
+   
+  
    function get_calendar_height() {
       return $(window).height() - 180;
-}
+   }
 
 //attacht resize event to window and set fullcalendar height property
 $(document).ready(function() {
@@ -83,5 +86,5 @@ $(document).ready(function() {
 });     
 JS;
 
-//$this->registerJs($js);
+$this->registerJs($js);
 
