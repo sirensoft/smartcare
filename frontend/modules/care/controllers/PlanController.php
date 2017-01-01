@@ -86,7 +86,7 @@ class PlanController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             if(\Yii::$app->request->isAjax){
-                return $this->renderAjax('update', [
+                return $this->renderPartial('update', [
                 'model' => $model,
             ]);
             }

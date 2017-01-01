@@ -19,7 +19,7 @@ class PlanSearch extends Plan
     {
         return [
             [['id'], 'integer'],
-            [['patient_cid', 'title', 'care_plan_start', 'care_plan_end', 'color', 'bg_color', 'border_color', 'text_color', 'care_provider_id', 'care_datetime', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar', 'note'], 'safe'],
+            [['patient_id', 'title', 'care_plan_start', 'care_plan_end', 'color', 'bg_color', 'border_color', 'text_color', 'care_provider_id', 'care_datetime', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar', 'note'], 'safe'],
         ];
     }
 
@@ -65,7 +65,7 @@ class PlanSearch extends Plan
             'care_datetime' => $this->care_datetime,
         ]);
 
-        $query->andFilterWhere(['like', 'patient_cid', $this->patient_cid])
+        $query->andFilterWhere(['like', 'patient_id', $this->patient_id])
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'color', $this->color])
             ->andFilterWhere(['like', 'bg_color', $this->bg_color])
