@@ -3,6 +3,7 @@
 namespace frontend\modules\care\controllers;
 
 use Yii;
+use common\components\AppController;
 use frontend\models\Plan;
 use frontend\models\PlanSearch;
 use yii\web\Controller;
@@ -14,7 +15,7 @@ use frontend\models\Patient;
 /**
  * PlanController implements the CRUD actions for Plan model.
  */
-class PlanController extends Controller {
+class PlanController extends AppController {
 
     /**
      * @inheritdoc
@@ -35,6 +36,7 @@ class PlanController extends Controller {
      * @return mixed
      */
     public function actionIndex($pid) {
+        $this->permitRole([1,2,3]);
         //$vw = 'index_cg';
         $vw = 'index_cm';
 
@@ -54,12 +56,12 @@ class PlanController extends Controller {
                 $evt->color = 'red';
             }
             if ($plan->start_date > date("Y-m-d")) {
-                $evt->color = 'orange';
+                $evt->color = 'blue';
                 
             }
             if ($plan->start_date < date("Y-m-d")) {
-                $evt->color = 'green';
-                //$evt->textColor = 'black';
+                $evt->color = 'lime';
+                $evt->textColor = 'black';
             }
 
             $tasks[] = $evt;
@@ -114,6 +116,8 @@ class PlanController extends Controller {
     public function actionUpdate($id) {
         $model = $this->findModel($id);
         $model->d_update = date('Y-m-d H:i:s'); 
+        if(empty($model->care_date)){$model->care_date=date('Y-m-d');}
+        if(empty($model->care_time)){$model->care_time=date('H:i:s');}
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index', 'pid' => $model->patient_id]);
