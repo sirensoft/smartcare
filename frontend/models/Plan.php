@@ -79,7 +79,7 @@ class Plan extends \yii\db\ActiveRecord
             'weight' => 'น้ำหนัก(กก)',
             'height' => 'ส่วนสูง(ซม)',
             'pulse' => 'ชีพจร',
-            'temp' => 'ไข้',
+            'temp' => 'อุณหภูมิ',
             'sbp' => 'ความดัน(บน)',
             'dbp' => 'ความดัน(ล่าง)',
             'rr' => 'อัตราหายใจ',
