@@ -42,6 +42,10 @@ class PatientController extends AppController
         if($u_hos<>'all'){
             $searchModel->hospcode = $u_hos;
         }
+        $role_user = MyHelper::getUserRole();
+        if($role_user===3){
+            $searchModel->cg_id = MyHelper::getUserId();
+        }
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -61,7 +65,7 @@ class PatientController extends AppController
      */
     public function actionView($pid)
     {
-        $this->permitRole([2]);
+        $this->permitRole([1,2,3]);
         return $this->render('view', [
             'model' => $this->findModel($pid),
         ]);

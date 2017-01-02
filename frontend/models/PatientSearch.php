@@ -19,7 +19,7 @@ class PatientSearch extends Patient
     {
         return [
             [['id'], 'integer'],
-            [['cid', 'prename', 'name', 'lname', 'birth', 'province', 'district','disease', 'subdistrict', 'village_no', 'village_name', 'house_no','lat','lon', 'dupdate', 'nation', 'region','hospcode', 'discharge'], 'safe'],
+            [['cid', 'prename', 'name', 'lname', 'birth', 'province', 'district','disease', 'subdistrict', 'village_no', 'village_name', 'house_no','lat','lon', 'dupdate', 'nation', 'region','hospcode', 'discharge','cm_id','cg_id'], 'safe'],
             [['typearea',], 'integer'],
         ];
     }
@@ -67,6 +67,8 @@ class PatientSearch extends Patient
             'region' => $this->region,
             'discharge' => $this->discharge,
             'dupdate' => $this->dupdate,
+            'cm_id'=>  $this->cm_id,
+            'cg_id'=>  $this->cg_id
         ]);
 
         $query->andFilterWhere(['like', 'cid', $this->cid])

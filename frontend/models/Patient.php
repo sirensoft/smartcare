@@ -27,6 +27,8 @@ use Yii;
  * @property string $hospcode
  * @property string $disease
  * @property string $discharge
+ * @property integer $cm_id
+ * @property integer $cg_id
  * @property string $dupdate
  */
 class Patient extends \yii\db\ActiveRecord
@@ -47,7 +49,7 @@ class Patient extends \yii\db\ActiveRecord
         return [
             [['cid','prename', 'name', 'lname', 'province', 'district','sex', 'subdistrict', 'village_no','hospcode'], 'required'],
             [['birth', 'dupdate'], 'safe'],
-            [['typearea', ], 'integer'],
+            [['typearea', 'cm_id','cg_id'], 'integer'],
             [['cid'], 'string', 'max' => 13],
             [['prename','sex' ,'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no','disease','nation', 'region', 'discharge','lat','lon'], 'string', 'max' => 255],
         ];
@@ -80,6 +82,8 @@ class Patient extends \yii\db\ActiveRecord
             'hospcode'=>'หน่วยบริการ',
             'disease'=>'โรคประจำตัว',
             'discharge' => 'การจำหน่าย',
+            'cm_id'=>'รหัส CM',
+            'cg_id'=>'รหัส CG',
             'dupdate' => 'วันอัพเดทข้อมูล',
         ];
     }

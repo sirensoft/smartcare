@@ -24,5 +24,21 @@ class MyHelper extends \yii\base\Component {
             return '00000';
         }
     }
+    
+    public static function getUserRole(){
+        if(!\Yii::$app->user->isGuest){
+            return \Yii::$app->user->identity->role;
+        }  else {
+            return 0;
+        }
+    }
+    
+     public static function getUserId(){
+        if(!\Yii::$app->user->isGuest){
+            return \Yii::$app->user->identity->id;
+        }  else {
+            return '0';
+        }
+    }
 
 }
