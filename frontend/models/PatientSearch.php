@@ -10,16 +10,15 @@ use frontend\models\Patient;
 /**
  * PatientSearch represents the model behind the search form about `frontend\models\Patient`.
  */
-class PatientSearch extends Patient
-{
+class PatientSearch extends Patient {
+
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['id'], 'integer'],
-            [['cid', 'prename', 'name', 'lname', 'birth', 'province', 'district','disease', 'subdistrict', 'village_no', 'village_name', 'house_no','lat','lon', 'dupdate', 'nation', 'region','hospcode', 'discharge','cm_id','cg_id'], 'safe'],
+            [['adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'region', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
             [['typearea',], 'integer'],
         ];
     }
@@ -27,8 +26,7 @@ class PatientSearch extends Patient
     /**
      * @inheritdoc
      */
-    public function scenarios()
-    {
+    public function scenarios() {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
@@ -40,8 +38,7 @@ class PatientSearch extends Patient
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
-    {
+    public function search($params) {
         $query = Patient::find();
 
         // add conditions that should always apply here
@@ -67,23 +64,26 @@ class PatientSearch extends Patient
             'region' => $this->region,
             'discharge' => $this->discharge,
             'dupdate' => $this->dupdate,
-            'cm_id'=>  $this->cm_id,
-            'cg_id'=>  $this->cg_id
+            'cm_id' => $this->cm_id,
+            'cg_id' => $this->cg_id,
+            'adl' => $this->adl
         ]);
 
         $query->andFilterWhere(['like', 'cid', $this->cid])
-            ->andFilterWhere(['like', 'prename', $this->prename])
-            ->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'lname', $this->lname])
-             ->andFilterWhere(['like', 'hospcode', $this->hospcode])
-            ->andFilterWhere(['like', 'province', $this->province])
-            ->andFilterWhere(['like', 'district', $this->district])
-            ->andFilterWhere(['like', 'subdistrict', $this->subdistrict])
-            ->andFilterWhere(['like', 'village_no', $this->village_no])
-            ->andFilterWhere(['like', 'village_name', $this->village_name])
-            ->andFilterWhere(['like', 'house_no', $this->house_no])
-            ->andFilterWhere(['like', 'disease', $this->disease]);
+                ->andFilterWhere(['like', 'prename', $this->prename])
+                ->andFilterWhere(['like', 'name', $this->name])
+                ->andFilterWhere(['like', 'lname', $this->lname])
+                ->andFilterWhere(['like', 'hospcode', $this->hospcode])
+                ->andFilterWhere(['like', 'province', $this->province])
+                ->andFilterWhere(['like', 'district', $this->district])
+                ->andFilterWhere(['like', 'subdistrict', $this->subdistrict])
+                ->andFilterWhere(['like', 'village_no', $this->village_no])
+                ->andFilterWhere(['like', 'village_name', $this->village_name])
+                ->andFilterWhere(['like', 'house_no', $this->house_no])
+                ->andFilterWhere(['like', 'tai', $this->tai])
+                ->andFilterWhere(['like', 'disease', $this->disease]);
 
         return $dataProvider;
     }
+
 }

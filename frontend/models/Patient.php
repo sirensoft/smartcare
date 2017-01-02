@@ -29,6 +29,8 @@ use Yii;
  * @property string $discharge
  * @property integer $cm_id
  * @property integer $cg_id
+ * @property integer $adl
+ * @property string  $tai
  * @property string $dupdate
  */
 class Patient extends \yii\db\ActiveRecord
@@ -49,8 +51,8 @@ class Patient extends \yii\db\ActiveRecord
         return [
             [['cid','prename', 'name', 'lname', 'province', 'district','sex', 'subdistrict', 'village_no','hospcode'], 'required'],
             [['birth', 'dupdate'], 'safe'],
-            [['typearea', 'cm_id','cg_id'], 'integer'],
-            [['cid'], 'string', 'max' => 13],
+            [['typearea', 'cm_id','cg_id','adl'], 'integer'],
+            [['cid','tai'], 'string', 'max' => 13],
             [['prename','sex' ,'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no','disease','nation', 'region', 'discharge','lat','lon'], 'string', 'max' => 255],
         ];
     }
@@ -84,6 +86,8 @@ class Patient extends \yii\db\ActiveRecord
             'discharge' => 'การจำหน่าย',
             'cm_id'=>'CareManager',
             'cg_id'=>'CareGiver',
+            'adl'=>'คะแนน ADL',
+            'tai'=>'จัดกลุ่ม TAI',
             'dupdate' => 'วันอัพเดทข้อมูล',
         ];
     }

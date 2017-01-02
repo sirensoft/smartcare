@@ -16,20 +16,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
     <p>
-        <?=
-        Html::a('Delete', ['delete', 'pid' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ])
-        ?>
+        
 
 
-        <?= Html::a('Update', ['update', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
-
-
+        <?= Html::a('แก้ไข..', ['update', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('ข้อมูลเจ็บป่วย', ['update', 'pid' => $model->id], ['class' => 'btn btn-danger']) ?>
+        <?= Html::a('ประเมิน', ['update', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Care Plan', ['/care/plan/index', 'pid' => $model->id], ['class' => 'btn btn-warning ']) ?>
 
 
@@ -61,5 +53,16 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ])
     ?>
+    <p>
+        <?=
+        Html::a('Delete', ['delete', 'pid' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ])
+        ?>
+    </p>
 
 </div>
