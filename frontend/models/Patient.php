@@ -79,11 +79,11 @@ class Patient extends \yii\db\ActiveRecord
             'typearea' => 'ประเภทอยู่อาศัย',
             'nation' => 'สัญชาติ',
             'region' => 'เชื้อชาติ',
-            'hospcode'=>'หน่วยบริการ',
+            'hospcode'=>'รหัสหน่วยบริการ',
             'disease'=>'โรคประจำตัว',
             'discharge' => 'การจำหน่าย',
-            'cm_id'=>'รหัส CM',
-            'cg_id'=>'รหัส CG',
+            'cm_id'=>'CareManager',
+            'cg_id'=>'CareGiver',
             'dupdate' => 'วันอัพเดทข้อมูล',
         ];
     }

@@ -121,6 +121,7 @@ use kartik\form\ActiveField;
         ],
     ]);
     ?>
+    <?= $form->field($model, 'cg_id')->textInput() ?>
 
     <?= $form->field($model, 'dupdate')->hiddenInput(['value' => date('Y-m-d')])->label(FALSE) ?>
 
