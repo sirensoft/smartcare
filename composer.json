@@ -29,7 +29,8 @@
         "miloschuman/yii2-highcharts-widget": "dev-master",
         "kartik-v/yii2-helpers": "dev-master",
         "kartik-v/yii2-tabs-x": "*",
-        "philippfrenzel/yii2fullcalendar":"*"
+        "philippfrenzel/yii2fullcalendar":"*",
+        "wbraganca/yii2-dynamicform": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

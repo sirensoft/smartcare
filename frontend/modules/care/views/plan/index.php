@@ -70,7 +70,11 @@ $events[] = $Event;
 $Event = new \yii2fullcalendar\models\Event();
 $Event->id = 5;
 $Event->title = 'เยี่ยมติดตามสุขภาพทั่วไป';
-$Event->start = date('Y-m-d H:i:s');
+
+$date = new DateTime(date('Y-m-d H:i:s'));
+$date->modify("+1 hours");
+
+$Event->start = $date->format("Y-m-d H:i:s");
 $Event->url = Url::toRoute(['/care/plan/update','id' => 1]);
 $dt = new DateTime($Event->start);
 $dat = $dt->format('Y-m-d');
