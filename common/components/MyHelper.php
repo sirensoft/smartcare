@@ -76,7 +76,7 @@ class MyHelper extends \yii\base\Component {
     public static function setPatientADL($pid=NULL){
        $sql = "select adl from assessment where patient_id = $pid and (adl is not null and adl != '') order by id DESC limit 1";
        $adl = \Yii::$app->db->createCommand($sql)->queryScalar();
-       $sql = "update patient set adl=$adl where id=$pid";
+       $sql = "update patient set adl='$adl' where id=$pid";
        return \Yii::$app->db->createCommand($sql)->execute();
        
     }
