@@ -37,6 +37,7 @@ echo \yii2fullcalendar\yii2fullcalendar::widget(array(
     'events' => $events,
     'options' => [
         'lang' => 'th',
+        //'locale'=>'en',
         'id' => 'calendar',
     ],
     'header' => [
@@ -51,6 +52,7 @@ echo \yii2fullcalendar\yii2fullcalendar::widget(array(
         'eventClick' => new JsExpression($event_click),
         'timeFormat' => 'H:mm',
         'eventLimit'=> true,
+        'dayNamesShort'=>['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส']
     ]
 ));
 
