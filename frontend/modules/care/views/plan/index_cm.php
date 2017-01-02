@@ -10,8 +10,8 @@ $this->registerCss($this->render('cursor.css'));
 
 $this->title = "CM...";
 $this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['/patient']];
-$this->params['breadcrumbs'][] = ['label' => 'ย้อนกลับ', 'url' => ['/patient/patient/view','pid'=>$pid]];
-$this->params['breadcrumbs'][] = $pid;
+$this->params['breadcrumbs'][] = ['label' => 'ข้อมูลผู้ป่วย', 'url' => ['/patient/patient/view','pid'=>$pid]];
+$this->params['breadcrumbs'][] = "Care Plan : ".$model->name." ".$model->lname;
 
 
 

@@ -7,7 +7,7 @@ use yii\bootstrap\ButtonGroup;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Patient */
 
-$this->title = $model->name . " (" . $model->cid . ")";
+$this->title = $model->name . " " . $model->lname;
 $this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Update', ['update', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
 
 
-        <?= Html::a('Care Plan', ['/care/plan/index', 'pid' => $model->id], ['class' => 'btn btn-success ']) ?>
+        <?= Html::a('Care Plan', ['/care/plan/index', 'pid' => $model->id], ['class' => 'btn btn-warning ']) ?>
 
 
 

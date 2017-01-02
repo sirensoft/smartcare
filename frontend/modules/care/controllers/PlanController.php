@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\Url;
+use frontend\models\Patient;
 
 /**
  * PlanController implements the CRUD actions for Plan model.
@@ -67,7 +68,8 @@ class PlanController extends Controller {
 
         return $this->render($vw, [
                     'pid' => $pid,
-                    'events' => $tasks
+                    'events' => $tasks,
+                    'model'=> Patient::findOne($pid)
         ]);
     }
 
