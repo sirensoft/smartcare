@@ -17,5 +17,12 @@ class MyHelper extends \yii\base\Component {
         $LINE_API = "https://notify-api.line.me/api/notify";  // https://notify-bot.line.me/my/
         return $LINE_API;
     }
+    public static function getUserOffice(){
+        if(!\Yii::$app->user->isGuest){
+            return \Yii::$app->user->identity->office;
+        }  else {
+            return '00000';
+        }
+    }
 
 }

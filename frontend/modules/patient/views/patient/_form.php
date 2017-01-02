@@ -105,6 +105,7 @@ use kartik\form\ActiveField;
         ],
     ]);
     ?>
+    <?= $form->field($model, 'hospcode')->textInput() ?>
 
     <?= $form->field($model, 'disease')->textInput() ?>
     <?php

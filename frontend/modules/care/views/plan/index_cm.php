@@ -19,7 +19,7 @@ $event_click = "
     function(calEvent, jsEvent, view) {   
         console.log(view.name);
         if(view.name!='month'){ 
-            if (calEvent.url) return false;
+            //if (calEvent.url) return false;
         }
         if (calEvent.url) {  
             

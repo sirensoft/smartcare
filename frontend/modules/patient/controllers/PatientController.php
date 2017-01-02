@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\components\AppController;
+use common\components\MyHelper;
 
 /**
  * PatientController implements the CRUD actions for Patient model.
@@ -36,7 +37,11 @@ class PatientController extends AppController
      */
     public function actionIndex()
     {
+        $u_hos = MyHelper::getUserOffice();
         $searchModel = new PatientSearch();
+        if($u_hos<>'all'){
+            $searchModel->hospcode = $u_hos;
+        }
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -73,7 +78,7 @@ class PatientController extends AppController
         $model = new Patient();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'pid' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,

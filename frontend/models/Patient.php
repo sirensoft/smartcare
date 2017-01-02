@@ -24,7 +24,8 @@ use Yii;
  * @property integer $typearea
  * @property string $nation
  * @property string $region
- * @property string $disease Description
+ * @property string $hospcode
+ * @property string $disease
  * @property string $discharge
  * @property string $dupdate
  */
@@ -44,7 +45,7 @@ class Patient extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cid','prename', 'name', 'lname', 'province', 'district','sex', 'subdistrict', 'village_no',], 'required'],
+            [['cid','prename', 'name', 'lname', 'province', 'district','sex', 'subdistrict', 'village_no','hospcode'], 'required'],
             [['birth', 'dupdate'], 'safe'],
             [['typearea', ], 'integer'],
             [['cid'], 'string', 'max' => 13],
@@ -76,6 +77,7 @@ class Patient extends \yii\db\ActiveRecord
             'typearea' => 'ประเภทอยู่อาศัย',
             'nation' => 'สัญชาติ',
             'region' => 'เชื้อชาติ',
+            'hospcode'=>'หน่วยบริการ',
             'disease'=>'โรคประจำตัว',
             'discharge' => 'การจำหน่าย',
             'dupdate' => 'วันอัพเดทข้อมูล',
