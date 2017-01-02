@@ -11,6 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\Url;
 use frontend\models\Patient;
+use common\components\MyHelper;
 
 /**
  * PlanController implements the CRUD actions for Plan model.
@@ -36,12 +37,12 @@ class PlanController extends AppController {
      * @return mixed
      */
     public function actionIndex($pid) {
-        $this->permitRole([1,2,3]);
+        $this->permitRole([1, 2, 3]);
         //$vw = 'index_cg';
         $vw = 'index_cm';
 
         $tasks = [];
-        $raw = Plan::find()->where(['patient_id'=>$pid])->all();
+        $raw = Plan::find()->where(['patient_id' => $pid])->all();
 
         foreach ($raw as $plan) {
             $evt = new \yii2fullcalendar\models\Event();
@@ -50,14 +51,13 @@ class PlanController extends AppController {
 
             $evt->start = $plan->start_date . " " . $plan->start_time;
             $evt->url = Url::toRoute(['/care/plan/update', 'id' => $evt->id]);
-            
-            
+
+
             if ($plan->start_date == date("Y-m-d")) {
                 $evt->color = 'red';
             }
             if ($plan->start_date > date("Y-m-d")) {
                 $evt->color = 'blue';
-                
             }
             if ($plan->start_date < date("Y-m-d")) {
                 $evt->color = 'lime';
@@ -71,7 +71,7 @@ class PlanController extends AppController {
         return $this->render($vw, [
                     'pid' => $pid,
                     'events' => $tasks,
-                    'model'=> Patient::findOne($pid)
+                    'model' => Patient::findOne($pid)
         ]);
     }
 
@@ -91,7 +91,7 @@ class PlanController extends AppController {
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($pid,$start) {
+    public function actionCreate($pid, $start) {
         $model = new Plan();
         $model->patient_id = $pid;
         $model->start_date = $start;
@@ -99,7 +99,7 @@ class PlanController extends AppController {
         $model->d_create = date('Y-m-d H:i:s');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index', 'pid' => $model->patient_id ]);
+            return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {
             return $this->renderAjax('create', [
                         'model' => $model,
@@ -115,11 +115,22 @@ class PlanController extends AppController {
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
-        $model->d_update = date('Y-m-d H:i:s'); 
-        if(empty($model->care_date)){$model->care_date=date('Y-m-d');}
-        if(empty($model->care_time)){$model->care_time=date('H:i:s');}
-
+        $model->d_update = date('Y-m-d H:i:s');
+        if (MyHelper::getUserRole() === 3) {
+            if (empty($model->care_date)) {
+                $model->care_date = date('Y-m-d');
+            }
+            if (empty($model->care_time)) {
+                $model->care_time = date('H:i:s');
+            }
+        }
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if (MyHelper::getUserRole() === 3){
+                $pid = $model->patient_id;
+                $patient = Patient::findOne($pid);
+                MyHelper::sendLineNotify($patient->prename.$patient->name." ".$patient->lname."..ได้รับการ..".$model->title);
+            }
             return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {
             return $this->renderAjax('update', [
@@ -134,10 +145,10 @@ class PlanController extends AppController {
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id,$pid) {
+    public function actionDelete($id, $pid) {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index','pid'=>$pid]);
+        return $this->redirect(['index', 'pid' => $pid]);
     }
 
     /**

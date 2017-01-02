@@ -61,7 +61,7 @@ class AppController extends \yii\web\Controller {
     }
     
     protected function curl(){
-        /*$url = "http://203.157.118.125/plkhealthdb/web/index.php?r=dhdc/permit&distcode=$distcode";
+        /*$url = "url";
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
