@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'cid',
                 'format'=>'raw',
                 'value'=>function($model){
-                    return Html::a($model->cid,['/patient/patient/view','id'=>$model->id]);
+                    return Html::a($model->cid,['/patient/patient/view','pid'=>$model->id]);
                 }
             ],
             //'prename',

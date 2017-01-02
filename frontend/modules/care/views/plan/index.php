@@ -1,138 +1,56 @@
 <?php
 
-use yii\helpers\Url;
-use yii\web\JsExpression;
-use yii\bootstrap\Modal;
+use yii\helpers\Html;
+use yii\grid\GridView;
 
-$this->registerCss($this->render('custom.css'));
+/* @var $this yii\web\View */
+/* @var $searchModel frontend\models\PlanSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
 
+$this->title = 'Plans';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="plan-index">
 
-$this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['/patient']];
-$this->params['breadcrumbs'][] = ['label' => 'ย้อนกลับ', 'url' => ['/patient/patient/view','id'=>$id]];
-$this->params['breadcrumbs'][] = $id;
+    <h1><?= Html::encode($this->title) ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-$events = array();
-//Testing
-$Event = new \yii2fullcalendar\models\Event();
-$Event->id = 1;
-$Event->title = 'เปลี่ยนผ้าอ้อม';
-$Event->start = '2016-11-20 09:00:01';
-$Event->backgroundColor = 'green';
-$events[] = $Event;
+    <p>
+        <?= Html::a('Create Plan', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
 
-$Event = new \yii2fullcalendar\models\Event();
-$Event->id = 2;
-$Event->title = 'ทำความสะอาดสายยางให้อาหาร';
-$Event->start = '2016-12-31 08:00:00';
-$Event->backgroundColor = 'orange';
-$events[] = $Event;
+            'id',
+            'patient_id',
+            'title:ntext',
+            'start_date',
+            'start_time',
+            // 'end_date',
+            // 'end_time',
+            // 'color',
+            // 'bg_color',
+            // 'border_color',
+            // 'text_color',
+            // 'provider_id',
+            // 'care_date',
+            // 'care_time',
+            // 'weight',
+            // 'height',
+            // 'pulse',
+            // 'temp',
+            // 'sbp',
+            // 'dbp',
+            // 'rr',
+            // 'sugar',
+            // 'note:ntext',
+            // 'd_create',
+            // 'd_update',
 
-$Event = new \yii2fullcalendar\models\Event();
-$Event->id = 3;
-$Event->title = 'ทำความสะอาดสายยางให้อาหาร';
-$Event->start = '2016-12-30 08:00:30';
-//$Event->end = '2016-12-30 09:00';
-$Event->backgroundColor = 'green';
-$events[] = $Event;
-
-$Event = new \yii2fullcalendar\models\Event();
-$Event->id = 4;
-$Event->title = 'ทำความสะอาดสายยางให้อาหาร';
-$Event->start = '2016-12-30 09:00';
-//$Event->end = '2016-12-30 10:00';
-$Event->color = '#ff00ff';
-$events[] = $Event;
-
-$Event = new \yii2fullcalendar\models\Event();
-$Event->id = 4;
-$Event->title = 'ทำความสะอาดสายยางให้อาหาร';
-$Event->start = '2016-12-30 09:00';
-//$Event->end = '2016-12-30 10:00';
-$Event->color = '#ff00ff';
-$events[] = $Event;
-
-$Event = new \yii2fullcalendar\models\Event();
-$Event->id = 4;
-$Event->title = 'ทำความสะอาดสายยางให้อาหาร';
-$Event->start = '2016-12-30 09:00';
-//$Event->end = '2016-12-30 10:00';
-$Event->color = '#ff00ff';
-$events[] = $Event;
-
-$Event = new \yii2fullcalendar\models\Event();
-$Event->id = 4;
-$Event->title = 'ทำความสะอาดสายยางให้อาหาร';
-$Event->start = '2016-12-30 09:00';
-//$Event->end = '2016-12-30 10:00';
-$Event->color = '#ff00ff';
-$events[] = $Event;
-
-$Event = new \yii2fullcalendar\models\Event();
-$Event->id = 5;
-$Event->title = 'เยี่ยมติดตามสุขภาพทั่วไป';
-
-$date = new DateTime(date('Y-m-d H:i:s'));
-$date->modify("+1 hours");
-
-$Event->start = $date->format("Y-m-d H:i:s");
-$Event->url = Url::toRoute(['/care/plan/update','id' => 1]);
-$dt = new DateTime($Event->start);
-$dat = $dt->format('Y-m-d');
-if($dat == date("Y-m-d")){
-    $Event->color = 'red';
-}
-
-$events[] = $Event;
-
-
-$expression_click = "
-    function(calEvent, jsEvent, view) {        
-        if(view.name!='listDay'){ 
-            if (calEvent.url) return false;
-        }
-        if (calEvent.url) {            
-            $('#modal').modal('show').find('#modalContent').load(calEvent.url);
-            return false;
-        }
-         
-    }
-";
-
-
-
-
-
-echo \yii2fullcalendar\yii2fullcalendar::widget(array(
-    'events' => $events,
-    'options' => [
-        'lang' => 'th',
-        'id' => 'calendar',
-    ],
-    'header' => [
-        'center' => 'title',
-        'right' => 'month,agendaWeek,listWeek,listDay',
-        'left' => 'prev,next today'
-    ],
-    'clientOptions' => [
-        'firstDay' => '1',
-        'height' => new JsExpression('function(e){return $(window).height() - 100;}'),
-        //'defaultView' => 'listWeek',
-        'eventClick' => new JsExpression($expression_click),
-        'timeFormat' => 'H:mm',
-        'eventLimit'=> true,
-    ]
-));
-
-
-Modal::begin([
-    'header' => 'บันทึกข้อมูลการดูแล',
-    'size' => 'modal-lg',
-    'id' => 'modal'
-]);
-echo "<div id='modalContent'></div>";
-
-Modal::end();
-
-
-
-
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+</div>

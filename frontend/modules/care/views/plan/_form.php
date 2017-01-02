@@ -16,9 +16,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'care_plan_start')->textInput() ?>
+    <?= $form->field($model, 'start_date')->textInput() ?>
 
-    <?= $form->field($model, 'care_plan_end')->textInput() ?>
+    <?= $form->field($model, 'start_time')->textInput() ?>
+<?php if(!$model->isNewRecord): ?>
+    <?= $form->field($model, 'end_date')->textInput() ?>
+
+    <?= $form->field($model, 'end_time')->textInput() ?>
 
     <?= $form->field($model, 'color')->textInput(['maxlength' => true]) ?>
 
@@ -28,9 +32,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'text_color')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'care_provider_id')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'provider_id')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'care_datetime')->textInput() ?>
+    <?= $form->field($model, 'care_date')->textInput() ?>
+
+    <?= $form->field($model, 'care_time')->textInput() ?>
 
     <?= $form->field($model, 'weight')->textInput(['maxlength' => true]) ?>
 
@@ -50,6 +56,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'note')->textarea(['rows' => 6]) ?>
 
+    <?= $form->field($model, 'd_create')->textInput() ?>
+
+    <?= $form->field($model, 'd_update')->textInput() ?>
+<?php    endif;?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

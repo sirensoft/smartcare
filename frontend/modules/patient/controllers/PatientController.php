@@ -54,11 +54,11 @@ class PatientController extends AppController
      * @param string $id
      * @return mixed
      */
-    public function actionView($id)
+    public function actionView($pid)
     {
         $this->permitRole([2]);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($pid),
         ]);
     }
 
@@ -87,13 +87,13 @@ class PatientController extends AppController
      * @param string $id
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($pid)
     {
         $this->permitRole([2]);
-        $model = $this->findModel($id);
+        $model = $this->findModel($pid);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'pid' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -107,10 +107,10 @@ class PatientController extends AppController
      * @param string $id
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete($pid)
     {
         $this->permitRole([2]);
-        $this->findModel($id)->delete();
+        $this->findModel($pid)->delete();
 
         return $this->redirect(['index']);
     }
@@ -122,9 +122,9 @@ class PatientController extends AppController
      * @return Patient the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($pid)
     {
-        if (($model = Patient::findOne($id)) !== null) {
+        if (($model = Patient::findOne($pid)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -10,14 +10,17 @@ use Yii;
  * @property integer $id
  * @property string $patient_id
  * @property string $title
- * @property string $care_plan_start
- * @property string $care_plan_end
+ * @property string $start_date
+ * @property string $start_time
+ * @property string $end_date
+ * @property string $end_time
  * @property string $color
  * @property string $bg_color
  * @property string $border_color
  * @property string $text_color
- * @property string $care_provider_id
- * @property string $care_datetime
+ * @property string $provider_id
+ * @property string $care_date
+ * @property string $care_time
  * @property string $weight
  * @property string $height
  * @property string $pulse
@@ -27,6 +30,8 @@ use Yii;
  * @property string $rr
  * @property string $sugar
  * @property string $note
+ * @property string $d_create
+ * @property string $d_update
  */
 class Plan extends \yii\db\ActiveRecord
 {
@@ -44,11 +49,10 @@ class Plan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['patient_id', 'care_plan_start'], 'required'],
+            [['patient_id'], 'required'],
             [['title', 'note'], 'string'],
-            [['care_plan_start', 'care_plan_end', 'care_datetime'], 'safe'],
-            [['patient_id'], 'string', 'max' => 255],
-            [['color', 'bg_color', 'border_color', 'text_color', 'care_provider_id', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar'], 'string', 'max' => 255],
+            [['start_date', 'start_time', 'end_date', 'end_time', 'care_date', 'care_time', 'd_create', 'd_update'], 'safe'],
+            [['patient_id', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar'], 'string', 'max' => 255],
         ];
     }
 
@@ -59,16 +63,19 @@ class Plan extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'patient_id' => 'Patient id',
-            'title' => 'Title',
-            'care_plan_start' => 'Care Plan Start',
-            'care_plan_end' => 'Care Plan End',
+            'patient_id' => 'รหัสผู้ป่วย',
+            'title' => 'แผนการดูแล',
+            'start_date' => 'Start Date',
+            'start_time' => 'Start Time',
+            'end_date' => 'End Date',
+            'end_time' => 'End Time',
             'color' => 'Color',
             'bg_color' => 'Bg Color',
             'border_color' => 'Border Color',
             'text_color' => 'Text Color',
-            'care_provider_id' => 'Care Provider ID',
-            'care_datetime' => 'Care Datetime',
+            'provider_id' => 'Provider ID',
+            'care_date' => 'Care Date',
+            'care_time' => 'Care Time',
             'weight' => 'Weight',
             'height' => 'Height',
             'pulse' => 'Pulse',
@@ -78,6 +85,8 @@ class Plan extends \yii\db\ActiveRecord
             'rr' => 'Rr',
             'sugar' => 'Sugar',
             'note' => 'Note',
+            'd_create' => 'D Create',
+            'd_update' => 'D Update',
         ];
     }
 }

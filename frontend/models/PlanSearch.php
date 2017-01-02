@@ -19,7 +19,7 @@ class PlanSearch extends Plan
     {
         return [
             [['id'], 'integer'],
-            [['patient_id', 'title', 'care_plan_start', 'care_plan_end', 'color', 'bg_color', 'border_color', 'text_color', 'care_provider_id', 'care_datetime', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar', 'note'], 'safe'],
+            [['patient_id', 'title', 'start_date', 'start_time', 'end_date', 'end_time', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'care_date', 'care_time', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar', 'note', 'd_create', 'd_update'], 'safe'],
         ];
     }
 
@@ -60,9 +60,14 @@ class PlanSearch extends Plan
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'care_plan_start' => $this->care_plan_start,
-            'care_plan_end' => $this->care_plan_end,
-            'care_datetime' => $this->care_datetime,
+            'start_date' => $this->start_date,
+            'start_time' => $this->start_time,
+            'end_date' => $this->end_date,
+            'end_time' => $this->end_time,
+            'care_date' => $this->care_date,
+            'care_time' => $this->care_time,
+            'd_create' => $this->d_create,
+            'd_update' => $this->d_update,
         ]);
 
         $query->andFilterWhere(['like', 'patient_id', $this->patient_id])
@@ -71,7 +76,7 @@ class PlanSearch extends Plan
             ->andFilterWhere(['like', 'bg_color', $this->bg_color])
             ->andFilterWhere(['like', 'border_color', $this->border_color])
             ->andFilterWhere(['like', 'text_color', $this->text_color])
-            ->andFilterWhere(['like', 'care_provider_id', $this->care_provider_id])
+            ->andFilterWhere(['like', 'provider_id', $this->provider_id])
             ->andFilterWhere(['like', 'weight', $this->weight])
             ->andFilterWhere(['like', 'height', $this->height])
             ->andFilterWhere(['like', 'pulse', $this->pulse])
