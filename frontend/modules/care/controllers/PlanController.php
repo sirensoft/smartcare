@@ -54,9 +54,11 @@ class PlanController extends Controller {
             }
             if ($plan->start_date > date("Y-m-d")) {
                 $evt->color = 'orange';
+                
             }
             if ($plan->start_date < date("Y-m-d")) {
                 $evt->color = 'green';
+                //$evt->textColor = 'black';
             }
 
             $tasks[] = $evt;
