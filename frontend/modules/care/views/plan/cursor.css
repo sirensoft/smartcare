@@ -1,3 +1,9 @@
 .fc-day-number{
     cursor: pointer; 
+    
+}
+.fc-day-number:hover { 
+    color: #FFA500;
+    //font-size: 16px;
+    font-weight: bold
 }

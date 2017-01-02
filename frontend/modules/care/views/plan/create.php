@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="plan-create">
 
-   
+    
 
     <?= $this->render('_form', [
         'model' => $model,

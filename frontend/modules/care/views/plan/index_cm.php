@@ -16,12 +16,15 @@ $this->params['breadcrumbs'][] = $pid;
 
 
 $event_click = "
-    function(calEvent, jsEvent, view) {        
-        if(view.name!='listDay'){ 
+    function(calEvent, jsEvent, view) {   
+        console.log(view.name);
+        if(view.name!='month'){ 
             if (calEvent.url) return false;
         }
-        if (calEvent.url) {            
+        if (calEvent.url) {  
+            
             $('#modal').modal('show').find('#modalContent').load(calEvent.url);
+            
             return false;
         }
          
@@ -53,21 +56,20 @@ echo \yii2fullcalendar\yii2fullcalendar::widget(array(
 
 
 Modal::begin([
-    'header' => 'บันทึกข้อมูลการดูแล',
+    'header' => 'เพิ่ม-แก้ไข แผนการดูแล',
     'size' => 'modal-lg',
-    'id' => 'modal'
+    'id' => 'modal',
+    
 ]);
 echo "<div id='modalContent'></div>";
 
 Modal::end();
 
 $js= <<<JS
-    $(document).on('click','.fc-day-number',function(){
-       //var date = $(this).attr('data-date') ;
-       
+     $(document).on('click','.fc-day-number',function(){
+    //$('.fc-day-number').click(function(){        
        var date = $(this).parent().attr('data-date');
-       //console.log(date);
-       
+       console.log(date);       
        $('#modal').modal('show').find('#modalContent').load('index.php?r=care/plan/create&start='+date+'&pid=$pid');
        return false;
     });      

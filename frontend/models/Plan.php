@@ -49,7 +49,7 @@ class Plan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['patient_id'], 'required'],
+            [['patient_id','title','start_date'], 'required'],
             [['title', 'note'], 'string'],
             [['start_date', 'start_time', 'end_date', 'end_time', 'care_date', 'care_time', 'd_create', 'd_update'], 'safe'],
             [['patient_id', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar'], 'string', 'max' => 255],
@@ -64,9 +64,9 @@ class Plan extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'patient_id' => 'รหัสผู้ป่วย',
-            'title' => 'แผนการดูแล',
-            'start_date' => 'Start Date',
-            'start_time' => 'Start Time',
+            'title' => 'ให้การดูแล',
+            'start_date' => 'วันที่',
+            'start_time' => 'เวลา',
             'end_date' => 'End Date',
             'end_time' => 'End Time',
             'color' => 'Color',

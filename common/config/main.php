@@ -7,5 +7,5 @@ return [
         ],
     ],
     'modules' => require(__DIR__ . '/modules.php'),
-    //'language'=>'th'
+    'language'=>'th'
 ];

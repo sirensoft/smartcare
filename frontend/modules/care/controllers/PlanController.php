@@ -90,9 +90,10 @@ class PlanController extends Controller {
         $model->patient_id = $pid;
         $model->start_date = $start;
         $model->start_time = date('H:i');
+        $model->d_create = date('Y-m-d H:i:s');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index', 'id' => $model->id]);
+            return $this->redirect(['index', 'pid' => $model->patient_id ]);
         } else {
             return $this->renderAjax('create', [
                         'model' => $model,
@@ -108,9 +109,10 @@ class PlanController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
+        $model->d_update = date('Y-m-d H:i:s'); 
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {
             return $this->renderAjax('update', [
                         'model' => $model,
@@ -124,10 +126,10 @@ class PlanController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id) {
+    public function actionDelete($id,$pid) {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index','pid'=>$pid]);
     }
 
     /**
