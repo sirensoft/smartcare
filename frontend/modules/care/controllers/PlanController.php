@@ -41,7 +41,7 @@ class PlanController extends AppController {
         MyHelper::setPatientADL($pid);
         MyHelper::setPatientTAI($pid);
         //$vw = 'index_cg';
-        $vw = 'index_cm';
+        $vw = 'index';
 
         $tasks = [];
         $raw = Plan::find()->where(['patient_id' => $pid])->all();

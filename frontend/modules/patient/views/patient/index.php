@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 //use yii\grid\GridView;
 use kartik\grid\GridView;
+use common\components\MyHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\PatientSearch */
@@ -17,7 +18,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
+        <?php if(MyHelper::getUserRole()!==3):?>
         <?= Html::a('+ เพิ่มผู้ป่วย', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php endif;?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

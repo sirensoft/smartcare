@@ -1,56 +1,86 @@
 <?php
 
-use yii\helpers\Html;
-use yii\grid\GridView;
+use yii\helpers\Url;
+use yii\web\JsExpression;
+use yii\bootstrap\Modal;
 
-/* @var $this yii\web\View */
-/* @var $searchModel frontend\models\PlanSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
+$this->registerCss($this->render('custom.css'));
+$this->registerCss($this->render('cursor.css'));
+//$this->registerJs($this->render('click.js'));
 
-$this->title = 'Plans';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = "CM...";
+$this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['/patient']];
+$this->params['breadcrumbs'][] = ['label' => 'ข้อมูลผู้ป่วย', 'url' => ['/patient/patient/view','pid'=>$pid]];
+$this->params['breadcrumbs'][] = "Care Plan : ".$model->prename.$model->name." ".$model->lname ."(ADL=".$model->adl.",TAI=".$model->tai.")";
+
+
+
+$event_click = "
+    function(calEvent, jsEvent, view) {   
+        console.log(view.name);
+        if(view.name!='month'){ 
+            //if (calEvent.url) return false;
+        }
+        if (calEvent.url) {  
+            
+            $('#modal').modal('show').find('#modalContent').load(calEvent.url);
+            
+            return false;
+        }
+         
+    }
+";
 ?>
-<div class="plan-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+<?php
+echo \yii2fullcalendar\yii2fullcalendar::widget(array(
+    'events' => $events,
+    'options' => [
+        'lang' => 'th',
+        //'locale'=>'en',
+        'id' => 'calendar',
+    ],
+    'header' => [
+        'center' => 'title',
+        'right' => 'month,agendaWeek,listWeek,listDay',
+        'left' => 'prev,next today'
+    ],
+    'clientOptions' => [
+        'firstDay' => '1',
+        'height' => new JsExpression('function(e){return $(window).height() - 100;}'),
+        //'defaultView' => 'listWeek',
+        'eventClick' => new JsExpression($event_click),
+        'timeFormat' => 'H:mm',
+        'eventLimit'=> true,
+        'dayNamesShort'=>['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส']
+    ]
+));
 
-    <p>
-        <?= Html::a('Create Plan', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'patient_id',
-            'title:ntext',
-            'start_date',
-            'start_time',
-            // 'end_date',
-            // 'end_time',
-            // 'color',
-            // 'bg_color',
-            // 'border_color',
-            // 'text_color',
-            // 'provider_id',
-            // 'care_date',
-            // 'care_time',
-            // 'weight',
-            // 'height',
-            // 'pulse',
-            // 'temp',
-            // 'sbp',
-            // 'dbp',
-            // 'rr',
-            // 'sugar',
-            // 'note:ntext',
-            // 'd_create',
-            // 'd_update',
+Modal::begin([
+    'header' => 'เพิ่ม-แก้ไข แผนการดูแล',
+    'size' => 'modal-lg',
+    'id' => 'modal',
+    
+]);
+echo "<div id='modalContent'></div>";
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-</div>
+Modal::end();
+
+$js= <<<JS
+     $(document).on('click','.fc-day-number',function(){
+    //$('.fc-day-number').click(function(){        
+       var date = $(this).parent().attr('data-date');
+       console.log(date);       
+       $('#modal').modal('show').find('#modalContent').load('index.php?r=care/plan/create&start='+date+'&pid=$pid');
+       return false;
+    });      
+JS;
+
+$this->registerJs($js);
+
+
+
+
+
+

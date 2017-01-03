@@ -50,7 +50,8 @@ class Patient extends \yii\db\ActiveRecord
     {
         return [
             [['cid','prename', 'name', 'lname', 'province', 'district','sex', 'subdistrict', 'village_no','hospcode'], 'required'],
-            [['birth', 'dupdate'], 'safe'],
+            [['birth'],'date'],
+            [['dupdate'], 'safe'],
             [['typearea', 'cm_id','cg_id','adl'], 'integer'],
             [['cid','tai'], 'string', 'max' => 13],
             [['prename','sex' ,'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no','disease','nation', 'region', 'discharge','lat','lon'], 'string', 'max' => 255],
