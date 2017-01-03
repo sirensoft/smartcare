@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?php if(MyHelper::getUserRole()!==3):?>
-        <?= Html::a('+ เพิ่มผู้ป่วย', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('+ เพิ่ม', ['create'], ['class' => 'btn btn-success']) ?>
         <?php endif;?>
     </p>
     <?= GridView::widget([

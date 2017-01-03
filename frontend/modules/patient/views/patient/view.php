@@ -18,8 +18,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         
-        <?php if(MyHelper::getUserRole()!==3):?>
-        <?= Html::a('แก้ไข..', ['update', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?php if(!MyHelper::isCg()):?>
+        <?= Html::a('EDIT', ['update', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('+ HDC', ['update', 'pid' => $model->id], ['class' => 'btn btn-info']) ?>
         <?= Html::a('+ เจ็บป่วย', ['update', 'pid' => $model->id], ['class' => 'btn btn-danger']) ?>
         <?= Html::a('+ ประเมิน', ['update', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
         <?php endif; ?>
@@ -55,8 +56,9 @@ $this->params['breadcrumbs'][] = $this->title;
     ])
     ?>
     <p>
+        <?php if(MyHelper::isCm()):  ?>
         <?=
-        Html::a('Delete', ['delete', 'pid' => $model->id], [
+        Html::a('DEL', ['delete', 'pid' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -64,6 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ])
         ?>
+        <?php endif; ?>
     </p>
 
 </div>
