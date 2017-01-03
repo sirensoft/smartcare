@@ -11,7 +11,7 @@ $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+    
 
    
 
@@ -28,7 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
               
 
                 <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    <?= Html::submitButton('<i class="glyphicon glyphicon-ok"></i> Login', ['class' => 'btn btn-danger', 'name' => 'login-button']) ?>
+                    <?= Html::a('<i class="glyphicon glyphicon-user"></i> สมัครผู้ใช้', ['/site/signup'],['class' => 'btn btn-info'])?>
                 </div>
 
             <?php ActiveForm::end(); ?>

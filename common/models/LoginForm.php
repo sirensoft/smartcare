@@ -3,6 +3,7 @@ namespace common\models;
 
 use Yii;
 use yii\base\Model;
+use common\components\MyHelper;
 
 /**
  * Login form
@@ -55,6 +56,7 @@ class LoginForm extends Model
      */
     public function login()
     {
+        
         if ($this->validate()) {
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 1 : 0);
         } else {

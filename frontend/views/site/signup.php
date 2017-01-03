@@ -6,26 +6,22 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Signup';
+$this->title = 'ลงทะเบียนผู้ใช้';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>Please fill out the following fields to signup:</p>
-
+    
     <div class="row">
         <div class="col-lg-5">
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
             
-            <?= $form->field($model, 'cid')->textInput() ?>
+            <?= $form->field($model, 'cid')->textInput(['autofocus' => true]) ?>
             <?= $form->field($model, 'prename')->textInput() ?>
             <?= $form->field($model, 'name')->textInput() ?>
             <?= $form->field($model, 'lname')->textInput() ?>
-
-            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
             <?= $form->field($model, 'email') ?>
+            <?=$form->field($model, 'office')->textInput()?>
+            <?= $form->field($model, 'username')->textInput() ?>        
 
             <?= $form->field($model, 'password')->passwordInput() ?>
             

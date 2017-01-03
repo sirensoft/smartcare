@@ -16,6 +16,7 @@ class SignupForm extends Model
     public $prename;
     public $name;
     public $lname;
+    public $office;
 
 
     /**
@@ -26,14 +27,14 @@ class SignupForm extends Model
         return [
             ['username', 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'username ถูกใช้แล้ว'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'email ถูกใช้แล้ว'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 4],
@@ -53,6 +54,22 @@ class SignupForm extends Model
             ['cid', 'trim'],
             ['cid', 'required'],
             ['cid', 'string', 'min' => 13, 'max' => 13],
+            ['cid', 'unique', 'targetClass' => '\common\models\User', 'message' => 'CID ถูกใช้แล้ว'],
+            
+            ['office', 'trim'],
+            ['office', 'required'],
+            ['office', 'string', 'min' => 5, 'max' => 5],
+        ];
+    }
+    
+     public function attributeLabels()
+    {
+        return [
+            'cid' => 'เลข 13 หลัก',
+            'prename'=>'คำนำหน้า',
+            'name'=>'ชื่อ',
+            'lname'=>'นาสกุล',
+            'office'=>'รหัสหน่วยบริการ 5 หลัก'
         ];
     }
 
@@ -75,6 +92,7 @@ class SignupForm extends Model
         $user->prename=$this->prename;
         $user->name=  $this->name;
         $user->lname=  $this->lname;
+        $user->office = $this->office;
         $user->generateAuthKey();
         
         return $user->save() ? $user : null;
