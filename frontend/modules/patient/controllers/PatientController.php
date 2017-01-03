@@ -35,12 +35,12 @@ class PatientController extends AppController {
      * @return mixed
      */
     public function actionIndex() {
-        $this->permitRole([1, 2, 3]);
+        
 
         $searchModel = new PatientSearch();
-
-        $searchModel->hospcode = MyHelper::getUserOffice();
-
+        if(!MyHelper::getUserOffice()==='all'){
+            $searchModel->hospcode = MyHelper::getUserOffice();
+        }
 
         if (MyHelper::isCg()) {
             $searchModel->cg_id = MyHelper::getUserId();
