@@ -67,7 +67,7 @@ use common\components\MyHelper;
             ?>
         <?php endif; ?> 
         <?=
-        Html::submitButton($model->isNewRecord ? ' <i class="glyphicon glyphicon-ok"></i> ' : '<i class="glyphicon glyphicon-ok"></i> บันทึก', [
+        Html::submitButton($model->isNewRecord ? ' <i class="glyphicon glyphicon-ok"> เพิ่ม</i> ' : '<i class="glyphicon glyphicon-ok"></i> บันทึก', [
             'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
         ])
         ?>
