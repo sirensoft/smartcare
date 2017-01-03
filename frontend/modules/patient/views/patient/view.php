@@ -35,6 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
     DetailView::widget([
         'model' => $model,
         'attributes' => [
+            'class_name',
+            'adl',
+            'tai',
             'cid',
             'prename',
             'name',
