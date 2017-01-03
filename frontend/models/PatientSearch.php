@@ -18,7 +18,7 @@ class PatientSearch extends Patient {
     public function rules() {
         return [
             [['id'], 'integer'],
-            [['class_name','adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'region', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
+            [['refer_from','class_name','adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'region', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
             [['typearea','class_id'], 'integer'],
         ];
     }
@@ -75,6 +75,7 @@ class PatientSearch extends Patient {
                 ->andFilterWhere(['like', 'name', $this->name])
                 ->andFilterWhere(['like', 'lname', $this->lname])
                 ->andFilterWhere(['like', 'hospcode', $this->hospcode])
+                ->andFilterWhere(['like', 'refer_from', $this->refer_from])
                 ->andFilterWhere(['like', 'province', $this->province])
                 ->andFilterWhere(['like', 'district', $this->district])
                 ->andFilterWhere(['like', 'subdistrict', $this->subdistrict])

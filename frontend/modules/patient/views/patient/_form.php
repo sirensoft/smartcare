@@ -106,6 +106,7 @@ use kartik\form\ActiveField;
     ]);
     ?>
     <?= $form->field($model, 'hospcode')->textInput() ?>
+    <?= $form->field($model, 'refer_from')->textInput() ?>
 
     <?= $form->field($model, 'disease')->textInput() ?>
     <?php

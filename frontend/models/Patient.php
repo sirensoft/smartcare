@@ -25,6 +25,7 @@ use Yii;
  * @property string $nation
  * @property string $region
  * @property string $hospcode
+ * @property string $refer_from
  * @property string $disease
  * @property string $discharge
  * @property integer $cm_id
@@ -55,7 +56,7 @@ class Patient extends \yii\db\ActiveRecord {
             [['dupdate'], 'safe'],
             [['typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
             [['cid', 'tai'], 'string', 'max' => 13],
-            [['class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'region', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
+            [['refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'region', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
             ['cid', 'unique', 'targetClass' => '\frontend\models\Patient', 'message' => 'CID มีในระบบแล้ว'],
         ];
     }
@@ -84,6 +85,7 @@ class Patient extends \yii\db\ActiveRecord {
             'nation' => 'สัญชาติ',
             'region' => 'เชื้อชาติ',
             'hospcode' => 'รหัสหน่วยบริการ',
+            'refer_from'=>'รับส่งต่อจาก',
             'disease' => 'โรคประจำตัว',
             'discharge' => 'การจำหน่าย',
             'cm_id' => 'CareManager',

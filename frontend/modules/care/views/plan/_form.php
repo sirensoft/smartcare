@@ -55,7 +55,7 @@ use common\components\MyHelper;
 
     <?php endif; ?>
     <div class="form-group">
-        <?php if (!$model->isNewRecord and MyHelper::isCm()) : ?>
+        <?php if (!$model->isNewRecord && MyHelper::isCm()) : ?>
             <?=
             Html::a('<i class="glyphicon glyphicon-minus"></i> ลบ', ['delete', 'id' => $model->id, 'pid' => $model->patient_id], [
                 'class' => 'btn btn-danger',

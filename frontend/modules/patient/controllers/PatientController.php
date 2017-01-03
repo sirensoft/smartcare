@@ -38,12 +38,16 @@ class PatientController extends AppController {
         
 
         $searchModel = new PatientSearch();
-        if(!MyHelper::getUserOffice()==='all'){
+       
+        if(MyHelper::getUserOffice()!=='all'){
             $searchModel->hospcode = MyHelper::getUserOffice();
         }
 
         if (MyHelper::isCg()) {
             $searchModel->cg_id = MyHelper::getUserId();
+        }        
+        if(MyHelper::isGuest()){
+            $searchModel->dupdate = '0001-01-01';
         }
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

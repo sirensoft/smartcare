@@ -88,7 +88,11 @@ class MyHelper extends \yii\base\Component {
         }
     }
     
+    public static function isGuest(){
+        return \Yii::$app->user->isGuest;
+    }
 
+    
     public static function getUserId(){
         if(!\Yii::$app->user->isGuest){
             return \Yii::$app->user->identity->id;
