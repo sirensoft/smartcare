@@ -37,6 +37,7 @@ use common\components\MyHelper;
         <?= $form->field($model, 'weight')->textInput(['maxlength' => true]) ?>
 
         <?= $form->field($model, 'height')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'waist')->textInput(['maxlength' => true]) ?>
 
         <?= $form->field($model, 'pulse')->textInput(['maxlength' => true]) ?>
 

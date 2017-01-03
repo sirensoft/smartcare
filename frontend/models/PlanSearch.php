@@ -19,7 +19,7 @@ class PlanSearch extends Plan
     {
         return [
             [['id'], 'integer'],
-            [['is_done','patient_id', 'title', 'start_date', 'start_time', 'end_date', 'end_time', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'care_date', 'care_time', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar', 'note', 'd_create', 'd_update'], 'safe'],
+            [['waist','is_done','patient_id', 'title', 'start_date', 'start_time', 'end_date', 'end_time', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'care_date', 'care_time', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar', 'note', 'd_create', 'd_update'], 'safe'],
         ];
     }
 
@@ -67,6 +67,7 @@ class PlanSearch extends Plan
             'care_date' => $this->care_date,
             'care_time' => $this->care_time,
             'is_done'=>  $this->is_done,
+            'waist'=>  $this->waist,
             'd_create' => $this->d_create,
             'd_update' => $this->d_update,
         ]);

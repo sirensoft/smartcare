@@ -23,6 +23,7 @@ use Yii;
  * @property string $care_time
  * @property string $weight
  * @property string $height
+ * @property decimal $waist Description
  * @property string $pulse
  * @property string $temp
  * @property string $sbp
@@ -41,7 +42,7 @@ class Plan extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'plan';
+        return 'plancare';
     }
 
     /**
@@ -52,7 +53,7 @@ class Plan extends \yii\db\ActiveRecord
         return [
             [['patient_id','title','start_date'], 'required'],
             [['start_date'],'safe'],
-            [['start_time'],'safe'],
+            [['start_time','waist'],'safe'],
             [['title', 'note','is_done'], 'string'],
             [['end_date', 'end_time', 'care_date', 'care_time', 'd_create', 'd_update'], 'safe'],
             [['patient_id', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar'], 'string', 'max' => 255],
@@ -81,6 +82,7 @@ class Plan extends \yii\db\ActiveRecord
             'care_time' => 'Care Time',
             'weight' => 'น้ำหนัก(กก)',
             'height' => 'ส่วนสูง(ซม)',
+            'waist'=>'รอบเอว(ซม)',
             'pulse' => 'ชีพจร',
             'temp' => 'อุณหภูมิ',
             'sbp' => 'ความดัน(บน)',
