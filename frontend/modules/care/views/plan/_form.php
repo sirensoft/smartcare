@@ -17,10 +17,10 @@ use common\components\MyHelper;
     //echo $form->field($model, 'patient_id')->textInput(['maxlength' => true]);
     ?>
     <div class="form-group">
-        <?= $form->field($model, 'start_date')->textInput() ?>
-        <?= $form->field($model, 'start_time')->textInput() ?>
+        <?= $form->field($model, 'start_date')->textInput(['readonly'=>  MyHelper::isCg()]) ?>
+        <?= $form->field($model, 'start_time')->textInput(['readonly'=>  MyHelper::isCg()]) ?>
     </div>
-    <?= $form->field($model, 'title')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'title')->textarea(['rows' => 4,'readonly'=>  MyHelper::isCg()]) ?>
     <?= $form->field($model, 'provider_id')->textInput(['maxlength' => true]) ?>
 
 

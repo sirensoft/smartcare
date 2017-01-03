@@ -64,8 +64,15 @@ class MyHelper extends \yii\base\Component {
             return 0;
         }
     }
-    
-     public static function getUserId(){
+    public static function isCg(){
+        if(!\Yii::$app->user->isGuest){
+            return \Yii::$app->user->identity->role===3;
+        }  else {
+            return FALSE;
+        }
+    }
+
+    public static function getUserId(){
         if(!\Yii::$app->user->isGuest){
             return \Yii::$app->user->identity->id;
         }  else {
