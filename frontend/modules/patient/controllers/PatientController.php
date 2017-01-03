@@ -38,13 +38,13 @@ class PatientController extends AppController
     public function actionIndex()
     {
         //$this->permitRole([1,2,3]);
-        $u_hos = MyHelper::getUserOffice();
+        
         $searchModel = new PatientSearch();
-        if($u_hos<>'all'){
-            $searchModel->hospcode = $u_hos;
+        if(MyHelper::getUserOffice()<>'all'){
+            $searchModel->hospcode = MyHelper::getUserOffice();
         }
-        $role_user = MyHelper::getUserRole();
-        if($role_user===3){
+        
+        if(MyHelper::isCg()){
             $searchModel->cg_id = MyHelper::getUserId();
         }
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);

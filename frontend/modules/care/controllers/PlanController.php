@@ -40,7 +40,8 @@ class PlanController extends AppController {
         $this->permitRole([1, 2, 3]);
         MyHelper::setPatientADL($pid);
         MyHelper::setPatientTAI($pid);
-        //$vw = 'index_cg';
+        
+        
         $vw = 'index';
 
         $tasks = [];
@@ -54,17 +55,18 @@ class PlanController extends AppController {
             $evt->start = $plan->start_date . " " . $plan->start_time;
             $evt->url = Url::toRoute(['/care/plan/update', 'id' => $evt->id]);
 
-
-            if ($plan->start_date == date("Y-m-d")) {
-                $evt->color = 'red';
-            }
-            if ($plan->start_date > date("Y-m-d")) {
+            if($plan->start_date > date('Y-m-d')  and $plan->is_done !=='1'){
                 $evt->color = 'blue';
-            }
-            if ($plan->start_date < date("Y-m-d")) {
+            }elseif($plan->is_done==='1') {
                 $evt->color = 'lime';
                 $evt->textColor = 'black';
+            }else{
+                
+                $evt->color = 'red';
             }
+            
+            
+            
 
             $tasks[] = $evt;
         }
@@ -128,7 +130,7 @@ class PlanController extends AppController {
         }
         
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if (MyHelper::isCg()){
+            if (MyHelper::isCg() && $model->start_date <= date('Y-m-d')){
                 $model->is_done ='1';
                 $model->update();
                 $pid = $model->patient_id;
