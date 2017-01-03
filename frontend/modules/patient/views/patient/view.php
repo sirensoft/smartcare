@@ -13,8 +13,7 @@ $this->params['breadcrumbs'][] = ['label' => 'รายชื่อ', 'url' => [
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="patient-view">
-
-
+   
 
     <p>
         
