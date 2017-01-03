@@ -31,6 +31,8 @@ use Yii;
  * @property integer $cg_id
  * @property integer $adl
  * @property string  $tai
+ * @property integer $class_id 
+ * @property string $class_name Description
  * @property string $dupdate
  */
 class Patient extends \yii\db\ActiveRecord
@@ -52,9 +54,9 @@ class Patient extends \yii\db\ActiveRecord
             [['cid','prename', 'name', 'lname', 'province', 'district','sex', 'subdistrict', 'village_no','hospcode'], 'required'],
             [['birth'],'date'],
             [['dupdate'], 'safe'],
-            [['typearea', 'cm_id','cg_id','adl'], 'integer'],
+            [['typearea', 'cm_id','cg_id','adl','class_id'], 'integer'],
             [['cid','tai'], 'string', 'max' => 13],
-            [['prename','sex' ,'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no','disease','nation', 'region', 'discharge','lat','lon'], 'string', 'max' => 255],
+            [['class_name','prename','sex' ,'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no','disease','nation', 'region', 'discharge','lat','lon'], 'string', 'max' => 255],
         ];
     }
 
@@ -89,6 +91,8 @@ class Patient extends \yii\db\ActiveRecord
             'cg_id'=>'CareGiver',
             'adl'=>'คะแนน ADL',
             'tai'=>'จัดกลุ่ม TAI',
+            'class_id'=>'รหัสกลุ่ม',
+            'class_name'=>'ชื่อกลุ่ม',
             'dupdate' => 'วันอัพเดทข้อมูล',
         ];
     }
