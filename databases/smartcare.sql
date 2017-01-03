@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-03 11:24:29
+Date: 2017-01-03 11:38:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -956,7 +956,7 @@ CREATE TABLE `patient` (
 -- Records of patient
 -- ----------------------------
 INSERT INTO `patient` VALUES ('2', '3650100810887', 'พ.อ.', 'สมรักษ', 'คำสิง', 'ชาย', '2012-10-09', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', '', 'ยังไม่จำหน่าย', null, '5', '12', 'I2', '3', 'ติดเตียง-1', '2017-01-02');
-INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'ดาว', 'ขำมิน', 'ชาย', '2011-10-11', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', '', 'ยังไม่จำหน่าย', null, '6', '0', '', '2', 'ติดบ้าน-2', '2017-01-02');
+INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'ดาว', 'ขำมิน', 'ชาย', '2011-10-11', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', '', 'ยังไม่จำหน่าย', null, '5', '0', '', '2', 'ติดบ้าน-2', '2017-01-02');
 
 -- ----------------------------
 -- Table structure for plan
@@ -1065,9 +1065,13 @@ DROP PROCEDURE IF EXISTS `set_patient_class`;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `set_patient_class`()
 BEGIN
-	UPDATE patient p,c_class c 
-	SET p.class_name = c.class_name
-	WHERE p.class_id = c.id;
+
+	UPDATE patient p SET p.class_id = 1 WHERE p.tai in ('B3');
+	UPDATE patient p SET p.class_id = 2 WHERE p.tai in ('C2','C3','C4');
+	UPDATE patient p SET p.class_id = 3 WHERE p.tai in ('I3');
+	UPDATE patient p SET p.class_id = 4 WHERE p.tai in ('I1','I2');
+
+	UPDATE patient p,c_class c 	SET p.class_name = c.class_name 	WHERE p.class_id = c.id;
 
 END
 ;;
