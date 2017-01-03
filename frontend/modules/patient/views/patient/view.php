@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('<i class="glyphicon glyphicon-edit"></i> แก้ไข', ['update', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('<i class="glyphicon glyphicon-print"></i> พิมพ์', ['update', 'pid' => $model->id], ['class' => 'btn btn-info']) ?>
         <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เจ็บป่วย', ['update', 'pid' => $model->id], ['class' => 'btn btn-danger']) ?>
-        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ประเมิน', ['/patient/asses/adl', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ประเมิน', ['/patient/asses/index', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
         <?php endif; ?>
         <?= Html::a('<i class="glyphicon glyphicon-calendar"></i> CP', ['/care/plan/index', 'pid' => $model->id], ['class' => 'btn btn-warning ']) ?>
 
