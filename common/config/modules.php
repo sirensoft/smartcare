@@ -1,9 +1,8 @@
 <?php
 
 return [
-    'gridview' =>  [
+    'gridview' => [
         'class' => '\kartik\grid\Module'
-        
     ],
     'patient' => [
         'class' => 'frontend\modules\patient\Patient',
@@ -13,6 +12,9 @@ return [
     ],
     'test' => [
         'class' => 'frontend\modules\test\Test',
+    ],
+    'report' => [
+        'class' => 'frontend\modules\report\Report',
     ],
 ];
 

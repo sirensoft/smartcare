@@ -40,7 +40,9 @@ AppAsset::register($this);
             ]);
             $menuItems = [
                 ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'About', 'url' => ['/site/about']],
+                ['label' => 'รายงาน', 'url' => ['/report/default/index']],
+                ['label' => 'เกี่ยวกับ', 'url' => ['/site/about']],
+                
                     //['label' => 'Contact', 'url' => ['/site/contact']],
             ];
             if (Yii::$app->user->isGuest) {
