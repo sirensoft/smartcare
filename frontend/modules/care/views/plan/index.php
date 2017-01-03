@@ -35,7 +35,7 @@ $cm_click = "
 $cg_click = "
     function(calEvent, jsEvent, view) {   
         console.log(view.name);        
-        if(view.name!='listDay' && view.name!='listWeek'){ 
+        if(view.name!='listDay' && view.name!='listWeek' && view.name!='agendaWeek'){ 
             if (calEvent.url) return false;
         }
         if (calEvent.url) {  
@@ -72,7 +72,9 @@ echo \yii2fullcalendar\yii2fullcalendar::widget(array(
         'eventClick' => new JsExpression($event_click),
         'timeFormat' => 'H:mm',
         'eventLimit' => true,
-        'dayNamesShort' => ['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส']
+        'dayNamesShort' => ['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส'],
+        'slotLabelFormat'=>'H:mm',
+        //'minTime'=>'06:00'
     ]
 ));
 
