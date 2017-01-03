@@ -19,12 +19,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         
         <?php if(!MyHelper::isCg()):?>
-        <?= Html::a('EDIT', ['update', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('+ HDC', ['update', 'pid' => $model->id], ['class' => 'btn btn-info']) ?>
-        <?= Html::a('+ เจ็บป่วย', ['update', 'pid' => $model->id], ['class' => 'btn btn-danger']) ?>
-        <?= Html::a('+ ประเมิน', ['update', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-edit"></i> แก้ไข', ['update', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-print"></i> พิมพ์', ['update', 'pid' => $model->id], ['class' => 'btn btn-info']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เจ็บป่วย', ['update', 'pid' => $model->id], ['class' => 'btn btn-danger']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ประเมิน', ['update', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
         <?php endif; ?>
-        <?= Html::a('CP', ['/care/plan/index', 'pid' => $model->id], ['class' => 'btn btn-warning ']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-calendar"></i> CP', ['/care/plan/index', 'pid' => $model->id], ['class' => 'btn btn-warning ']) ?>
 
 
 
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?php if(MyHelper::isCm()):  ?>
         <?=
-        Html::a('DEL', ['delete', 'pid' => $model->id], [
+        Html::a('<i class="glyphicon glyphicon-minus"></i> ลบ', ['delete', 'pid' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',

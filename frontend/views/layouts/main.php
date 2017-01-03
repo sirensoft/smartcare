@@ -30,7 +30,7 @@ AppAsset::register($this);
         <div class="wrap">
             <?php
             NavBar::begin([
-                'brandLabel' => '<span class="glyphicon glyphicon-th-large"></span>',
+                'brandLabel' => '<span class="glyphicon glyphicon-phone"></span>',
                 'brandUrl' => Yii::$app->homeUrl,
                 //'brandLabel' => 'SmartCare',
                 //'brandUrl' => Yii::$app->homeUrl,
@@ -52,7 +52,7 @@ AppAsset::register($this);
                 $menuItems[] = '<li>'
                         . Html::beginForm(['/site/logout'], 'post')
                         . Html::submitButton(
-                                'Logout (' . Yii::$app->user->identity->username . ')', ['class' => 'btn btn-success logout']
+                                'Logout (' . Yii::$app->user->identity->username . ')', ['class' => 'btn btn-info logout']
                         )
                         . Html::endForm()
                         . '</li>';
