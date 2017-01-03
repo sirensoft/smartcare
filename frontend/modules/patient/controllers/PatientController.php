@@ -14,13 +14,12 @@ use common\components\MyHelper;
 /**
  * PatientController implements the CRUD actions for Patient model.
  */
-class PatientController extends AppController
-{
+class PatientController extends AppController {
+
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -35,27 +34,26 @@ class PatientController extends AppController
      * Lists all Patient models.
      * @return mixed
      */
-    public function actionIndex()
-    {
-        $this->permitRole([1,2,3]);
-        
+    public function actionIndex() {
+        $this->permitRole([1, 2, 3]);
+
         $searchModel = new PatientSearch();
-        if(MyHelper::getUserOffice()<>'all'){
-            $searchModel->hospcode = MyHelper::getUserOffice();
-        }
-        
-        if(MyHelper::isCg()){
+
+        $searchModel->hospcode = MyHelper::getUserOffice();
+
+
+        if (MyHelper::isCg()) {
             $searchModel->cg_id = MyHelper::getUserId();
         }
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
         ]);
     }
-    
-      public function actionModal(){
+
+    public function actionModal() {
         return $this->render('');
     }
 
@@ -64,11 +62,10 @@ class PatientController extends AppController
      * @param string $id
      * @return mixed
      */
-    public function actionView($pid)
-    {
-        $this->permitRole([1,2,3]);
+    public function actionView($pid) {
+        $this->permitRole([1, 2, 3]);
         return $this->render('view', [
-            'model' => $this->findModel($pid),
+                    'model' => $this->findModel($pid),
         ]);
     }
 
@@ -77,8 +74,7 @@ class PatientController extends AppController
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate() {
         $this->permitRole([2]);
         $model = new Patient();
 
@@ -86,7 +82,7 @@ class PatientController extends AppController
             return $this->redirect(['view', 'pid' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
@@ -97,8 +93,7 @@ class PatientController extends AppController
      * @param string $id
      * @return mixed
      */
-    public function actionUpdate($pid)
-    {
+    public function actionUpdate($pid) {
         $this->permitRole([2]);
         $model = $this->findModel($pid);
 
@@ -106,7 +101,7 @@ class PatientController extends AppController
             return $this->redirect(['view', 'pid' => $model->id]);
         } else {
             return $this->render('update', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
@@ -117,8 +112,7 @@ class PatientController extends AppController
      * @param string $id
      * @return mixed
      */
-    public function actionDelete($pid)
-    {
+    public function actionDelete($pid) {
         $this->permitRole([2]);
         $this->findModel($pid)->delete();
 
@@ -132,16 +126,16 @@ class PatientController extends AppController
      * @return Patient the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($pid)
-    {
+    protected function findModel($pid) {
         if (($model = Patient::findOne($pid)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-    
-    public function actionNote(){
+
+    public function actionNote() {
         return $this->renderAjax('note');
     }
+
 }

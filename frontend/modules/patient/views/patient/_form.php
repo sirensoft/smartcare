@@ -121,7 +121,20 @@ use kartik\form\ActiveField;
         ],
     ]);
     ?>
-    <?= $form->field($model, 'cg_id')->textInput() ?>
+    <?php
+    $office = MyHelper::getUserOffice();
+    $sql = " SELECT t.id,CONCAT(t.prename,t.`name`,' ',t.lname) val FROM `user` t 
+WHERE t.role = 3 AND t.office = '$office' ";
+    $items = MyHelper::dropDownItems($sql,'id', 'val');
+    ?>
+    <?= $form->field($model, 'cg_id')->widget(Select2::classname(), [
+        'data' => $items,
+        'language' => 'th',
+        'options' => ['placeholder' => 'เลือก ...'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]); ?>
 
     <?= $form->field($model, 'dupdate')->hiddenInput(['value' => date('Y-m-d')])->label(FALSE) ?>
 
