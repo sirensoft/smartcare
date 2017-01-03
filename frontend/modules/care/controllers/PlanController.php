@@ -118,7 +118,7 @@ class PlanController extends AppController {
     public function actionUpdate($id) {
         $model = $this->findModel($id);
         $model->d_update = date('Y-m-d H:i:s');
-        if (MyHelper::getUserRole() === 3) {
+        if (MyHelper::isCg()) {
             if (empty($model->care_date)) {
                 $model->care_date = date('Y-m-d');
             }
@@ -128,7 +128,9 @@ class PlanController extends AppController {
         }
         
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if (MyHelper::getUserRole() === 3){
+            if (MyHelper::isCg()){
+                $model->is_done ='1';
+                $model->update();
                 $pid = $model->patient_id;
                 $patient = Patient::findOne($pid);
                 MyHelper::sendLineNotify($patient->prename.$patient->name." ".$patient->lname."..ได้รับการ..".$model->title);

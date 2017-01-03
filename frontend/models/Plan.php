@@ -30,6 +30,7 @@ use Yii;
  * @property string $rr
  * @property string $sugar
  * @property string $note
+ * @property string $is_done
  * @property string $d_create
  * @property string $d_update
  */
@@ -52,7 +53,7 @@ class Plan extends \yii\db\ActiveRecord
             [['patient_id','title','start_date'], 'required'],
             [['start_date'],'safe'],
             [['start_time'],'safe'],
-            [['title', 'note'], 'string'],
+            [['title', 'note','is_done'], 'string'],
             [['end_date', 'end_time', 'care_date', 'care_time', 'd_create', 'd_update'], 'safe'],
             [['patient_id', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar'], 'string', 'max' => 255],
         ];
@@ -87,6 +88,7 @@ class Plan extends \yii\db\ActiveRecord
             'rr' => 'อัตราหายใจ',
             'sugar' => 'ค่าน้ำตาล',
             'note' => 'หมายเหตุ',
+            'is_done'=>'ได้รับการดูแล',
             'd_create' => 'D Create',
             'd_update' => 'D Update',
         ];
