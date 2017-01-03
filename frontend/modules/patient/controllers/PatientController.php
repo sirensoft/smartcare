@@ -37,7 +37,7 @@ class PatientController extends AppController
      */
     public function actionIndex()
     {
-        //$this->permitRole([1,2,3]);
+        $this->permitRole([1,2,3]);
         
         $searchModel = new PatientSearch();
         if(MyHelper::getUserOffice()<>'all'){
