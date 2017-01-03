@@ -8,6 +8,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
+use common\components\MyHelper;
 
 AppAsset::register($this);
 ?>
@@ -84,9 +85,9 @@ AppAsset::register($this);
 
         <footer class="footer">
             <div class="container">
-                <p class="pull-left">&copy; SmartCare </p>
+                <p class="pull-left">Version <?=  MyHelper::getVersion();?> </p>
 
-                <p class="pull-right">สสจ.พล</p>
+                <p class="pull-right">&copy; สสจ.พล</p>
             </div>
         </footer>
 

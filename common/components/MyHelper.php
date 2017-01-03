@@ -4,6 +4,7 @@ namespace common\components;
 
 use yii\helpers\ArrayHelper;
 use frontend\models\CLine;
+use frontend\models\Version;
 
 class MyHelper extends \yii\base\Component {
     
@@ -114,6 +115,11 @@ class MyHelper extends \yii\base\Component {
        $tai = \Yii::$app->db->createCommand($sql)->queryScalar();
        $sql = "update patient set tai='$tai' where id=$pid";
        return \Yii::$app->db->createCommand($sql)->execute(); 
+    }
+    
+    public static function getVersion(){
+      $model = Version::find()->orderBy(['id'=>SORT_DESC])->one();
+      return $model->version." (".$model->note1.")";
     }
 
 }
