@@ -57,7 +57,7 @@ use common\components\MyHelper;
     <div class="form-group">
         <?php if (!$model->isNewRecord): ?>
             <?=
-            Html::a('Delete', ['delete', 'id' => $model->id, 'pid' => $model->patient_id], [
+            Html::a('<i class="glyphicon glyphicon-minus"></i> ลบ', ['delete', 'id' => $model->id, 'pid' => $model->patient_id], [
                 'class' => 'btn btn-danger',
                 'data' => [
                     'confirm' => 'ยืนยันการลบ',
