@@ -9,7 +9,7 @@ use common\components\MyHelper;
 /* @var $model frontend\models\Patient */
 
 $this->title = $model->name . " " . $model->lname;
-$this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'รายชื่อ', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="patient-view">

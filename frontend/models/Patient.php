@@ -92,7 +92,7 @@ class Patient extends \yii\db\ActiveRecord
             'adl'=>'คะแนน ADL',
             'tai'=>'จัดกลุ่ม TAI',
             'class_id'=>'รหัสกลุ่ม',
-            'class_name'=>'ชื่อกลุ่ม',
+            'class_name'=>'กลุ่ม',
             'dupdate' => 'วันอัพเดทข้อมูล',
         ];
     }

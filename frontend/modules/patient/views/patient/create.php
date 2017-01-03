@@ -7,8 +7,8 @@ use yii\helpers\Html;
 /* @var $model frontend\models\Patient */
 
 $this->title = 'เพิ่มผู้ป่วย';
-$this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['index']];
-$this->params['breadcrumbs'][] = 'เพิ่มผู้ป่วย';
+$this->params['breadcrumbs'][] = ['label' => 'รายชื่อ', 'url' => ['index']];
+$this->params['breadcrumbs'][] = 'เพิ่ม';
 ?>
 <div class="patient-create">
 

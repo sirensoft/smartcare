@@ -10,9 +10,10 @@ $this->registerCss($this->render('cursor.css'));
 //$this->registerJs($this->render('click.js'));
 
 $this->title = "CM...";
-$this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['/patient']];
-$this->params['breadcrumbs'][] = ['label' => 'ข้อมูลผู้ป่วย', 'url' => ['/patient/patient/view', 'pid' => $pid]];
-$this->params['breadcrumbs'][] = "Care Plan : " . $model->prename . $model->name . " " . $model->lname . "(ADL=" . $model->adl . ",TAI=" . $model->tai . ")";
+$this->params['breadcrumbs'][] = ['label' => 'รายชื่อ', 'url' => ['/patient']];
+$this->params['breadcrumbs'][] = ['label' => 'ข้อมูล', 'url' => ['/patient/patient/view', 'pid' => $pid]];
+$this->params['breadcrumbs'][] = "Care Plan : " . $model->prename . $model->name . " " . $model->lname 
+. "(ADL=" . $model->adl . ",TAI=" . $model->tai . " ,".$model->class_name.")";
 
 
 

@@ -9,7 +9,7 @@ use common\components\MyHelper;
 /* @var $searchModel frontend\models\PatientSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'ทะเบียนผู้ป่วย';
+$this->title = 'รายชื่อ';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="patient-index">
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
+            'class_name',
             [
                 'attribute'=>'cid',
                 'format'=>'raw',
@@ -37,10 +37,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::a($model->cid,['/patient/patient/view','pid'=>$model->id]);
                 }
             ],
+            
             //'prename',
             'name',
             'lname',
-            'birth',
+            //'birth',
             // 'province',
             // 'district',
             'subdistrict',
@@ -52,6 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'region',
             // 'discharge',
             // 'disease',
+            
             // 'dupdate',
 
             //['class' => 'yii\grid\ActionColumn'],
