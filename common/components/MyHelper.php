@@ -71,6 +71,23 @@ class MyHelper extends \yii\base\Component {
             return FALSE;
         }
     }
+    
+     public static function isCm(){
+        if(!\Yii::$app->user->isGuest){
+            return \Yii::$app->user->identity->role===2;
+        }  else {
+            return FALSE;
+        }
+    }
+    
+     public static function isAdmin(){
+        if(!\Yii::$app->user->isGuest){
+            return \Yii::$app->user->identity->role===1;
+        }  else {
+            return FALSE;
+        }
+    }
+    
 
     public static function getUserId(){
         if(!\Yii::$app->user->isGuest){

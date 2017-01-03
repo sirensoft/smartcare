@@ -11,8 +11,8 @@ $this->registerCss($this->render('cursor.css'));
 
 $this->title = "CM...";
 $this->params['breadcrumbs'][] = ['label' => 'ทะเบียนผู้ป่วย', 'url' => ['/patient']];
-$this->params['breadcrumbs'][] = ['label' => 'ข้อมูลผู้ป่วย', 'url' => ['/patient/patient/view','pid'=>$pid]];
-$this->params['breadcrumbs'][] = "Care Plan : ".$model->prename.$model->name." ".$model->lname ."(ADL=".$model->adl.",TAI=".$model->tai.")";
+$this->params['breadcrumbs'][] = ['label' => 'ข้อมูลผู้ป่วย', 'url' => ['/patient/patient/view', 'pid' => $pid]];
+$this->params['breadcrumbs'][] = "Care Plan : " . $model->prename . $model->name . " " . $model->lname . "(ADL=" . $model->adl . ",TAI=" . $model->tai . ")";
 
 
 
@@ -48,11 +48,11 @@ $cg_click = "
     }
 ";
 
-$event_click = MyHelper::isCg()?$cg_click:$cm_click;
-
+$event_click = MyHelper::isCg() ? $cg_click : $cm_click;
 ?>
 
 <?php
+
 echo \yii2fullcalendar\yii2fullcalendar::widget(array(
     'events' => $events,
     'options' => [
@@ -71,8 +71,8 @@ echo \yii2fullcalendar\yii2fullcalendar::widget(array(
         //'defaultView' => 'listWeek',
         'eventClick' => new JsExpression($event_click),
         'timeFormat' => 'H:mm',
-        'eventLimit'=> true,
-        'dayNamesShort'=>['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส']
+        'eventLimit' => true,
+        'dayNamesShort' => ['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส']
     ]
 ));
 
@@ -81,13 +81,12 @@ Modal::begin([
     'header' => 'เพิ่ม-แก้ไข แผนการดูแล',
     'size' => 'modal-lg',
     'id' => 'modal',
-    
 ]);
 echo "<div id='modalContent'></div>";
 
 Modal::end();
 
-$js= <<<JS
+$js = <<<JS
      $(document).on('click','.fc-day-number',function(){
     //$('.fc-day-number').click(function(){        
        var date = $(this).parent().attr('data-date');
@@ -96,8 +95,9 @@ $js= <<<JS
        return false;
     });      
 JS;
-
-$this->registerJs($js);
+if (MyHelper::isCm()) {
+    $this->registerJs($js);
+}
 
 
 
