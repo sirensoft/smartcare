@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-03 23:08:49
+Date: 2017-01-04 00:13:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1037,6 +1037,27 @@ INSERT INTO `plan_care` VALUES ('35', '2', 'ดูแลโดย cg', '2017-01-
 INSERT INTO `plan_care` VALUES ('36', '2', 'cg', '2017-01-08', '08:00:00', null, null, null, null, null, null, '', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-03 21:13:31', null);
 
 -- ----------------------------
+-- Table structure for specialpp
+-- ----------------------------
+DROP TABLE IF EXISTS `specialpp`;
+CREATE TABLE `specialpp` (
+  `HOSPCODE` varchar(5) NOT NULL,
+  `PID` varchar(15) NOT NULL,
+  `SEQ` varchar(16) DEFAULT NULL,
+  `DATE_SERV` date NOT NULL,
+  `SERVPLACE` char(1) NOT NULL,
+  `PPSPECIAL` varchar(6) NOT NULL,
+  `PPSPLACE` varchar(5) DEFAULT NULL,
+  `PROVIDER` varchar(15) DEFAULT NULL,
+  `D_UPDATE` datetime NOT NULL,
+  PRIMARY KEY (`HOSPCODE`,`PID`,`DATE_SERV`,`PPSPECIAL`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of specialpp
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
@@ -1073,6 +1094,25 @@ INSERT INTO `user` VALUES ('5', 'sa', 'jH-cX5qVRZzTWjR5Jml4gPgMGDTjqlvn', 'sa', 
 INSERT INTO `user` VALUES ('9', 'adminn', 'Z28DJIIcjF0Z9pIzYMCkRjH3uKTfnwHN', '1234', null, 'd@ffff.com', '10', '2', '2-Care Manager', '3650100214005', 'นายแพทย์', 'กกกก', 'กกกก', '07478', null, null, '1483424465', '1483424465');
 INSERT INTO `user` VALUES ('10', 'root', 'IGUsnXwDtoBq810TvnLJNr2nywYaBHxU', '112233', null, 'tehnnn@gmail.com', '10', '3', '3-Care Giver', '3650100810887', 'นาย', 'อุเทน', 'จาดยางโทน', '07477', null, null, '1483424840', '1483424840');
 INSERT INTO `user` VALUES ('11', 'adm', 'RnqN-o6KgYCwER6wmhjkbrfnVAko60uP', '1234', null, 'ttttt@ffff.com', '10', '0', null, '3650122457884', 'นาย', 'อุเทน', 'จาดยางโทน', 'all', null, null, '1483430675', '1483430675');
+
+-- ----------------------------
+-- Table structure for user_log
+-- ----------------------------
+DROP TABLE IF EXISTS `user_log`;
+CREATE TABLE `user_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `login_date` datetime DEFAULT NULL,
+  `ip` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user_log
+-- ----------------------------
+INSERT INTO `user_log` VALUES ('1', 'admin', '2017-01-03 23:12:53', '::1');
+INSERT INTO `user_log` VALUES ('2', 'sa', '2017-01-03 23:14:56', '::1');
+INSERT INTO `user_log` VALUES ('3', 'root', '2017-01-03 23:19:58', '::1');
 
 -- ----------------------------
 -- Procedure structure for set_event_on
