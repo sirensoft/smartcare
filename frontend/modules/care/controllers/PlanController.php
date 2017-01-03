@@ -99,7 +99,7 @@ class PlanController extends AppController {
         $model = new Plan();
         $model->patient_id = $pid;
         $model->start_date = $start;
-        $model->start_time = date('H:i');
+        $model->start_time = '08:00';
         $model->d_create = date('Y-m-d H:i:s');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
