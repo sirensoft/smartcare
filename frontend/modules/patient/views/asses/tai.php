@@ -1,4 +1,6 @@
-
+<?php
+use common\components\MyHelper;
+?>
     <table width="100%" border="1"  cellpadding="3" cellspacing="0">
         <tbody>
             <tr>
@@ -130,6 +132,7 @@
                         <input type="hidden" name="_csrf" value="<?=\Yii::$app->request->getCsrfToken()?>" />
                         <input type="hidden" name="tai_score" id='tai_score' value="0">
                         <input type="hidden" name="adl_score" id='adl_score' value="0">
+                        <input type="hidden" name="provider_id" id='provider_id' value="<?=  MyHelper::getUserId()?>">
                         <button type="submit" style="margin: 5px"> บันทึก </button>
                     </form>
                 </td>

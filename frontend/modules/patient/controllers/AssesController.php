@@ -27,6 +27,7 @@ class AssesController extends AppController {
             $model->date_serv = date('Y-m-d');
             $model->adl_score = \Yii::$app->request->post('adl_score');
             $model->tai_score = \Yii::$app->request->post('tai_score');
+            $model->provider_id = \Yii::$app->request->post('provider_id');
             $model->d_update = date('Y-m-d H:i:s');
             $model->save();
             \Yii::$app->session->setFlash('success', "บันทึกแล้ว");
