@@ -32,6 +32,7 @@ class AssesController extends AppController {
             $model->d_update = date('Y-m-d H:i:s');
             $model->save();
             \Yii::$app->session->setFlash('success', "บันทึกแล้ว");
+            
         }
         return $this->render('index', [
                     'pid' => $pid
