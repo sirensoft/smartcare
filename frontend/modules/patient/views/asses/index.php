@@ -34,7 +34,9 @@ echo TabsX::widget([
         ],
         [
             'label' => 'ประวัติ',
-            //'content' => $this->render('tai'),
+            'content' => $this->render('history',[
+                'pid'=>$pid
+            ]),
             
         ],
        
