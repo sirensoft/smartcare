@@ -1,5 +1,5 @@
 
-    <table width="100%" border="1"  cellpadding="3" cellspacing="0">
+<table class="table table-bordered">
         <tbody>
             <tr>
                 <td align="center">

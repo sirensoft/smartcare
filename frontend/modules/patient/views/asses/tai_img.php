@@ -1,22 +1,46 @@
 <?php
 
 use yii\helpers\Html;
-
-
+use yii\helpers\ArrayHelper;
+use common\components\MyHelper;
+use kartik\select2\Select2;
 ?>
-<table width="100%"   cellpadding="3" cellspacing="0" class="table table-striped">
-    <tr>
-        <td><?=Html::img('./web_img/tai.png');?></td>
-        <td style="text-align:left;vertical-align:top;padding:0">
-            <div style="margin: 5px"> 
-            <form method="POST">
-                <p>คะแนน ADL = <input type="text" name="adl_score" id='adl_score'/></p>
-                <p>ประเมิน TAI = <input type="text" name="tai_class" id='tai_class'/></p>
-                <button type="submit"> บันทึก </button>
-                
-            </form>
+<div class="row">
+    <div class="col-sm-6">
+        <?= Html::img('./web_img/tai.png'); ?>
+    </div>
+    <div class="col-sm-6">
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="adl_score">ผลประเมิน ADL:</label>
+                <input type="text" class="form-control" id="adl_score" name="adl_score" placeholder="ค่าจากประเมิน ADL">
             </div>
-        </td>
-    </tr>
-</table>
+            <div class="form-group">
+                <label for="tai_class">ผลประเมิน TAI:</label>
+                <?php
+                $items = MyHelper::dropDownItems("select id,val from c_tai", 'id', 'val');
+                ?>
+
+                <?php
+                echo Select2::widget([
+                    'name' => 'tai_class',
+                    'data' => $items,
+                    'options' => ['placeholder' => 'เลือก...'],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
+                ]);
+                ?>
+            </div>
+            <button type="submit" class="btn btn-default"> บันทึกผล </button>
+        </form>
+
+
+
+    </div>
+</div>
+
+
+
 
