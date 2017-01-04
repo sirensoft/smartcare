@@ -22,4 +22,7 @@ class AssesController extends AppController {
     public function actionTai(){
         return $this->render('tai');
     }
+    public function actionAjax($adl,$tai,$provider_id,$note){
+        
+    }
 }
