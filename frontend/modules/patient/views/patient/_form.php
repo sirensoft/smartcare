@@ -76,7 +76,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
     <div class="col-sm-2">
         <?= $form->field($model, 'subdistrict')->textInput(['maxlength' => true]) ?>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-1">
         <?= $form->field($model, 'village_no')->textInput(['maxlength' => true]) ?>
     </div>
     <div class="col-sm-2">
@@ -94,7 +94,11 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
     </div>
     <div class="col-sm-2">
         <?= $form->field($model, 'lon')->textInput(['maxlength' => true]) ?>
-    </div>   
+    </div>
+    <div class="col-sm-1">
+        <label for="btn-auto" style="color: white">...</label>
+        <button type="button" class="btn btn-default" id="btn-auto">พิกัด</button>
+    </div>
 
 </div>
 
@@ -154,7 +158,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
     </div>
     <div class="col-sm-3">  
         <?php
-        $sql = "SELECT t.dischargedesc id , concat(t.dischargecode,'-',t.dischargedesc) val from c_discharge t";
+        $sql = "SELECT t.dischargecode id , concat(t.dischargecode,'-',t.dischargedesc) val from c_discharge t";
         $items = MyHelper::dropDownItems($sql, 'id', 'val');
 
         echo $form->field($model, 'discharge')->widget(Select2::classname(), [

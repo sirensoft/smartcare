@@ -8,14 +8,19 @@ use yii\helpers\Html;
 $this->title = 'แก้ไข: ' . $model->name." ".$model->lname;
 $this->params['breadcrumbs'][] = ['label' => 'รายชื่อ', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' =>$model->name." ".$model->lname, 'url' => ['view', 'pid' => $model->id]];
-$this->params['breadcrumbs'][] = 'แก้ไข';
+
 ?>
 <div class="patient-update">
 
-    
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+       <div class="panel panel-danger">
+        <div class="panel-heading">* แก้ไข</div>
+        <div class="panel-body">
+            <?=
+            $this->render('_form', [
+                'model' => $model,
+            ])
+            ?>
+        </div>
+    </div>
 
 </div>

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-04 20:43:45
+Date: 2017-01-04 23:31:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `assessment` (
   `provider_id` int(11) DEFAULT NULL,
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of assessment
@@ -53,6 +53,11 @@ INSERT INTO `assessment` VALUES ('13', '2', '2017-01-04', null, null, '', null, 
 INSERT INTO `assessment` VALUES ('14', '2', '2017-01-04', '4', null, '9999', null, null, null, null, '2017-01-04 17:42:44');
 INSERT INTO `assessment` VALUES ('15', '2', '2017-01-04', '4', null, 'I2', null, null, null, null, '2017-01-04 20:35:08');
 INSERT INTO `assessment` VALUES ('16', '5', '2017-01-04', '6', null, 'C4', null, null, null, null, '2017-01-04 20:36:13');
+INSERT INTO `assessment` VALUES ('17', '5', '2017-01-04', '9', null, 'B3', null, null, null, null, '2017-01-04 20:45:38');
+INSERT INTO `assessment` VALUES ('18', '5', '2017-01-04', '12', null, 'C4', null, null, null, null, '2017-01-04 20:47:18');
+INSERT INTO `assessment` VALUES ('19', '4', '2017-01-04', '10', null, 'C4', null, null, null, null, '2017-01-04 20:54:01');
+INSERT INTO `assessment` VALUES ('20', '2', '2017-01-04', '8', null, 'I2', null, null, null, null, '2017-01-04 21:09:11');
+INSERT INTO `assessment` VALUES ('21', '2', '2017-01-04', null, null, 'C4', null, null, null, null, '2017-01-04 21:46:27');
 
 -- ----------------------------
 -- Table structure for c_class
@@ -88,7 +93,7 @@ CREATE TABLE `c_discharge` (
 INSERT INTO `c_discharge` VALUES ('1', 'ตาย');
 INSERT INTO `c_discharge` VALUES ('2', 'ย้าย');
 INSERT INTO `c_discharge` VALUES ('3', 'สาบสูญ');
-INSERT INTO `c_discharge` VALUES ('9', 'ยังไม่จำหน่าย');
+INSERT INTO `c_discharge` VALUES ('9', 'ยังมีชีวิตอยู่');
 
 -- ----------------------------
 -- Table structure for c_line
@@ -998,7 +1003,7 @@ CREATE TABLE `patient` (
   `nation` varchar(255) DEFAULT NULL COMMENT 'สัญชาติ',
   `region` varchar(255) DEFAULT NULL COMMENT 'เชื้อชาติ',
   `hospcode` varchar(5) DEFAULT NULL COMMENT 'พืนที่ของหน่วยบริการ',
-  `refer_from` varchar(5) DEFAULT NULL,
+  `refer_from` varchar(255) DEFAULT NULL,
   `disease` varchar(255) DEFAULT NULL,
   `discharge` varchar(255) DEFAULT NULL COMMENT 'การจำหน่าย',
   `cm_id` int(11) DEFAULT NULL,
@@ -1014,9 +1019,9 @@ CREATE TABLE `patient` (
 -- ----------------------------
 -- Records of patient
 -- ----------------------------
-INSERT INTO `patient` VALUES ('2', '3650100810887', 'พ.อ.', 'สมหมาย', 'ใจเย็น', 'ชาย', '2012-10-09', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', 'ยังไม่จำหน่าย', null, '10', '4', 'I2', '4', 'ติดเตียง-2', '2017-01-03');
-INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '2011-10-11', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', 'ยังไม่จำหน่าย', null, '10', '0', '', null, 'ติดบ้าน-2', '2017-01-03');
-INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1960-01-01', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', 'ยังไม่จำหน่าย', null, '10', '6', 'C4', '2', 'ติดบ้าน-2', '2017-01-03');
+INSERT INTO `patient` VALUES ('2', '3650100810889', 'นาย', 'สมหมาย', 'ใจเย็น', 'ชาย', '2012-10-09', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', 'โรงพยาบาลพุทธชินราช', '', '9', null, '10', '8', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
+INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '2011-10-11', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', '', '', '9', null, '10', '10', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
+INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1960-01-01', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', '', '', '9', null, '10', '12', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
 
 -- ----------------------------
 -- Table structure for plan_care
