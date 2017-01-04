@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-04 17:27:36
+Date: 2017-01-04 20:43:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `assessment` (
   `provider_id` int(11) DEFAULT NULL,
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of assessment
@@ -43,6 +43,16 @@ INSERT INTO `assessment` VALUES ('3', '2', '2017-01-04', '0', '3', null, null, n
 INSERT INTO `assessment` VALUES ('4', '2', '2017-01-04', '10', '16', null, null, null, null, '1', '2017-01-04 16:31:34');
 INSERT INTO `assessment` VALUES ('5', '2', '2017-01-04', '5', null, '', null, null, null, null, '2017-01-04 17:20:51');
 INSERT INTO `assessment` VALUES ('6', '2', '2017-01-04', '12', null, 'I3', null, null, null, null, '2017-01-04 17:22:06');
+INSERT INTO `assessment` VALUES ('7', '2', '2017-01-04', '8', null, 'I3', null, null, null, null, '2017-01-04 17:29:21');
+INSERT INTO `assessment` VALUES ('8', '2', '2017-01-04', '0', null, '', null, null, null, null, '2017-01-04 17:31:50');
+INSERT INTO `assessment` VALUES ('9', '2', '2017-01-04', '3', null, '3', null, null, null, null, '2017-01-04 17:32:33');
+INSERT INTO `assessment` VALUES ('10', '2', '2017-01-04', '8', null, 'I3', null, null, null, null, '2017-01-04 17:33:23');
+INSERT INTO `assessment` VALUES ('11', '2', '2017-01-04', '2', null, '66', null, null, null, null, '2017-01-04 17:37:41');
+INSERT INTO `assessment` VALUES ('12', '2', '2017-01-04', '3', null, '99', null, null, null, null, '2017-01-04 17:39:13');
+INSERT INTO `assessment` VALUES ('13', '2', '2017-01-04', null, null, '', null, null, null, null, '2017-01-04 17:41:45');
+INSERT INTO `assessment` VALUES ('14', '2', '2017-01-04', '4', null, '9999', null, null, null, null, '2017-01-04 17:42:44');
+INSERT INTO `assessment` VALUES ('15', '2', '2017-01-04', '4', null, 'I2', null, null, null, null, '2017-01-04 20:35:08');
+INSERT INTO `assessment` VALUES ('16', '5', '2017-01-04', '6', null, 'C4', null, null, null, null, '2017-01-04 20:36:13');
 
 -- ----------------------------
 -- Table structure for c_class
@@ -904,6 +914,27 @@ INSERT INTO `c_role` VALUES ('2', '2-Care Manager');
 INSERT INTO `c_role` VALUES ('3', '3-Care Giver');
 
 -- ----------------------------
+-- Table structure for c_tai
+-- ----------------------------
+DROP TABLE IF EXISTS `c_tai`;
+CREATE TABLE `c_tai` (
+  `id` varchar(255) NOT NULL,
+  `val` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of c_tai
+-- ----------------------------
+INSERT INTO `c_tai` VALUES ('B3', 'B3');
+INSERT INTO `c_tai` VALUES ('C2', 'C2');
+INSERT INTO `c_tai` VALUES ('C3', 'C3');
+INSERT INTO `c_tai` VALUES ('C4', 'C4');
+INSERT INTO `c_tai` VALUES ('I1', 'I1');
+INSERT INTO `c_tai` VALUES ('I2', 'I2');
+INSERT INTO `c_tai` VALUES ('I3', 'I3');
+
+-- ----------------------------
 -- Table structure for c_typearea
 -- ----------------------------
 DROP TABLE IF EXISTS `c_typearea`;
@@ -983,9 +1014,9 @@ CREATE TABLE `patient` (
 -- ----------------------------
 -- Records of patient
 -- ----------------------------
-INSERT INTO `patient` VALUES ('2', '3650100810887', 'พ.อ.', 'สมหมาย', 'ใจเย็น', 'ชาย', '2012-10-09', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', 'ยังไม่จำหน่าย', null, '10', '12', 'I3', '4', 'ติดเตียง-2', '2017-01-03');
+INSERT INTO `patient` VALUES ('2', '3650100810887', 'พ.อ.', 'สมหมาย', 'ใจเย็น', 'ชาย', '2012-10-09', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', 'ยังไม่จำหน่าย', null, '10', '4', 'I2', '4', 'ติดเตียง-2', '2017-01-03');
 INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '2011-10-11', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', 'ยังไม่จำหน่าย', null, '10', '0', '', null, 'ติดบ้าน-2', '2017-01-03');
-INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1960-01-01', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', 'ยังไม่จำหน่าย', null, '10', '0', '', null, null, '2017-01-03');
+INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1960-01-01', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', 'ยังไม่จำหน่าย', null, '10', '6', 'C4', '2', 'ติดบ้าน-2', '2017-01-03');
 
 -- ----------------------------
 -- Table structure for plan_care

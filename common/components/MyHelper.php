@@ -121,5 +121,10 @@ class MyHelper extends \yii\base\Component {
       $model = Version::find()->orderBy(['id'=>SORT_DESC])->one();
       return $model->version." (".$model->note1.")";
     }
+    
+    public static function callMysqlFunc($func){
+        $sql = " CALL $func; ";
+        return \Yii::$app->db->createCommand($sql)->execute();
+    }
 
 }

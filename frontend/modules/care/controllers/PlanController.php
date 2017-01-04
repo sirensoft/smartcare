@@ -38,8 +38,7 @@ class PlanController extends AppController {
      */
     public function actionIndex($pid) {
         $this->permitRole([1, 2, 3]);
-        MyHelper::setPatientADL($pid);
-        MyHelper::setPatientTAI($pid);
+       
         
         
         $vw = 'index';
