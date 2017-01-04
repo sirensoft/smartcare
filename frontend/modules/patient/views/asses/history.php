@@ -10,7 +10,10 @@ WHERE  t.patient_id = '$pid' order by t.id DESC";
 $raw = \Yii::$app->db->createCommand($sql)->queryAll();
 
 $dataProvider = new ArrayDataProvider([
-    'allModels'=>$raw
+    'allModels'=>$raw,
+    'pagination'=>[
+        'pageSize'=>15
+    ]
 ]);
 
 echo GridView::widget([

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-04 23:31:49
+Date: 2017-01-04 23:50:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,32 +32,35 @@ CREATE TABLE `assessment` (
   `provider_id` int(11) DEFAULT NULL,
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of assessment
 -- ----------------------------
-INSERT INTO `assessment` VALUES ('1', '2', '2017-01-04', '4', '2', null, null, null, null, '1', '2017-01-04 16:14:39');
-INSERT INTO `assessment` VALUES ('2', '2', '2017-01-04', '2', '5', null, null, null, null, '1', '2017-01-04 16:17:39');
-INSERT INTO `assessment` VALUES ('3', '2', '2017-01-04', '0', '3', null, null, null, null, '1', '2017-01-04 16:18:27');
-INSERT INTO `assessment` VALUES ('4', '2', '2017-01-04', '10', '16', null, null, null, null, '1', '2017-01-04 16:31:34');
-INSERT INTO `assessment` VALUES ('5', '2', '2017-01-04', '5', null, '', null, null, null, null, '2017-01-04 17:20:51');
-INSERT INTO `assessment` VALUES ('6', '2', '2017-01-04', '12', null, 'I3', null, null, null, null, '2017-01-04 17:22:06');
-INSERT INTO `assessment` VALUES ('7', '2', '2017-01-04', '8', null, 'I3', null, null, null, null, '2017-01-04 17:29:21');
-INSERT INTO `assessment` VALUES ('8', '2', '2017-01-04', '0', null, '', null, null, null, null, '2017-01-04 17:31:50');
-INSERT INTO `assessment` VALUES ('9', '2', '2017-01-04', '3', null, '3', null, null, null, null, '2017-01-04 17:32:33');
-INSERT INTO `assessment` VALUES ('10', '2', '2017-01-04', '8', null, 'I3', null, null, null, null, '2017-01-04 17:33:23');
-INSERT INTO `assessment` VALUES ('11', '2', '2017-01-04', '2', null, '66', null, null, null, null, '2017-01-04 17:37:41');
-INSERT INTO `assessment` VALUES ('12', '2', '2017-01-04', '3', null, '99', null, null, null, null, '2017-01-04 17:39:13');
-INSERT INTO `assessment` VALUES ('13', '2', '2017-01-04', null, null, '', null, null, null, null, '2017-01-04 17:41:45');
-INSERT INTO `assessment` VALUES ('14', '2', '2017-01-04', '4', null, '9999', null, null, null, null, '2017-01-04 17:42:44');
-INSERT INTO `assessment` VALUES ('15', '2', '2017-01-04', '4', null, 'I2', null, null, null, null, '2017-01-04 20:35:08');
-INSERT INTO `assessment` VALUES ('16', '5', '2017-01-04', '6', null, 'C4', null, null, null, null, '2017-01-04 20:36:13');
-INSERT INTO `assessment` VALUES ('17', '5', '2017-01-04', '9', null, 'B3', null, null, null, null, '2017-01-04 20:45:38');
-INSERT INTO `assessment` VALUES ('18', '5', '2017-01-04', '12', null, 'C4', null, null, null, null, '2017-01-04 20:47:18');
-INSERT INTO `assessment` VALUES ('19', '4', '2017-01-04', '10', null, 'C4', null, null, null, null, '2017-01-04 20:54:01');
-INSERT INTO `assessment` VALUES ('20', '2', '2017-01-04', '8', null, 'I2', null, null, null, null, '2017-01-04 21:09:11');
-INSERT INTO `assessment` VALUES ('21', '2', '2017-01-04', null, null, 'C4', null, null, null, null, '2017-01-04 21:46:27');
+INSERT INTO `assessment` VALUES ('1', '2', '2017-01-04', '4', '2', null, '-', null, null, '1', '2017-01-04 16:14:39');
+INSERT INTO `assessment` VALUES ('2', '2', '2017-01-04', '2', '5', null, '-', null, null, '1', '2017-01-04 16:17:39');
+INSERT INTO `assessment` VALUES ('3', '2', '2017-01-04', '0', '3', null, '-', null, null, '1', '2017-01-04 16:18:27');
+INSERT INTO `assessment` VALUES ('4', '2', '2017-01-04', '10', '16', null, '-', null, null, '1', '2017-01-04 16:31:34');
+INSERT INTO `assessment` VALUES ('5', '2', '2017-01-04', '5', null, '', '-', null, null, null, '2017-01-04 17:20:51');
+INSERT INTO `assessment` VALUES ('6', '2', '2017-01-04', '12', null, 'I3', 'กลุ่มที่ 3 ติดเตียง-1', null, null, null, '2017-01-04 17:22:06');
+INSERT INTO `assessment` VALUES ('7', '2', '2017-01-04', '8', null, 'I3', 'กลุ่มที่ 3 ติดเตียง-1', null, null, null, '2017-01-04 17:29:21');
+INSERT INTO `assessment` VALUES ('8', '2', '2017-01-04', '0', null, '', '-', null, null, null, '2017-01-04 17:31:50');
+INSERT INTO `assessment` VALUES ('9', '2', '2017-01-04', '3', null, '3', '-', null, null, null, '2017-01-04 17:32:33');
+INSERT INTO `assessment` VALUES ('10', '2', '2017-01-04', '8', null, 'I3', 'กลุ่มที่ 3 ติดเตียง-1', null, null, null, '2017-01-04 17:33:23');
+INSERT INTO `assessment` VALUES ('11', '2', '2017-01-04', '2', null, '66', '-', null, null, null, '2017-01-04 17:37:41');
+INSERT INTO `assessment` VALUES ('12', '2', '2017-01-04', '3', null, '99', '-', null, null, null, '2017-01-04 17:39:13');
+INSERT INTO `assessment` VALUES ('13', '2', '2017-01-04', null, null, '', '-', null, null, null, '2017-01-04 17:41:45');
+INSERT INTO `assessment` VALUES ('14', '2', '2017-01-04', '4', null, '9999', '-', null, null, null, '2017-01-04 17:42:44');
+INSERT INTO `assessment` VALUES ('15', '2', '2017-01-04', '4', null, 'I2', 'กลุ่มที่ 3 ติดเตียง-2', null, null, null, '2017-01-04 20:35:08');
+INSERT INTO `assessment` VALUES ('16', '5', '2017-01-04', '6', null, 'C4', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, '2017-01-04 20:36:13');
+INSERT INTO `assessment` VALUES ('17', '5', '2017-01-04', '9', null, 'B3', 'กลุ่มที่ 1 ติดบ้าน-1', null, null, null, '2017-01-04 20:45:38');
+INSERT INTO `assessment` VALUES ('18', '5', '2017-01-04', '12', null, 'C4', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, '2017-01-04 20:47:18');
+INSERT INTO `assessment` VALUES ('19', '4', '2017-01-04', '10', null, 'C4', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, '2017-01-04 20:54:01');
+INSERT INTO `assessment` VALUES ('20', '2', '2017-01-04', '8', null, 'I2', 'กลุ่มที่ 3 ติดเตียง-2', null, null, null, '2017-01-04 21:09:11');
+INSERT INTO `assessment` VALUES ('21', '2', '2017-01-04', null, null, 'C4', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, '2017-01-04 21:46:27');
+INSERT INTO `assessment` VALUES ('22', '2', '2017-01-04', '12', null, 'B3', 'กลุ่มที่ 1 ติดบ้าน-1', null, null, null, '2017-01-04 23:36:49');
+INSERT INTO `assessment` VALUES ('23', '2', '2017-01-04', null, null, 'I1', 'กลุ่มที่ 3 ติดเตียง-2', null, null, null, '2017-01-04 23:40:07');
+INSERT INTO `assessment` VALUES ('24', '2', '2017-01-04', '1', null, 'C3', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, '2017-01-04 23:49:58');
 
 -- ----------------------------
 -- Table structure for c_class
@@ -1019,7 +1022,7 @@ CREATE TABLE `patient` (
 -- ----------------------------
 -- Records of patient
 -- ----------------------------
-INSERT INTO `patient` VALUES ('2', '3650100810889', 'นาย', 'สมหมาย', 'ใจเย็น', 'ชาย', '2012-10-09', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', 'โรงพยาบาลพุทธชินราช', '', '9', null, '10', '8', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
+INSERT INTO `patient` VALUES ('2', '3650100810889', 'นาย', 'สมหมาย', 'ใจเย็น', 'ชาย', '2012-10-09', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', 'โรงพยาบาลพุทธชินราช', '', '9', null, '10', '1', 'C3', '2', 'ติดบ้าน-2', '2017-01-04');
 INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '2011-10-11', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', '', '', '9', null, '10', '10', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
 INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1960-01-01', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', '', '', '9', null, '10', '12', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
 
@@ -1186,6 +1189,16 @@ BEGIN
 	UPDATE patient p SET p.class_id = 4 WHERE p.tai in ('I1','I2');
 
 	UPDATE patient p,c_class c 	SET p.class_name = c.class_name 	WHERE p.class_id = c.id;
+
+	UPDATE assessment a SET a.group_text = 'กลุ่มที่ 1 ติดบ้าน-1' WHERE a.tai_class in ('B3');
+	UPDATE assessment a SET a.group_text = 'กลุ่มที่ 2 ติดบ้าน-2' WHERE a.tai_class in ('C2','C3','C4');
+	UPDATE assessment a SET a.group_text = 'กลุ่มที่ 3 ติดเตียง-1' WHERE a.tai_class in ('I3');
+	UPDATE assessment a SET a.group_text = 'กลุ่มที่ 3 ติดเตียง-2' WHERE a.tai_class in ('I1','I2');
+
+	UPDATE assessment a SET a.group_text = '-' 
+	WHERE a.tai_class not in ('B3','C2','C3','C4','I3','I1','I2')
+	OR a.tai_class is NULL;
+	
 
 END
 ;;

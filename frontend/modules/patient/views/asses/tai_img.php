@@ -37,7 +37,7 @@ use kartik\select2\Select2;
             </div>
             <div class="row">
                 <div class="form-group col-lg-4" >
-                    <button type="submit" class="btn btn-default"> บันทึกผล </button>
+                    <button type="submit" class="btn btn-warning"><i class="glyphicon glyphicon-ok"></i> บันทึกผล </button>
                 </div>
             </div>
         </form>

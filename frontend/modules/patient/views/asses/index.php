@@ -23,9 +23,17 @@ echo TabsX::widget([
     'align' => TabsX::ALIGN_LEFT,
     'items' => [
         [
+            'label' => 'ประวัติ',
+            'content' => $this->render('history',[
+                'pid'=>$pid
+            ]),
+             'active' => true
+            
+        ],
+        [
             'label' => 'แบบประเมิน ADL',
             'content' => $this->render('adl'),
-            'active' => true
+           
         ],
         /*[
             'label' => 'แบบประเมิน TAI',
@@ -37,13 +45,7 @@ echo TabsX::widget([
             'content' => $this->render('tai_img'),
             
         ],
-        [
-            'label' => 'ประวัติ',
-            'content' => $this->render('history',[
-                'pid'=>$pid
-            ]),
-            
-        ],
+        
        
     ],
 ]);

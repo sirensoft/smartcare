@@ -198,7 +198,7 @@ WHERE t.role = 3 AND t.office = '$office' ";
 <div class="form-group">
     <div class="col-sm-3"> 
         
-        <?= Html::submitButton($model->isNewRecord ? '+ เพิ่ม' : 'บันทึก ', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? '<i class="glyphicon glyphicon-ok"></i> เพิ่ม' : '<i class="glyphicon glyphicon-ok"></i> บันทึก ', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div> 
 </div>
 
