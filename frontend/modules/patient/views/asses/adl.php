@@ -1,8 +1,8 @@
-<form >
+
     <table width="100%" border="1"  cellpadding="3" cellspacing="0">
         <tbody>
             <tr>
-                <td align="center"><h3> X คะแนน  , กลุ่ม X</h3></td>
+                <td align="center"><h3> <span id="adl_point"></span> คะแนน  , กลุ่ม <span id="adl_group"></span> </h3></td>
             </tr>
             <tr>
                 <td>
@@ -139,7 +139,11 @@
                     </ol>
                 </td>
             </tr>
-           
+            <tr>
+                <td align="center">
+                    <button id='btn_cal_adl' style="padding: 3px;margin: 3px" >  คำนวณคะแนน  </button>
+                </td>
+            </tr>
             <tr>
                 <td align="left">
                     <table  border="0" align="left" cellpadding="3" cellspacing="0">
@@ -160,4 +164,18 @@
             </tr>
         </tbody>
     </table>
-</form>
+
+<?php
+$js = <<< JS
+    $('#btn_cal_adl').click(function(){
+        var point = 8;
+        var group = 'ติดบ้าน';
+        $('#adl_point').html(point);
+        $('#adl_group').html(group);
+    
+    });    
+JS;
+
+$this->registerJs($js);
+
+?>

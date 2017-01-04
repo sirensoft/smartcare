@@ -23,6 +23,11 @@ echo TabsX::widget([
             'content' => $this->render('tai'),
             
         ],
+        [
+            'label' => 'ประวัติ',
+            //'content' => $this->render('tai'),
+            
+        ],
        
     ],
 ]);
