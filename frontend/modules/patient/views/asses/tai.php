@@ -125,10 +125,12 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    <form>
+                <td align='center'>
+                    <form method="POST">
+                        <input type="hidden" name="_csrf" value="<?=\Yii::$app->request->getCsrfToken()?>" />
                         <input type="hidden" name="tai_score" id='tai_score' value="0">
                         <input type="hidden" name="adl_score" id='adl_score' value="0">
+                        <button type="submit" style="margin: 5px"> บันทึก </button>
                     </form>
                 </td>
             </tr>

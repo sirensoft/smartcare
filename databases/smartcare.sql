@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-04 08:34:50
+Date: 2017-01-04 15:55:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,20 +23,22 @@ CREATE TABLE `assessment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `patient_id` int(11) DEFAULT NULL,
   `date_serv` date DEFAULT NULL,
-  `adl` int(11) DEFAULT NULL COMMENT 'คะแนน ADL',
-  `tai` varchar(255) DEFAULT NULL COMMENT 'จัดกลุ่ม TAI',
+  `adl_score` int(11) DEFAULT NULL COMMENT 'คะแนน ADL',
+  `tai_score` int(11) DEFAULT NULL,
+  `tai_class` varchar(255) DEFAULT NULL COMMENT 'จัดกลุ่ม TAI',
   `note` varchar(255) DEFAULT NULL,
   `doc_file` varchar(255) DEFAULT NULL,
   `provider_id` int(11) DEFAULT NULL,
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of assessment
 -- ----------------------------
-INSERT INTO `assessment` VALUES ('1', '2', null, '11', 'C1', null, null, null, '2017-01-02 23:12:24');
-INSERT INTO `assessment` VALUES ('2', '2', null, '12', 'I2', null, null, null, null);
+INSERT INTO `assessment` VALUES ('1', '2', '2017-01-04', '11', '11', null, null, null, null, '2017-01-04 15:48:32');
+INSERT INTO `assessment` VALUES ('2', '2', '2017-01-04', '8', '13', null, null, null, null, '2017-01-04 15:53:41');
+INSERT INTO `assessment` VALUES ('3', '2', '2017-01-04', '0', '2', null, null, null, null, '2017-01-04 15:55:12');
 
 -- ----------------------------
 -- Table structure for c_class

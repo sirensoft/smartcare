@@ -5,5 +5,6 @@ function calAdl() {
   });
   $("#adl_point_top").html(adl)
   $("#adl_point_foot").html(adl);
+  $("#adl_score").val(adl);
 }
 $("input[type=radio][data-adl]").on("change", calAdl);

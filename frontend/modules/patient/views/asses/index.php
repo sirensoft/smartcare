@@ -9,6 +9,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
 use kartik\tabs\TabsX;
 
+?>
+<?php if (\Yii::$app->session->hasFlash('success')): ?>
+  
+  <?= \Yii::$app->session->getFlash('success') ?>
+
+<?php endif; ?>
+
+<?php
+
 echo TabsX::widget([
     'position' => TabsX::POS_ABOVE,
     'align' => TabsX::ALIGN_LEFT,

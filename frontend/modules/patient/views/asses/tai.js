@@ -5,5 +5,6 @@ function calTai() {
   });
   $("#tai_point_top").html(tai)
   $("#tai_point_foot").html(tai);
+  $("#tai_score").val(tai);
 }
 $("input[type=radio][data-tai]").on("change", calTai);
