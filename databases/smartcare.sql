@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-04 16:05:00
+Date: 2017-01-04 17:27:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,16 +32,17 @@ CREATE TABLE `assessment` (
   `provider_id` int(11) DEFAULT NULL,
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of assessment
 -- ----------------------------
-INSERT INTO `assessment` VALUES ('1', '2', '2017-01-04', '11', '11', null, null, null, null, null, '2017-01-04 15:48:32');
-INSERT INTO `assessment` VALUES ('2', '2', '2017-01-04', '8', '13', null, null, null, null, null, '2017-01-04 15:53:41');
-INSERT INTO `assessment` VALUES ('3', '2', '2017-01-04', '0', '2', null, null, null, null, null, '2017-01-04 15:55:12');
-INSERT INTO `assessment` VALUES ('4', '4', '2017-01-04', '11', '12', null, null, null, null, null, '2017-01-04 15:58:25');
-INSERT INTO `assessment` VALUES ('5', '4', '2017-01-04', '4', '8', null, null, null, null, '1', '2017-01-04 16:00:03');
+INSERT INTO `assessment` VALUES ('1', '2', '2017-01-04', '4', '2', null, null, null, null, '1', '2017-01-04 16:14:39');
+INSERT INTO `assessment` VALUES ('2', '2', '2017-01-04', '2', '5', null, null, null, null, '1', '2017-01-04 16:17:39');
+INSERT INTO `assessment` VALUES ('3', '2', '2017-01-04', '0', '3', null, null, null, null, '1', '2017-01-04 16:18:27');
+INSERT INTO `assessment` VALUES ('4', '2', '2017-01-04', '10', '16', null, null, null, null, '1', '2017-01-04 16:31:34');
+INSERT INTO `assessment` VALUES ('5', '2', '2017-01-04', '5', null, '', null, null, null, null, '2017-01-04 17:20:51');
+INSERT INTO `assessment` VALUES ('6', '2', '2017-01-04', '12', null, 'I3', null, null, null, null, '2017-01-04 17:22:06');
 
 -- ----------------------------
 -- Table structure for c_class
@@ -982,7 +983,7 @@ CREATE TABLE `patient` (
 -- ----------------------------
 -- Records of patient
 -- ----------------------------
-INSERT INTO `patient` VALUES ('2', '3650100810887', 'พ.อ.', 'สมหมาย', 'ใจเย็น', 'ชาย', '2012-10-09', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', 'ยังไม่จำหน่าย', null, '10', '12', 'I2', '4', 'ติดเตียง-2', '2017-01-03');
+INSERT INTO `patient` VALUES ('2', '3650100810887', 'พ.อ.', 'สมหมาย', 'ใจเย็น', 'ชาย', '2012-10-09', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', 'ยังไม่จำหน่าย', null, '10', '12', 'I3', '4', 'ติดเตียง-2', '2017-01-03');
 INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '2011-10-11', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', 'ยังไม่จำหน่าย', null, '10', '0', '', null, 'ติดบ้าน-2', '2017-01-03');
 INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1960-01-01', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', 'ยังไม่จำหน่าย', null, '10', '0', '', null, null, '2017-01-03');
 
@@ -1095,7 +1096,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', 'W_D4LHoMYSyV1c8Lv4VgYlXt5SU1aSsb', '1234', null, 'admin@localhost.com', '10', '2', '2-Care Manager', null, null, null, null, '07477', null, null, '1482803441', '1482803441');
+INSERT INTO `user` VALUES ('1', 'admin', 'W_D4LHoMYSyV1c8Lv4VgYlXt5SU1aSsb', '1234', null, 'admin@localhost.com', '10', '2', '2-Care Manager', '111', 'นาย', 'อุเทน', 'จาดยางโทน', '07477', null, null, '1482803441', '1482803441');
 INSERT INTO `user` VALUES ('5', 'sa', 'jH-cX5qVRZzTWjR5Jml4gPgMGDTjqlvn', 'sa', null, 'admin1@localhost.comm', '10', '3', '3-Care Giver', '1234566789000', 'sdsd', 'sdsdsd', 'sdsdsd', '07477', null, null, '1482807273', '1482807273');
 INSERT INTO `user` VALUES ('9', 'adminn', 'Z28DJIIcjF0Z9pIzYMCkRjH3uKTfnwHN', '1234', null, 'd@ffff.com', '10', '2', '2-Care Manager', '3650100214005', 'นายแพทย์', 'กกกก', 'กกกก', '07478', null, null, '1483424465', '1483424465');
 INSERT INTO `user` VALUES ('10', 'root', 'IGUsnXwDtoBq810TvnLJNr2nywYaBHxU', '112233', null, 'tehnnn@gmail.com', '10', '3', '3-Care Giver', '3650100810887', 'นาย', 'อุเทน', 'จาดยางโทน', '07477', null, null, '1483424840', '1483424840');
