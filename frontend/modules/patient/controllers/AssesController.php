@@ -34,7 +34,7 @@ class AssesController extends AppController {
 
             MyHelper::setPatientADL($pid);
             MyHelper::setPatientTAI($pid);            
-            MyHelper::callMysqlFunc('set_patient_class');
+            MyHelper::execSql('CALL set_patient_class()');
 
 
             \Yii::$app->session->setFlash('success', "บันทึกแล้ว");

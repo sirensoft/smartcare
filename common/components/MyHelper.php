@@ -122,8 +122,8 @@ class MyHelper extends \yii\base\Component {
       return $model->version." (".$model->note1.")";
     }
     
-    public static function callMysqlFunc($func){
-        $sql = " CALL $func; ";
+    public static function execSql($sql){
+        
         return \Yii::$app->db->createCommand($sql)->execute();
     }
 
