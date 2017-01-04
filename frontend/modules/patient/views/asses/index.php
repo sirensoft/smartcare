@@ -27,9 +27,14 @@ echo TabsX::widget([
             'content' => $this->render('adl'),
             'active' => true
         ],
-        [
+        /*[
             'label' => 'แบบประเมิน TAI',
             'content' => $this->render('tai'),
+            
+        ],*/
+        [
+            'label' => 'แบบประเมิน TAI ภาพ',
+            'content' => $this->render('tai_img'),
             
         ],
         [

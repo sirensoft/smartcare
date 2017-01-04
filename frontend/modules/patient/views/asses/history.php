@@ -20,8 +20,8 @@ echo GridView::widget([
         ['class' => 'yii\grid\SerialColumn'],
         'DATE_SERV:datetime:วันที่ประเมิน',
         'adl_score:integer:ADL SCORE',
-        'tai_score:integer:TAI SCORE',
-        'tal_class:text:TAI CLASS',
+        //'tai_score:integer:TAI SCORE',
+        'tai_class:text:TAI CLASS',
         'group_text:text:กลุ่ม',
         'note:text:หมายเหตุ'
     ]
