@@ -28,7 +28,7 @@
                                 ลุกขึ้นนั้ง และสามารถที่จะลงมายืนข้างเตียงได้ 
                             </li>
                             <li>
-                                <input name="t1" type="radio" value="1" data-tai='1'>
+                                <input  type="radio" name="t1" value="1" data-tai='1'>
                                 นอนบนเตียง สามารถตะแคงไปมาได้
                             </li>
                             <li>
@@ -112,7 +112,7 @@
                                 ใส่/เปลี่ยน ผ้าอ้อม อย่างยากลำบาก
                             </li>
                             <li>
-                                <input type="radio" name="t4"  value="0" data-tal='0'>
+                                <input type="radio" name="t4"  value="0" data-tai='0'>
                                 ใส่สายสวนปัสสาวะ
                             </li>
                         </ul>
@@ -124,6 +124,14 @@
                     <div style="font-weight: bold">คะแนน TAI = <span id='tai_point_foot'></span></div>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <form>
+                        <input type="hidden" name="tai_score" id='tai_score' value="0">
+                        <input type="hidden" name="adl_score" id='adl_score' value="0">
+                    </form>
+                </td>
+            </tr>
             
 
         </tbody>
@@ -132,3 +140,4 @@
 $this->registerJs($this->render('tai.js'));
 
 ?>
+

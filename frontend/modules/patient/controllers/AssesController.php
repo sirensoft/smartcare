@@ -10,19 +10,10 @@ use common\components\MyHelper;
  * @author utehn
  */
 class AssesController extends AppController {
-    public function actionIndex($pid){
+    public function actionIndex($pid,$tai_score=0,$adl_score=0){
         return $this->render('index',[
             'pid'=>$pid
         ]);
     }
 
-    public function actionAdl(){
-        return $this->render('adl');
-    }
-    public function actionTai(){
-        return $this->render('tai');
-    }
-    public function actionAjax($adl,$tai,$provider_id,$note){
-        
-    }
 }
