@@ -10,8 +10,10 @@ use common\components\MyHelper;
  * @author utehn
  */
 class AssesController extends AppController {
-    public function actionIndex(){
-        return $this->render('index');
+    public function actionIndex($pid){
+        return $this->render('index',[
+            'pid'=>$pid
+        ]);
     }
 
     public function actionAdl(){

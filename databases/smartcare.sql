@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-04 00:13:50
+Date: 2017-01-04 08:34:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS `assessment`;
 CREATE TABLE `assessment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `patient_id` int(11) DEFAULT NULL,
+  `date_serv` date DEFAULT NULL,
   `adl` int(11) DEFAULT NULL COMMENT 'คะแนน ADL',
   `tai` varchar(255) DEFAULT NULL COMMENT 'จัดกลุ่ม TAI',
   `note` varchar(255) DEFAULT NULL,
@@ -34,8 +35,8 @@ CREATE TABLE `assessment` (
 -- ----------------------------
 -- Records of assessment
 -- ----------------------------
-INSERT INTO `assessment` VALUES ('1', '2', '11', 'C1', null, null, null, '2017-01-02 23:12:24');
-INSERT INTO `assessment` VALUES ('2', '2', '12', 'I2', null, null, null, null);
+INSERT INTO `assessment` VALUES ('1', '2', null, '11', 'C1', null, null, null, '2017-01-02 23:12:24');
+INSERT INTO `assessment` VALUES ('2', '2', null, '12', 'I2', null, null, null, null);
 
 -- ----------------------------
 -- Table structure for c_class
@@ -1105,7 +1106,7 @@ CREATE TABLE `user_log` (
   `login_date` datetime DEFAULT NULL,
   `ip` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_log
@@ -1113,6 +1114,7 @@ CREATE TABLE `user_log` (
 INSERT INTO `user_log` VALUES ('1', 'admin', '2017-01-03 23:12:53', '::1');
 INSERT INTO `user_log` VALUES ('2', 'sa', '2017-01-03 23:14:56', '::1');
 INSERT INTO `user_log` VALUES ('3', 'root', '2017-01-03 23:19:58', '::1');
+INSERT INTO `user_log` VALUES ('4', 'admin', '2017-01-04 00:16:25', '::1');
 
 -- ----------------------------
 -- Procedure structure for set_event_on

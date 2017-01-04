@@ -1,11 +1,13 @@
 <form >
-    <table width="100%" border="1" align="center" cellpadding="3" cellspacing="0">
-        <tbody><tr>
+    <table width="100%" border="1"  cellpadding="3" cellspacing="0">
+        <tbody>
+            <tr>
                 <td align="center"><h3> X คะแนน  , กลุ่ม X</h3></td>
             </tr>
             <tr>
-                <td><ol>
-                        <li>การเคลือนที่ภายในห้องหรือบ้าน  </li>
+                <td>
+                    <ol>
+                        <li style="font-weight: bold">การเคลือนที่ภายในห้องหรือบ้าน  </li>
                         <ul>
                             <li>
                                 <input type="radio" name="v1" id="radio2" value="0">
@@ -21,7 +23,7 @@
                                 เดินหรือเคลื่อนที่ได้เอง
                             </li>
                         </ul>
-                        <li>การลุกจากที่นอนหรือลุกจากเตียงไปยังเก้าอี้            </li>
+                        <li style="font-weight: bold">การลุกจากที่นอนหรือลุกจากเตียงไปยังเก้าอี้</li>
                         <ul>
                             <li>
                                 <input type="radio" name="v2" id="radio5" value="0">
@@ -37,7 +39,7 @@
                                 ทำได้เอง
                             </li>
                         </ul>
-                        <li>การขึ้นลงบันได 1 ขั้น            </li>
+                        <li style="font-weight: bold">การขึ้นลงบันได 1 ขั้น</li>
                         <ul>
                             <li>
                                 <input type="radio" name="v3" id="radio9" value="0">
@@ -49,7 +51,7 @@
                                 <input type="radio" name="v3" id="radio11" value="2">
                                 ขึ้นลงได้เอง (ถ้าต้องการเครื่องช่วยเดิน เช่นที่พยุงเดิน จะต้องเอาขึ้นลงได้ด้วย)</li>
                         </ul>
-                        <li>การใช้ห้องน้้ำ            </li>
+                        <li style="font-weight: bold">การใช้ห้องน้ำ</li>
                         <ul>
                             <li>
                                 <input type="radio" name="v4" id="radio12" value="0">
@@ -62,7 +64,7 @@
                                 ช่วยตัวเองได้ดี (ขึ้นและลงจากโถส้วมได้ ทำความสะอาดได้เรียบร้อยหลังเสร็จธุระ ถอดใส่เสื้อผ้าได้เรียบร้อย)
                             </li>
                         </ul>
-                        <li>การกลั้นปัสสาวะในช่วง 1 สัปดาห์ที่ผ่านา            </li>
+                        <li style="font-weight: bold">การกลั้นปัสสาวะในช่วง 1 สัปดาห์ที่ผ่านา</li>
                         <ul>
                             <li>
                                 <input type="radio" name="v5" id="radio15" value="0">
@@ -75,19 +77,19 @@
                                 กลั้นได้ปกติ
                             </li>
                         </ul>
-                        <li>การถ่ายอุจจาระในช่วง 1 สัปดาห์ที่ผ่านา</li>
+                        <li style="font-weight: bold">การถ่ายอุจจาระในช่วง 1 สัปดาห์ที่ผ่านมา</li>
                         <ul>
                             <li>
                                 <input type="radio" name="v6" id="radio18" value="0">
-                                กลั้นไม่ได้ หรือต้องการสวนอุจจาระอยู้เสมอ</li>
+                                กลั้นไม่ได้ หรือต้องการสวนอุจจาระอยู่เสมอ</li>
                             <li>
                                 <input type="radio" name="v6" id="radio19" value="1">
-                                กลั้นไม่ได้บางครั้ง (เป็นน้อยกว่า1 ครั้ง&nbsp;ต่อสัปดาห์)</li>
+                                กลั้นไม่ได้บางครั้ง (เป็นน้อยกว่า1 ครั้ง ต่อสัปดาห์)</li>
                             <li>
                                 <input type="radio" name="v6" id="radio20" value="2">
                                 กลั้นได้ปกติ </li>
                         </ul>
-                        <li>การอาบน้ำ</li>
+                        <li style="font-weight: bold">การอาบน้ำ</li>
                         <ul>
                             <li>
                                 <input type="radio" name="v7" id="radio21" value="0">
@@ -97,7 +99,7 @@
                                 อาบน้ำได้เอง
                             </li>
                         </ul>
-                        <li>การแต่งกาย (ล้างหน้า หวีผม แปรงฟัน โกนหนวด ในระยะ 24-48 ชั่วโมงที่ผ่่านมา)            </li>
+                        <li style="font-weight: bold">การแต่งกาย (ล้างหน้า หวีผม แปรงฟัน โกนหนวด ในระยะ 24-48 ชั่วโมงที่ผ่านมา)</li>
                         <ul>
                             <li>
                                 <input type="radio" name="v8" id="radio23" value="0">
@@ -106,7 +108,7 @@
                                 <input type="radio" name="v8" id="radio24" value="1">
                                 ทำเองได้ (รวมทั้งทำได้เอง ถ้าเตรียมอุปกรณฺ์ไว้ให้)</li>
                         </ul>
-                        <li>การสวมใส่เสื้อผ้า            </li>
+                        <li style="font-weight: bold">การสวมใส่เสื้อผ้า</li>
                         <ul>
                             <li>
                                 <input type="radio" name="v9" id="radio25" value="0">
@@ -119,9 +121,8 @@
                                 ช่วยตัวเองได้ดี (รวมทั้งการติดกระดุม รูดซิบ หรือใช้เสื้อผ้าที่เหมาะสมก็ได้)
                             </li>
                         </ul>
-                        <li>การรับประทานอาหาร (เมืือเตรียมสำรับไว้ให้เรียบร้อยต่อหน้า)&nbsp; 
-                            <label for="v3"><br>
-                            </label>
+                        <li style="font-weight: bold">การรับประทานอาหาร (เมืือเตรียมสำรับไว้ให้เรียบร้อยต่อหน้า)</li> 
+                            
                             <ul>
                                 <li>
                                     <input type="radio" name="v10" id="radio28" value="0">
@@ -134,23 +135,29 @@
                                     ตักอาหารและช่วยตัวเองได้เป็นปกติ
                                 </li>
                             </ul>
-                        </li>
-                    </ol></td>
+                        
+                    </ol>
+                </td>
             </tr>
            
             <tr>
-                <td align="center">
-                    <table width="700%" border="0" align="center" cellpadding="3" cellspacing="0">
+                <td align="left">
+                    <table  border="0" align="left" cellpadding="3" cellspacing="0">
                         <tbody>
                             <tr>
-                                <td><ol>
-                                        <li>ผู้สูงอายุที่พึ่งตนเองได้ ช่วยเหลือผู้อื่น ชุมชน สังคมได้ (ติดสังคม) คะแนน 12+</li>
-                                        <li>ผู้สูงอายุที่พึ่งตนเองได้บ้าง (ติดบ้าน) คะแนน 5-11 คะแนน</li>
-                                        <li>ผู้สูงอายุกลุ่มที่พึ่งตนเองไม่ได้ (ติดเตียง) คะแนน 0-4 คะแนน</li>
-                                    </ol></td>
+                                <td>
+                                    <p style="font-weight: bold">คำอธิบาย</p>
+                                    <ol>
+                                        <li>คะแนน 12+ :(ติดสังคม) ผู้สูงอายุที่พึ่งตนเองได้ ช่วยเหลือผู้อื่น ชุมชน สังคมได้ </li>
+                                        <li>คะแนน 5-11 :(ติดบ้าน) ผู้สูงอายุที่พึ่งตนเองได้บ้าง  </li>
+                                        <li>คะแนน 0-4 :(ติดเตียง) ผู้สูงอายุกลุ่มที่พึ่งตนเองไม่ได้  </li>
+                                    </ol>
+                                </td>
                             </tr>
-                        </tbody></table>
+                        </tbody>
+                    </table>
                 </td>
             </tr>
-        </tbody></table>
+        </tbody>
+    </table>
 </form>
