@@ -31,8 +31,11 @@ class AssesController extends AppController {
             $model->provider_id = \Yii::$app->request->post('provider_id');
             $model->d_update = date('Y-m-d H:i:s');
             $model->save();
+            
+            
             \Yii::$app->session->setFlash('success', "บันทึกแล้ว");
             
+            return $this->redirect(['index','pid'=>$pid]);
         }
         return $this->render('index', [
                     'pid' => $pid
