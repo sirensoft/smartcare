@@ -25,6 +25,7 @@ use Yii;
  * @property string $nation
  * @property string $region
  * @property string $hospcode
+ * @property string $pid
  * @property string $refer_from
  * @property string $disease
  * @property string $discharge
@@ -51,12 +52,12 @@ class Patient extends \yii\db\ActiveRecord {
     public function rules() {
         return [
 
-            [['cid', 'prename', 'name', 'lname', 'province', 'district', 'sex', 'subdistrict', 'village_no', 'hospcode'], 'required'],
+            [['cid', 'prename', 'name', 'lname', 'province', 'district', 'sex', 'subdistrict', 'village_no', 'hospcode'], 'required','message' => ''],
             [['birth'], 'safe'],
             [['dupdate'], 'safe'],
             [['typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
             [['cid', 'tai'], 'string', 'max' => 13],
-            [['refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'region', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
+            [['pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'region', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
             ['cid', 'unique', 'targetClass' => '\frontend\models\Patient', 'message' => 'CID มีในระบบแล้ว'],
         ];
     }
@@ -85,6 +86,7 @@ class Patient extends \yii\db\ActiveRecord {
             'nation' => 'สัญชาติ',
             'region' => 'เชื้อชาติ',
             'hospcode' => 'รหัสหน่วยบริการ',
+            'pid'=>'PID',
             'refer_from'=>'รับส่งต่อจาก',
             'disease' => 'โรคประจำตัว',
             'discharge' => 'การจำหน่าย',

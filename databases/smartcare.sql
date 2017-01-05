@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-04 23:50:17
+Date: 2017-01-05 08:21:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,7 +32,7 @@ CREATE TABLE `assessment` (
   `provider_id` int(11) DEFAULT NULL,
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of assessment
@@ -61,6 +61,10 @@ INSERT INTO `assessment` VALUES ('21', '2', '2017-01-04', null, null, 'C4', 'ก
 INSERT INTO `assessment` VALUES ('22', '2', '2017-01-04', '12', null, 'B3', 'กลุ่มที่ 1 ติดบ้าน-1', null, null, null, '2017-01-04 23:36:49');
 INSERT INTO `assessment` VALUES ('23', '2', '2017-01-04', null, null, 'I1', 'กลุ่มที่ 3 ติดเตียง-2', null, null, null, '2017-01-04 23:40:07');
 INSERT INTO `assessment` VALUES ('24', '2', '2017-01-04', '1', null, 'C3', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, '2017-01-04 23:49:58');
+INSERT INTO `assessment` VALUES ('25', '4', '2017-01-04', '2', null, 'I2', 'กลุ่มที่ 3 ติดเตียง-2', null, null, null, '2017-01-04 23:51:36');
+INSERT INTO `assessment` VALUES ('26', '4', '2017-01-04', null, null, 'I3', 'กลุ่มที่ 3 ติดเตียง-1', null, null, null, '2017-01-04 23:52:22');
+INSERT INTO `assessment` VALUES ('27', '6', '2017-01-05', '1', null, 'C3', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, '2017-01-05 00:13:10');
+INSERT INTO `assessment` VALUES ('28', '2', '2017-01-05', '12', null, '', '-', null, null, null, '2017-01-05 04:20:25');
 
 -- ----------------------------
 -- Table structure for c_class
@@ -1006,6 +1010,7 @@ CREATE TABLE `patient` (
   `nation` varchar(255) DEFAULT NULL COMMENT 'สัญชาติ',
   `region` varchar(255) DEFAULT NULL COMMENT 'เชื้อชาติ',
   `hospcode` varchar(5) DEFAULT NULL COMMENT 'พืนที่ของหน่วยบริการ',
+  `pid` varchar(255) DEFAULT NULL,
   `refer_from` varchar(255) DEFAULT NULL,
   `disease` varchar(255) DEFAULT NULL,
   `discharge` varchar(255) DEFAULT NULL COMMENT 'การจำหน่าย',
@@ -1017,14 +1022,15 @@ CREATE TABLE `patient` (
   `class_name` varchar(255) DEFAULT NULL,
   `dupdate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of patient
 -- ----------------------------
-INSERT INTO `patient` VALUES ('2', '3650100810889', 'นาย', 'สมหมาย', 'ใจเย็น', 'ชาย', '2012-10-09', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', 'โรงพยาบาลพุทธชินราช', '', '9', null, '10', '1', 'C3', '2', 'ติดบ้าน-2', '2017-01-04');
-INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '2011-10-11', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', '', '', '9', null, '10', '10', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
-INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1960-01-01', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', '', '', '9', null, '10', '12', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
+INSERT INTO `patient` VALUES ('2', '3650100810889', 'นาย', 'สมหมาย', 'ใจเย็น', 'ชาย', '2012-10-09', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, 'โรงพยาบาลพุทธชินราช', '', '9', null, '10', '12', 'C3', '2', 'ติดบ้าน-2', '2017-01-04');
+INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '2011-10-11', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '2', 'I3', '3', 'ติดเตียง-1', '2017-01-04');
+INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1960-01-01', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '12', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
+INSERT INTO `patient` VALUES ('6', '3650100810880', 'นาย', 'สายัน', 'นิรันดร', 'ชาย', '2000-01-17', 'พิษณุโลก', 'เมือง', 'งิ้วงาม', '3', 'งิ้วงาม', '67/3', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '1', 'C3', '2', 'ติดบ้าน-2', '2017-01-05');
 
 -- ----------------------------
 -- Table structure for plan_care

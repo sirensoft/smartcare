@@ -7,9 +7,14 @@ use common\components\MyHelper;
 use kartik\form\ActiveField;
 use kartik\date\DatePicker;
 
-/* @var $this yii\web\View */
-/* @var $model frontend\models\Patient */
-/* @var $form yii\widgets\ActiveForm */
+$css = <<< CSS
+.alignment
+{
+    margin-top:25px;
+}
+CSS;
+$this->registerCss($css);
+
 ?>
 
 
@@ -18,11 +23,18 @@ use kartik\date\DatePicker;
 $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
 ?>
 <div class="form-group">
-    <div class="col-sm-3">
-        <?= $form->field($model, 'cid'); ?>
+    <div class="col-sm-4 ">
+        <div class="input-group">
+            <?= $form->field($model, 'cid'); ?>
+            
+            <span class="input-group-btn">                
+                <button class="btn btn-default alignment" type="button" id="btn_hdc">HDC</button>
+            </span>
+        </div>
     </div>
 
-    <div class="col-sm-3">
+
+    <div class="col-sm-2">
         <?php
         $items = MyHelper::dropDownItems(" SELECT t.prename id,t.prename val from c_prename t ", 'id', 'val');
         echo $form->field($model, 'prename')->widget(Select2::classname(), [
@@ -96,8 +108,8 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         <?= $form->field($model, 'lon')->textInput(['maxlength' => true]) ?>
     </div>
     <div class="col-sm-1">
-        <label for="btn-auto" style="color: white">...</label>
-        <button type="button" class="btn btn-default" id="btn-auto">พิกัด</button>
+        
+        <button type="button" class="btn btn-default alignment" id="btn-auto">พิกัด</button>
     </div>
 
 </div>
@@ -197,7 +209,7 @@ WHERE t.role = 3 AND t.office = '$office' ";
 
 <div class="form-group">
     <div class="col-sm-3"> 
-        
+
         <?= Html::submitButton($model->isNewRecord ? '<i class="glyphicon glyphicon-ok"></i> เพิ่ม' : '<i class="glyphicon glyphicon-ok"></i> บันทึก ', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div> 
 </div>
