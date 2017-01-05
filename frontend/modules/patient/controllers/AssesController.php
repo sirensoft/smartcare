@@ -26,9 +26,22 @@ class AssesController extends AppController {
             $model->patient_id = $pid;
             $model->date_serv = date('Y-m-d');
             $model->adl_score = \Yii::$app->request->post('adl_score');
+            
+            $pp_code = '1B128';
+            if($model->adl_score >=0 and $model->adl_score <=4){
+                $pp_code = '1B1282';
+            }
+            if($model->adl_score >=5 and $model->adl_score <=11){
+                $pp_code = '1B1281';
+            }
+            if($model->adl_score >=12){
+                $pp_code = '1B1280';
+            }
+            $model->pp_code = $pp_code;
+            
             //$model->tai_score = \Yii::$app->request->post('tai_score');
             $model->tai_class = \Yii::$app->request->post('tai_class');
-            $model->provider_id = \Yii::$app->request->post('provider_id');
+            $model->provider_id = MyHelper::getUserId();
             $model->d_update = date('Y-m-d H:i:s');
             $model->save();
 
