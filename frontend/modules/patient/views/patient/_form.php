@@ -41,7 +41,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         echo $form->field($model, 'prename')->widget(Select2::classname(), [
             'data' => $items,
             'language' => 'th',
-            'options' => ['placeholder' => 'คำนำหน้าชื่อ ...'],
+            'options' => ['placeholder' => 'เลือก ...'],
             'pluginOptions' => [
                 'allowClear' => true
             ],
@@ -50,11 +50,11 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
     </div>
 
     <div class="col-sm-3">
-        <?= $form->field($model, 'name')->textInput(['placeholder' => 'ชื่อ']) ?>
+        <?= $form->field($model, 'name')->textInput() ?>
     </div>
 
     <div class="col-sm-3">
-        <?= $form->field($model, 'lname')->textInput(['placeholder' => 'นามสกุล']) ?>
+        <?= $form->field($model, 'lname')->textInput() ?>
     </div>
 </div>
 
