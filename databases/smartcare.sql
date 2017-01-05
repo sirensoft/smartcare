@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-05 15:06:07
+Date: 2017-01-05 19:07:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1030,10 +1030,10 @@ INSERT INTO `patient` VALUES ('6', '3650100810880', 'นาย', 'สายั�
 INSERT INTO `patient` VALUES ('7', '7894522101445', 'นาย', 'ปองพล', 'ค้ำคุณ', 'ชาย', '1944-11-14', '72', 'พิษณุโลก', 'เนินมะปราง', 'เนินมะปราง', '10', 'เนินมะกอก', '25/4', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '9', 'C3', '2', 'ติดบ้าน-2', null, null, '2017-01-05');
 
 -- ----------------------------
--- Table structure for patient_tmp
+-- Table structure for patient_temp
 -- ----------------------------
-DROP TABLE IF EXISTS `patient_tmp`;
-CREATE TABLE `patient_tmp` (
+DROP TABLE IF EXISTS `patient_temp`;
+CREATE TABLE `patient_temp` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cid` varchar(13) DEFAULT NULL COMMENT 'เลข13หลัก',
   `prename` varchar(255) DEFAULT NULL COMMENT 'คำนำหน้า',
@@ -1064,13 +1064,20 @@ CREATE TABLE `patient_tmp` (
   `tai` varchar(255) DEFAULT NULL,
   `class_id` int(11) DEFAULT NULL COMMENT 'จำแนกกลุ่ม',
   `class_name` varchar(255) DEFAULT NULL,
+  `cousin` text,
+  `tel` varchar(255) DEFAULT NULL,
   `dupdate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of patient_tmp
+-- Records of patient_temp
 -- ----------------------------
+INSERT INTO `patient_temp` VALUES ('2', '3650100810889', 'นาย', 'สมหมาย', 'ใจเย็น', 'ชาย', '1949-10-09', '67', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, 'โรงพยาบาลพุทธชินราช', '', '9', null, '10', '7', 'C3', '2', 'ติดบ้าน-2', 'นาย ก,นาง ข', '014875441', '2017-01-05');
+INSERT INTO `patient_temp` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '1955-10-11', '61', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '2', 'I3', '3', 'ติดเตียง-1', null, null, '2017-01-04');
+INSERT INTO `patient_temp` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1951-01-01', '66', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '12', 'C4', '2', 'ติดบ้าน-2', null, null, '2017-01-04');
+INSERT INTO `patient_temp` VALUES ('6', '3650100810880', 'นาย', 'สายัน', 'นิรันดร', 'ชาย', '1950-01-17', '66', 'พิษณุโลก', 'เมือง', 'งิ้วงาม', '3', 'งิ้วงาม', '67/3', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '1', 'C3', '2', 'ติดบ้าน-2', null, null, '2017-01-05');
+INSERT INTO `patient_temp` VALUES ('7', '7894522101445', 'นาย', 'ปองพล', 'ค้ำคุณ', 'ชาย', '1944-11-14', '72', 'พิษณุโลก', 'เนินมะปราง', 'เนินมะปราง', '10', 'เนินมะกอก', '25/4', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '9', 'C3', '2', 'ติดบ้าน-2', null, null, '2017-01-05');
 
 -- ----------------------------
 -- Table structure for plan
@@ -1080,7 +1087,7 @@ CREATE TABLE `plan` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `hospcode` varchar(5) DEFAULT NULL,
   `patient_id` int(11) DEFAULT NULL,
-  `date_assess` date DEFAULT NULL COMMENT 'วันที่ประเมิน',
+  `date_create` date DEFAULT NULL COMMENT 'วันที่ประเมิน',
   `rapid_code` varchar(255) DEFAULT NULL COMMENT 'ความร่งด่วน',
   `adl` int(11) DEFAULT NULL,
   `adl_text` varchar(255) DEFAULT NULL,
@@ -1101,11 +1108,13 @@ CREATE TABLE `plan` (
   `careful` text COMMENT 'ข้อควรระวังในการให้บริการ',
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of plan
 -- ----------------------------
+INSERT INTO `plan` VALUES ('1', null, '2', '2017-01-05', 'blue', null, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null);
+INSERT INTO `plan` VALUES ('2', null, '2', '2017-01-06', 'red', null, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', null);
 
 -- ----------------------------
 -- Table structure for plan_week
@@ -1141,7 +1150,7 @@ CREATE TABLE `plan_week` (
   `d_create` datetime DEFAULT NULL,
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of plan_week
