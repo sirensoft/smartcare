@@ -14,7 +14,6 @@ $css = <<< CSS
 }
 CSS;
 $this->registerCss($css);
-
 ?>
 
 
@@ -24,15 +23,17 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
 ?>
 <div class="form-group">
     <div class="col-sm-4 ">
-        <div class="input-group">
-            <?= $form->field($model, 'cid'); ?>
-            
-            <span class="input-group-btn">                
-                <button class="btn btn-default alignment" type="button" id="btn_hdc">HDC</button>
-            </span>
-        </div>
+        <?php if ($model->isNewRecord): ?>
+            <div class="input-group">
+                <?= $form->field($model, 'cid'); ?>            
+                <span class="input-group-btn">                
+                    <button class="btn btn-default alignment" type="button" id="btn_hdc">HDC</button>
+                </span>           
+            </div>
+        <?php else: ?>
+            <?= $form->field($model, 'cid'); ?>     
+        <?php endif; ?>
     </div>
-
 
     <div class="col-sm-2">
         <?php
@@ -62,7 +63,6 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         <?= $form->field($model, 'sex')->dropDownList(['ชาย' => 'ชาย', 'หญิง' => 'หญิง'], ['prompt' => 'เพศ']) ?>
     </div>
     <div class="col-sm-3">
-
         <?php
         echo $form->field($model, 'birth')->widget(DatePicker::classname(), [
             'options' => ['placeholder' => 'วดป.เกิด...'],
@@ -76,28 +76,26 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         ]);
         ?>
     </div>
-</div>
-
-<div class="form-group">
     <div class="col-sm-3">
         <?= $form->field($model, 'province')->textInput(['maxlength' => true]) ?>
     </div>
     <div class="col-sm-3">
         <?= $form->field($model, 'district')->textInput(['maxlength' => true]) ?>
     </div>
+</div>
+
+<div class="form-group">
     <div class="col-sm-2">
         <?= $form->field($model, 'subdistrict')->textInput(['maxlength' => true]) ?>
     </div>
-    <div class="col-sm-1">
+    <div class="col-sm-2">
         <?= $form->field($model, 'village_no')->textInput(['maxlength' => true]) ?>
     </div>
     <div class="col-sm-2">
 
         <?= $form->field($model, 'village_name')->textInput(['maxlength' => true]) ?>
     </div>
-</div>
 
-<div class="form-group">
     <div class="col-sm-2">
         <?= $form->field($model, 'house_no')->textInput(['maxlength' => true]) ?>
     </div>
@@ -106,11 +104,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
     </div>
     <div class="col-sm-2">
         <?= $form->field($model, 'lon')->textInput(['maxlength' => true]) ?>
-    </div>
-    <div class="col-sm-1">
-        
-        <button type="button" class="btn btn-default alignment" id="btn-auto">พิกัด</button>
-    </div>
+    </div>  
 
 </div>
 
@@ -185,6 +179,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
     </div>
 
 </div>
+
 <div class="form-group">
     <div class="col-sm-12"> 
         <?php
@@ -205,7 +200,7 @@ WHERE t.role = 3 AND t.office = '$office' ";
         ?>
     </div>
 </div>
-<?= $form->field($model, 'dupdate')->hiddenInput(['value' => date('Y-m-d')])->label(FALSE) ?>
+
 
 <div class="form-group">
     <div class="col-sm-3"> 
@@ -214,6 +209,7 @@ WHERE t.role = 3 AND t.office = '$office' ";
     </div> 
 </div>
 
+<?= $form->field($model, 'dupdate')->hiddenInput(['value' => date('Y-m-d')])->label(FALSE) ?>
 <?php ActiveForm::end(); ?>
 
 
