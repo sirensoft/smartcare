@@ -16,5 +16,8 @@ return [
     'report' => [
         'class' => 'frontend\modules\report\Report',
     ],
+    'health' => [
+        'class' => 'frontend\modules\health\Health',
+    ],
 ];
 

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-05 10:09:43
+Date: 2017-01-05 10:30:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -962,6 +962,21 @@ CREATE TABLE `c_version` (
 -- ----------------------------
 INSERT INTO `c_version` VALUES ('1', '1.170101', 'Test', null, null, '2017-01-03 22:59:00');
 INSERT INTO `c_version` VALUES ('2', '1.170105', 'Beta', null, null, '2017-01-03 23:07:34');
+
+-- ----------------------------
+-- Table structure for health
+-- ----------------------------
+DROP TABLE IF EXISTS `health`;
+CREATE TABLE `health` (
+  `id` int(11) NOT NULL,
+  `pid` int(11) DEFAULT NULL,
+  `note1` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of health
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for patient

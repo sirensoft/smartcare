@@ -20,11 +20,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php if(!MyHelper::isCg()):?>
         <?= Html::a('<i class="glyphicon glyphicon-edit"></i> แก้ไข', ['update', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
         
-        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เจ็บป่วย', ['history', 'pid' => $model->id], ['class' => 'btn btn-danger']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เจ็บป่วย', ['/health/default/index', 'pid' => $model->id], ['class' => 'btn btn-danger']) ?>
         <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ประเมิน', ['/patient/asses/index', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('<i class="glyphicon glyphicon-print"></i> พิมพ์', ['#', 'pid' => $model->id], ['class' => 'btn btn-info pull-right']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-print"></i> พิมพ์', ['/patient/print/index', 'pid' => $model->id], ['class' => 'btn btn-info pull-right']) ?>
         <?php endif; ?>
-        <?= Html::a('<i class="glyphicon glyphicon-calendar"></i> CP', ['/care/plan/index', 'pid' => $model->id], ['class' => 'btn btn-warning ']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-calendar"></i> PLAN', ['/care/plan/index', 'pid' => $model->id], ['class' => 'btn btn-warning ']) ?>
 
 
 
