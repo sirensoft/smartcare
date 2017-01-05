@@ -10,7 +10,7 @@ use frontend\models\Plan;
 /**
  * PlanSearch represents the model behind the search form about `frontend\models\Plan`.
  */
-class PlanSearch extends Plan
+class PlanWeekSearch extends PlanWeek
 {
     /**
      * @inheritdoc

@@ -101,7 +101,7 @@ $js = <<<JS
     //$('.fc-day-number').click(function(){        
        var date = $(this).parent().attr('data-date');
        console.log(date);       
-       $('#modal').modal('show').find('#modalContent').load('index.php?r=care/plan/create&start='+date+'&pid=$pid');
+       $('#modal').modal('show').find('#modalContent').load('index.php?r=care/plan-week/create&start='+date+'&pid=$pid');
        return false;
     });      
 JS;

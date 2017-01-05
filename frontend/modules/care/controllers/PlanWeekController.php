@@ -4,8 +4,8 @@ namespace frontend\modules\care\controllers;
 
 use Yii;
 use common\components\AppController;
-use frontend\models\Plan;
-use frontend\models\PlanSearch;
+use frontend\models\PlanWeek;
+use frontend\models\PlanWeekSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -16,7 +16,7 @@ use common\components\MyHelper;
 /**
  * PlanController implements the CRUD actions for Plan model.
  */
-class PlanController extends AppController {
+class PlanWeekController extends AppController {
 
     /**
      * @inheritdoc
@@ -44,7 +44,7 @@ class PlanController extends AppController {
         $vw = 'index';
 
         $tasks = [];
-        $raw = Plan::find()->where(['patient_id' => $pid])->all();
+        $raw = PlanWeek::find()->where(['patient_id' => $pid])->all();
 
         foreach ($raw as $plan) {
             $evt = new \yii2fullcalendar\models\Event();
@@ -52,7 +52,7 @@ class PlanController extends AppController {
             $evt->title = $plan->title;
 
             $evt->start = $plan->start_date . " " . $plan->start_time;
-            $evt->url = Url::toRoute(['/care/plan/update', 'id' => $evt->id]);
+            $evt->url = Url::toRoute(['/care/plan-week/update', 'id' => $evt->id]);
 
             if($plan->start_date > date('Y-m-d')  and $plan->is_done !=='1'){
                 $evt->color = 'blue';
@@ -95,7 +95,7 @@ class PlanController extends AppController {
      * @return mixed
      */
     public function actionCreate($pid, $start) {
-        $model = new Plan();
+        $model = new PlanWeek();
         $model->patient_id = $pid;
         $model->start_date = $start;
         $model->start_time = '08:00';
@@ -164,7 +164,7 @@ class PlanController extends AppController {
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id) {
-        if (($model = Plan::findOne($id)) !== null) {
+        if (($model = PlanWeek::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

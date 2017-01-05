@@ -35,14 +35,14 @@ use Yii;
  * @property string $d_create
  * @property string $d_update
  */
-class Plan extends \yii\db\ActiveRecord
+class PlanWeek extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'plan_care';
+        return 'plan_week';
     }
 
     /**
