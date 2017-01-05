@@ -13,6 +13,7 @@ use Yii;
  * @property string $lname
  * @property string $sex 
  * @property string $birth
+ * @property integer $age_y
  * @property string $province
  * @property string $district
  * @property string $subdistrict
@@ -55,7 +56,7 @@ class Patient extends \yii\db\ActiveRecord {
             [['cid', 'prename', 'name', 'lname', 'province', 'district', 'sex', 'subdistrict', 'village_no', 'hospcode'], 'required','message' => ''],
             [['birth'], 'safe'],
             [['dupdate'], 'safe'],
-            [['typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
+            [['age_y','typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
             [['cid', 'tai'], 'string', 'max' => 13],
             [['pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'region', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
             ['cid', 'unique', 'targetClass' => '\frontend\models\Patient', 'message' => 'CID มีในระบบแล้ว'],
@@ -74,6 +75,7 @@ class Patient extends \yii\db\ActiveRecord {
             'lname' => 'สกุล',
             'sex' => 'เพศ',
             'birth' => 'เกิด',
+            'age_y'=>'อายุ(ปี)',
             'province' => 'จังหวัด',
             'district' => 'อำเภอ',
             'subdistrict' => 'ตำบล',

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-05 09:23:09
+Date: 2017-01-05 10:03:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,13 +33,14 @@ CREATE TABLE `assessment` (
   `provider_id` int(11) DEFAULT NULL,
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of assessment
 -- ----------------------------
 INSERT INTO `assessment` VALUES ('1', '2', '2017-01-05', '8', '1B1281', null, 'B3', 'กลุ่มที่ 1 ติดบ้าน-1', null, null, null, '2017-01-05 09:18:35');
 INSERT INTO `assessment` VALUES ('2', '2', '2017-01-05', '8', '1B1281', null, 'B3', 'กลุ่มที่ 1 ติดบ้าน-1', null, null, '1', '2017-01-05 09:22:47');
+INSERT INTO `assessment` VALUES ('3', '2', '2017-01-05', '10', '1B1281', null, 'B3', 'กลุ่มที่ 1 ติดบ้าน-1', null, null, '1', '2017-01-05 09:32:42');
 
 -- ----------------------------
 -- Table structure for c_class
@@ -973,6 +974,7 @@ CREATE TABLE `patient` (
   `lname` varchar(255) DEFAULT NULL COMMENT 'สกุล',
   `sex` varchar(4) DEFAULT NULL,
   `birth` date DEFAULT NULL COMMENT 'เกิด',
+  `age_y` int(11) DEFAULT NULL,
   `province` varchar(255) DEFAULT NULL COMMENT 'จังหวัด',
   `district` varchar(255) DEFAULT NULL COMMENT 'อำเภอ',
   `subdistrict` varchar(255) DEFAULT NULL COMMENT 'ตำบล',
@@ -997,15 +999,16 @@ CREATE TABLE `patient` (
   `class_name` varchar(255) DEFAULT NULL,
   `dupdate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of patient
 -- ----------------------------
-INSERT INTO `patient` VALUES ('2', '3650100810889', 'นาย', 'สมหมาย', 'ใจเย็น', 'ชาย', '2012-10-09', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, 'โรงพยาบาลพุทธชินราช', '', '9', null, '10', '8', 'B3', '1', 'ติดบ้าน-1', '2017-01-04');
-INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '2011-10-11', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '2', 'I3', '3', 'ติดเตียง-1', '2017-01-04');
-INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1960-01-01', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '12', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
-INSERT INTO `patient` VALUES ('6', '3650100810880', 'นาย', 'สายัน', 'นิรันดร', 'ชาย', '2000-01-17', 'พิษณุโลก', 'เมือง', 'งิ้วงาม', '3', 'งิ้วงาม', '67/3', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '1', 'C3', '2', 'ติดบ้าน-2', '2017-01-05');
+INSERT INTO `patient` VALUES ('2', '3650100810889', 'นาย', 'สมหมาย', 'ใจเย็น', 'ชาย', '1949-10-09', '67', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, 'โรงพยาบาลพุทธชินราช', '', '9', null, '10', '10', 'B3', '1', 'ติดบ้าน-1', '2017-01-04');
+INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '1955-10-11', '61', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '2', 'I3', '3', 'ติดเตียง-1', '2017-01-04');
+INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1951-01-01', '66', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '12', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
+INSERT INTO `patient` VALUES ('6', '3650100810880', 'นาย', 'สายัน', 'นิรันดร', 'ชาย', '1950-01-17', '66', 'พิษณุโลก', 'เมือง', 'งิ้วงาม', '3', 'งิ้วงาม', '67/3', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '1', 'C3', '2', 'ติดบ้าน-2', '2017-01-05');
+INSERT INTO `patient` VALUES ('7', '7894522101445', 'นาย', 'ปองพล', 'ค้ำคุณ', 'ชาย', '1944-11-14', '72', 'พิษณุโลก', 'เนินมะปราง', 'เนินมะปราง', '10', 'เนินมะกอก', '25/4', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', null, null, null, null, '2017-01-05');
 
 -- ----------------------------
 -- Table structure for plan_care
@@ -1151,6 +1154,20 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `set_event_on`()
 BEGIN
 	
 SET GLOBAL event_scheduler = ON;
+
+END
+;;
+DELIMITER ;
+
+-- ----------------------------
+-- Procedure structure for set_patient_age
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `set_patient_age`;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `set_patient_age`()
+BEGIN
+	
+UPDATE patient p SET p.age_y = TIMESTAMPDIFF(YEAR,p.birth,CURDATE());
 
 END
 ;;

@@ -83,6 +83,7 @@ class PatientController extends AppController {
         $model = new Patient();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            MyHelper::execSql("CALL set_patient_age()");
             return $this->redirect(['view', 'pid' => $model->id]);
         } else {
             return $this->render('create', [

@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?=
     DetailView::widget([
+        'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
         'model' => $model,
         'attributes' => [
             'class_name',
@@ -43,6 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'lname',
             'sex',
             'birth',
+            'age_y',
             'province',
             'district',
             'subdistrict',
