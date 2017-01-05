@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-05 10:30:03
+Date: 2017-01-05 10:43:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1025,6 +1025,49 @@ INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม',
 INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1951-01-01', '66', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '12', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
 INSERT INTO `patient` VALUES ('6', '3650100810880', 'นาย', 'สายัน', 'นิรันดร', 'ชาย', '1950-01-17', '66', 'พิษณุโลก', 'เมือง', 'งิ้วงาม', '3', 'งิ้วงาม', '67/3', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '1', 'C3', '2', 'ติดบ้าน-2', '2017-01-05');
 INSERT INTO `patient` VALUES ('7', '7894522101445', 'นาย', 'ปองพล', 'ค้ำคุณ', 'ชาย', '1944-11-14', '72', 'พิษณุโลก', 'เนินมะปราง', 'เนินมะปราง', '10', 'เนินมะกอก', '25/4', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '9', 'C3', '2', 'ติดบ้าน-2', '2017-01-05');
+
+-- ----------------------------
+-- Table structure for patient_tmp
+-- ----------------------------
+DROP TABLE IF EXISTS `patient_tmp`;
+CREATE TABLE `patient_tmp` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cid` varchar(13) DEFAULT NULL COMMENT 'เลข13หลัก',
+  `prename` varchar(255) DEFAULT NULL COMMENT 'คำนำหน้า',
+  `name` varchar(255) DEFAULT NULL COMMENT 'ชื่อ',
+  `lname` varchar(255) DEFAULT NULL COMMENT 'สกุล',
+  `sex` varchar(4) DEFAULT NULL,
+  `birth` date DEFAULT NULL COMMENT 'เกิด',
+  `age_y` int(11) DEFAULT NULL,
+  `province` varchar(255) DEFAULT NULL COMMENT 'จังหวัด',
+  `district` varchar(255) DEFAULT NULL COMMENT 'อำเภอ',
+  `subdistrict` varchar(255) DEFAULT NULL COMMENT 'ตำบล',
+  `village_no` varchar(255) DEFAULT NULL COMMENT 'หมู่ที่',
+  `village_name` varchar(255) DEFAULT NULL COMMENT 'หมู่บ้าน',
+  `house_no` varchar(255) DEFAULT NULL COMMENT 'บลท.',
+  `lat` varchar(255) DEFAULT NULL,
+  `lon` varchar(255) DEFAULT NULL,
+  `typearea` int(11) DEFAULT NULL COMMENT 'ประเภทอยู่อาศัย',
+  `nation` varchar(255) DEFAULT NULL COMMENT 'สัญชาติ',
+  `region` varchar(255) DEFAULT NULL COMMENT 'เชื้อชาติ',
+  `hospcode` varchar(5) DEFAULT NULL COMMENT 'พืนที่ของหน่วยบริการ',
+  `pid` varchar(255) DEFAULT NULL,
+  `refer_from` varchar(255) DEFAULT NULL,
+  `disease` varchar(255) DEFAULT NULL,
+  `discharge` varchar(255) DEFAULT NULL COMMENT 'การจำหน่าย',
+  `cm_id` int(11) DEFAULT NULL,
+  `cg_id` int(11) DEFAULT NULL,
+  `adl` int(255) DEFAULT NULL,
+  `tai` varchar(255) DEFAULT NULL,
+  `class_id` int(11) DEFAULT NULL COMMENT 'จำแนกกลุ่ม',
+  `class_name` varchar(255) DEFAULT NULL,
+  `dupdate` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of patient_tmp
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for plan_care
