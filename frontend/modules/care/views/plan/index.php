@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = ['label' => 'ข้อมูล', 'url' => ['/p
 ?>
 <div style="background-color:#ffc0cb;color: black; padding: 5px;margin-bottom: 5px">
     <?php
-   echo "<b> แผนการดูแลของ : " . $model->prename . $model->name . " " . $model->lname 
+   echo "<b> แผนการดูแล : " . $model->prename . $model->name . " " . $model->lname 
         . " (ADL=" . $model->adl . ",TAI=" . $model->tai . " ,".$model->class_name.")</b>";
     ?>
 </div>
