@@ -9,7 +9,7 @@ use common\components\MyHelper;
 /* @var $searchModel frontend\models\PatientSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'รายชื่อ';
+$this->title = 'รายชื่อผู้สูงอายุที่มีภาวะพึ่งพิง';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="patient-index">
@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         
         <?php endif;?>
     </p>
+    
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
