@@ -9,12 +9,19 @@ $this->registerCss($this->render('custom.css'));
 $this->registerCss($this->render('cursor.css'));
 //$this->registerJs($this->render('click.js'));
 
-$this->title = "CM...";
+$this->title = $model->prename . $model->name . " " . $model->lname;
 $this->params['breadcrumbs'][] = ['label' => 'รายชื่อ', 'url' => ['/patient']];
 $this->params['breadcrumbs'][] = ['label' => 'ข้อมูล', 'url' => ['/patient/patient/view', 'pid' => $pid]];
-$this->params['breadcrumbs'][] = "CP: " . $model->prename . $model->name . " " . $model->lname 
-. "(ADL=" . $model->adl . ",TAI=" . $model->tai . " ,".$model->class_name.")";
+//$this->params['breadcrumbs'][] = '';
+?>
+<div style="background-color:#ffc0cb;color: black; padding: 5px;margin-bottom: 5px">
+    <?php
+   echo "<b> แผนการดูแลของ : " . $model->prename . $model->name . " " . $model->lname 
+        . " (ADL=" . $model->adl . ",TAI=" . $model->tai . " ,".$model->class_name.")</b>";
+    ?>
+</div>
 
+<?php
 
 
 $cm_click = "
