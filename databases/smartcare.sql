@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-05 14:50:28
+Date: 2017-01-05 15:06:07
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -1014,6 +1014,8 @@ CREATE TABLE `patient` (
   `tai` varchar(255) DEFAULT NULL,
   `class_id` int(11) DEFAULT NULL COMMENT 'จำแนกกลุ่ม',
   `class_name` varchar(255) DEFAULT NULL,
+  `cousin` text,
+  `tel` varchar(255) DEFAULT NULL,
   `dupdate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
@@ -1021,11 +1023,11 @@ CREATE TABLE `patient` (
 -- ----------------------------
 -- Records of patient
 -- ----------------------------
-INSERT INTO `patient` VALUES ('2', '3650100810889', 'นาย', 'สมหมาย', 'ใจเย็น', 'ชาย', '1949-10-09', '67', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, 'โรงพยาบาลพุทธชินราช', '', '9', null, '10', '7', 'C3', '2', 'ติดบ้าน-2', '2017-01-04');
-INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '1955-10-11', '61', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '2', 'I3', '3', 'ติดเตียง-1', '2017-01-04');
-INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1951-01-01', '66', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '12', 'C4', '2', 'ติดบ้าน-2', '2017-01-04');
-INSERT INTO `patient` VALUES ('6', '3650100810880', 'นาย', 'สายัน', 'นิรันดร', 'ชาย', '1950-01-17', '66', 'พิษณุโลก', 'เมือง', 'งิ้วงาม', '3', 'งิ้วงาม', '67/3', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '1', 'C3', '2', 'ติดบ้าน-2', '2017-01-05');
-INSERT INTO `patient` VALUES ('7', '7894522101445', 'นาย', 'ปองพล', 'ค้ำคุณ', 'ชาย', '1944-11-14', '72', 'พิษณุโลก', 'เนินมะปราง', 'เนินมะปราง', '10', 'เนินมะกอก', '25/4', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '9', 'C3', '2', 'ติดบ้าน-2', '2017-01-05');
+INSERT INTO `patient` VALUES ('2', '3650100810889', 'นาย', 'สมหมาย', 'ใจเย็น', 'ชาย', '1949-10-09', '67', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, 'โรงพยาบาลพุทธชินราช', '', '9', null, '10', '7', 'C3', '2', 'ติดบ้าน-2', 'นาย ก,นาง ข', '014875441', '2017-01-05');
+INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '1955-10-11', '61', 'พิษณุโลก', 'เมือง', 'วัดพริก', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '2', 'I3', '3', 'ติดเตียง-1', null, null, '2017-01-04');
+INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1951-01-01', '66', 'พิษณุโลก', 'เมือง', 'วัดพริก', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '12', 'C4', '2', 'ติดบ้าน-2', null, null, '2017-01-04');
+INSERT INTO `patient` VALUES ('6', '3650100810880', 'นาย', 'สายัน', 'นิรันดร', 'ชาย', '1950-01-17', '66', 'พิษณุโลก', 'เมือง', 'งิ้วงาม', '3', 'งิ้วงาม', '67/3', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '1', 'C3', '2', 'ติดบ้าน-2', null, null, '2017-01-05');
+INSERT INTO `patient` VALUES ('7', '7894522101445', 'นาย', 'ปองพล', 'ค้ำคุณ', 'ชาย', '1944-11-14', '72', 'พิษณุโลก', 'เนินมะปราง', 'เนินมะปราง', '10', 'เนินมะกอก', '25/4', '', '', '1', 'ไทย', 'ไทย', '07477', null, '', '', '9', null, '10', '9', 'C3', '2', 'ติดบ้าน-2', null, null, '2017-01-05');
 
 -- ----------------------------
 -- Table structure for patient_tmp
@@ -1211,7 +1213,7 @@ CREATE TABLE `user` (
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `password_reset_token` (`password_reset_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of user
@@ -1220,7 +1222,8 @@ INSERT INTO `user` VALUES ('1', 'admin', 'W_D4LHoMYSyV1c8Lv4VgYlXt5SU1aSsb', '12
 INSERT INTO `user` VALUES ('5', 'sa', 'jH-cX5qVRZzTWjR5Jml4gPgMGDTjqlvn', 'sa', null, 'admin1@localhost.comm', '10', '3', '3-Care Giver', '1234566789000', 'sdsd', 'sdsdsd', 'sdsdsd', '07477', null, null, '1482807273', '1482807273');
 INSERT INTO `user` VALUES ('9', 'adminn', 'Z28DJIIcjF0Z9pIzYMCkRjH3uKTfnwHN', '1234', null, 'd@ffff.com', '10', '2', '2-Care Manager', '3650100214005', 'นายแพทย์', 'กกกก', 'กกกก', '07478', null, null, '1483424465', '1483424465');
 INSERT INTO `user` VALUES ('10', 'root', 'IGUsnXwDtoBq810TvnLJNr2nywYaBHxU', '112233', null, 'tehnnn@gmail.com', '10', '3', '3-Care Giver', '3650100810887', 'นาย', 'CG', 'จาดยางโทน', '07477', null, null, '1483424840', '1483424840');
-INSERT INTO `user` VALUES ('11', 'adm', 'RnqN-o6KgYCwER6wmhjkbrfnVAko60uP', '1234', null, 'ttttt@ffff.com', '10', '0', null, '3650122457884', 'นาย', 'อุเทน', 'จาดยางโทน', 'all', null, null, '1483430675', '1483430675');
+INSERT INTO `user` VALUES ('11', 'adm', 'RnqN-o6KgYCwER6wmhjkbrfnVAko60uP', '1234', null, 'ttttt@ffff.com', '10', '0', '0-New Signup', '3650122457884', 'นาย', 'อุเทน', 'จาดยางโทน', 'all', null, null, '1483430675', '1483430675');
+INSERT INTO `user` VALUES ('12', 'cm', 'U-aymENuLjivSJWpakk8-0KwIRqh64wu', '112233', null, 'cm@ddd.com', '10', '2', '2-Care Manager', '1111111112345', 'CM', 'CM', 'Care Manager', '07477', null, null, '1483602756', '1483602756');
 
 -- ----------------------------
 -- Table structure for user_log
@@ -1232,7 +1235,7 @@ CREATE TABLE `user_log` (
   `login_date` datetime DEFAULT NULL,
   `ip` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_log
@@ -1243,6 +1246,7 @@ INSERT INTO `user_log` VALUES ('3', 'root', '2017-01-03 23:19:58', '::1');
 INSERT INTO `user_log` VALUES ('4', 'admin', '2017-01-04 00:16:25', '::1');
 INSERT INTO `user_log` VALUES ('5', 'admin', '2017-01-05 12:31:25', '::1');
 INSERT INTO `user_log` VALUES ('6', 'root', '2017-01-05 14:44:03', '::1');
+INSERT INTO `user_log` VALUES ('7', 'cm', '2017-01-05 14:52:43', '::1');
 
 -- ----------------------------
 -- Procedure structure for set_event_on

@@ -181,7 +181,13 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
 </div>
 
 <div class="form-group">
-    <div class="col-sm-12"> 
+    <div class="col-sm-6"> 
+        <?= $form->field($model, 'cousin')->textInput() ?>
+    </div>
+     <div class="col-sm-3"> 
+         <?= $form->field($model, 'tel')->textInput() ?>
+    </div>
+    <div class="col-sm-3"> 
         <?php
         $office = MyHelper::getUserOffice();
         $sql = " SELECT t.id,CONCAT(t.prename,t.`name`,' ',t.lname) val FROM `user` t 

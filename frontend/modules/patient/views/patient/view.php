@@ -57,6 +57,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'nation',
             'region',
             'discharge',
+            'cousin',
+            'tel',
             'dupdate',
         ],
     ])

@@ -18,7 +18,7 @@ class PatientSearch extends Patient {
     public function rules() {
         return [
             [['id'], 'integer'],
-            [['pid','refer_from','class_name','adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'region', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
+            [['cousin','tel','pid','refer_from','class_name','adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'region', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
             [['typearea','class_id'], 'integer'],
         ];
     }
