@@ -23,8 +23,8 @@ echo TabsX::widget([
     'align' => TabsX::ALIGN_LEFT,
     'items' => [
         [
-            'label' => 'ประวัติ',
-            'content' => $this->render('history',[
+            'label' => 'ผลการประเมิน',
+            'content' => $this->render('result',[
                 'pid'=>$pid
             ]),
              'active' => true
