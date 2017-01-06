@@ -88,15 +88,16 @@ use common\components\MyHelper;
                     ],
                 ])
                 ?>
+
             <?php endif; ?> 
-            <?php
-            if (!(MyHelper::isCg() && MyHelper::getUserId() <> $model->provider_id)):
-                ?>
+            <?php if (!(MyHelper::isCg() && MyHelper::getUserId() <> $model->provider_id)): ?>
+
                 <?=
                 Html::submitButton($model->isNewRecord ? ' <i class="glyphicon glyphicon-ok"> เพิ่ม</i> ' : '<i class="glyphicon glyphicon-ok"></i> บันทึก', [
                     'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
                 ])
                 ?>
+
             <?php endif; ?>
         
     </div>
