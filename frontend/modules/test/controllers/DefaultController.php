@@ -11,8 +11,6 @@ use yii2mod\query\ArrayQuery;
  */
 class DefaultController extends AppController {
 
-    
-
     function actionIndex() {
         $d = "เมื่อสักครู่...นางกัณหา วิริยขิตกุล ได้รับการดูแล ";
         $res = MyHelper::sendLineNotify($d);
@@ -25,7 +23,7 @@ class DefaultController extends AppController {
         return $this->render('cal');
     }
 
-    public function actionJson($id=NULL) {
+    public function actionJson($id = NULL) {
         //\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $person = [];
         $person[] = [
@@ -53,6 +51,24 @@ class DefaultController extends AppController {
 
         //return json_encode($data);
         return json_encode($rows);
+    }
+
+    public function actionExcel() {
+        
+        //echo date('H:i:s');
+        $filePath = "./excel/test.xls";
+        
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $objPHPExcel = $objReader->load($filePath);
+                
+        $objPHPExcel->getActiveSheet()->setCellValue('D1', 'sss');
+        
+        $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
+        $objWriter->save($filePath);
+        
+        //echo "save";
+        \Yii::$app->response->sendFile($filePath);
+        
     }
 
 }
