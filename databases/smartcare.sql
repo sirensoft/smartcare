@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-06 00:09:08
+Date: 2017-01-06 00:11:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -44,54 +44,6 @@ INSERT INTO `assessment` VALUES ('3', '2', '2017-01-05', '10', '1B1281', null, '
 INSERT INTO `assessment` VALUES ('4', '7', '2017-01-05', '9', '1B1281', null, 'C3', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, '1', '2017-01-05 10:04:50');
 INSERT INTO `assessment` VALUES ('5', '2', '2017-01-05', '7', '1B1281', null, 'C3', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, '10', '2017-01-05 14:46:20');
 INSERT INTO `assessment` VALUES ('6', '2', '2017-01-05', '18', '1B1280', null, '', '-', null, null, '1', '2017-01-05 22:11:07');
-
--- ----------------------------
--- Table structure for community_activity
--- ----------------------------
-DROP TABLE IF EXISTS `community_activity`;
-CREATE TABLE `community_activity` (
-  `HOSPCODE` varchar(5) NOT NULL,
-  `VID` varchar(8) NOT NULL,
-  `DATE_START` date NOT NULL,
-  `DATE_FINISH` date DEFAULT NULL,
-  `COMACTIVITY` varchar(7) NOT NULL,
-  `PROVIDER` varchar(15) DEFAULT NULL,
-  `D_UPDATE` datetime NOT NULL,
-  PRIMARY KEY (`HOSPCODE`,`VID`,`DATE_START`,`COMACTIVITY`),
-  KEY `idx1` (`HOSPCODE`,`VID`),
-  KEY `idx2` (`DATE_START`),
-  KEY `idx3` (`DATE_FINISH`),
-  KEY `idx4` (`COMACTIVITY`),
-  KEY `idx5` (`HOSPCODE`,`PROVIDER`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of community_activity
--- ----------------------------
-
--- ----------------------------
--- Table structure for community_service
--- ----------------------------
-DROP TABLE IF EXISTS `community_service`;
-CREATE TABLE `community_service` (
-  `HOSPCODE` varchar(5) NOT NULL,
-  `PID` varchar(15) NOT NULL,
-  `SEQ` varchar(16) NOT NULL,
-  `DATE_SERV` date NOT NULL,
-  `COMSERVICE` varchar(7) NOT NULL,
-  `PROVIDER` varchar(15) DEFAULT NULL,
-  `D_UPDATE` datetime NOT NULL,
-  PRIMARY KEY (`HOSPCODE`,`PID`,`SEQ`,`COMSERVICE`),
-  KEY `idx1` (`HOSPCODE`,`PID`),
-  KEY `idx2` (`HOSPCODE`),
-  KEY `idx3` (`DATE_SERV`),
-  KEY `idx4` (`COMSERVICE`),
-  KEY `idx5` (`HOSPCODE`,`PROVIDER`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of community_service
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for c_class
@@ -1234,6 +1186,75 @@ INSERT INTO `c_version` VALUES ('1', '1.170101', 'Test', null, null, '2017-01-03
 INSERT INTO `c_version` VALUES ('2', '1.170105', 'Beta', null, null, '2017-01-03 23:07:34');
 
 -- ----------------------------
+-- Table structure for file_community_activity
+-- ----------------------------
+DROP TABLE IF EXISTS `file_community_activity`;
+CREATE TABLE `file_community_activity` (
+  `HOSPCODE` varchar(5) NOT NULL,
+  `VID` varchar(8) NOT NULL,
+  `DATE_START` date NOT NULL,
+  `DATE_FINISH` date DEFAULT NULL,
+  `COMACTIVITY` varchar(7) NOT NULL,
+  `PROVIDER` varchar(15) DEFAULT NULL,
+  `D_UPDATE` datetime NOT NULL,
+  PRIMARY KEY (`HOSPCODE`,`VID`,`DATE_START`,`COMACTIVITY`),
+  KEY `idx1` (`HOSPCODE`,`VID`),
+  KEY `idx2` (`DATE_START`),
+  KEY `idx3` (`DATE_FINISH`),
+  KEY `idx4` (`COMACTIVITY`),
+  KEY `idx5` (`HOSPCODE`,`PROVIDER`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of file_community_activity
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for file_community_service
+-- ----------------------------
+DROP TABLE IF EXISTS `file_community_service`;
+CREATE TABLE `file_community_service` (
+  `HOSPCODE` varchar(5) NOT NULL,
+  `PID` varchar(15) NOT NULL,
+  `SEQ` varchar(16) NOT NULL,
+  `DATE_SERV` date NOT NULL,
+  `COMSERVICE` varchar(7) NOT NULL,
+  `PROVIDER` varchar(15) DEFAULT NULL,
+  `D_UPDATE` datetime NOT NULL,
+  PRIMARY KEY (`HOSPCODE`,`PID`,`SEQ`,`COMSERVICE`),
+  KEY `idx1` (`HOSPCODE`,`PID`),
+  KEY `idx2` (`HOSPCODE`),
+  KEY `idx3` (`DATE_SERV`),
+  KEY `idx4` (`COMSERVICE`),
+  KEY `idx5` (`HOSPCODE`,`PROVIDER`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of file_community_service
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for file_specialpp
+-- ----------------------------
+DROP TABLE IF EXISTS `file_specialpp`;
+CREATE TABLE `file_specialpp` (
+  `HOSPCODE` varchar(5) NOT NULL,
+  `PID` varchar(15) NOT NULL,
+  `SEQ` varchar(16) DEFAULT NULL,
+  `DATE_SERV` date NOT NULL,
+  `SERVPLACE` char(1) NOT NULL,
+  `PPSPECIAL` varchar(6) NOT NULL,
+  `PPSPLACE` varchar(5) DEFAULT NULL,
+  `PROVIDER` varchar(15) DEFAULT NULL,
+  `D_UPDATE` datetime NOT NULL,
+  PRIMARY KEY (`HOSPCODE`,`PID`,`DATE_SERV`,`PPSPECIAL`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of file_specialpp
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for health
 -- ----------------------------
 DROP TABLE IF EXISTS `health`;
@@ -1442,27 +1463,6 @@ INSERT INTO `plan_week` VALUES ('34', null, '2', 'ดูแลโดย cg', '20
 INSERT INTO `plan_week` VALUES ('35', null, '2', 'ดูแลโดย cg', '2017-01-07', '10:00:00', null, null, null, null, null, null, '', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-03 21:09:37', null);
 INSERT INTO `plan_week` VALUES ('36', null, '2', 'cg', '2017-01-08', '08:00:00', null, null, null, null, null, null, '', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-03 21:13:31', null);
 INSERT INTO `plan_week` VALUES ('37', null, '7', 'อาบน้ำเช็ดตัว', '2017-01-06', '06:00:00', null, null, null, null, null, null, '', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-05 10:05:40', null);
-
--- ----------------------------
--- Table structure for specialpp
--- ----------------------------
-DROP TABLE IF EXISTS `specialpp`;
-CREATE TABLE `specialpp` (
-  `HOSPCODE` varchar(5) NOT NULL,
-  `PID` varchar(15) NOT NULL,
-  `SEQ` varchar(16) DEFAULT NULL,
-  `DATE_SERV` date NOT NULL,
-  `SERVPLACE` char(1) NOT NULL,
-  `PPSPECIAL` varchar(6) NOT NULL,
-  `PPSPLACE` varchar(5) DEFAULT NULL,
-  `PROVIDER` varchar(15) DEFAULT NULL,
-  `D_UPDATE` datetime NOT NULL,
-  PRIMARY KEY (`HOSPCODE`,`PID`,`DATE_SERV`,`PPSPECIAL`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of specialpp
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for user

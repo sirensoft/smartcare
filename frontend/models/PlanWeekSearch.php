@@ -41,7 +41,7 @@ class PlanWeekSearch extends PlanWeek
      */
     public function search($params)
     {
-        $query = Plan::find();
+        $query = PlanWeek::find();
 
         // add conditions that should always apply here
 

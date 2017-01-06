@@ -12,11 +12,11 @@ $this->registerCss($this->render('cursor.css'));
 $this->title = $model->prename . $model->name . " " . $model->lname;
 $this->params['breadcrumbs'][] = ['label' => 'รายชื่อ', 'url' => ['/patient']];
 $this->params['breadcrumbs'][] = ['label' => 'ข้อมูล', 'url' => ['/patient/patient/view', 'pid' => $pid]];
-//$this->params['breadcrumbs'][] = '';
+$this->params['breadcrumbs'][] = 'แผนรายสัปดาห์';
 ?>
 <div style="background-color:#ffc0cb;color: black; padding: 5px;margin-bottom: 5px">
     <?php
-   echo "<b> แผนการดูแล : " . $model->prename . $model->name . " " . $model->lname 
+   echo "<b> ผู้สูงอายุ : " . $model->prename . $model->name . " " . $model->lname 
         ." - ". $model->age_y."ปี (".$model->class_name.")</b>";
     ?>
 </div>
