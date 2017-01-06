@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\components\AppController;
+use frontend\models\Patient;
+use common\components\MyHelper;
 
 /**
  * PlanController implements the CRUD actions for Plan model.
@@ -66,9 +68,16 @@ class PlanController extends AppController
      */
     public function actionCreate($pid)
     {
+        $pt = Patient::findOne($pid);
+        
+        
         $model = new Plan();
         $model->patient_id=$pid;
-
+        $model->adl = $pt->adl;
+        $model->tai = $pt->tai;
+        $model->tai_text = "กลุ่มที่ ".$pt->class_id.";".$pt->class_name;
+        $model->hospcode = MyHelper::getUserOffice();
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
