@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model frontend\models\Plan */
 
 $this->title = 'แก้ไขแผน: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Plans', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Plans', 'url' => ['index','pid'=>$model->patient_id]];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>

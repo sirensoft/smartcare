@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model frontend\models\Plan */
 
 $this->title = 'จัดทำ';
-$this->params['breadcrumbs'][] = ['label' => 'แผนการดูแล', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'แผนการดูแล', 'url' => ['index','pid'=>$model->patient_id]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="plan-create">
