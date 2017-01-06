@@ -27,12 +27,18 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
             //'hospcode',
             //'patient_id',
-            'date_create',
+            [
+                'attribute'=>'date_create',
+                'format'=>'raw',
+                'value'=>function($model){
+                    return \kartik\helpers\Html::a($model->date_create,['view','id'=>$model->id]);
+                }
+            ],
             'rapid_code',
-             'adl',
+            'adl',
             // 'adl_text',
             // 'tai',
-             'tai_text',
+            'tai_text',
             // 'budget_need',
             // 'dx1',
             // 'dx2',
@@ -48,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'careful:ntext',
             // 'd_update',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>
