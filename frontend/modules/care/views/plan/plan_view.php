@@ -22,7 +22,7 @@ echo TabsX::widget([
         ],
         [
             'label'=>'WEEKLY PLAN',
-            'content'=>"<div id='week'>week</div><div><button id='btn_print'>พิมพ์</button><div>",
+            'content'=>"<div id='week'>week</div><div><button id='btn_print' class='btn btn-info'>พิมพ์</button><div>",
             
         ]
         
