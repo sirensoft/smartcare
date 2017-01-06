@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\components\MyHelper;
+use kartik\widgets\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Plan */
@@ -27,12 +28,24 @@ use common\components\MyHelper;
         <?= $form->field($model, 'title')->textarea(['rows' => 3, 'readonly' => MyHelper::isCg()]) ?>
     </div>
 </div>
-<?php if (!MyHelper::isCg()): ?>
-    <div class="form-group">
-        <div class="col-md-12">
-            <?= $form->field($model, 'provider_id')->textInput(['value' => MyHelper::getCgId($model->patient_id)]) ?>
-        </div>
+<?php if(!MyHelper::isCg()): ?>
+<div class="form-group">
+    <div class="col-md-12">
+
+        <?php
+        $provider_id = MyHelper::getCgId($model->patient_id);
+        $hos = MyHelper::getUserOffice();
+        $sql = "SELECT t.id,concat(t.name,' ',t.lname,' (',t.role_name,')') val FROM user t WHERE t.office = '$hos'";
+        $items = MyHelper::dropDownItems($sql, 'id', 'val');
+        echo $form->field($model, 'provider_id')->dropDownList($items, [
+            
+            'value'=>$model->isNewRecord?MyHelper::getCgId($model->patient_id):$model->provider_id
+        ]);
+        ?>
+
+
     </div>
+</div>
 <?php endif; ?>
 
 <?php if (!$model->isNewRecord): ?>
@@ -104,7 +117,7 @@ use common\components\MyHelper;
         $btn = "submit";
     }
     ?>
-    <button type="<?=$btn?>" class = 'btn btn-primary' ><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
+    <button type="<?= $btn ?>" class = 'btn btn-primary' ><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
 <?php endif; ?>
 
 
