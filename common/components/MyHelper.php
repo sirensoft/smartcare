@@ -5,6 +5,8 @@ namespace common\components;
 use yii\helpers\ArrayHelper;
 use frontend\models\CLine;
 use frontend\models\Version;
+use backend\models\User;
+use frontend\models\Patient;
 
 class MyHelper extends \yii\base\Component {
     
@@ -125,6 +127,11 @@ class MyHelper extends \yii\base\Component {
     public static function execSql($sql){
         
         return \Yii::$app->db->createCommand($sql)->execute();
+    }
+    
+    public static function getCgId($patient_id){
+       $model = Patient::findOne($patient_id);
+       return $model->cg_id;
     }
 
 }

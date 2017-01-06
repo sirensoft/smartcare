@@ -21,7 +21,7 @@ use common\components\MyHelper;
         <?= $form->field($model, 'start_time')->textInput(['readonly' => MyHelper::isCg()]) ?>
     </div>
     <?= $form->field($model, 'title')->textarea(['rows' => 4, 'readonly' => MyHelper::isCg()]) ?>
-    <?= $form->field($model, 'provider_id')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'provider_id')->textInput(['value' => MyHelper::getCgId($model->patient_id)]) ?>
 
 
 
