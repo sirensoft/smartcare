@@ -38,9 +38,9 @@ class PlanWeekController extends AppController {
      */
     public function actionIndex($pid) {
         $this->permitRole([1, 2, 3]);
-       
-        
-        
+
+
+
         $vw = 'index';
 
         $tasks = [];
@@ -54,23 +54,29 @@ class PlanWeekController extends AppController {
             $evt->start = $plan->start_date . " " . $plan->start_time;
             $evt->url = Url::toRoute(['/care/plan-week/update', 'id' => $evt->id]);
 
-            if($plan->start_date > date('Y-m-d')  and $plan->is_done !=='1'){
+            if ($plan->start_date > date('Y-m-d') and $plan->is_done !== '1') {
                 $evt->color = 'blue';
-            }elseif($plan->is_done==='1') {
+            } elseif ($plan->is_done === '1') {
                 $evt->color = 'lime';
                 $evt->textColor = 'black';
-            }else{
-                
+            } else {
+
                 $evt->color = 'red';
             }
-            
-            
-            
+
+
+
 
             $tasks[] = $evt;
         }
 
-
+        if (\Yii::$app->request->isAjax) {
+            return $this->renderAjax($vw, [
+                        'pid' => $pid,
+                        'events' => $tasks,
+                        'model' => Patient::findOne($pid)
+            ]);
+        }
         return $this->render($vw, [
                     'pid' => $pid,
                     'events' => $tasks,
@@ -127,14 +133,14 @@ class PlanWeekController extends AppController {
                 $model->care_time = date('H:i:s');
             }
         }
-        
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if (MyHelper::isCg() && $model->start_date <= date('Y-m-d')){
-                $model->is_done ='1';
+            if (MyHelper::isCg() && $model->start_date <= date('Y-m-d')) {
+                $model->is_done = '1';
                 $model->update();
                 $pid = $model->patient_id;
                 $patient = Patient::findOne($pid);
-                MyHelper::sendLineNotify($patient->prename.$patient->name." ".$patient->lname."..ได้รับการ..".$model->title);
+                MyHelper::sendLineNotify($patient->prename . $patient->name . " " . $patient->lname . "..ได้รับการ.." . $model->title);
             }
             return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {

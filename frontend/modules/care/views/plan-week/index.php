@@ -76,7 +76,7 @@ echo \yii2fullcalendar\yii2fullcalendar::widget(array(
     'clientOptions' => [
         'firstDay' => '1',
         'height' => new JsExpression('function(e){return $(window).height() - 100;}'),
-        //'defaultView' => 'listWeek',
+        'defaultView' => 'month',
         'eventClick' => new JsExpression($event_click),
         'timeFormat' => 'H:mm',
         'eventLimit' => true,

@@ -17,8 +17,26 @@ echo TabsX::widget([
             'content' => $this->render('view',[
                 'model'=>$model
             ]),
-            'active' => true
+            
+            
+        ],
+        [
+            'label'=>'WEEKLY PLAN',
+            'content'=>"<div id='week'>week</div><div><button id='btn_print'>พิมพ์</button><div>",
+            
         ]
         
     ],
 ]);
+
+$js= <<< JS
+      
+  $('#week').load('index.php?r=care/plan-week/index&pid=$model->patient_id') ;
+  $('#btn_print').click(function(){
+      alert();
+  });
+       
+JS;
+$this->registerJS($js);
+        
+  

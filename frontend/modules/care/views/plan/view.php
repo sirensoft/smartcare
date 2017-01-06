@@ -3,29 +3,14 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-
+/*
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Plans', 'url' => ['index','pid'=>$model->patient_id]];
 $this->params['breadcrumbs'][] = $this->title
-
+*/
 ?>
 <div class="plan-view">
-
-
-    <p>
-        <?= Html::a('<i class="glyphicon glyphicon-calendar"></i> Weekly-Plan', ['/care/plan-week/index', 'pid' => $model->patient_id], ['class' => 'btn btn-warning']) ?>
-
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary pull-right']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger pull-right',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-        
-        
-    </p>
+   
 
     <?= DetailView::widget([
         'model' => $model,
@@ -56,4 +41,19 @@ $this->params['breadcrumbs'][] = $this->title
         ],
     ]) ?>
 
+     <p>
+        
+        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
+         
+         <?= Html::a('พิมพ์', ['print', 'id' => $model->id], ['class' => 'btn btn-info pull-right']) ?>
+        
+        
+    </p>
 </div>
