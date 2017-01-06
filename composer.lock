@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dd3bdb14135b1614a9b492e74f4e293e",
-    "content-hash": "0f67f4a576f9094b261623671686c93e",
+    "hash": "451c5cd564142b031c4f608887adf8ff",
+    "content-hash": "3c13aff7a0852a712d359b2277b72bfc",
     "packages": [
         {
             "name": "2amigos/yii2-arrayquery-component",
@@ -2170,51 +2170,6 @@
                 "yii2"
             ],
             "time": "2016-11-17 17:44:27"
-        },
-        {
-            "name": "moonlandsoft/yii2-phpexcel",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/moonlandsoft/yii2-phpexcel.git",
-                "reference": "9408d09abc7ff4828302dafd5ffb709314f14589"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/moonlandsoft/yii2-phpexcel/zipball/9408d09abc7ff4828302dafd5ffb709314f14589",
-                "reference": "9408d09abc7ff4828302dafd5ffb709314f14589",
-                "shasum": ""
-            },
-            "require": {
-                "phpoffice/phpexcel": "*",
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "moonland\\phpexcel\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Moh Khoirul Anam",
-                    "email": "moh.khoirul.anaam@gmail.com"
-                }
-            ],
-            "description": "Exporting PHP to Excel or Importing Excel to PHP",
-            "keywords": [
-                "excel",
-                "export",
-                "extension",
-                "import",
-                "xls",
-                "yii2"
-            ],
-            "time": "2015-09-06 07:50:33"
         },
         {
             "name": "mpdf/mpdf",

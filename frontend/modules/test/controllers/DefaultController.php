@@ -55,18 +55,15 @@ class DefaultController extends AppController {
     }
 
     public function actionExcel() {
-        
-        //echo date('H:i:s');
-        $filePath = "./excel/plan.xls";
-        
+                
+        $filePath = "./excel/plan.xls";        
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $objPHPExcel = $objReader->load($filePath);
         
         $a1 = "ชื่อผู้สูงวัย: ".MyHelper::getVersion();
         $objPHPExcel->getActiveSheet()->setCellValue('A1',$a1);
         
-        
-        
+               
         
         $objWriter = \PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5');
         $objWriter->save($filePath);
