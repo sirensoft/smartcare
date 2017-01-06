@@ -15,13 +15,12 @@ use common\components\MyHelper;
 /**
  * PlanController implements the CRUD actions for Plan model.
  */
-class PlanController extends AppController
-{
+class PlanController extends AppController {
+
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -36,16 +35,15 @@ class PlanController extends AppController
      * Lists all Plan models.
      * @return mixed
      */
-    public function actionIndex($pid)
-    {
+    public function actionIndex($pid) {
         $searchModel = new PlanSearch();
-        $searchModel->patient_id=$pid;
+        $searchModel->patient_id = $pid;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-            'pid'=>$pid
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
+                    'pid' => $pid
         ]);
     }
 
@@ -54,10 +52,9 @@ class PlanController extends AppController
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
-    {
+    public function actionView($id) {
         return $this->render('plan_view', [
-            'model' => $this->findModel($id),
+                    'model' => $this->findModel($id),
         ]);
     }
 
@@ -66,23 +63,22 @@ class PlanController extends AppController
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($pid)
-    {
+    public function actionCreate($pid) {
         $pt = Patient::findOne($pid);
-        
-        
+
+
         $model = new Plan();
-        $model->patient_id=$pid;
+        $model->patient_id = $pid;
         $model->adl = $pt->adl;
         $model->tai = $pt->tai;
-        $model->tai_text = "กลุ่มที่ ".$pt->class_id.";".$pt->class_name;
+        $model->tai_text = "กลุ่มที่ " . $pt->class_id . ";" . $pt->class_name;
         $model->hospcode = MyHelper::getUserOffice();
-        
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
@@ -93,15 +89,14 @@ class PlanController extends AppController
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
-    {
+    public function actionUpdate($id) {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
@@ -112,11 +107,12 @@ class PlanController extends AppController
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
+    public function actionDelete($id) {
+        $model = $this->findModel($id);
+        $pid = $model->patient_id;
+        $model->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index', 'pid' => $pid]);
     }
 
     /**
@@ -126,12 +122,12 @@ class PlanController extends AppController
      * @return Plan the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
-    {
+    protected function findModel($id) {
         if (($model = Plan::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
 }
