@@ -6,15 +6,29 @@ use frontend\models\CColor;
 use yii\helpers\ArrayHelper;
 use frontend\models\CTemplate;
 
-/* @var $this yii\web\View */
-/* @var $model frontend\models\Plan */
-/* @var $form yii\widgets\ActiveForm */
+use kartik\widgets\DatePicker;
 ?>
 <?php $form = ActiveForm::begin(); ?>
 
 <div class="form-group">
     <div class="col-md-6">
-        <?= $form->field($model, 'date_create')->textInput() ?>
+
+        <?php
+        if (empty($model->date_create)) {
+            $model->date_create = date('Y-m-d');
+        }
+
+        echo $form->field($model, 'date_create')->widget(DatePicker::classname(), [
+            //'options' => ['placeholder' => 'วดป.เกิด...'],
+            'pickerButton' => [
+                'icon' => 'ok',
+            ],
+            'pluginOptions' => [
+                'autoclose' => true,
+                'format' => 'yyyy-mm-dd'
+            ]
+        ]);
+        ?>
     </div>
     <div class="col-md-6">
         <?php

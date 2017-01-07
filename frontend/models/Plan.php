@@ -47,8 +47,9 @@ class Plan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['date_create'],'required'],
             [['patient_id', 'adl'], 'integer'],
-            [['date_create', 'd_update'], 'safe'],
+            [['d_update'], 'safe'],
             [['drug', 'note_before_plan', 'fct_care_time', 'cg_care_time', 'update_plan', 'patient_mind', 'live_problem', 'long_goal', 'short_goal', 'careful'], 'string'],
             [['hospcode'], 'string', 'max' => 5],
             [['rapid_code', 'adl_text', 'tai', 'tai_text', 'budget_need', 'dx1', 'dx2'], 'string', 'max' => 255],
