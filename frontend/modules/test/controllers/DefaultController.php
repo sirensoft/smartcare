@@ -5,6 +5,7 @@ namespace frontend\modules\test\controllers;
 use common\components\AppController;
 use common\components\MyHelper;
 use yii2mod\query\ArrayQuery;
+use frontend\models\CTemplate;
 
 /**
  * Default controller for the `test` module
@@ -60,7 +61,10 @@ class DefaultController extends AppController {
         $objPHPExcel = $objReader->load($filePath);
 
         $a1 = "ชื่อผู้สูงวัย: " . MyHelper::getVersion();
+        $a2= CTemplate::findOne(1)->templat_text;
         $objPHPExcel->getActiveSheet()->setCellValue('A1', $a1);
+         $objPHPExcel->getActiveSheet()->setCellValue('A2', $a2);
+         $objPHPExcel->getActiveSheet()->setCellValue('B2', $a2);
 
 
 

@@ -15,9 +15,9 @@ $this->params['breadcrumbs'][] = $this->title
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
-            'hospcode',
-            'patient_id',
+            //'id',
+            //'hospcode',
+            //'patient_id',
             'date_create',
             'rapid_code',
             'adl',
@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title
             'long_goal:ntext',
             'short_goal:ntext',
             'careful:ntext',
-            'd_update',
+           // 'd_update',
         ],
     ]) ?>
 
