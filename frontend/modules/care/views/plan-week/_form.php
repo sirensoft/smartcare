@@ -113,11 +113,13 @@ use kartik\widgets\Select2;
 <?php else: ?> 
     <?php
     $btn = "button";
+    $isDisabled = "disabled";
     if (MyHelper::getUserId() == $model->provider_id) {
         $btn = "submit";
+        $isDisabled = "data-btn";
     }
     ?>
-    <button type="<?= $btn ?>" class = 'btn btn-primary' ><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
+<button type="<?= $btn ?>" <?=$isDisabled?> class = 'btn btn-primary' ><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
 <?php endif; ?>
 
 
