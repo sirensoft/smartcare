@@ -73,6 +73,7 @@ class PlanController extends AppController {
         $model->tai = $pt->tai;
         $model->tai_text = "กลุ่มที่ " . $pt->class_id . ";" . $pt->class_name;
         $model->hospcode = MyHelper::getUserOffice();
+        $model->d_update = date('Y-m-d H:i:s');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -91,6 +92,7 @@ class PlanController extends AppController {
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
+        $model->d_update = date('Y-m-d H:i:s');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
