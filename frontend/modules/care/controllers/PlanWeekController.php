@@ -110,7 +110,7 @@ class PlanWeekController extends AppController {
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {
-            return $this->renderPartial('create', [
+            return $this->renderAjax('create', [
                         'model' => $model,
             ]);
         }
@@ -144,7 +144,7 @@ class PlanWeekController extends AppController {
             }
             return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {
-            return $this->renderPartial('update', [
+            return $this->renderAjax('update', [
                         'model' => $model,
             ]);
         }

@@ -103,7 +103,7 @@ $js = <<<JS
        console.log(date);       
        $('#modal').modal('show').find('#modalContent').load('index.php?r=care/plan-week/create&start='+date+'&pid=$pid');
        return false;
-    });      
+    });  
 JS;
 if (MyHelper::isCm()) {
     $this->registerJs($js);

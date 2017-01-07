@@ -89,7 +89,7 @@ class PlanWeek extends \yii\db\ActiveRecord
             'dbp' => 'ความดัน(ล่าง)',
             'rr' => 'อัตราหายใจ',
             'sugar' => 'ค่าน้ำตาล',
-            'note' => 'หมายเหตุ',
+            'note' => 'บันทึกการดูแล',
             'is_done'=>'ได้รับการดูแล',
             'd_create' => 'D Create',
             'd_update' => 'D Update',

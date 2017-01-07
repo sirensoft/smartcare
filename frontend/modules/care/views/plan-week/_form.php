@@ -13,7 +13,17 @@ use kartik\widgets\Select2;
 
 
 <?php $form = ActiveForm::begin(['id' => 'plan-form']); ?>
+<?php if(MyHelper::isCm()): ?>
+<div class="form-group">
+    <div class="col-md-12">
+        <label class="control-label" for="chk_cg">
+            <?= Html::checkbox('chk_cg', FALSE, ['id' => 'chk_cg', 'class' => 'from-control']); ?>
+            ดูแลโดย CG
+        </label>
+    </div>
+</div>
 
+<?php endif; ?>
 
 <div class="form-group">
     <div class="col-md-6">
@@ -22,7 +32,7 @@ use kartik\widgets\Select2;
     <div class="col-md-3">
         <?= $form->field($model, 'start_time')->textInput(['readonly' => MyHelper::isCg()]) ?>
     </div>
-     <div class="col-md-3">
+    <div class="col-md-3">
         <?= $form->field($model, 'end_time')->textInput(['readonly' => MyHelper::isCg()]) ?>
     </div>
 </div>
@@ -40,9 +50,9 @@ use kartik\widgets\Select2;
         $hos = MyHelper::getUserOffice();
         $sql = "SELECT t.id,concat(t.name,' ',t.lname,' (',t.role_name,')') val FROM user t WHERE t.office = '$hos'";
         $items = MyHelper::dropDownItems($sql, 'id', 'val');
-        echo $form->field($model, 'provider_id')->dropDownList($items, [            
-            'value'=>$model->isNewRecord?MyHelper::getCgId($model->patient_id):$model->provider_id,
-            'disabled'=>  MyHelper::isCg()
+        echo $form->field($model, 'provider_id')->dropDownList($items, [
+            'value' => $model->isNewRecord ? MyHelper::getCgId($model->patient_id) : $model->provider_id,
+            'disabled' => MyHelper::isCg()
         ]);
         ?>
 
@@ -122,12 +132,22 @@ use kartik\widgets\Select2;
         $isDisabled = "data-btn";
     }
     ?>
-<button type="<?= $btn ?>" <?=$isDisabled?> class = 'btn btn-primary' ><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
+    <button type="<?= $btn ?>" <?= $isDisabled ?> class = 'btn btn-primary' ><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
 <?php endif; ?>
 
 
 
 
 <?php ActiveForm::end(); ?>
+
+<?php
+$js = <<<JS
+   $('#chk_cg').change( function(){
+       $('#planweek-title').text('ดูแลโดยCG');
+       
+    });
+JS;
+$this->registerJs($js);
+?>
 
 
