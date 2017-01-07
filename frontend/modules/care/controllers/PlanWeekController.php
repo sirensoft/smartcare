@@ -139,7 +139,7 @@ class PlanWeekController extends AppController {
                 $model->is_done = '1';
                 $model->update();
                 $pid = $model->patient_id;
-                $patient = Patient::findOne($pid);
+                $patient = Patient::findOne($pid);                
                 MyHelper::sendLineNotify($patient->prename . $patient->name . " " . $patient->lname . "..ได้รับการ.." . $model->title);
             }
             return $this->redirect(['index', 'pid' => $model->patient_id]);

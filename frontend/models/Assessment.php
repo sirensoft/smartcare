@@ -15,6 +15,8 @@ use Yii;
  * @property integer $tai_score
  * @property string $tai_class
  * @property string $group_text
+ * @property string $q2 
+ * @property string $q9 
  * @property string $note
  * @property string $doc_file
  * @property integer $provider_id
@@ -38,7 +40,7 @@ class Assessment extends \yii\db\ActiveRecord
         return [
             [['patient_id', 'adl_score', 'tai_score', 'provider_id'], 'integer'],
             [['date_serv', 'd_update'], 'safe'],
-            [['pp_code','tai_class', 'note', 'doc_file','group_text'], 'string', 'max' => 255],
+            [['q9','q2','pp_code','tai_class', 'note', 'doc_file','group_text'], 'string', 'max' => 255],
         ];
     }
 

@@ -37,6 +37,14 @@ $tab_items[] = [
     'label' => 'แบบประเมิน TAI ภาพ',
     'content' => $this->render('tai_img'),
 ];
+$tab_items[] =[
+    'label'=>'แบบประเมิน 2Q',
+    'content'=>$this->render('2q')
+];
+$tab_items[] =[
+    'label'=>'แบบประเมิน 9Q',
+    'content'=>$this->render('9q')
+];
 /*
 $tab_items[] = [
     'label' => 'แบบประเมิน TAI',
