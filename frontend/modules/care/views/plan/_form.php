@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use frontend\models\CColor;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Plan */
@@ -17,8 +19,11 @@ use yii\widgets\ActiveForm;
     <?php //echo $form->field($model, 'patient_id')->textInput() ?>
 
     <?= $form->field($model, 'date_create')->textInput() ?>
-
-    <?= $form->field($model, 'rapid_code')->textInput(['maxlength' => true]) ?>
+    <?php
+    $items = CColor::find()->all();
+    $items = ArrayHelper::map($items,'id', 'color');
+    echo $form->field($model, 'rapid_code')->dropDownList($items, ['prompt'=>'เลือก...']);
+    ?>
 
     <?= $form->field($model, 'adl')->textInput() ?>
 
