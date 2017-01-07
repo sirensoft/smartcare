@@ -19,8 +19,11 @@ use kartik\widgets\Select2;
     <div class="col-md-6">
         <?= $form->field($model, 'start_date')->textInput(['readonly' => MyHelper::isCg()]) ?>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-3">
         <?= $form->field($model, 'start_time')->textInput(['readonly' => MyHelper::isCg()]) ?>
+    </div>
+     <div class="col-md-3">
+        <?= $form->field($model, 'end_time')->textInput(['readonly' => MyHelper::isCg()]) ?>
     </div>
 </div>
 <div class="form-group">

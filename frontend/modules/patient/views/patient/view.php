@@ -28,10 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php endif; ?>
         
         <?php if (MyHelper::isCg()): ?>
-             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> LogBook', ['/logbook/', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
+             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> สมุดบันทึกผล', ['/logbook/', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('<i class="glyphicon glyphicon-plus"></i> บันทึกเยี่ยม', ['/visit/', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
            
             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ประเมิน', ['/patient/asses/index', 'pid' => $model->id], ['class' => 'btn btn-danger']) ?>
-            <?= Html::a('<i class="glyphicon glyphicon-ok"></i> Care', ['/care/plan-week/index', 'pid' => $model->id], ['class' => 'btn btn-primary ']) ?>
+            <?= Html::a('<i class="glyphicon glyphicon-calendar"></i> PLAN', ['/care/plan-week/index', 'pid' => $model->id], ['class' => 'btn btn-warning ']) ?>
 
         <?php endif; ?>
 
