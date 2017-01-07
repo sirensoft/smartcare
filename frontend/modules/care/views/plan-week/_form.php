@@ -22,7 +22,6 @@ use kartik\widgets\Select2;
         </label>
     </div>
 </div>
-
 <?php endif; ?>
 
 <div class="form-group">
@@ -55,10 +54,19 @@ use kartik\widgets\Select2;
             'disabled' => MyHelper::isCg()
         ]);
         ?>
-
-
     </div>
 </div>
+
+<?php if($model->isNewRecord and MyHelper::getDay($model->start_date)=='Mon'): ?>
+<div class="form-group">
+    <div class="col-md-12">
+        <label class="control-label" for="chk_day">
+            <?= Html::checkbox('chk_day', FALSE, ['id' => 'chk_day', 'class' => 'from-control']); ?>
+            ทำทุกวันตลอดสัปดาห์ เวลาเดียวกันนี้
+        </label>
+    </div>
+</div>
+<?php endif; ?>
 
 
 <?php if (!$model->isNewRecord): ?>

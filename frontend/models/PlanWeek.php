@@ -51,7 +51,7 @@ class PlanWeek extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['patient_id','title','start_date'], 'required'],
+            //[['patient_id','title','start_date'], 'required'],
             [['start_date'],'safe'],
             [['start_time','waist'],'safe'],
             [['title', 'note','is_done'], 'string'],

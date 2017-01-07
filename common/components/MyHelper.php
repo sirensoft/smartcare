@@ -133,5 +133,9 @@ class MyHelper extends \yii\base\Component {
        $model = Patient::findOne($patient_id);
        return $model->cg_id;
     }
+    
+    public static function getDay($date){
+        return date('D', strtotime($date));
+    }
 
 }

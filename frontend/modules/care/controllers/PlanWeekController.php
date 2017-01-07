@@ -107,7 +107,32 @@ class PlanWeekController extends AppController {
         $model->start_time = '08:00';
         $model->d_create = date('Y-m-d H:i:s');
 
+
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            $chk_day = \Yii::$app->request->post('chk_day');
+            if (!empty($chk_day)) {
+
+                $i = 1;
+                while ($i <= 6) {
+                    $date_next = new \DateTime($model->start_date);
+                    $date_next = $date_next->modify("+$i day");
+                    $date_next = $date_next->format('Y-m-d');
+
+                    $model_n = new PlanWeek();
+                    $model_n->patient_id = $pid;
+                    $model_n->start_date = $date_next;
+                    $model_n->start_time = $model->start_time;
+                    $model_n->end_time = $model->end_time;
+                    $model_n->d_create = $model->d_create;
+                    $model_n->title = $model->title;
+                    $model_n->provider_id = $model->provider_id;
+                    $model_n->save();
+                    $i++;
+                }
+            }
+
             return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {
             return $this->renderAjax('create', [
@@ -139,7 +164,7 @@ class PlanWeekController extends AppController {
                 $model->is_done = '1';
                 $model->update();
                 $pid = $model->patient_id;
-                $patient = Patient::findOne($pid);                
+                $patient = Patient::findOne($pid);
                 MyHelper::sendLineNotify($patient->prename . $patient->name . " " . $patient->lname . "..ได้รับการ.." . $model->title);
             }
             return $this->redirect(['index', 'pid' => $model->patient_id]);
