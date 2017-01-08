@@ -2,12 +2,12 @@
 
 namespace frontend\modules\map\controllers;
 
-use yii\web\Controller;
+use common\components\AppController;
 
 /**
  * Default controller for the `map` module
  */
-class DefaultController extends Controller
+class DefaultController extends AppController
 {
     /**
      * Renders the index view for the module
@@ -15,7 +15,9 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
+       
         $this->layout = 'main';
+         $this->permitRole([1,2]);
         return $this->render('index');
     }
 }
