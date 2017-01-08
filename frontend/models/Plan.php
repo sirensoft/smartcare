@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use frontend\models\Patient;
 
 /**
  * This is the model class for table "plan".
@@ -31,23 +32,21 @@ use Yii;
  * @property string $careful
  * @property string $d_update
  */
-class Plan extends \yii\db\ActiveRecord
-{
+class Plan extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'plan';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['date_create'],'required'],
+            [['date_create'], 'required'],
             [['patient_id', 'adl'], 'integer'],
             [['d_update'], 'safe'],
             [['drug', 'note_before_plan', 'fct_care_time', 'cg_care_time', 'update_plan', 'patient_mind', 'live_problem', 'long_goal', 'short_goal', 'careful'], 'string'],
@@ -59,8 +58,7 @@ class Plan extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'hospcode' => 'Hospcode',
@@ -87,4 +85,18 @@ class Plan extends \yii\db\ActiveRecord
             'd_update' => 'D Update',
         ];
     }
+
+    public function beforeSave($insert) {
+        if (parent::beforeSave($insert)) {
+            
+            $pt = Patient::findOne($this->patient_id);
+            $pt->color = $this->rapid_code;
+            $pt->save();
+            
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
