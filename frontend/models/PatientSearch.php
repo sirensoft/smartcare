@@ -11,13 +11,14 @@ use frontend\models\Patient;
  * PatientSearch represents the model behind the search form about `frontend\models\Patient`.
  */
 class PatientSearch extends Patient {
-
+    public $user;
     /**
      * @inheritdoc
      */
     public function rules() {
         return [
             [['id'], 'integer'],
+            [['user'],'safe'],
             [['color','cousin','tel','pid','refer_from','class_name','adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'region', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
             [['typearea','class_id'], 'integer'],
         ];
@@ -40,12 +41,18 @@ class PatientSearch extends Patient {
      */
     public function search($params) {
         $query = Patient::find();
+        $query->joinWith(['user']);
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+        
+        $dataProvider->sort->attributes['user'] = [
+            'asc' => ['user.name' => SORT_ASC],
+            'desc' => ['user.name' => SORT_DESC],
+        ];
 
         $this->load($params);
 
@@ -65,7 +72,7 @@ class PatientSearch extends Patient {
             'discharge' => $this->discharge,
             'dupdate' => $this->dupdate,
             'cm_id' => $this->cm_id,
-            'cg_id' => $this->cg_id,
+            //'cg_id' => $this->cg_id,
             'adl' => $this->adl,
             'class_id'=>  $this->class_id,
             'pid'=>  $this->pid,
@@ -87,7 +94,8 @@ class PatientSearch extends Patient {
                 ->andFilterWhere(['like', 'tai', $this->tai])
                 ->andFilterWhere(['like', 'class_name', $this->class_name])
                 ->andFilterWhere(['like', 'disease', $this->disease])
-                ->andFilterWhere(['like', 'color', $this->color]);
+                ->andFilterWhere(['like', 'color', $this->color])
+                ->andFilterWhere(['like', 'user.name', $this->cg_id]);
 
         return $dataProvider;
     }

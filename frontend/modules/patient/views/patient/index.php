@@ -67,7 +67,11 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'region',
             // 'discharge',
             // 'disease',
-            
+            [
+                'attribute' => 'cg_id',
+                'label' => 'CG',
+                'value' => 'user.name',
+            ]
             // 'dupdate',
 
             //['class' => 'yii\grid\ActionColumn'],

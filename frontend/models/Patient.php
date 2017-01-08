@@ -1,7 +1,7 @@
 <?php
 
 namespace frontend\models;
-
+use backend\models\User;
 use Yii;
 
 /**
@@ -96,7 +96,7 @@ class Patient extends \yii\db\ActiveRecord {
             'disease' => 'โรคประจำตัว',
             'discharge' => 'การจำหน่าย',
             'cm_id' => 'CareManager',
-            'cg_id' => 'ผู้ดูแล (Care Giver)',
+            'cg_id' => 'CG',
             'adl' => 'คะแนน ADL',
             'tai' => 'จัดกลุ่ม TAI',
             'class_id' => 'รหัสกลุ่ม',
@@ -106,6 +106,11 @@ class Patient extends \yii\db\ActiveRecord {
             'tel'=>'เบอร์ติดต่อ',
             'dupdate' => 'วันอัพเดทข้อมูล',
         ];
+    }
+    
+     public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'cg_id']);
     }
 
 }
