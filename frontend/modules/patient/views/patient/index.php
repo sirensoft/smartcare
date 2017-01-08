@@ -24,13 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
         
         <?php endif;?>
     </p>
-    
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'responsiveWrap' => false,
-        'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
-        'columns' => [
+    <?php
+    $columns = [
             ['class' => 'yii\grid\SerialColumn'],
             'class_name',
             [
@@ -67,14 +62,25 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'region',
             // 'discharge',
             // 'disease',
-            [
-                'attribute' => 'cg_id',
-                'label' => 'CG',
-                'value' => 'user.name',
-            ]
+            
             // 'dupdate',
 
             //['class' => 'yii\grid\ActionColumn'],
-        ],
+        ];
+            if(!MyHelper::isCg()){
+        $columns[]=[
+                'attribute' => 'cg_id',
+                'label' => 'CG',
+                'value' => 'user.name',
+            ];
+            }
+    ?>
+    
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'responsiveWrap' => false,
+        'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
+        'columns' => $columns,
     ]); ?>
 </div>
