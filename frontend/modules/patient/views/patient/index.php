@@ -33,7 +33,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'class_name',
-            'color:text:ความเร่งด่วน',
+            [
+               'attribute'=>'color',               
+               'contentOptions' => function ($model) {     
+                    if($model->color=='yellow'){
+                        return ['style' => "color:black;background-color:$model->color;"];  
+                    }
+                    return ['style' => "color:white;background-color:$model->color;"];               
+                }
+            ],
+           
             [
                 'attribute'=>'cid',
                 'format'=>'raw',

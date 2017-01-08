@@ -101,7 +101,7 @@ class Patient extends \yii\db\ActiveRecord {
             'tai' => 'จัดกลุ่ม TAI',
             'class_id' => 'รหัสกลุ่ม',
             'class_name' => 'กลุ่ม',
-            'color'=>'ความเร่งด่วน(สี)',
+            'color'=>'เร่งด่วน',
             'cousin'=>'ชื่อญาติ',
             'tel'=>'เบอร์ติดต่อ',
             'dupdate' => 'วันอัพเดทข้อมูล',

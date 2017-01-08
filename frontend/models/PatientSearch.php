@@ -69,7 +69,7 @@ class PatientSearch extends Patient {
             'adl' => $this->adl,
             'class_id'=>  $this->class_id,
             'pid'=>  $this->pid,
-            'color'=>  $this->color
+            //'color'=>  $this->color
         ]);
 
         $query->andFilterWhere(['like', 'cid', $this->cid])
@@ -86,7 +86,8 @@ class PatientSearch extends Patient {
                 ->andFilterWhere(['like', 'house_no', $this->house_no])
                 ->andFilterWhere(['like', 'tai', $this->tai])
                 ->andFilterWhere(['like', 'class_name', $this->class_name])
-                ->andFilterWhere(['like', 'disease', $this->disease]);
+                ->andFilterWhere(['like', 'disease', $this->disease])
+                ->andFilterWhere(['like', 'color', $this->color]);
 
         return $dataProvider;
     }
