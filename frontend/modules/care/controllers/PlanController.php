@@ -70,6 +70,10 @@ class PlanController extends AppController {
         $model = new Plan();
         $model->patient_id = $pid;
         $model->adl = $pt->adl;
+        $adl_text ="ติดเตียง";
+        if($pt->adl > 4 ){$adl_text = "ติดบ้าน";}
+        if($pt->adl > 11 ){$adl_text = "ติดสังคม";}
+        $model->adl_text = $adl_text;
         $model->tai = $pt->tai;
         $model->tai_text = "กลุ่มที่ " . $pt->class_id . ";" . $pt->class_name;
         $model->hospcode = MyHelper::getUserOffice();

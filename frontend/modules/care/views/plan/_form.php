@@ -44,6 +44,7 @@ use kartik\widgets\DatePicker;
         <?= $form->field($model, 'adl')->textInput() ?>
     </div>
     <div class="col-md-3">
+        
         <?= $form->field($model, 'adl_text')->textInput() ?>
     </div>
     <div class="col-md-3">
