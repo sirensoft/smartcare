@@ -47,7 +47,7 @@ use kartik\widgets\Select2;
         <?php
         $provider_id = MyHelper::getCgId($model->patient_id);
         $hos = MyHelper::getUserOffice();
-        $sql = "SELECT t.id,concat(t.name,' ',t.lname,' (',t.role_name,')') val FROM user t WHERE t.office = '$hos'";
+        $sql = "SELECT t.id,concat(t.u_name,' ',t.u_lname,' (',t.role_name,')') val FROM user t WHERE t.office = '$hos'";
         $items = MyHelper::dropDownItems($sql, 'id', 'val');
         echo $form->field($model, 'provider_id')->dropDownList($items, [
             'value' => $model->isNewRecord ? MyHelper::getCgId($model->patient_id) : $model->provider_id,

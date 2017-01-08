@@ -19,10 +19,10 @@ use yii\web\IdentityInterface;
  * @property integer $status
  * @property integer $role
  * @property string $role_name 
- * @property string $cid 
- * @property string $prename
- * @property string $name 
- * @property string $lname 
+ * @property string $u_cid 
+ * @property string $u_prename
+ * @property string $u_name 
+ * @property string $u_lname 
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password

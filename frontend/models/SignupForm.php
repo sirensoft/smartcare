@@ -12,10 +12,10 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
-    public $cid;
-    public $prename;
-    public $name;
-    public $lname;
+    public $u_cid;
+    public $u_prename;
+    public $u_name;
+    public $u_lname;
     public $office;
 
 
@@ -39,22 +39,22 @@ class SignupForm extends Model
             ['password', 'required'],
             ['password', 'string', 'min' => 4],
             
-            ['prename', 'trim'],
-            ['prename', 'required'],
-            ['prename', 'string', 'min' => 2, 'max' => 255],
+            ['u_prename', 'trim'],
+            ['u_prename', 'required'],
+            ['u_prename', 'string', 'min' => 2, 'max' => 255],
             
-            ['name', 'trim'],
-            ['name', 'required'],
-            ['name', 'string', 'min' => 2, 'max' => 255],
+            ['u_name', 'trim'],
+            ['u_name', 'required'],
+            ['u_name', 'string', 'min' => 2, 'max' => 255],
             
-            ['lname', 'trim'],
-            ['lname', 'required'],
-            ['lname', 'string', 'min' => 2, 'max' => 255],
+            ['u_lname', 'trim'],
+            ['u_lname', 'required'],
+            ['u_lname', 'string', 'min' => 2, 'max' => 255],
             
-            ['cid', 'trim'],
-            ['cid', 'required'],
-            ['cid', 'string', 'min' => 13, 'max' => 13],
-            ['cid', 'unique', 'targetClass' => '\common\models\User', 'message' => 'CID ถูกใช้แล้ว'],
+            ['u_cid', 'trim'],
+            ['u_cid', 'required'],
+            ['u_cid', 'string', 'min' => 13, 'max' => 13],
+            ['u_cid', 'unique', 'targetClass' => '\common\models\User', 'message' => 'CID ถูกใช้แล้ว'],
             
             ['office', 'trim'],
             ['office', 'required'],
@@ -65,10 +65,10 @@ class SignupForm extends Model
      public function attributeLabels()
     {
         return [
-            'cid' => 'เลข 13 หลัก',
-            'prename'=>'คำนำหน้า',
-            'name'=>'ชื่อ',
-            'lname'=>'นาสกุล',
+            'u_cid' => 'เลข 13 หลัก',
+            'u_prename'=>'คำนำหน้า',
+            'u_name'=>'ชื่อ',
+            'u_lname'=>'นาสกุล',
             'office'=>'รหัสหน่วยบริการ 5 หลัก'
         ];
     }
@@ -88,10 +88,10 @@ class SignupForm extends Model
         $user->username = $this->username;
         $user->email = $this->email;
         $user->setPassword($this->password);
-        $user->cid = $this->cid;
-        $user->prename=$this->prename;
-        $user->name=  $this->name;
-        $user->lname=  $this->lname;
+        $user->u_cid = $this->u_cid;
+        $user->u_prename=$this->u_prename;
+        $user->u_name=  $this->u_name;
+        $user->u_lname=  $this->u_lname;
         $user->office = $this->office;
         $user->generateAuthKey();
         

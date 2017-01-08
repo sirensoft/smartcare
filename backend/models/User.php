@@ -16,10 +16,10 @@ use Yii;
  * @property integer $status
  * @property integer $role
  * @property string $role_name
- * @property string $cid
- * @property string $prename
- * @property string $name
- * @property string $lname
+ * @property string $u_cid
+ * @property string $u_prename
+ * @property string $u_name
+ * @property string $u_lname
  * @property string $office
  * @property string $officer_type
  * @property string $office_position
@@ -44,9 +44,9 @@ class User extends \yii\db\ActiveRecord
         return [
             [['username', 'auth_key', 'password_hash', 'email', 'role', 'created_at', 'updated_at'], 'required'],
             [['status', 'role', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'password_hash', 'password_reset_token', 'email', 'role_name', 'prename', 'name', 'lname', 'office', 'officer_type', 'office_position'], 'string', 'max' => 255],
+            [['username', 'password_hash', 'password_reset_token', 'email', 'role_name', 'u_prename', 'u_name', 'u_lname', 'office', 'officer_type', 'office_position'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
-            [['cid'], 'string', 'max' => 13],
+            [['u_cid'], 'string', 'max' => 13],
             [['username'], 'unique'],
             [['email'], 'unique'],
             [['password_reset_token'], 'unique'],
@@ -68,10 +68,10 @@ class User extends \yii\db\ActiveRecord
             'status' => 'Status',
             'role' => 'Role',
             'role_name' => 'Role Name',
-            'cid' => 'Cid',
-            'prename' => 'Prename',
-            'name' => 'Name',
-            'lname' => 'Lname',
+            'u_cid' => 'U Cid',
+            'u_prename' => 'U Prename',
+            'u_name' => 'U Name',
+            'u_lname' => 'U Lname',
             'office' => 'Office',
             'officer_type' => 'Officer Type',
             'office_position' => 'Office Position',

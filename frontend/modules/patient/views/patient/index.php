@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
         $columns[]=[
                 'attribute' => 'cg_id',
                 'label' => 'CG',
-                'value' => 'user.name',
+                'value' => 'user.u_name',
             ];
             }
     ?>

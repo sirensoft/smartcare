@@ -194,7 +194,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
     <div class="col-sm-3"> 
         <?php
         $office = MyHelper::getUserOffice();
-        $sql = " SELECT t.id,CONCAT(t.prename,t.`name`,' ',t.lname) val FROM `user` t 
+        $sql = " SELECT t.id,CONCAT(t.u_prename,t.u_name,' ',t.u_lname) val FROM `user` t 
 WHERE t.role = 3 AND t.office = '$office' ";
         $items = MyHelper::dropDownItems($sql, 'id', 'val');
         ?>

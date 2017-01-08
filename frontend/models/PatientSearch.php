@@ -6,21 +6,24 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use frontend\models\Patient;
+use common\components\MyHelper;
 
 /**
  * PatientSearch represents the model behind the search form about `frontend\models\Patient`.
  */
 class PatientSearch extends Patient {
+
     public $user;
+
     /**
      * @inheritdoc
      */
     public function rules() {
         return [
             [['id'], 'integer'],
-            [['user'],'safe'],
-            [['color','cousin','tel','pid','refer_from','class_name','adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'region', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
-            [['typearea','class_id'], 'integer'],
+            [['user'], 'safe'],
+            [['color', 'cousin', 'tel', 'pid', 'refer_from', 'class_name', 'adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'region', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
+            [['typearea', 'class_id'], 'integer'],
         ];
     }
 
@@ -48,10 +51,10 @@ class PatientSearch extends Patient {
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-        
+
         $dataProvider->sort->attributes['user'] = [
-            'asc' => ['user.name' => SORT_ASC],
-            'desc' => ['user.name' => SORT_DESC],
+            'asc' => ['user.u_name' => SORT_ASC],
+            'desc' => ['user.u_name' => SORT_DESC],
         ];
 
         $this->load($params);
@@ -72,11 +75,11 @@ class PatientSearch extends Patient {
             'discharge' => $this->discharge,
             'dupdate' => $this->dupdate,
             'cm_id' => $this->cm_id,
-            'cg_id' => $this->cg_id,
+            //'cg_id' => $this->cg_id,
             'adl' => $this->adl,
-            'class_id'=>  $this->class_id,
-            'pid'=>  $this->pid,
-            //'color'=>  $this->color
+            'class_id' => $this->class_id,
+            'pid' => $this->pid,
+                //'color'=>  $this->color
         ]);
 
         $query->andFilterWhere(['like', 'cid', $this->cid])
@@ -95,7 +98,11 @@ class PatientSearch extends Patient {
                 ->andFilterWhere(['like', 'class_name', $this->class_name])
                 ->andFilterWhere(['like', 'disease', $this->disease])
                 ->andFilterWhere(['like', 'color', $this->color]);
-                //->andFilterWhere(['like', 'user.name', $this->cg_id]);
+        if(MyHelper::isCg()){
+            $query->andFilterWhere(['cg_id' => $this->cg_id]);
+        }else{
+            $query->andFilterWhere(['like', 'user.u_name', $this->cg_id]);
+        }
 
         return $dataProvider;
     }
