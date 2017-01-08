@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a('<i class="glyphicon glyphicon-user"></i> ข้อมูล', ['/Profile/', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ประเมิน', ['/patient/asses/index', 'pid' => $model->id], ['class' => 'btn btn-danger']) ?>
             <?= Html::a('<i class="glyphicon glyphicon-calendar"></i> แผน', ['/care/plan-week/index', 'pid' => $model->id], ['class' => 'btn btn-warning ']) ?>
-            <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เยี่ยม', ['/visit/', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เยี่ยม', ['/care/visit/index', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
 
         <?php endif; ?>
 

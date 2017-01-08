@@ -13,15 +13,15 @@ use kartik\widgets\Select2;
 
 
 <?php $form = ActiveForm::begin(['id' => 'plan-form']); ?>
-<?php if(MyHelper::isCm()): ?>
-<div class="form-group">
-    <div class="col-md-12">
-        <label class="control-label" for="chk_cg">
-            <?= Html::checkbox('chk_cg', FALSE, ['id' => 'chk_cg', 'class' => 'from-control']); ?>
-            ดูแลโดย CG
-        </label>
+<?php if (MyHelper::isCm()): ?>
+    <div class="form-group">
+        <div class="col-md-12">
+            <label class="control-label" for="chk_cg">
+                <?= Html::checkbox('chk_cg', FALSE, ['id' => 'chk_cg', 'class' => 'from-control']); ?>
+                ดูแลโดย CG
+            </label>
+        </div>
     </div>
-</div>
 <?php endif; ?>
 
 <div class="form-group">
@@ -57,57 +57,58 @@ use kartik\widgets\Select2;
     </div>
 </div>
 
-<?php if($model->isNewRecord and MyHelper::getDay($model->start_date)=='Mon'): ?>
-<div class="form-group">
-    <div class="col-md-12">
-        <label class="control-label" for="chk_day">
-            <?= Html::checkbox('chk_day', FALSE, ['id' => 'chk_day', 'class' => 'from-control']); ?>
-            ทำทุกวันตลอดสัปดาห์ เวลาเดียวกันนี้
-        </label>
+<?php if ($model->isNewRecord and MyHelper::getDay($model->start_date) == 'Mon'): ?>
+    <div class="form-group">
+        <div class="col-md-12">
+            <label class="control-label" for="chk_day">
+                <?= Html::checkbox('chk_day', FALSE, ['id' => 'chk_day', 'class' => 'from-control']); ?>
+                ทำทุกวันตลอดสัปดาห์ เวลาเดียวกันนี้
+            </label>
+        </div>
     </div>
-</div>
 <?php endif; ?>
 
 
 <?php if (!$model->isNewRecord): ?>
+    <?php if (!MyHelper::isCg()): ?>
+        <div class="form-group">
+            <div class="col-md-3">
+                <?= $form->field($model, 'weight')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div class="col-md-3">
+                <?= $form->field($model, 'height')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div class="col-md-3">
+                <?= $form->field($model, 'waist')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div class="col-md-3">
+                <?= $form->field($model, 'pulse')->textInput(['maxlength' => true]) ?>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <div class="col-md-3">
-            <?= $form->field($model, 'weight')->textInput(['maxlength' => true]) ?>
+        <div class="form-group">
+            <div class="col-md-3">
+                <?= $form->field($model, 'temp')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div class="col-md-2">
+                <?= $form->field($model, 'sbp')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div class="col-md-2">
+                <?= $form->field($model, 'dbp')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div class="col-md-2">
+                <?= $form->field($model, 'rr')->textInput(['maxlength' => true]) ?>
+            </div>
+            <div class="col-md-3">
+                <?= $form->field($model, 'sugar')->textInput(['maxlength' => true]) ?>
+            </div>
         </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'height')->textInput(['maxlength' => true]) ?>
+        <div class="form-group">
+            <div class="col-md-12">
+                <?= $form->field($model, 'note')->textarea(['rows' => 4]) ?>
+            </div>
         </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'waist')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'pulse')->textInput(['maxlength' => true]) ?>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-3">
-            <?= $form->field($model, 'temp')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-2">
-            <?= $form->field($model, 'sbp')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-2">
-            <?= $form->field($model, 'dbp')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-2">
-            <?= $form->field($model, 'rr')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'sugar')->textInput(['maxlength' => true]) ?>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-12">
-            <?= $form->field($model, 'note')->textarea(['rows' => 4]) ?>
-        </div>
-    </div>
+    <?php endif; ?>
 
 <?php endif; ?>
 
@@ -132,15 +133,22 @@ use kartik\widgets\Select2;
     ])
     ?>
 <?php else: ?> 
-    <?php
-    $btn = "button";
-    $isDisabled = "disabled";
-    if (MyHelper::getUserId() == $model->provider_id) {
-        $btn = "submit";
-        $isDisabled = "data-btn";
-    }
-    ?>
-    <button type="<?= $btn ?>" <?= $isDisabled ?> class = 'btn btn-primary' ><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
+    <?php if (MyHelper::getUserId() == $model->provider_id): ?>
+
+        <?=
+        Html::a('<i class="glyphicon glyphicon-ok"></i> บันทึกเยี่ยม', ['/care/visit/create',
+            'pid' => $model->patient_id,
+            'planweek_id'=>$model->id,
+            'start_date' => $model->start_date,
+            'start_time'=>$model->start_time
+        ] , ['class' => 'btn btn-primary'])
+        ?>
+
+    <?php else: ?>
+
+        <button type="button" disabled="" class = 'btn btn-primary' ><i class="glyphicon glyphicon-ok"></i> บันทึกเยี่ยม</button>  
+
+    <?php endif; ?>
 <?php endif; ?>
 
 
