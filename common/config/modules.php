@@ -19,5 +19,8 @@ return [
     'health' => [
         'class' => 'frontend\modules\health\Health',
     ],
+    'map' => [
+        'class' => 'frontend\modules\map\Map',
+    ],
 ];
 

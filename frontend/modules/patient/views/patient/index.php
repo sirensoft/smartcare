@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?php if(MyHelper::getUserRole()!==3):?>
-        <?=  Html::a('<i class="glyphicon glyphicon-map-marker"></i> แผนที่',['map'], ['class'=>'btn btn-warning'])?>
+        <?=  Html::a('<i class="glyphicon glyphicon-map-marker"></i> แผนที่',['/map'], ['class'=>'btn btn-warning','target'=>'_blank'])?>
         <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เพิ่ม', ['create'], ['class' => 'btn btn-success']) ?>
         
         <?php endif;?>
