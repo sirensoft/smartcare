@@ -6,6 +6,7 @@ use kartik\widgets\Select2;
 use common\components\MyHelper;
 use kartik\form\ActiveField;
 use kartik\date\DatePicker;
+use yii\web\JsExpression;
 
 $css = <<< CSS
 .alignment
@@ -26,8 +27,11 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         <?php if ($model->isNewRecord): ?>
             <div class="input-group">
                 <?= $form->field($model, 'cid'); ?>            
-                <span class="input-group-btn">                
-                    <button class="btn btn-default alignment" type="button" id="btn_hdc">HDC</button>
+                <span class="input-group-btn">
+                    
+                    <button class="btn btn-default alignment" type="button" id="btn_hdc" >
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
                 </span>           
             </div>
         <?php else: ?>
