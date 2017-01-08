@@ -28,8 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
               
 
                 <div class="form-group">
-                    <?= Html::a('<i class="glyphicon glyphicon-user"></i> สมัครผู้ใช้', ['/site/signup'],['class' => 'btn btn-info'])?>
-                    <?= Html::submitButton('<i class="glyphicon glyphicon-ok"></i> Login', ['class' => 'btn btn-danger', 'name' => 'login-button']) ?>
+                   <?= Html::submitButton('<i class="glyphicon glyphicon-ok"></i> Login', ['class' => 'btn btn-danger', 'name' => 'login-button']) ?>
                     
                 </div>
 
