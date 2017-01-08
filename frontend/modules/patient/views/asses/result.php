@@ -4,7 +4,7 @@ use yii\data\ArrayDataProvider;
 use kartik\grid\GridView;
 
 $sql = " SELECT t.d_update 'DATE_SERV',t.adl_score,t.pp_code,tai_score,t.tai_class,t.group_text,t.note
-,concat(u.prename,u.`name`,' ',u.lname) provider FROM assessment t 
+,concat(u.u_prename,u.u_name,' ',u.u_lname) provider FROM assessment t 
 LEFT JOIN `user` u on u.id = t.provider_id
 WHERE  t.patient_id = '$pid' order by t.id DESC";
 
