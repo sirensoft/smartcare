@@ -18,7 +18,7 @@ class PatientSearch extends Patient {
     public function rules() {
         return [
             [['id'], 'integer'],
-            [['cousin','tel','pid','refer_from','class_name','adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'region', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
+            [['color','cousin','tel','pid','refer_from','class_name','adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'region', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
             [['typearea','class_id'], 'integer'],
         ];
     }
@@ -68,7 +68,8 @@ class PatientSearch extends Patient {
             'cg_id' => $this->cg_id,
             'adl' => $this->adl,
             'class_id'=>  $this->class_id,
-            'pid'=>  $this->pid
+            'pid'=>  $this->pid,
+            'color'=>  $this->color
         ]);
 
         $query->andFilterWhere(['like', 'cid', $this->cid])

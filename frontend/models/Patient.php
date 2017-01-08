@@ -36,6 +36,7 @@ use Yii;
  * @property string  $tai
  * @property integer $class_id 
  * @property string $class_name
+ * @property string $color 
  * @property string $cousin
  * @property string $tel
  * @property string $dupdate
@@ -60,7 +61,7 @@ class Patient extends \yii\db\ActiveRecord {
             [['dupdate','cousin','tel'], 'safe'],
             [['age_y','typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
             [['cid', 'tai'], 'string', 'max' => 13],
-            [['pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'region', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
+            [['color','pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'region', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
             ['cid', 'unique', 'targetClass' => '\frontend\models\Patient', 'message' => 'CID มีในระบบแล้ว'],
         ];
     }
@@ -100,6 +101,7 @@ class Patient extends \yii\db\ActiveRecord {
             'tai' => 'จัดกลุ่ม TAI',
             'class_id' => 'รหัสกลุ่ม',
             'class_name' => 'กลุ่ม',
+            'color'=>'ความเร่งด่วน(สี)',
             'cousin'=>'ชื่อญาติ',
             'tel'=>'เบอร์ติดต่อ',
             'dupdate' => 'วันอัพเดทข้อมูล',

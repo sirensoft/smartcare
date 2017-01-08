@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'class_name',
+            'color:text:ความเร่งด่วน',
             [
                 'attribute'=>'cid',
                 'format'=>'raw',
