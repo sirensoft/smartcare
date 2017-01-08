@@ -1,7 +1,8 @@
 <?php
 
+use common\components\MyHelper;
 
-$this->title = $model->id;
+$this->title = MyHelper::ptInfo_($model->patient_id);
 $this->params['breadcrumbs'][] = ['label' => 'Plans', 'url' => ['index','pid'=>$model->patient_id]];
 $this->params['breadcrumbs'][] = $this->title;
 

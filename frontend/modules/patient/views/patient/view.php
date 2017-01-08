@@ -8,7 +8,7 @@ use common\components\MyHelper;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Patient */
 
-$this->title = $model->name . " " . $model->lname;
+$this->title = MyHelper::ptInfo_($model->id);
 $this->params['breadcrumbs'][] = ['label' => 'รายชื่อ', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

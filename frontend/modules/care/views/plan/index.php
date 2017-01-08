@@ -1,22 +1,24 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
+use common\components\MyHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\PlanSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'แผนการดูแล';
+$this->title = 'รายการแผน';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<?=  MyHelper::ptInfoDiv($pid)?>
 <div class="plan-index">
 
  
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Plan', ['create','pid'=>$pid], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> จัดทำแผนการดูแล', ['create','pid'=>$pid], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

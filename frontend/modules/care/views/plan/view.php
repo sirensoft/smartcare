@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use common\components\MyHelper;
 
 /*
 $this->title = $model->id;
@@ -9,6 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Plans', 'url' => ['index','pid'=>$
 $this->params['breadcrumbs'][] = $this->title
 */
 ?>
+
 <div class="plan-view">
    
 
@@ -24,19 +26,21 @@ $this->params['breadcrumbs'][] = $this->title
             'adl_text',
             'tai',
             'tai_text',
-            'budget_need',
+            
             'dx1',
             'dx2',
             'drug:ntext',
-            'note_before_plan:ntext',
-            'fct_care_time:text',
-            'cg_care_time:text',
-            'update_plan:ntext',
+            
             'patient_mind:ntext',
             'live_problem:ntext',
             'long_goal:ntext',
             'short_goal:ntext',
             'careful:ntext',
+            'note_before_plan:ntext',
+            'fct_care_time:text',
+            'cg_care_time:text',
+            'update_plan:ntext',
+            'budget_need',
            // 'd_update',
         ],
     ]) ?>

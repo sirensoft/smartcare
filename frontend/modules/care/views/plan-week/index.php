@@ -9,17 +9,12 @@ $this->registerCss($this->render('custom.css'));
 $this->registerCss($this->render('cursor.css'));
 //$this->registerJs($this->render('click.js'));
 
-$this->title = $model->prename . $model->name . " " . $model->lname;
+$this->title = MyHelper::ptInfo_($pid);
 $this->params['breadcrumbs'][] = ['label' => 'รายชื่อ', 'url' => ['/patient']];
-$this->params['breadcrumbs'][] = ['label' => 'ข้อมูล', 'url' => ['/patient/patient/view', 'pid' => $pid]];
+$this->params['breadcrumbs'][] = ['label' => MyHelper::ptInfo_($pid), 'url' => ['/patient/patient/view', 'pid' => $pid]];
 $this->params['breadcrumbs'][] = 'แผนรายสัปดาห์';
 ?>
-<div style="background-color:#ffc0cb;color: black; padding: 5px;margin-bottom: 5px">
-    <?php
-   echo "<b> ผู้สูงอายุ : " . $model->prename . $model->name . " " . $model->lname 
-        ." - ". $model->age_y."ปี (".$model->class_name.")</b>";
-    ?>
-</div>
+
 
 <?php
 
