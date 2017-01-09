@@ -38,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title
             'careful:ntext',
             'note_before_plan:ntext',
             'fct_care_time:text',
+            'extra_service',
             'cg_care_time:text',
             'update_plan:ntext',
             'budget_need',
