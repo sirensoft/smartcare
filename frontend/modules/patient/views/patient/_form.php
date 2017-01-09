@@ -113,7 +113,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
 </div>
 
 <div class="form-group">
-    <div class="col-sm-4">  
+    <div class="col-sm-3">  
         <?php
         $sql = "SELECT t.typeareacode id,concat(t.typeareacode,'-',t.typeareaname) val from c_typearea t ";
         $items = MyHelper::dropDownItems($sql, 'id', 'val');
@@ -128,7 +128,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         ?>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <?php
         $items = MyHelper::dropDownItems("SELECT t.nationname id,t.nationname val from c_nation t", 'id', 'val');
 
@@ -142,7 +142,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         ]);
         ?>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <?=
         $form->field($model, 'region')->widget(Select2::classname(), [
             'data' => $items,
@@ -153,6 +153,9 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
             ],
         ]);
         ?>
+    </div>
+    <div class="col-sm-3">
+        <?= $form->field($model, 'religion')->textInput() ?>
     </div>
 </div>
 

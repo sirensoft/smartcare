@@ -61,7 +61,7 @@ class Patient extends \yii\db\ActiveRecord {
             [['dupdate','cousin','tel'], 'safe'],
             [['age_y','typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
             [['cid', 'tai'], 'string', 'max' => 13],
-            [['color','pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'region', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
+            [['religion','color','pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'region', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
             ['cid', 'unique', 'targetClass' => '\frontend\models\Patient', 'message' => 'CID มีในระบบแล้ว'],
         ];
     }
@@ -90,6 +90,7 @@ class Patient extends \yii\db\ActiveRecord {
             'typearea' => 'ประเภทอยู่อาศัย',
             'nation' => 'สัญชาติ',
             'region' => 'เชื้อชาติ',
+            'religion'=>'ศาสนา',
             'hospcode' => 'รหัสหน่วยบริการ',
             'pid'=>'PID',
             'refer_from'=>'รับส่งต่อจาก',
@@ -102,7 +103,7 @@ class Patient extends \yii\db\ActiveRecord {
             'class_id' => 'รหัสกลุ่ม',
             'class_name' => 'กลุ่ม',
             'color'=>'เร่งด่วน',
-            'cousin'=>'ชื่อญาติ',
+            'cousin'=>'ชื่อญาติ/คนดูแล',
             'tel'=>'เบอร์ติดต่อ',
             'dupdate' => 'วันอัพเดทข้อมูล',
         ];
