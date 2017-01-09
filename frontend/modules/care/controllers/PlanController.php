@@ -151,6 +151,21 @@ class PlanController extends AppController {
         $excel->getActiveSheet()->setCellValue('C5', $patient->prename . $patient->name . " " . $patient->lname);
         $excel->getActiveSheet()->setCellValue('D6', $patient->cid);
         $excel->getActiveSheet()->setCellValue('C7', $patient->birth);
+        $excel->getActiveSheet()->setCellValue('D7', "อายุ ".$patient->age_y." ปี");
+        $addr = "ที่อยู่ปัจจุบัน ".$patient->house_no." ม.".$patient->village_no
+                ." ต.".$patient->subdistrict ." โทร.".$patient->tel;
+        
+        $excel->getActiveSheet()->setCellValue('D10', $model->rapid_code);
+        
+        $excel->getActiveSheet()->setCellValue('C11', $model->adl);
+        $excel->getActiveSheet()->setCellValue('C12', $model->tai);
+        $excel->getActiveSheet()->setCellValue('D11', $model->adl_text);
+        $excel->getActiveSheet()->setCellValue('D12', $model->tai_text);
+        
+        $excel->getActiveSheet()->setCellValue('A8', $addr);
+        $excel->getActiveSheet()->setCellValue('A14', $model->budget_need);
+        $excel->getActiveSheet()->setCellValue('C14', "=BAHTTEXT(A14)");
+        
         $excel->getActiveSheet()->setCellValue('C15', $model->dx1);
         $excel->getActiveSheet()->setCellValue('A17', $model->dx2);
         $excel->getActiveSheet()->setCellValue('A20', $model->drug);
