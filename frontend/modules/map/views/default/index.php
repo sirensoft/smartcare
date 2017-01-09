@@ -25,7 +25,7 @@ $js = <<<JS
 
             
 L.mapbox.accessToken = 'pk.eyJ1IjoidGVobm5uIiwiYSI6ImNpZzF4bHV4NDE0dTZ1M200YWxweHR0ZzcifQ.lpRRelYpT0ucv1NN08KUWQ';
-var map = L.mapbox.map('map').setView([16,100], 9); 
+var map = L.mapbox.map('map').setView([16.74094277,100.27255121], 9); 
 var baseLayers = {
 	"แผนที่ถนน": L.mapbox.tileLayer('mapbox.streets').addTo(map),        
         "แผนที่ดาวเทียม": L.mapbox.tileLayer('mapbox.satellite'),
@@ -33,12 +33,12 @@ var baseLayers = {
     };
         
  var overlays = {  };
- var ic1   =L.mapbox.marker.icon({'marker-color': '#40ff00'});
+ var ic1   =L.mapbox.marker.icon({'marker-color': '#ffff00'});
  var ic2 = L.mapbox.marker.icon({'marker-color': '#0000FF'});
  var ic3 = L.mapbox.marker.icon({'marker-color': '#ff0033'});  
         
 L.marker([16.619849, 100.107535], {icon:ic1}).addTo(map).bindPopup('นาย ก');
-L.marker([16.617849, 100.127535], {icon:ic2}).addTo(map).bindPopup('นาย ข');
+L.marker([16.74981939,100.34430566], {icon:ic2}).addTo(map).bindPopup('นาย ข');
 L.marker([16.607849, 100.117535], {icon:ic3}).addTo(map).bindPopup('นาย ค');
 L.marker([16.707849, 100.317535], {icon:ic2}).addTo(map).bindPopup('นาง ง');
 L.marker([16.627849, 100.117535], {icon:ic1}).addTo(map).bindPopup('นาง จ');
