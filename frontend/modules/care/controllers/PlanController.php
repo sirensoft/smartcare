@@ -153,7 +153,7 @@ class PlanController extends AppController {
         $excel->getActiveSheet()->setCellValue('C7', $patient->birth);
         $excel->getActiveSheet()->setCellValue('D7', "อายุ ".$patient->age_y." ปี");
         $addr = "ที่อยู่ปัจจุบัน ".$patient->house_no." ม.".$patient->village_no
-                ." ต.".$patient->subdistrict ." โทร.".$patient->tel;
+                ." ต.".$patient->subdistrict ." อ.".$patient->district." โทร.".$patient->tel;
         
         $excel->getActiveSheet()->setCellValue('D10', $model->rapid_code);
         
