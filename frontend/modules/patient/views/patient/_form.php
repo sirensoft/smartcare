@@ -29,7 +29,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
                 <?= $form->field($model, 'cid'); ?>            
                 <span class="input-group-btn">
                     
-                    <button class="btn btn-default alignment" type="button" id="btn_hdc" >
+                    <button class="btn btn-default alignment" type="button" id="btn_find_cid" >
                         <i class="glyphicon glyphicon-search"></i>
                     </button>
                 </span>           
@@ -221,5 +221,17 @@ WHERE t.role = 3 AND t.office = '$office' ";
 
 <?= $form->field($model, 'dupdate')->hiddenInput(['value' => date('Y-m-d')])->label(FALSE) ?>
 <?php ActiveForm::end(); ?>
+
+<?php
+$js = <<<JS
+    $('#btn_find_cid').click(function(){
+       var cid = $('#patient-cid').val();
+           alert(cid);
+   });
+JS;
+
+$this->registerJs($js);
+
+?>
 
 

@@ -22,5 +22,8 @@ return [
     'map' => [
         'class' => 'frontend\modules\map\Map',
     ],
+    'api' => [
+        'class' => 'frontend\modules\api\Api',
+    ],
 ];
 
