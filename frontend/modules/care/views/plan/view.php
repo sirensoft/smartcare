@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title
             ],
         ]) ?>
          
-         <?= Html::a('พิมพ์', ['print', 'id' => $model->id], ['class' => 'btn btn-info pull-right']) ?>
+         <?= Html::a('พิมพ์', ['excel', 'id' => $model->id], ['class' => 'btn btn-info pull-right']) ?>
         
         
     </p>

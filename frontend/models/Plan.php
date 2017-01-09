@@ -29,6 +29,7 @@ use frontend\models\Patient;
  * @property string $live_problem
  * @property string $long_goal
  * @property string $short_goal
+ * @property string $extra_service
  * @property string $careful
  * @property string $d_update
  */
@@ -51,7 +52,7 @@ class Plan extends \yii\db\ActiveRecord {
             [['d_update'], 'safe'],
             [['drug', 'note_before_plan', 'fct_care_time', 'cg_care_time', 'update_plan', 'patient_mind', 'live_problem', 'long_goal', 'short_goal', 'careful'], 'string'],
             [['hospcode'], 'string', 'max' => 5],
-            [['rapid_code', 'adl_text', 'tai', 'tai_text', 'budget_need', 'dx1', 'dx2'], 'string', 'max' => 255],
+            [['extra_service','rapid_code', 'adl_text', 'tai', 'tai_text', 'budget_need', 'dx1', 'dx2'], 'string', 'max' => 255],
         ];
     }
 
@@ -81,6 +82,7 @@ class Plan extends \yii\db\ActiveRecord {
             'live_problem' => 'ประเด็นปัญหาในการดำรงชีวิต',
             'long_goal' => 'แนวนโยบายการให้ความช่วยเหลือ (เป้าหมายระยะยาว)',
             'short_goal' => 'เป้าหมายการดำรงชีวิต (เป้าหมายระยะสั้น)',
+            'extra_service'=>'บริการที่นอกเหนือ',
             'careful' => 'ข้อควรระวังในการให้บริการ',
             'd_update' => 'D Update',
         ];

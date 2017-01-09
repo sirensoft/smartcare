@@ -70,9 +70,13 @@ class PlanController extends AppController {
         $model = new Plan();
         $model->patient_id = $pid;
         $model->adl = $pt->adl;
-        $adl_text ="ติดเตียง";
-        if($pt->adl > 4 ){$adl_text = "ติดบ้าน";}
-        if($pt->adl > 11 ){$adl_text = "ติดสังคม";}
+        $adl_text = "ติดเตียง";
+        if ($pt->adl > 4) {
+            $adl_text = "ติดบ้าน";
+        }
+        if ($pt->adl > 11) {
+            $adl_text = "ติดสังคม";
+        }
         $model->adl_text = $adl_text;
         $model->tai = $pt->tai;
         $model->tai_text = "กลุ่มที่ " . $pt->class_id . ";" . $pt->class_name;
@@ -134,6 +138,36 @@ class PlanController extends AppController {
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionExcel($id) {
+
+        $filePath = "./excel/plan.xls";
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $excel = $objReader->load($filePath);
+        $model = Plan::findOne($id);
+        $patient = Patient::findOne($model->patient_id);
+
+        $excel->getActiveSheet()->setCellValue('C5', $patient->prename . $patient->name . " " . $patient->lname);
+        $excel->getActiveSheet()->setCellValue('D6', $patient->cid);
+        $excel->getActiveSheet()->setCellValue('C7', $patient->birth);
+        $excel->getActiveSheet()->setCellValue('C15', $model->dx1);
+        $excel->getActiveSheet()->setCellValue('A17', $model->dx2);
+        $excel->getActiveSheet()->setCellValue('A20', $model->drug);
+
+        $excel->getActiveSheet()->setCellValue('E6', $model->patient_mind);
+        $excel->getActiveSheet()->setCellValue('I6', $model->live_problem);
+        $excel->getActiveSheet()->setCellValue('E12', $model->long_goal);
+        $excel->getActiveSheet()->setCellValue('E26', $model->short_goal);
+        $excel->getActiveSheet()->setCellValue('E30', $model->careful);
+
+
+
+        $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
+        $objWriter->save($filePath);
+
+
+        \Yii::$app->response->sendFile($filePath, "plan.xls");
     }
 
 }

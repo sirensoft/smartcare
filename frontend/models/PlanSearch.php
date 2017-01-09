@@ -19,7 +19,7 @@ class PlanSearch extends Plan
     {
         return [
             [['id', 'patient_id', 'adl'], 'integer'],
-            [['hospcode', 'date_create', 'rapid_code', 'adl_text', 'tai', 'tai_text', 'budget_need', 'dx1', 'dx2', 'drug', 'note_before_plan', 'fct_care_time', 'cg_care_time', 'update_plan', 'patient_mind', 'live_problem', 'long_goal', 'short_goal', 'careful', 'd_update'], 'safe'],
+            [['extra_service','hospcode', 'date_create', 'rapid_code', 'adl_text', 'tai', 'tai_text', 'budget_need', 'dx1', 'dx2', 'drug', 'note_before_plan', 'fct_care_time', 'cg_care_time', 'update_plan', 'patient_mind', 'live_problem', 'long_goal', 'short_goal', 'careful', 'd_update'], 'safe'],
         ];
     }
 

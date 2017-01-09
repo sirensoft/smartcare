@@ -100,7 +100,10 @@ use kartik\widgets\DatePicker;
     </div>
 </div>
 <div class="form-group">
-    <div class="col-md-12">
+     <div class="col-md-6">
+        <?= $form->field($model, 'extra_service')->textarea(['rows' => 2]) ?>
+    </div>
+    <div class="col-md-6">
         <?= $form->field($model, 'careful')->textarea(['rows' => 2]) ?>
     </div>
 </div>
