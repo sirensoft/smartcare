@@ -202,4 +202,43 @@ class PlanWeekController extends AppController {
         }
     }
 
+    public function actionExcel($pid, $start) {
+        if (MyHelper::getDay($start) !== 'Mon') {
+            return;
+        }
+
+        $filePath = "./excel/plan_week.xls";
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $excel = $objReader->load($filePath);
+
+        $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
+        $objWriter->save($filePath);
+
+        $i = 1;
+        while ($i <= 6) {
+            $date_next = new \DateTime($start);
+            $date_next = $date_next->modify("+$i day");
+            $date_next = $date_next->format('Y-m-d');
+
+
+            $i++;
+        }
+
+
+        $excel->getActiveSheet()->setCellValue('C6', ''); //จ 6.00
+
+        $excel->getActiveSheet()->setCellValue('D6', ''); //อ 6.00
+
+        $excel->getActiveSheet()->setCellValue('E6', '');
+        $excel->getActiveSheet()->setCellValue('F6', '');
+        $excel->getActiveSheet()->setCellValue('G6', '');
+        $excel->getActiveSheet()->setCellValue('H6', '');
+        $excel->getActiveSheet()->setCellValue('I6', '');
+        $excel->getActiveSheet()->setCellValue('J6', '');
+        $excel->getActiveSheet()->setCellValue('K6', '');
+
+
+        \Yii::$app->response->sendFile($filePath, "plan_week.xls");
+    }
+
 }

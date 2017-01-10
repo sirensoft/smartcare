@@ -25,29 +25,30 @@ echo TabsX::widget([
         [
             'label'=>'WEEKLY PLAN',
             'content'=>"<div id='week'>week</div>"
-            . "<div style='margin-top:3px'>"
-            . "<button id='btn_print' class='btn btn-info'>พิมพ์</button> "
-            . "<button id='btn_copy' class='btn btn-warning'>คัดลอก</button>"
-            . "<div>",
+            
             
             
         ]
         
     ],
 ]);
+?>
+<div>
+   
+            
+            
+</div>
+
+<?php
 
 $js= <<< JS
       
   $('#week').load('index.php?r=care/plan-week/index&pid=$model->patient_id') ;
-  $('#btn_print').click(function(){
-      alert();
-  });
+        
   
-  $('#btn_copy').click(function(){
-      alert();
-  });
        
 JS;
 $this->registerJS($js);
+?>
         
   

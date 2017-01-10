@@ -10,7 +10,10 @@ use kartik\widgets\Select2;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
+<?php if(MyHelper::getDay($model->start_date) == 'Mon' and !MyHelper::isCg()): ?>
+<?=  Html::a('พิมพ์',['/care/plan-week/excel','pid'=>$model->patient_id,'start'=>$model->start_date], ['class'=>'btn btn-info'])?>
 
+<?php endif; ?>
 
 <?php $form = ActiveForm::begin(['id' => 'plan-form']); ?>
 <?php if (MyHelper::isCm()): ?>
@@ -138,10 +141,10 @@ use kartik\widgets\Select2;
         <?=
         Html::a('<i class="glyphicon glyphicon-ok"></i> บันทึกเยี่ยม', ['/care/visit/create',
             'pid' => $model->patient_id,
-            'planweek_id'=>$model->id,
+            'planweek_id' => $model->id,
             'start_date' => $model->start_date,
-            'start_time'=>$model->start_time
-        ] , ['class' => 'btn btn-primary'])
+            'start_time' => $model->start_time
+                ], ['class' => 'btn btn-primary'])
         ?>
 
     <?php else: ?>

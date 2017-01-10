@@ -4,6 +4,7 @@ use yii\helpers\Url;
 use yii\web\JsExpression;
 use yii\bootstrap\Modal;
 use common\components\MyHelper;
+use yii\helpers\Html;
 
 $this->registerCss($this->render('custom.css'));
 $this->registerCss($this->render('cursor.css'));
@@ -17,8 +18,6 @@ $this->params['breadcrumbs'][] = 'แผนรายสัปดาห์';
 
 
 <?php
-
-
 $cm_click = "
     function(calEvent, jsEvent, view) {   
         console.log(view.name);
@@ -55,7 +54,6 @@ $event_click = MyHelper::isCg() ? $cg_click : $cm_click;
 ?>
 
 <?php
-
 echo \yii2fullcalendar\yii2fullcalendar::widget(array(
     'events' => $events,
     'options' => [
@@ -76,8 +74,9 @@ echo \yii2fullcalendar\yii2fullcalendar::widget(array(
         'timeFormat' => 'H:mm',
         'eventLimit' => true,
         'dayNamesShort' => ['อา', 'จ', 'อ', 'พ', 'พฤ', 'ศ', 'ส'],
-        'slotLabelFormat'=>'H:mm',
-        //'minTime'=>'06:00'
+        'slotLabelFormat' => 'H:mm',
+        'minTime'=>'06:00',
+        //'maxTime'=>'06:00'
     ]
 ));
 
@@ -90,7 +89,11 @@ Modal::begin([
 echo "<div id='modalContent'></div>";
 
 Modal::end();
+?>
 
+
+
+<?php
 $js = <<<JS
      $(document).on('click','.fc-day-number',function(){
     //$('.fc-day-number').click(function(){        
@@ -103,6 +106,7 @@ JS;
 if (MyHelper::isCm()) {
     $this->registerJs($js);
 }
+?>
 
 
 
