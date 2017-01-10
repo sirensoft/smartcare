@@ -147,5 +147,17 @@ class MyHelper extends \yii\base\Component {
         return "$model->prename $model->name  $model->lname   $model->age_y ปี ($model->class_name)";
         
     }
+    
+    public static function ptRapidColor($pid){
+        
+        $pt = Patient::findOne($pid);
+            $sql = " SELECT t.rapid_code FROM plan t  WHERE  t.patient_id = '$pid'
+                ORDER BY t.id DESC LIMIT 1 ";
+            $color = \Yii::$app->db->createCommand($sql)->queryScalar();
+            $pt->color = empty($color) ? NULL : $color;
+            $pt->save();
+
+        
+    }
 
 }

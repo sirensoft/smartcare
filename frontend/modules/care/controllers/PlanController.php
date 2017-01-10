@@ -84,6 +84,9 @@ class PlanController extends AppController {
         $model->d_update = date('Y-m-d H:i:s');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
+            MyHelper::ptRapidColor($model->patient_id);
+            
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -103,6 +106,8 @@ class PlanController extends AppController {
         $model->d_update = date('Y-m-d H:i:s');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
+            MyHelper::ptRapidColor($model->patient_id);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -121,6 +126,7 @@ class PlanController extends AppController {
         $model = $this->findModel($id);
         $pid = $model->patient_id;
         $model->delete();
+        MyHelper::ptRapidColor($model->patient_id);
 
         return $this->redirect(['index', 'pid' => $pid]);
     }

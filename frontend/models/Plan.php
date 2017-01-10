@@ -88,21 +88,6 @@ class Plan extends \yii\db\ActiveRecord {
         ];
     }
 
-    public function updateColor() {
-        $pt = Patient::findOne($this->patient_id);
-        $pt->color = $this->rapid_code;
-        $pt->save();
-    }
-
-    public function beforeSave($insert) {
-        if (parent::beforeSave($insert)) {
-
-            $this->updateColor();
-
-            return true;
-        } else {
-            return false;
-        }
-    }
+ 
 
 }
