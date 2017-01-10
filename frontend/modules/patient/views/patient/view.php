@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'condensed' => true,
         'hover' => true,
         'mode' => DetailView::MODE_VIEW,
-        'hAlign' => 'right',
+        'hAlign' => 'center',
         'vAlign' => 'middle',
         'attributes' => [
             [
