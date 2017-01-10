@@ -214,30 +214,28 @@ class PlanWeekController extends AppController {
         $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
         $objWriter->save($filePath);
 
-        $i = 1;
-        while ($i <= 6) {
-            $date_next = new \DateTime($start);
-            $date_next = $date_next->modify("+$i day");
-            $date_next = $date_next->format('Y-m-d');
-
-
-            $i++;
+        $sql = "SELECT w.start_date,w.tim,GROUP_CONCAT(w.title) title from (
+SELECT t.title,t.start_date,DATE_FORMAT(t.start_time,'%H') tim from plan_week t
+WHERE t.patient_id = '$pid' AND t.start_date BETWEEN '$start' AND DATE_ADD('$start',INTERVAL 6 DAY)
+ORDER BY t.start_date ASC,t.start_time ASC
+) w WHERE w.tim = '08'
+GROUP BY w.start_date,w.tim";
+        //echo $sql; return;
+        $raw = \Yii::$app->db->createCommand($sql)->queryAll();
+        //print_r($raw); 
+        //return;
+        for ($x = "C";; $x++) {
+            $title = empty($raw[0]['title']) ? '' : $raw[0]['title'];
+            $excel->getActiveSheet()->setCellValue($x . "6", $title); //จ 6.00
+            if ($x == "J"){break;}
+                
         }
 
 
-        $excel->getActiveSheet()->setCellValue('C6', ''); //จ 6.00
-
-        $excel->getActiveSheet()->setCellValue('D6', ''); //อ 6.00
-
-        $excel->getActiveSheet()->setCellValue('E6', '');
-        $excel->getActiveSheet()->setCellValue('F6', '');
-        $excel->getActiveSheet()->setCellValue('G6', '');
-        $excel->getActiveSheet()->setCellValue('H6', '');
-        $excel->getActiveSheet()->setCellValue('I6', '');
-        $excel->getActiveSheet()->setCellValue('J6', '');
-        $excel->getActiveSheet()->setCellValue('K6', '');
 
 
+        $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
+        $objWriter->save($filePath);
         \Yii::$app->response->sendFile($filePath, "plan_week.xls");
     }
 
