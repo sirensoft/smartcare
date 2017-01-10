@@ -1,7 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
+//use yii\widgets\DetailView;
+use kartik\detail\DetailView;
 use yii\bootstrap\ButtonGroup;
 use common\components\MyHelper;
 
@@ -42,7 +43,17 @@ $this->params['breadcrumbs'][] = $this->title;
     DetailView::widget([
         'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
         'model' => $model,
+        'condensed' => true,
+        'hover' => true,
+        'mode' => DetailView::MODE_VIEW,
+        'hAlign' => 'right',
+        'vAlign' => 'middle',
         'attributes' => [
+            [
+                'group' => true,
+                'label' => 'รายละเอียด',
+                'rowOptions' => ['class' => 'info']
+            ],
             'class_name',
             'adl',
             'tai',
@@ -50,9 +61,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'prename',
             'name',
             'lname',
-            'sex',
-            'birth',
-            'age_y',
             'province',
             'district',
             'subdistrict',
@@ -70,16 +78,16 @@ $this->params['breadcrumbs'][] = $this->title;
     ])
     ?>
     <p>
-        <?php if (MyHelper::isCm()): ?>
-            <?=
-            Html::a('<i class="glyphicon glyphicon-minus"></i> ลบ', ['delete', 'pid' => $model->id], [
-                'class' => 'btn btn-danger',
-                'data' => [
-                    'confirm' => 'Are you sure you want to delete this item?',
-                    'method' => 'post',
-                ],
-            ])
-            ?>
+    <?php if (MyHelper::isCm()): ?>
+        <?=
+        Html::a('<i class="glyphicon glyphicon-minus"></i> ลบ', ['delete', 'pid' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ])
+        ?>
         <?php endif; ?>
     </p>
 

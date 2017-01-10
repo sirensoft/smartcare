@@ -31,7 +31,8 @@
         "kartik-v/yii2-tabs-x": "*",
         "philippfrenzel/yii2fullcalendar":"*",
         "wbraganca/yii2-dynamicform": "*",
-        "phpoffice/phpexcel":"*"
+        "phpoffice/phpexcel":"*",
+        "kartik-v/yii2-detail-view": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
