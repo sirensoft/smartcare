@@ -9,6 +9,7 @@ use common\components\MyHelper;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = MyHelper::ptInfo_($pid);
+$this->params['breadcrumbs'][] = ['label'=>'รายชื่อ','url'=>['/patient/patient/index',]];
 $this->params['breadcrumbs'][] = ['label'=>$this->title,'url'=>['/patient/patient/view','pid'=>$pid]];
 $this->params['breadcrumbs'][] = "รายการแผน"
 ?>

@@ -3,6 +3,7 @@
 use common\components\MyHelper;
 
 $this->title = MyHelper::ptInfo_($model->patient_id);
+$this->params['breadcrumbs'][] = ['label'=>'รายชื่อ','url'=>['/patient/patient/index',]];
 $this->params['breadcrumbs'][] = ['label' => 'รายการแผน', 'url' => ['index','pid'=>$model->patient_id]];
 $this->params['breadcrumbs'][] = $this->title;
 
