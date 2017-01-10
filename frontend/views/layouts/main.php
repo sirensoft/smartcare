@@ -41,8 +41,8 @@ AppAsset::register($this);
             ]);
             $menuItems = [
                 ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => 'ข้อมูล', 'url' => ['/site']],
                 ['label' => 'รายงาน', 'url' => ['/report/default/index']],
-                ['label' => 'เกี่ยวกับ', 'url' => ['/site/about']],
                 
                     //['label' => 'Contact', 'url' => ['/site/contact']],
             ];

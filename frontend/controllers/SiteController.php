@@ -14,6 +14,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\components\MyHelper;
+use backend\models\User;
 
 /**
  * Site controller
@@ -90,10 +91,12 @@ class SiteController extends Controller {
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
 
             $username = $model->username;
+            $u = User::find()->where('username = :username', [':username' => $username])->one();
+            
             $ip = \Yii::$app->getRequest()->getUserIP();
             $sql = " INSERT INTO `user_log` (`username`, `login_date`, `ip`) VALUES ('$username',NOW(), '$ip') ";
             \Yii::$app->db->createCommand($sql)->execute();
-            
+            \Yii::$app->session->setFlash('sucess',$u->role_name." ".$u->u_name." ".$u->u_lname);
             return $this->goBack();
         } else {
             return $this->render('login', [
