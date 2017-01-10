@@ -25,5 +25,8 @@ return [
     'api' => [
         'class' => 'frontend\modules\api\Api',
     ],
+    'ajax' => [
+        'class' => 'frontend\modules\ajax\Ajax',
+    ],
 ];
 

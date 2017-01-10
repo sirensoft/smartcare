@@ -7,6 +7,8 @@ use common\components\MyHelper;
 use kartik\form\ActiveField;
 use kartik\date\DatePicker;
 use yii\web\JsExpression;
+use kartik\depdrop\DepDrop;
+use yii\helpers\Url;
 
 $css = <<< CSS
 .alignment
@@ -28,7 +30,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
             <div class="input-group">
                 <?= $form->field($model, 'cid'); ?>            
                 <span class="input-group-btn">
-                    
+
                     <button class="btn btn-default alignment" type="button" id="btn_find_cid" >
                         <i class="glyphicon glyphicon-search"></i>
                     </button>
@@ -81,10 +83,14 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         ?>
     </div>
     <div class="col-sm-3">
-        <?= $form->field($model, 'province')->textInput(['maxlength' => true]) ?>
+        <?php
+        echo $form->field($model, 'province')->textInput();
+        ?>
     </div>
     <div class="col-sm-3">
-        <?= $form->field($model, 'district')->textInput(['maxlength' => true]) ?>
+        <?php
+        echo $form->field($model, 'district')->textInput();
+        ?>
     </div>
 </div>
 
@@ -191,8 +197,8 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
     <div class="col-sm-6"> 
         <?= $form->field($model, 'cousin')->textInput() ?>
     </div>
-     <div class="col-sm-3"> 
-         <?= $form->field($model, 'tel')->textInput() ?>
+    <div class="col-sm-3"> 
+        <?= $form->field($model, 'tel')->textInput() ?>
     </div>
     <div class="col-sm-3"> 
         <?php
@@ -234,7 +240,6 @@ $js = <<<JS
 JS;
 
 $this->registerJs($js);
-
 ?>
 
 
