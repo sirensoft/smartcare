@@ -27,10 +27,11 @@ use kartik\select2\Select2;
                     echo Select2::widget([
                         'name' => 'tai_class',
                         'data' => $items,
-                        'options' => ['placeholder' => 'เลือก...'],
+                        'options' => ['placeholder' => 'เลือก...',],
                         'pluginOptions' => [
                             'allowClear' => true
                         ],
+                        'disabled'=>  MyHelper::isCg()
                     ]);
                     ?>
                 </div>
@@ -46,6 +47,7 @@ use kartik\select2\Select2;
 
     </div>
 </div>
+
 
 
 
