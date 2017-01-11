@@ -10,7 +10,8 @@ use kartik\widgets\Select2;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<?php if(MyHelper::getDay($model->start_date) == 'Mon' and !MyHelper::isCg()): ?>
+<?php if(MyHelper::getDay($model->start_date) == 'Mon' and !MyHelper::isCg() and $model->isNewRecord): ?>
+
 <?=  Html::a('พิมพ์แผนสัปดาห์',['/care/plan-week/excel','pid'=>$model->patient_id,'start'=>$model->start_date], ['class'=>'btn btn-info'])?>
 
 <?php endif; ?>
