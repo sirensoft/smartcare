@@ -187,13 +187,6 @@ class PlanWeekController extends AppController {
         return $this->redirect(['index', 'pid' => $pid]);
     }
 
-    /**
-     * Finds the Plan model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Plan the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id) {
         if (($model = PlanWeek::findOne($id)) !== null) {
             return $model;
@@ -211,25 +204,32 @@ class PlanWeekController extends AppController {
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $excel = $objReader->load($filePath);
 
-        $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
-        $objWriter->save($filePath);
 
-        $sql = "SELECT w.start_date,w.tim,GROUP_CONCAT(w.title) title from (
-SELECT t.title,t.start_date,DATE_FORMAT(t.start_time,'%H') tim from plan_week t
-WHERE t.patient_id = '$pid' AND t.start_date BETWEEN '$start' AND DATE_ADD('$start',INTERVAL 6 DAY)
-ORDER BY t.start_date ASC,t.start_time ASC
-) w WHERE w.tim = '08'
-GROUP BY w.start_date,w.tim";
-        //echo $sql; return;
-        $raw = \Yii::$app->db->createCommand($sql)->queryAll();
-        //print_r($raw); 
-        //return;
-        for ($x = "C";; $x++) {
-            $title = empty($raw[0]['title']) ? '' : $raw[0]['title'];
-            $excel->getActiveSheet()->setCellValue($x . "6", $title); //จ 6.00
-            if ($x == "J"){break;}
-                
+
+        for ($i = 6; $i < 24; $i++) {
+            $excel->getActiveSheet()->setCellValue("C" . $i, MyHelper::getPlan($pid, $start, $i));
         }
+        for ($i = 6; $i < 24; $i++) {
+            $excel->getActiveSheet()->setCellValue("D" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 1), $i));
+        }
+        for ($i = 6; $i < 24; $i++) {
+            $excel->getActiveSheet()->setCellValue("E" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 2), $i));
+        }
+        for ($i = 6; $i < 24; $i++) {
+            $excel->getActiveSheet()->setCellValue("F" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 3), $i));
+        }
+        for ($i = 6; $i < 24; $i++) {
+            $excel->getActiveSheet()->setCellValue("G" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 4), $i));
+        }
+        for ($i = 6; $i < 24; $i++) {
+            $excel->getActiveSheet()->setCellValue("H" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 5), $i));
+        }
+        for ($i = 6; $i < 24; $i++) {
+            $excel->getActiveSheet()->setCellValue("I" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 6), $i));
+        }
+
+
+
 
 
 

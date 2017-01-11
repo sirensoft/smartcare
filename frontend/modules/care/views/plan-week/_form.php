@@ -121,7 +121,7 @@ use kartik\widgets\Select2;
     Html::a('<i class="glyphicon glyphicon-minus"></i> ลบ', ['delete', 'id' => $model->id, 'pid' => $model->patient_id], [
         'class' => 'btn btn-danger',
         'data' => [
-            'confirm' => 'ยืนยันการลบ',
+           // 'confirm' => 'ยืนยันการลบ',
             'method' => 'post',
         ],
     ])

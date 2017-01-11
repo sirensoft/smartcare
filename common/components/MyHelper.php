@@ -159,5 +159,26 @@ class MyHelper extends \yii\base\Component {
 
         
     }
+    
+    public static function getPlan($pid,$start_date,$time){
+          $sql = " SELECT t.patient_id
+,t.start_date 
+,DATE_FORMAT(t.start_time,'%H') start_time
+,GROUP_CONCAT(t.title) title
+FROM plan_week t
+WHERE t.patient_id = '$pid' AND t.start_date='$start_date' AND DATE_FORMAT(t.start_time,'%H') = $time
+GROUP BY t.patient_id,t.start_date,DATE_FORMAT(t.start_time,'%H')";
+          
+          $raw=\Yii::$app->db->createCommand($sql)->queryOne();
+          return empty($raw['title'])?'':$raw['title'];
+          
+    }
+    
+    public static function datePlus($cdate,$day){
+        $date = new \DateTime($cdate);
+        $date->modify("+$day day");
+        return $date->format('Y-m-d');
+        
+    }
 
 }
