@@ -38,7 +38,15 @@ $this->params['breadcrumbs'][] = "รายการแผน"
                     return \kartik\helpers\Html::a($model->date_create, ['view', 'id' => $model->id]);
                 }
                     ],
-                    'rapid_code',
+                   [
+            'attribute' => 'rapid_code',
+            'contentOptions' => function ($model) {
+                if ($model->rapid_code == 'yellow') {
+                    return ['style' => "color:black;background-color:$model->rapid_code;"];
+                }
+                return ['style' => "color:white;background-color:$model->rapid_code;"];
+            }
+                ],
                     'adl',
                     // 'adl_text',
                     // 'tai',
