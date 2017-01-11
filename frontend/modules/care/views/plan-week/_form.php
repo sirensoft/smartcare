@@ -11,7 +11,7 @@ use kartik\widgets\Select2;
 ?>
 
 <?php if(MyHelper::getDay($model->start_date) == 'Mon' and !MyHelper::isCg()): ?>
-<?=  Html::a('พิมพ์',['/care/plan-week/excel','pid'=>$model->patient_id,'start'=>$model->start_date], ['class'=>'btn btn-info'])?>
+<?=  Html::a('พิมพ์แผนสัปดาห์',['/care/plan-week/excel','pid'=>$model->patient_id,'start'=>$model->start_date], ['class'=>'btn btn-info'])?>
 
 <?php endif; ?>
 
