@@ -70,6 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'typearea',
             'nation',
             'race',
+            'religion',
             'discharge',
             'cousin',
             'tel',

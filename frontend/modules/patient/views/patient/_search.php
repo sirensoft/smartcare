@@ -41,7 +41,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'nation') ?>
 
-    <?php // echo $form->field($model, 'region') ?>
+    <?php // echo $form->field($model, 'race') ?>
 
     <?php // echo $form->field($model, 'discharge') ?>
 

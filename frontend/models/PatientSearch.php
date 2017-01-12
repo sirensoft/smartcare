@@ -71,7 +71,7 @@ class PatientSearch extends Patient {
             'birth' => $this->birth,
             'typearea' => $this->typearea,
             'nation' => $this->nation,
-            'region' => $this->region,
+            'race' => $this->race,
             'discharge' => $this->discharge,
             'dupdate' => $this->dupdate,
             'cm_id' => $this->cm_id,

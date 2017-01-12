@@ -37,6 +37,12 @@ $f = ActiveForm::begin([
             window.opener.$('#patient-sex').val($(this).attr('sex')).change();
             window.opener.$('#patient-birth').val($(this).attr('birth'));
             window.opener.$('#patient-typearea').val($(this).attr('typearea')).change();
+            
+            window.opener.$('#patient-province').val($(this).attr('province'));
+            window.opener.$('#patient-district').val($(this).attr('district'));
+            window.opener.$('#patient-subdistrict').val($(this).attr('subdistrict'));
+            window.opener.$('#patient-village_no').val($(this).attr('village_no'));
+            
             window.opener.$('#patient-mstatus').val($(this).attr('mstatus'));
             window.opener.$('#patient-religion').val($(this).attr('religion'));
             window.opener.$('#patient-disease').val($(this).attr('disease'));
@@ -69,7 +75,12 @@ $f = ActiveForm::begin([
                                 'disease'=>$data['DISEASE'],
                                 'discharge'=>$data['DISCHARGE'],
                                 'nation'=>$data['NATION'],
-                                'race'=>$data['RACE']
+                                'race'=>$data['RACE'],
+                        
+                                'province'=>$data['PROVINCE'],
+                                'district'=>$data['DISTRICT'],
+                                'subdistrict'=>$data['SUBDISTRICT'],
+                                'village_no'=>$data['VILLAGE_NO']
                                 
                     ]);
                 }
@@ -88,4 +99,4 @@ $f = ActiveForm::begin([
             </div>   
 
         </div>
-                    <?php ?>
+                    
