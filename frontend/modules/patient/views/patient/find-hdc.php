@@ -15,13 +15,13 @@ $this->title = "ค้นหา...";
             ]);
             ?>
 
-            เลข 13 หลัก<input type="text" name="cid" id="cid" value="<?=$cid?>">
+            <input type="text" name="cid" id="cid" value="<?=$cid?>" placeholder="เลขบัตรประชาชน 13 หลัก">
 
 
 <?php ActiveForm::end(); ?>
 
         </div>
-        <div>
+        <div style="margin-top: 5px">
             <?php if (!empty($dataProvider)): ?>
                 <?=
                 GridView::widget([

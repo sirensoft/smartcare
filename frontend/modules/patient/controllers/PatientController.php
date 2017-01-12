@@ -153,8 +153,13 @@ class PatientController extends AppController {
                 'cid'=>NULL
             ]);
         }
-        $raw = [];
-        $raw[] = ['cid'=>$cid,'name'=>'sdddd'];
+        $sql = " SELECT t.HOSPCODE,t.CID,c.prename,t.`NAME`,t.LNAME,t.TYPEAREA,t.BIRTH,t.age_y 
+FROM t_person_cid t 
+LEFT JOIN cprename c on c.id_prename = t.PRENAME
+#WHERE  t.CID LIKE '%$cid%' 
+limit 10 ";
+        $raw = \Yii::$app->db_hdc->createCommand($sql)->queryAll();
+        
         $dataProvider = new ArrayDataProvider([
             'allModels'=>$raw
         ]);

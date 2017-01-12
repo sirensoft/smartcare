@@ -235,7 +235,7 @@ WHERE t.role = 3 AND t.office = '$office' ";
 $route = Url::toRoute(['/patient/patient/find-hdc']);
 $js = <<<JS
     $('#btn_find_hdc').click(function(){
-       var win = window.open('$route', 'win', 'left=100,top=80,menubar=no,location=no,resizable=yes,width=660,height=500');
+       var win = window.open('$route', 'win', 'left=100,top=80,menubar=no,location=no,resizable=yes,width=720px,height=500px');
    });
 JS;
 
