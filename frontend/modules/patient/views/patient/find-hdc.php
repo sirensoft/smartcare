@@ -54,6 +54,7 @@ $f = ActiveForm::begin([
     ";
     echo GridView::widget([
         'dataProvider' => $dataProvider,
+        'responsiveWrap' => false,
         'columns' => [
             'HOSPCODE',
             [
