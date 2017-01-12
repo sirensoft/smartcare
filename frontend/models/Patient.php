@@ -25,6 +25,7 @@ use Yii;
  * @property integer $typearea
  * @property string $nation
  * @property string $region
+ * @property string $mstatus
  * @property string $hospcode
  * @property string $pid
  * @property string $refer_from
@@ -61,7 +62,7 @@ class Patient extends \yii\db\ActiveRecord {
             [['dupdate','cousin','tel'], 'safe'],
             [['age_y','typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
             [['cid', 'tai'], 'string', 'max' => 13],
-            [['religion','color','pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'region', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
+            [['mstatus','religion','color','pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'region', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
             ['cid', 'unique', 'targetClass' => '\frontend\models\Patient', 'message' => 'CID มีในระบบแล้ว'],
         ];
     }
@@ -91,6 +92,7 @@ class Patient extends \yii\db\ActiveRecord {
             'nation' => 'สัญชาติ',
             'region' => 'เชื้อชาติ',
             'religion'=>'ศาสนา',
+            'mstatus'=>'สมรส',
             'hospcode' => 'รหัสหน่วยบริการ',
             'pid'=>'PID',
             'refer_from'=>'รับส่งต่อจาก',

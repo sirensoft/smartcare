@@ -134,7 +134,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         ?>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <?php
         $items = MyHelper::dropDownItems("SELECT t.nationname id,t.nationname val from c_nation t", 'id', 'val');
 
@@ -148,7 +148,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         ]);
         ?>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <?=
         $form->field($model, 'region')->widget(Select2::classname(), [
             'data' => $items,
@@ -160,8 +160,11 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         ]);
         ?>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <?= $form->field($model, 'religion')->textInput() ?>
+    </div>
+      <div class="col-sm-3">
+        <?= $form->field($model, 'mstatus')->textInput() ?>
     </div>
 </div>
 
