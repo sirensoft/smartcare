@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\components\AppController;
 use common\components\MyHelper;
+use yii\data\ArrayDataProvider;
 
 /**
  * PatientController implements the CRUD actions for Patient model.
@@ -35,18 +36,18 @@ class PatientController extends AppController {
      * @return mixed
      */
     public function actionIndex() {
-        
+
 
         $searchModel = new PatientSearch();
-       
-        if(MyHelper::getUserOffice()!=='all'){
+
+        if (MyHelper::getUserOffice() !== 'all') {
             $searchModel->hospcode = MyHelper::getUserOffice();
         }
 
         if (MyHelper::isCg()) {
             $searchModel->cg_id = MyHelper::getUserId();
-        }        
-        if(MyHelper::isGuest()){
+        }
+        if (MyHelper::isGuest()) {
             $searchModel->dupdate = '0001-01-01';
         }
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
@@ -141,6 +142,26 @@ class PatientController extends AppController {
 
     public function actionNote() {
         return $this->renderAjax('note');
+    }
+
+    public function actionFindHdc() {
+        $this->layout = 'main';
+
+        $cid = \Yii::$app->request->post('cid');
+        if (empty($cid)) {
+            return $this->render('find-hdc',[
+                'cid'=>NULL
+            ]);
+        }
+        $raw = [];
+        $raw[] = ['cid'=>$cid,'name'=>'sdddd'];
+        $dataProvider = new ArrayDataProvider([
+            'allModels'=>$raw
+        ]);
+        return $this->render('find-hdc',[
+            'cid'=>$cid,
+            'dataProvider'=>$dataProvider
+        ]);
     }
 
 }

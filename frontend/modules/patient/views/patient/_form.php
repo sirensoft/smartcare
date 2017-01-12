@@ -31,7 +31,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
                 <?= $form->field($model, 'cid'); ?>            
                 <span class="input-group-btn">
 
-                    <button class="btn btn-default alignment" type="button" id="btn_find_cid" >
+                    <button class="btn btn-default alignment" type="button" id="btn_find_hdc" >
                         <i class="glyphicon glyphicon-search"></i>
                     </button>
                 </span>           
@@ -232,10 +232,10 @@ WHERE t.role = 3 AND t.office = '$office' ";
 <?php ActiveForm::end(); ?>
 
 <?php
+$route = Url::toRoute(['/patient/patient/find-hdc']);
 $js = <<<JS
-    $('#btn_find_cid').click(function(){
-       var cid = $('#patient-cid').val();
-           alert(cid);
+    $('#btn_find_hdc').click(function(){
+       var win = window.open('$route', 'win', 'left=100,top=80,menubar=no,location=no,resizable=yes,width=660,height=500');
    });
 JS;
 
