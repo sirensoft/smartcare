@@ -155,11 +155,21 @@ class PatientController extends AppController {
         }
         $sql = " SELECT t.HOSPCODE,t.CID,c.prename PRENAME,t.`NAME`,s.sexname SEX,t.LNAME,t.TYPEAREA,t.BIRTH,t.age_y AGE
 ,m.mstatusdesc MSTATUS
+,r.religion RELIGION
+,GROUP_CONCAT(ch.diagcode) DISEASE
+,t.DISCHARGE
 FROM t_person_cid t 
 LEFT JOIN cprename c on c.id_prename = t.PRENAME
 LEFT JOIN csex s ON s.sex = t.SEX
-LEFT JOIN cmstatus m on m.mstatus = t.MSTATUS ";
-        $sql.=" WHERE  t.CID LIKE '%$cid%' limit 10 ";
+LEFT JOIN cmstatus m on m.mstatus = t.MSTATUS
+LEFT JOIN creligion r on r.id_religion = t.RELIGION
+LEFT JOIN t_chronic ch on ch.cid = t.CID ";
+
+
+        
+        
+        $sql.=" WHERE  t.CID LIKE '%$cid%'  GROUP BY t.CID  LIMIT 10 ";
+        
         $raw = \Yii::$app->db_hdc->createCommand($sql)->queryAll();
 
         $dataProvider = new ArrayDataProvider([

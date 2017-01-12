@@ -37,7 +37,10 @@ $f = ActiveForm::begin([
             window.opener.$('#patient-sex').val($(this).attr('sex')).change();
             window.opener.$('#patient-birth').val($(this).attr('birth'));
             window.opener.$('#patient-typearea').val($(this).attr('typearea')).change();
-             window.opener.$('#patient-mstatus').val($(this).attr('mstatus'));
+            window.opener.$('#patient-mstatus').val($(this).attr('mstatus'));
+            window.opener.$('#patient-religion').val($(this).attr('religion'));
+            window.opener.$('#patient-disease').val($(this).attr('disease'));
+            window.opener.$('#patient-discharge').val($(this).attr('discharge')).change();
             window.close();
             
     ";
@@ -60,6 +63,9 @@ $f = ActiveForm::begin([
                                 'birth'=>$data['BIRTH'],
                                 'typearea'=>$data['TYPEAREA'],
                                 'mstatus'=>$data['MSTATUS'],
+                                'religion'=>$data['RELIGION'],
+                                'disease'=>$data['DISEASE'],
+                                'discharge'=>$data['DISCHARGE']
                                 
                     ]);
                 }
