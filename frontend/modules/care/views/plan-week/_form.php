@@ -4,15 +4,16 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use common\components\MyHelper;
 use kartik\widgets\Select2;
+use kartik\widgets\TimePicker;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Plan */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<?php if(MyHelper::getDay($model->start_date) == 'Mon' and !MyHelper::isCg() and $model->isNewRecord): ?>
+<?php if (MyHelper::getDay($model->start_date) == 'Mon' and ! MyHelper::isCg() and $model->isNewRecord): ?>
 
-<?=  Html::a('พิมพ์แผนสัปดาห์',['/care/plan-week/excel','pid'=>$model->patient_id,'start'=>$model->start_date], ['class'=>'btn btn-info'])?>
+    <?= Html::a('พิมพ์แผนสัปดาห์', ['/care/plan-week/excel', 'pid' => $model->patient_id, 'start' => $model->start_date], ['class' => 'btn btn-info']) ?>
 
 <?php endif; ?>
 
@@ -33,10 +34,32 @@ use kartik\widgets\Select2;
         <?= $form->field($model, 'start_date')->textInput(['readonly' => MyHelper::isCg()]) ?>
     </div>
     <div class="col-md-3">
-        <?= $form->field($model, 'start_time')->textInput(['readonly' => MyHelper::isCg()]) ?>
+        <?php //echo $form->field($model, 'start_time')->textInput(['readonly' => MyHelper::isCg()]); ?>
+        <?php
+        echo $form->field($model, 'start_time')->widget(TimePicker::classname(), [
+            'pluginOptions' => [
+                'showSeconds' => FALSE,
+                'showMeridian' => false,
+                'minuteStep' => 30,
+                'readonly' => MyHelper::isCg()
+            
+            ]
+        ])
+        ?>
     </div>
     <div class="col-md-3">
-        <?= $form->field($model, 'end_time')->textInput(['readonly' => MyHelper::isCg()]) ?>
+        <?php  //echo $form->field($model, 'end_time')->textInput(['readonly' => MyHelper::isCg()]); ?>
+         <?php
+        echo $form->field($model, 'end_time')->widget(TimePicker::classname(), [
+            'pluginOptions' => [
+                'showSeconds' => FALSE,
+                'showMeridian' => false,
+                'minuteStep' => 30,
+                'readonly' => MyHelper::isCg()
+            
+            ]
+        ])
+        ?>
     </div>
 </div>
 <div class="form-group">
@@ -122,7 +145,7 @@ use kartik\widgets\Select2;
     Html::a('<i class="glyphicon glyphicon-minus"></i> ลบ', ['delete', 'id' => $model->id, 'pid' => $model->patient_id], [
         'class' => 'btn btn-danger',
         'data' => [
-           // 'confirm' => 'ยืนยันการลบ',
+            // 'confirm' => 'ยืนยันการลบ',
             'method' => 'post',
         ],
     ])

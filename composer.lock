@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "294681fc0c1d478386f56e0ae0c7f286",
-    "content-hash": "8897c10928c64e12d66ca99469981327",
+    "hash": "205d37e1719de73ba06f6190b1fe2587",
+    "content-hash": "9d0ef38045e9ee09622e0a774eabf92b",
     "packages": [
         {
             "name": "2amigos/yii2-arrayquery-component",

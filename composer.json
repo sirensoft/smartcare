@@ -32,7 +32,8 @@
         "philippfrenzel/yii2fullcalendar":"*",
         "wbraganca/yii2-dynamicform": "*",
         "phpoffice/phpexcel":"*",
-        "kartik-v/yii2-detail-view": "*"
+        "kartik-v/yii2-detail-view": "*",
+        "kartik-v/yii2-widget-timepicker": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
