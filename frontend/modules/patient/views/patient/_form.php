@@ -228,6 +228,7 @@ WHERE t.role = 3 AND t.office = '$office' ";
     <div class="col-sm-3"> 
 
         <?= Html::submitButton($model->isNewRecord ? '<i class="glyphicon glyphicon-ok"></i> เพิ่ม' : '<i class="glyphicon glyphicon-ok"></i> บันทึก ', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::a('ยกเลิก',['/patient/patient/index'],['class'=>'btn btn-default']);?>
     </div> 
 </div>
 
