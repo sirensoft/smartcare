@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'house_no',
             'typearea',
             'nation',
-            'region',
+            'race',
             'discharge',
             'cousin',
             'tel',

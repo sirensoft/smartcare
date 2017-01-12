@@ -153,8 +153,11 @@ class PatientController extends AppController {
                         'cid' => NULL
             ]);
         }
-        $sql = " SELECT t.HOSPCODE,t.CID,c.prename PRENAME,t.`NAME`,s.sexname SEX,t.LNAME,t.TYPEAREA,t.BIRTH,t.age_y AGE
+        $sql = " SELECT t.HOSPCODE,t.CID,c.prename PRENAME,t.`NAME`
+,s.sexname SEX,t.LNAME,t.TYPEAREA,t.BIRTH,t.age_y AGE
 ,m.mstatusdesc MSTATUS
+,n.nationname NATION
+,rc.nationname RACE
 ,r.religion RELIGION
 ,GROUP_CONCAT(ch.diagcode) DISEASE
 ,t.DISCHARGE
@@ -163,7 +166,9 @@ LEFT JOIN cprename c on c.id_prename = t.PRENAME
 LEFT JOIN csex s ON s.sex = t.SEX
 LEFT JOIN cmstatus m on m.mstatus = t.MSTATUS
 LEFT JOIN creligion r on r.id_religion = t.RELIGION
-LEFT JOIN t_chronic ch on ch.cid = t.CID ";
+LEFT JOIN t_chronic ch on ch.cid = t.CID
+LEFT JOIN cnation n on n.nationcode = t.NATION
+LEFT JOIN cnation rc ON rc.nationcode = t.RACE ";
 
 
         

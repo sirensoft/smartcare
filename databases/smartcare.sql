@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-12 11:11:19
+Date: 2017-01-12 11:24:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -11130,7 +11130,7 @@ CREATE TABLE `patient` (
   `lon` varchar(255) DEFAULT NULL,
   `typearea` int(11) DEFAULT NULL COMMENT 'ประเภทอยู่อาศัย',
   `nation` varchar(255) DEFAULT NULL COMMENT 'สัญชาติ',
-  `region` varchar(255) DEFAULT NULL COMMENT 'เชื้อชาติ',
+  `race` varchar(255) DEFAULT NULL COMMENT 'เชื้อชาติ',
   `religion` varchar(255) DEFAULT NULL,
   `mstatus` varchar(255) DEFAULT NULL,
   `hospcode` varchar(5) DEFAULT NULL COMMENT 'พืนที่ของหน่วยบริการ',

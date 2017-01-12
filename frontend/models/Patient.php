@@ -24,7 +24,7 @@ use Yii;
  * @property string $lon
  * @property integer $typearea
  * @property string $nation
- * @property string $region
+ * @property string $race
  * @property string $mstatus
  * @property string $hospcode
  * @property string $pid
@@ -62,7 +62,7 @@ class Patient extends \yii\db\ActiveRecord {
             [['dupdate','cousin','tel'], 'safe'],
             [['age_y','typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
             [['cid', 'tai'], 'string', 'max' => 13],
-            [['mstatus','religion','color','pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'region', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
+            [['mstatus','religion','color','pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'race', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
             ['cid', 'unique', 'targetClass' => '\frontend\models\Patient', 'message' => 'CID มีในระบบแล้ว'],
         ];
     }
@@ -90,7 +90,7 @@ class Patient extends \yii\db\ActiveRecord {
             'lon' => 'พิกัด(LON)',
             'typearea' => 'ประเภทอยู่อาศัย',
             'nation' => 'สัญชาติ',
-            'region' => 'เชื้อชาติ',
+            'race' => 'เชื้อชาติ',
             'religion'=>'ศาสนา',
             'mstatus'=>'สมรส',
             'hospcode' => 'รหัสหน่วยบริการ',

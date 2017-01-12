@@ -150,7 +150,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
     </div>
     <div class="col-sm-2">
         <?=
-        $form->field($model, 'region')->widget(Select2::classname(), [
+        $form->field($model, 'race')->widget(Select2::classname(), [
             'data' => $items,
             'language' => 'th',
             'options' => ['placeholder' => 'เลือก ...'],

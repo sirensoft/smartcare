@@ -40,6 +40,8 @@ $f = ActiveForm::begin([
             window.opener.$('#patient-mstatus').val($(this).attr('mstatus'));
             window.opener.$('#patient-religion').val($(this).attr('religion'));
             window.opener.$('#patient-disease').val($(this).attr('disease'));
+            window.opener.$('#patient-nation').val($(this).attr('nation')).change();
+            window.opener.$('#patient-race').val($(this).attr('race')).change();
             window.opener.$('#patient-discharge').val($(this).attr('discharge')).change();
             window.close();
             
@@ -65,7 +67,9 @@ $f = ActiveForm::begin([
                                 'mstatus'=>$data['MSTATUS'],
                                 'religion'=>$data['RELIGION'],
                                 'disease'=>$data['DISEASE'],
-                                'discharge'=>$data['DISCHARGE']
+                                'discharge'=>$data['DISCHARGE'],
+                                'nation'=>$data['NATION'],
+                                'race'=>$data['RACE']
                                 
                     ]);
                 }
