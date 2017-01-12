@@ -19,7 +19,7 @@ $f = ActiveForm::begin([
         ]);
 ?>
 
-            <input type="text" name="cid" id="cid" value="<?= $cid ?>" placeholder="เลขบัตรประชาชน 13 หลัก">
+            <input autofocus type="text" name="cid" id="cid" value="<?= $cid ?>" placeholder="ชื่อ หรือ เลข13หลัก">
 
 
 <?php ActiveForm::end(); ?>
