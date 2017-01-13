@@ -38,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
     $columns = [
         ['class' => 'yii\grid\SerialColumn'],
         'class_name',
+        'disease',
         [
             'attribute' => 'color',
             'contentOptions' => function ($model) {
@@ -69,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             // 'nation',
                             // 'race',
                             // 'discharge',
-                            // 'disease',
+                            // 
                             // 'dupdate',
                             //['class' => 'yii\grid\ActionColumn'],
                     ];

@@ -180,10 +180,10 @@ LEFT JOIN ctambon tmb ON tmb.tamboncodefull = LEFT(t.vhid,6) ";
 
         
         
-        $sql.=" WHERE  t.CID LIKE '%$cid%' ";
-        $sql.=" or  t.NAME LIKE '%$cid%' ";
+        $sql.=" WHERE t.DISCHARGE=9 AND  ( t.CID LIKE '%$cid%' ";
+        $sql.=" or  t.NAME LIKE '%$cid%') ";
         
-        $sql.= " GROUP BY t.CID order by t.age_y DESC LIMIT 10 ";
+        $sql.= " GROUP BY t.CID order by t.age_y DESC LIMIT 25 ";
         
         $raw = \Yii::$app->db_hdc->createCommand($sql)->queryAll();
 

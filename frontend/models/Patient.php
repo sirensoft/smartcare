@@ -57,7 +57,7 @@ class Patient extends \yii\db\ActiveRecord {
     public function rules() {
         return [
 
-            [['cid', 'prename', 'name', 'lname', 'province', 'district', 'sex', 'subdistrict', 'village_no', 'hospcode'], 'required','message' => ''],
+            [['cg_id','house_no','cid', 'prename', 'name', 'lname', 'province', 'district', 'sex', 'subdistrict', 'village_no', 'hospcode'], 'required','message' => ''],
             [['birth'], 'safe'],
             [['dupdate','cousin','tel'], 'safe'],
             [['age_y','typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
@@ -85,7 +85,7 @@ class Patient extends \yii\db\ActiveRecord {
             'subdistrict' => 'ตำบล',
             'village_no' => 'หมู่ที่',
             'village_name' => 'หมู่บ้าน',
-            'house_no' => 'เลขที่',
+            'house_no' => 'บ้านเลขที่',
             'lat' => 'พิกัด(LAT)',
             'lon' => 'พิกัด(LON)',
             'typearea' => 'ประเภทอยู่อาศัย',
