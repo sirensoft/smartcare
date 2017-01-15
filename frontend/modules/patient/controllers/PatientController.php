@@ -85,6 +85,7 @@ class PatientController extends AppController {
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             MyHelper::execSql("CALL set_patient_age()");
+            \Yii::$app->session->setFlash('success',"บันทึกสำเร็จ!!!");
             return $this->redirect(['view', 'pid' => $model->id]);
         } else {
             return $this->render('create', [
@@ -104,6 +105,7 @@ class PatientController extends AppController {
         $model = $this->findModel($pid);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            \Yii::$app->session->setFlash('success',"บันทึกสำเร็จ!!!");
             return $this->redirect(['view', 'pid' => $model->id]);
         } else {
             return $this->render('update', [
