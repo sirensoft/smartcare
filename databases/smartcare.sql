@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-12 12:46:48
+Date: 2017-01-15 12:59:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,33 +35,11 @@ CREATE TABLE `assessment` (
   `provider_id` int(11) DEFAULT NULL,
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of assessment
 -- ----------------------------
-INSERT INTO `assessment` VALUES ('1', '2', '2017-01-05', '8', '1B1281', null, 'B3', 'กลุ่มที่ 1 ติดบ้าน-1', null, null, null, null, null, '2017-01-05 09:18:35');
-INSERT INTO `assessment` VALUES ('2', '2', '2017-01-05', '8', '1B1281', null, 'B3', 'กลุ่มที่ 1 ติดบ้าน-1', null, null, null, null, '1', '2017-01-05 09:22:47');
-INSERT INTO `assessment` VALUES ('3', '2', '2017-01-05', '10', '1B1281', null, 'B3', 'กลุ่มที่ 1 ติดบ้าน-1', null, null, null, null, '1', '2017-01-05 09:32:42');
-INSERT INTO `assessment` VALUES ('4', '7', '2017-01-05', '9', '1B1281', null, 'C3', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, null, '1', '2017-01-05 10:04:50');
-INSERT INTO `assessment` VALUES ('5', '2', '2017-01-05', '7', '1B1281', null, 'C3', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, null, '10', '2017-01-05 14:46:20');
-INSERT INTO `assessment` VALUES ('6', '2', '2017-01-05', '18', '1B1280', null, '', '-', null, null, null, null, '1', '2017-01-05 22:11:07');
-INSERT INTO `assessment` VALUES ('7', '6', '2017-01-06', '11', '1B1281', null, 'C4', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, null, '13', '2017-01-06 10:30:43');
-INSERT INTO `assessment` VALUES ('8', '2', '2017-01-06', '3', '1B1282', null, 'I1', 'กลุ่มที่ 3 ติดเตียง-2', null, null, null, null, '1', '2017-01-06 11:56:17');
-INSERT INTO `assessment` VALUES ('9', '2', '2017-01-07', '9', '1B1281', null, 'C3', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, null, '1', '2017-01-07 17:07:58');
-INSERT INTO `assessment` VALUES ('10', '2', '2017-01-07', '12', '1B1280', null, 'B3', 'กลุ่มที่ 1 ติดบ้าน-1', null, null, null, null, '1', '2017-01-07 22:32:32');
-INSERT INTO `assessment` VALUES ('11', '8', '2017-01-08', '12', '1B1280', null, 'C3', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, null, '1', '2017-01-08 11:20:54');
-INSERT INTO `assessment` VALUES ('12', '8', '2017-01-08', '5', '1B1281', null, 'I1', 'กลุ่มที่ 3 ติดเตียง-2', null, null, null, null, '1', '2017-01-08 11:29:03');
-INSERT INTO `assessment` VALUES ('13', '2', '2017-01-08', '11', '1B1281', null, 'C3', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, null, '1', '2017-01-08 11:30:27');
-INSERT INTO `assessment` VALUES ('14', '5', '2017-01-08', '10', '1B1281', null, 'C4', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, null, '1', '2017-01-08 15:44:14');
-INSERT INTO `assessment` VALUES ('15', '5', '2017-01-08', '1', '1B1282', null, 'I1', 'กลุ่มที่ 3 ติดเตียง-2', null, null, null, null, '1', '2017-01-08 21:14:58');
-INSERT INTO `assessment` VALUES ('16', '9', '2017-01-09', '5', '1B1281', null, 'C2', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, null, '1', '2017-01-09 17:26:48');
-INSERT INTO `assessment` VALUES ('17', '9', '2017-01-09', '2', '1B1282', null, 'I1', 'กลุ่มที่ 3 ติดเตียง-2', null, null, null, null, '1', '2017-01-09 17:29:17');
-INSERT INTO `assessment` VALUES ('18', '9', '2017-01-09', '0', '1B1282', null, '', '-', null, null, null, null, '13', '2017-01-09 18:06:33');
-INSERT INTO `assessment` VALUES ('19', '9', '2017-01-09', '1', '1B1282', null, '', '-', null, null, null, null, '1', '2017-01-09 18:10:53');
-INSERT INTO `assessment` VALUES ('20', '9', '2017-01-10', '12', '1B1280', null, 'C2', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, null, '1', '2017-01-10 07:58:23');
-INSERT INTO `assessment` VALUES ('21', '9', '2017-01-10', '11', '1B1281', null, null, '-', null, null, null, null, '13', '2017-01-10 07:58:53');
-INSERT INTO `assessment` VALUES ('22', '10', '2017-01-12', '7', '1B1281', null, 'C2', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, null, '1', '2017-01-12 12:45:55');
 
 -- ----------------------------
 -- Table structure for c_ampur
@@ -11150,19 +11128,11 @@ CREATE TABLE `patient` (
   `tel` varchar(255) DEFAULT NULL,
   `dupdate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of patient
 -- ----------------------------
-INSERT INTO `patient` VALUES ('2', '3650100810889', 'นาย', 'สมหมาย', 'ใจเย็น', 'ชาย', '1949-10-09', '67', 'พิษณุโลก', 'เมือง', 'เนินกุ่ม', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', null, null, '07477', null, 'โรงพยาบาลพุทธชินราช', '', '9', null, '14', '11', 'C3', '2', 'ติดบ้าน-2', 'yellow', 'นาย ก,นาง ข', '014875441', '2017-01-08');
-INSERT INTO `patient` VALUES ('4', '1145744123445', 'นาย', 'สะสม', 'มั่งคั่ง', 'ชาย', '1955-10-11', '61', 'พิษณุโลก', 'เมือง', 'เนินกุ่ม', '2', 'ตะวันตก', '11/2', '', '', '1', 'ไทย', 'ไทย', null, null, '07477', null, '', '', '9', null, '13', '2', 'I3', '3', 'ติดเตียง-1', 'blue', '', '', '2017-01-06');
-INSERT INTO `patient` VALUES ('5', '3650100810888', 'นาย', 'ใจดี', 'มีสุข', 'ชาย', '1951-01-01', '66', 'พิษณุโลก', 'เมือง', 'เนินกุ่ม', '3', 'ท่าโรง', '10/8', '', '', '1', 'ไทย', 'ไทย', null, null, '07477', null, '', '', '9', null, '13', '1', 'I1', '4', 'ติดเตียง-2', 'yellow', null, null, '2017-01-04');
-INSERT INTO `patient` VALUES ('6', '3650100810880', 'นาย', 'สายัน', 'นิรันดร', 'ชาย', '1950-01-17', '66', 'พิษณุโลก', 'เมือง', 'เนินกุ่ม', '3', 'งิ้วงาม', '67/3', '', '', '1', 'ไทย', 'ไทย', null, null, '07477', null, '', '', '9', null, '13', '11', 'C4', '2', 'ติดบ้าน-2', 'red', null, null, '2017-01-05');
-INSERT INTO `patient` VALUES ('7', '7894522101445', 'นาย', 'ปองพล', 'ค้ำคุณ', 'ชาย', '1944-11-14', '72', 'พิษณุโลก', 'เนินมะปราง', 'เนินกุ่ม', '10', 'เนินมะกอก', '25/4', '', '', '1', 'ไทย', 'ไทย', null, null, '07477', null, '', '', '9', null, '10', '9', 'C3', '2', 'ติดบ้าน-2', 'red', null, null, '2017-01-05');
-INSERT INTO `patient` VALUES ('8', '7777777777777', 'นาย', 'อดิศร', 'สร้อยทอง', 'ชาย', '1945-01-16', '71', 'พิษณุโลก', 'เมือง', 'เนินกุ่ม', '3', 'ท่าโรง', '25/4', '', '', '1', 'ไทย', 'ไทย', null, null, '07477', null, '', '', '9', null, '13', '5', 'I1', '4', 'ติดเตียง-2', 'blue', 'ญาติเยอะ', '112233', '2017-01-08');
-INSERT INTO `patient` VALUES ('9', '1234567891234', 'พระ', 'หลาบ', 'แก้วมณี', 'หญิง', '1948-01-01', '69', 'พิษณุโลก', 'บางระกำ', 'ท่านางงาม', '1', 'ท่าสะแก', '1', '16.5455', '100.6673', '1', 'ไทย', 'ไทย', 'พุทธ', null, '07552', null, 'สำรวจ', 'DM,HT,DLP', '9', null, '13', '11', 'C2', '2', 'ติดบ้าน-2', 'blue', 'นายแสวง พิมพิลา', '0849566022', '2017-01-10');
-INSERT INTO `patient` VALUES ('10', '3650500137896', 'นาย', 'สงวน', 'สวนนุวัฒ', 'ชาย', '1942-01-01', '75', 'พิษณุโลก', 'บางกระทุ่ม', 'เนินกุ่ม', '02', '', '12', '16', '100', '1', 'ไทย', 'ไทย', 'ศาสนาพุทธ', 'คู่', '07552', null, '', 'I10,I679,I698', '9', null, '13', '7', 'C2', '2', 'ติดบ้าน-2', 'red', '', '', '2017-01-12');
 
 -- ----------------------------
 -- Table structure for plan
@@ -11199,14 +11169,6 @@ CREATE TABLE `plan` (
 -- ----------------------------
 -- Records of plan
 -- ----------------------------
-INSERT INTO `plan` VALUES ('9', '07477', '8', '2017-01-08', 'blue', '12', 'ติดเตียง', 'C3', 'กลุ่มที่ 2;ติดบ้าน-2', '', '', '', '', null, '.... ครั้ง/เดือน', '.... ครั้ง/สัปดาห์ ครั้งละประมาณ ....  นาที', null, '', '', '1. การดูแลด้านการพยาบาล โดยแพทย์/พยาบาลวิชาชีพ\r\n-\r\n2. การฟื้นฟูสภาพร่างกาย โดยนักกายภาพบำบัด/นักกิจกรรมบำบัด/นักการแพทย์แผนไทย/แพทย์ทางเลือก\r\n-\r\n3. การดูแลด้านโภชนาการ โดยนักโภชนาการ\r\n-\r\n4. การดูแลด้านเภสัชกรรม โดยเภสัชกร\r\n-\r\n5. การดูแลด้านสุภาพช่องปาก โดยทันตแพทย์/ทันตาภิบาล\r\n-\r\n6. การดูแลด้านสุขภาพจิต โดยจิตแพทย์/พยาบาลจิตเวช/นักจิตวิทยา\r\n-\r\n7. การช่วยเหลืออื่นๆ\r\n-', '1.ได้รับการดูแลช่วยเหลือกิจวัตรประจำวัน   วันบรรลุเป้าหมาย  ทุกวัน\r\n2.                                                           วันบรรลุเป้าหมาย  .....\r\n3.                                                           วันบรรลุเป้าหมาย  .....', null, '', '2017-01-08 16:08:51');
-INSERT INTO `plan` VALUES ('10', '07477', '4', '2017-01-08', 'blue', '2', 'ติดเตียง', 'I3', 'กลุ่มที่ 3;ติดเตียง-1', '', '', '', '', null, '.... ครั้ง/เดือน', '.... ครั้ง/สัปดาห์ ครั้งละประมาณ ....  นาที', null, '', '', '1. การดูแลด้านการพยาบาล โดยแพทย์/พยาบาลวิชาชีพ\r\n-\r\n2. การฟื้นฟูสภาพร่างกาย โดยนักกายภาพบำบัด/นักกิจกรรมบำบัด/นักการแพทย์แผนไทย/แพทย์ทางเลือก\r\n-\r\n3. การดูแลด้านโภชนาการ โดยนักโภชนาการ\r\n-\r\n4. การดูแลด้านเภสัชกรรม โดยเภสัชกร\r\n-\r\n5. การดูแลด้านสุภาพช่องปาก โดยทันตแพทย์/ทันตาภิบาล\r\n-\r\n6. การดูแลด้านสุขภาพจิต โดยจิตแพทย์/พยาบาลจิตเวช/นักจิตวิทยา\r\n-\r\n7. การช่วยเหลืออื่นๆ\r\n-', '1.ได้รับการดูแลช่วยเหลือกิจวัตรประจำวัน   วันบรรลุเป้าหมาย  ทุกวัน\r\n2.                                                           วันบรรลุเป้าหมาย  .....\r\n3.                                                           วันบรรลุเป้าหมาย  .....', '', '', '2017-01-10 19:07:49');
-INSERT INTO `plan` VALUES ('11', '07477', '5', '2017-01-08', 'yellow', '10', 'ติดบ้าน', 'C4', 'กลุ่มที่ 2;ติดบ้าน-2', '', '', '', '', null, '.... ครั้ง/เดือน', '.... ครั้ง/สัปดาห์ ครั้งละประมาณ ....  นาที', null, '', '', '1. การดูแลด้านการพยาบาล โดยแพทย์/พยาบาลวิชาชีพ\r\n-\r\n2. การฟื้นฟูสภาพร่างกาย โดยนักกายภาพบำบัด/นักกิจกรรมบำบัด/นักการแพทย์แผนไทย/แพทย์ทางเลือก\r\n-\r\n3. การดูแลด้านโภชนาการ โดยนักโภชนาการ\r\n-\r\n4. การดูแลด้านเภสัชกรรม โดยเภสัชกร\r\n-\r\n5. การดูแลด้านสุภาพช่องปาก โดยทันตแพทย์/ทันตาภิบาล\r\n-\r\n6. การดูแลด้านสุขภาพจิต โดยจิตแพทย์/พยาบาลจิตเวช/นักจิตวิทยา\r\n-\r\n7. การช่วยเหลืออื่นๆ\r\n-', '1.ได้รับการดูแลช่วยเหลือกิจวัตรประจำวัน   วันบรรลุเป้าหมาย  ทุกวัน\r\n2.                                                           วันบรรลุเป้าหมาย  .....\r\n3.                                                           วันบรรลุเป้าหมาย  .....', null, '', '2017-01-08 15:44:56');
-INSERT INTO `plan` VALUES ('12', '07477', '6', '2017-01-08', 'red', '11', 'ติดบ้าน', 'C4', 'กลุ่มที่ 2;ติดบ้าน-2', '', '', '', '', null, '.... ครั้ง/เดือน', '.... ครั้ง/สัปดาห์ ครั้งละประมาณ ....  นาที', null, '', '', '1. การดูแลด้านการพยาบาล โดยแพทย์/พยาบาลวิชาชีพ\r\n-\r\n2. การฟื้นฟูสภาพร่างกาย โดยนักกายภาพบำบัด/นักกิจกรรมบำบัด/นักการแพทย์แผนไทย/แพทย์ทางเลือก\r\n-\r\n3. การดูแลด้านโภชนาการ โดยนักโภชนาการ\r\n-\r\n4. การดูแลด้านเภสัชกรรม โดยเภสัชกร\r\n-\r\n5. การดูแลด้านสุภาพช่องปาก โดยทันตแพทย์/ทันตาภิบาล\r\n-\r\n6. การดูแลด้านสุขภาพจิต โดยจิตแพทย์/พยาบาลจิตเวช/นักจิตวิทยา\r\n-\r\n7. การช่วยเหลืออื่นๆ\r\n-', '1.ได้รับการดูแลช่วยเหลือกิจวัตรประจำวัน   วันบรรลุเป้าหมาย  ทุกวัน\r\n2.                                                           วันบรรลุเป้าหมาย  .....\r\n3.                                                           วันบรรลุเป้าหมาย  .....', null, '', '2017-01-08 15:45:38');
-INSERT INTO `plan` VALUES ('13', '07477', '7', '2017-01-08', 'red', '9', 'ติดบ้าน', 'C3', 'กลุ่มที่ 2;ติดบ้าน-2', '', '', '', '', null, '.... ครั้ง/เดือน', '.... ครั้ง/สัปดาห์ ครั้งละประมาณ ....  นาที', null, '', '', '1. การดูแลด้านการพยาบาล โดยแพทย์/พยาบาลวิชาชีพ\r\n-\r\n2. การฟื้นฟูสภาพร่างกาย โดยนักกายภาพบำบัด/นักกิจกรรมบำบัด/นักการแพทย์แผนไทย/แพทย์ทางเลือก\r\n-\r\n3. การดูแลด้านโภชนาการ โดยนักโภชนาการ\r\n-\r\n4. การดูแลด้านเภสัชกรรม โดยเภสัชกร\r\n-\r\n5. การดูแลด้านสุภาพช่องปาก โดยทันตแพทย์/ทันตาภิบาล\r\n-\r\n6. การดูแลด้านสุขภาพจิต โดยจิตแพทย์/พยาบาลจิตเวช/นักจิตวิทยา\r\n-\r\n7. การช่วยเหลืออื่นๆ\r\n-', '1.ได้รับการดูแลช่วยเหลือกิจวัตรประจำวัน   วันบรรลุเป้าหมาย  ทุกวัน\r\n2.                                                           วันบรรลุเป้าหมาย  .....\r\n3.                                                           วันบรรลุเป้าหมาย  .....', null, '', '2017-01-08 15:46:08');
-INSERT INTO `plan` VALUES ('20', '07552', '9', '2017-01-10', 'blue', '11', 'ติดบ้าน', 'C2', 'กลุ่มที่ 2;ติดบ้าน-2', '', '', '', '', null, '.... ครั้ง/เดือน', '.... ครั้ง/สัปดาห์ ครั้งละประมาณ ....  นาที', null, '', '', '1. การดูแลด้านการพยาบาล โดยแพทย์/พยาบาลวิชาชีพ\r\n-\r\n2. การฟื้นฟูสภาพร่างกาย โดยนักกายภาพบำบัด/นักกิจกรรมบำบัด/นักการแพทย์แผนไทย/แพทย์ทางเลือก\r\n-\r\n3. การดูแลด้านโภชนาการ โดยนักโภชนาการ\r\n-\r\n4. การดูแลด้านเภสัชกรรม โดยเภสัชกร\r\n-\r\n5. การดูแลด้านสุภาพช่องปาก โดยทันตแพทย์/ทันตาภิบาล\r\n-\r\n6. การดูแลด้านสุขภาพจิต โดยจิตแพทย์/พยาบาลจิตเวช/นักจิตวิทยา\r\n-\r\n7. การช่วยเหลืออื่นๆ\r\n-', '1.ได้รับการดูแลช่วยเหลือกิจวัตรประจำวัน   วันบรรลุเป้าหมาย  ทุกวัน\r\n2.                                                           วันบรรลุเป้าหมาย  .....\r\n3.                                                           วันบรรลุเป้าหมาย  .....', '', '', '2017-01-10 13:52:45');
-INSERT INTO `plan` VALUES ('22', '07477', '2', '2017-01-10', 'yellow', '11', 'ติดบ้าน', 'C3', 'กลุ่มที่ 2;ติดบ้าน-2', '', '', '', '', null, '.... ครั้ง/เดือน', '.... ครั้ง/สัปดาห์ ครั้งละประมาณ ....  นาที', null, '', '', '1. การดูแลด้านการพยาบาล โดยแพทย์/พยาบาลวิชาชีพ\r\n-\r\n2. การฟื้นฟูสภาพร่างกาย โดยนักกายภาพบำบัด/นักกิจกรรมบำบัด/นักการแพทย์แผนไทย/แพทย์ทางเลือก\r\n-\r\n3. การดูแลด้านโภชนาการ โดยนักโภชนาการ\r\n-\r\n4. การดูแลด้านเภสัชกรรม โดยเภสัชกร\r\n-\r\n5. การดูแลด้านสุภาพช่องปาก โดยทันตแพทย์/ทันตาภิบาล\r\n-\r\n6. การดูแลด้านสุขภาพจิต โดยจิตแพทย์/พยาบาลจิตเวช/นักจิตวิทยา\r\n-\r\n7. การช่วยเหลืออื่นๆ\r\n-', '1.ได้รับการดูแลช่วยเหลือกิจวัตรประจำวัน   วันบรรลุเป้าหมาย  ทุกวัน\r\n2.                                                           วันบรรลุเป้าหมาย  .....\r\n3.                                                           วันบรรลุเป้าหมาย  .....', '', '', '2017-01-10 18:40:45');
-INSERT INTO `plan` VALUES ('24', '07552', '10', '2017-01-12', 'red', '7', 'ติดบ้าน', 'C2', 'กลุ่มที่ 2;ติดบ้าน-2', '', '', '', '', null, '.... ครั้ง/เดือน', '.... ครั้ง/สัปดาห์ ครั้งละประมาณ ....  นาที', null, '', '', '1. การดูแลด้านการพยาบาล โดยแพทย์/พยาบาลวิชาชีพ\r\n-\r\n2. การฟื้นฟูสภาพร่างกาย โดยนักกายภาพบำบัด/นักกิจกรรมบำบัด/นักการแพทย์แผนไทย/แพทย์ทางเลือก\r\n-\r\n3. การดูแลด้านโภชนาการ โดยนักโภชนาการ\r\n-\r\n4. การดูแลด้านเภสัชกรรม โดยเภสัชกร\r\n-\r\n5. การดูแลด้านสุภาพช่องปาก โดยทันตแพทย์/ทันตาภิบาล\r\n-\r\n6. การดูแลด้านสุขภาพจิต โดยจิตแพทย์/พยาบาลจิตเวช/นักจิตวิทยา\r\n-\r\n7. การช่วยเหลืออื่นๆ\r\n-', '1.ได้รับการดูแลช่วยเหลือกิจวัตรประจำวัน   วันบรรลุเป้าหมาย  ทุกวัน\r\n2.                                                           วันบรรลุเป้าหมาย  .....\r\n3.                                                           วันบรรลุเป้าหมาย  .....', '', '', '2017-01-12 12:46:19');
 
 -- ----------------------------
 -- Table structure for plan_week
@@ -11243,65 +11205,11 @@ CREATE TABLE `plan_week` (
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `plan` (`plan_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=135 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of plan_week
 -- ----------------------------
-INSERT INTO `plan_week` VALUES ('1', null, '2', 'ดูแลโดยCG', '2017-01-09', '08:00:00', null, '09:00:00', null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-07 17:08:30', null);
-INSERT INTO `plan_week` VALUES ('6', null, '2', 'ดูแลโดยCG', '2017-01-14', '08:00:00', null, '09:00:00', null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-07 17:08:30', null);
-INSERT INTO `plan_week` VALUES ('7', null, '2', 'ดูแลโดยCG', '2017-01-15', '08:00:00', null, '09:00:00', null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-07 17:08:30', null);
-INSERT INTO `plan_week` VALUES ('44', null, '2', 'ดูแลโดยCG', '2017-01-07', '08:00:00', null, null, null, null, null, null, '13', '2017-01-08', '12:36:08', null, null, null, null, null, null, null, null, null, null, '1', '2017-01-07 22:52:15', '2017-01-08 12:36:08');
-INSERT INTO `plan_week` VALUES ('45', null, '2', 'ดูแลโดยCG', '2017-01-08', '08:00:00', null, null, null, null, null, null, '13', '2017-01-08', '12:35:46', null, null, null, null, null, null, null, null, null, null, '1', '2017-01-07 22:52:15', '2017-01-08 12:35:46');
-INSERT INTO `plan_week` VALUES ('47', null, '2', 'ดูแลโดยCG', '2017-01-23', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 09:15:37', null);
-INSERT INTO `plan_week` VALUES ('48', null, '2', 'ดูแลโดยCG', '2017-01-24', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 09:15:37', null);
-INSERT INTO `plan_week` VALUES ('49', null, '2', 'ดูแลโดยCG', '2017-01-25', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 09:15:37', null);
-INSERT INTO `plan_week` VALUES ('50', null, '2', 'ดูแลโดยCG', '2017-01-26', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 09:15:37', null);
-INSERT INTO `plan_week` VALUES ('51', null, '2', 'ดูแลโดยCG', '2017-01-27', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 09:15:37', null);
-INSERT INTO `plan_week` VALUES ('52', null, '2', 'ดูแลโดยCG', '2017-01-28', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 09:15:37', null);
-INSERT INTO `plan_week` VALUES ('53', null, '2', 'ดูแลโดยCG', '2017-01-29', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 09:15:37', null);
-INSERT INTO `plan_week` VALUES ('55', null, '2', 'ดูแลโดยCG', '2017-01-30', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 11:19:58', null);
-INSERT INTO `plan_week` VALUES ('56', null, '2', 'ดูแลโดยCG', '2017-01-31', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 11:19:58', null);
-INSERT INTO `plan_week` VALUES ('57', null, '2', 'ดูแลโดยCG', '2017-02-01', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 11:19:58', null);
-INSERT INTO `plan_week` VALUES ('58', null, '2', 'ดูแลโดยCG', '2017-02-02', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 11:19:58', null);
-INSERT INTO `plan_week` VALUES ('59', null, '2', 'ดูแลโดยCG', '2017-02-03', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 11:19:58', null);
-INSERT INTO `plan_week` VALUES ('60', null, '2', 'ดูแลโดยCG', '2017-02-04', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 11:19:58', null);
-INSERT INTO `plan_week` VALUES ('61', null, '2', 'ดูแลโดยCG', '2017-02-05', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 11:19:58', null);
-INSERT INTO `plan_week` VALUES ('76', null, '5', 'ดูแลโดยCG', '2017-01-09', '08:00:00', null, null, null, null, null, null, '12', null, null, '', '', null, '', '', '', '', '', '', '', null, '2017-01-08 20:55:42', '2017-01-09 07:42:25');
-INSERT INTO `plan_week` VALUES ('77', null, '5', 'ดูแลโดยCG', '2017-01-10', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 20:55:42', null);
-INSERT INTO `plan_week` VALUES ('78', null, '5', 'ดูแลโดยCG', '2017-01-11', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 20:55:42', null);
-INSERT INTO `plan_week` VALUES ('79', null, '5', 'ดูแลโดยCG', '2017-01-12', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 20:55:42', null);
-INSERT INTO `plan_week` VALUES ('80', null, '5', 'ดูแลโดยCG', '2017-01-13', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 20:55:42', null);
-INSERT INTO `plan_week` VALUES ('81', null, '5', 'ดูแลโดยCG', '2017-01-14', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 20:55:42', null);
-INSERT INTO `plan_week` VALUES ('82', null, '5', 'ดูแลโดยCG', '2017-01-15', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 20:55:42', null);
-INSERT INTO `plan_week` VALUES ('83', null, '5', 'ดูแลโดยCG', '2017-01-08', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-08 21:11:54', null);
-INSERT INTO `plan_week` VALUES ('84', null, '5', 'ดูแลโดยCG', '2017-01-23', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:32', null);
-INSERT INTO `plan_week` VALUES ('85', null, '5', 'ดูแลโดยCG', '2017-01-24', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:32', null);
-INSERT INTO `plan_week` VALUES ('86', null, '5', 'ดูแลโดยCG', '2017-01-25', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:32', null);
-INSERT INTO `plan_week` VALUES ('87', null, '5', 'ดูแลโดยCG', '2017-01-26', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:32', null);
-INSERT INTO `plan_week` VALUES ('88', null, '5', 'ดูแลโดยCG', '2017-01-27', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:32', null);
-INSERT INTO `plan_week` VALUES ('89', null, '5', 'ดูแลโดยCG', '2017-01-28', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:32', null);
-INSERT INTO `plan_week` VALUES ('90', null, '5', 'ดูแลโดยCG', '2017-01-29', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:32', null);
-INSERT INTO `plan_week` VALUES ('91', null, '5', 'ดูแลโดยCG', '2017-01-16', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:43', null);
-INSERT INTO `plan_week` VALUES ('92', null, '5', 'ดูแลโดยCG', '2017-01-17', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:43', null);
-INSERT INTO `plan_week` VALUES ('93', null, '5', 'ดูแลโดยCG', '2017-01-18', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:43', null);
-INSERT INTO `plan_week` VALUES ('94', null, '5', 'ดูแลโดยCG', '2017-01-19', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:43', null);
-INSERT INTO `plan_week` VALUES ('95', null, '5', 'ดูแลโดยCG', '2017-01-20', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:43', null);
-INSERT INTO `plan_week` VALUES ('96', null, '5', 'ดูแลโดยCG', '2017-01-21', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:43', null);
-INSERT INTO `plan_week` VALUES ('97', null, '5', 'ดูแลโดยCG', '2017-01-22', '08:00:00', null, null, null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 07:41:43', null);
-INSERT INTO `plan_week` VALUES ('98', null, '9', 'ดูแลโดยCG', '2017-01-16', '08:00:00', null, '08:30:00', null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 17:55:30', null);
-INSERT INTO `plan_week` VALUES ('100', null, '9', 'ดูแลโดยCG', '2017-01-18', '08:00:00', null, '08:30:00', null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 17:55:30', null);
-INSERT INTO `plan_week` VALUES ('101', null, '9', 'ดูแลโดยCG', '2017-01-19', '08:00:00', null, '08:30:00', null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 17:55:30', null);
-INSERT INTO `plan_week` VALUES ('103', null, '9', 'ดูแลโดยCG', '2017-01-21', '08:00:00', null, '08:30:00', null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 17:55:30', null);
-INSERT INTO `plan_week` VALUES ('105', null, '9', 'กายภาพบำบัด ผู้ป่วย ', '2017-01-20', '09:30:00', null, '10:00:00', null, null, null, null, '13', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-09 17:58:17', null);
-INSERT INTO `plan_week` VALUES ('115', null, '2', 'จ่ายยา', '2017-01-16', '08:00:00', null, null, null, null, null, null, '1', null, null, '', '', null, '', '', '', '', '', '', '', null, '2017-01-10 23:44:39', '2017-01-11 10:17:44');
-INSERT INTO `plan_week` VALUES ('123', null, '2', 'ดูแลโดยCG', '2017-01-16', '06:00:00', null, null, null, null, null, null, '1', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-11 10:17:55', null);
-INSERT INTO `plan_week` VALUES ('126', null, '2', 'ดูรอบที่ 2', '2017-01-09', '08:03:00', null, null, null, null, null, null, '1', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-11 10:38:25', null);
-INSERT INTO `plan_week` VALUES ('127', null, '2', 'ตรวจเลือด', '2017-02-02', '18:00:00', null, null, null, null, null, null, '1', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-11 11:16:01', null);
-INSERT INTO `plan_week` VALUES ('128', null, '2', 'ดูแลโดยCG', '2016-12-26', '08:00:00', null, null, null, null, null, null, '1', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-11 14:43:15', null);
-INSERT INTO `plan_week` VALUES ('129', null, '2', 'ดูแลโดยCG', '2016-12-27', '08:00:00', null, null, null, null, null, null, '1', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-11 14:43:15', null);
-INSERT INTO `plan_week` VALUES ('133', null, '2', 'ดูแลโดยCG', '2016-12-31', '08:00:00', null, null, null, null, null, null, '1', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-11 14:43:15', null);
-INSERT INTO `plan_week` VALUES ('134', null, '2', 'ดูแลโดยCG', '2017-01-01', '08:00:00', null, null, null, null, null, null, '1', null, null, null, null, null, null, null, null, null, null, null, null, null, '2017-01-11 14:43:15', null);
 
 -- ----------------------------
 -- Table structure for profile
@@ -11364,13 +11272,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', 'W_D4LHoMYSyV1c8Lv4VgYlXt5SU1aSsb', '1234', null, 'admin@localhost.com', '10', '2', '2-Care Manager', '111', 'นาย', 'อุเทน', 'จาดยางโทน', '07552', null, null, '1482803441', '1482803441');
-INSERT INTO `user` VALUES ('5', 'sa', 'jH-cX5qVRZzTWjR5Jml4gPgMGDTjqlvn', 'sa', null, 'admin1@localhost.comm', '10', '3', '3-Care Giver', '1234566789000', 'sdsd', 'sdsdsd', 'sdsdsd', '07477', null, null, '1482807273', '1482807273');
-INSERT INTO `user` VALUES ('9', 'adminn', 'Z28DJIIcjF0Z9pIzYMCkRjH3uKTfnwHN', '1234', null, 'd@ffff.com', '10', '3', '2-Care Manager', '3650100214005', 'นายแพทย์', 'กกกก', 'กกกก', '07478', '', '', '1483424465', '1483424465');
-INSERT INTO `user` VALUES ('10', 'root', 'IGUsnXwDtoBq810TvnLJNr2nywYaBHxU', '112233', null, 'tehnnn@gmail.com', '10', '3', '3-Care Giver', '3650100810887', 'นาย', 'CG', 'จาดยางโทน', '07477', null, null, '1483424840', '1483424840');
-INSERT INTO `user` VALUES ('12', 'cm', 'U-aymENuLjivSJWpakk8-0KwIRqh64wu', '112233', null, 'cm@ddd.com', '10', '2', '2-Care Manager', '1111111112345', 'CM', 'CM', 'Care Manager', '07477', null, null, '1483602756', '1483602756');
-INSERT INTO `user` VALUES ('13', 'cg', 'PD0n29leKMmP-5Llj9sjdpw7WtIxcigZ', '112233', null, 'cg@ffff.com', '10', '3', '3-Care Giver', '1111111114557', 'นาย', 'เกื้อกูล', 'dd', '07552', null, null, '1483673302', '1483673302');
-INSERT INTO `user` VALUES ('14', 'nan', 'Ni3Nyl9c7PJ-O0BEI0H7Yybq77j9BwvV', '112233', null, 'tttddd@gg.com', '10', '3', '3-Care Giver', '5555555555555', 'นาย', 'น่าน', 'น้ำเหนือ', '07478', null, null, '1483882614', '1483882614');
+INSERT INTO `user` VALUES ('1', 'admin', '', '1234', null, 'admin@localhost.com', '10', '2', '2-Care Manager', '111', 'นาย', 'อุเทน', 'จาดยางโทน', '07552', null, null, '1482803441', '1482803441');
 
 -- ----------------------------
 -- Table structure for user_log
@@ -11382,121 +11284,11 @@ CREATE TABLE `user_log` (
   `login_date` datetime DEFAULT NULL,
   `ip` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_log
 -- ----------------------------
-INSERT INTO `user_log` VALUES ('1', 'admin', '2017-01-03 23:12:53', '::1');
-INSERT INTO `user_log` VALUES ('2', 'sa', '2017-01-03 23:14:56', '::1');
-INSERT INTO `user_log` VALUES ('3', 'root', '2017-01-03 23:19:58', '::1');
-INSERT INTO `user_log` VALUES ('4', 'admin', '2017-01-04 00:16:25', '::1');
-INSERT INTO `user_log` VALUES ('5', 'admin', '2017-01-05 12:31:25', '::1');
-INSERT INTO `user_log` VALUES ('6', 'root', '2017-01-05 14:44:03', '::1');
-INSERT INTO `user_log` VALUES ('7', 'cm', '2017-01-05 14:52:43', '::1');
-INSERT INTO `user_log` VALUES ('8', 'root', '2017-01-05 19:12:30', '::1');
-INSERT INTO `user_log` VALUES ('9', 'admin', '2017-01-05 19:17:03', '::1');
-INSERT INTO `user_log` VALUES ('10', 'cm', '2017-01-05 19:17:15', '::1');
-INSERT INTO `user_log` VALUES ('11', 'admin', '2017-01-05 22:06:54', '192.168.1.6');
-INSERT INTO `user_log` VALUES ('12', 'admin', '2017-01-05 22:39:25', '192.168.1.6');
-INSERT INTO `user_log` VALUES ('13', 'admin', '2017-01-06 08:04:58', '::1');
-INSERT INTO `user_log` VALUES ('14', 'cm', '2017-01-06 08:31:22', '::1');
-INSERT INTO `user_log` VALUES ('15', 'root', '2017-01-06 08:32:12', '::1');
-INSERT INTO `user_log` VALUES ('16', 'admin', '2017-01-06 08:34:54', '::1');
-INSERT INTO `user_log` VALUES ('17', 'cm', '2017-01-06 08:35:25', '::1');
-INSERT INTO `user_log` VALUES ('18', 'cg', '2017-01-06 10:29:19', '::1');
-INSERT INTO `user_log` VALUES ('19', 'admin', '2017-01-06 10:31:10', '::1');
-INSERT INTO `user_log` VALUES ('20', 'cg', '2017-01-06 10:32:50', '::1');
-INSERT INTO `user_log` VALUES ('21', 'admin', '2017-01-06 10:33:43', '::1');
-INSERT INTO `user_log` VALUES ('22', 'admin', '2017-01-06 10:34:27', '::1');
-INSERT INTO `user_log` VALUES ('23', 'cg', '2017-01-06 10:34:38', '::1');
-INSERT INTO `user_log` VALUES ('24', 'cg', '2017-01-06 10:39:29', '::1');
-INSERT INTO `user_log` VALUES ('25', 'admin', '2017-01-06 10:49:23', '::1');
-INSERT INTO `user_log` VALUES ('26', 'cg', '2017-01-06 11:27:55', '::1');
-INSERT INTO `user_log` VALUES ('27', 'admin', '2017-01-06 11:48:56', '::1');
-INSERT INTO `user_log` VALUES ('28', 'cg', '2017-01-06 11:49:49', '::1');
-INSERT INTO `user_log` VALUES ('29', 'admin', '2017-01-06 11:51:01', '::1');
-INSERT INTO `user_log` VALUES ('30', 'cg', '2017-01-06 20:58:34', '::1');
-INSERT INTO `user_log` VALUES ('31', 'admin', '2017-01-06 21:10:35', '::1');
-INSERT INTO `user_log` VALUES ('32', 'cg', '2017-01-06 21:40:34', '::1');
-INSERT INTO `user_log` VALUES ('33', 'admin', '2017-01-06 21:43:41', '::1');
-INSERT INTO `user_log` VALUES ('34', 'cg', '2017-01-06 21:47:47', '::1');
-INSERT INTO `user_log` VALUES ('35', 'admin', '2017-01-06 21:54:02', '::1');
-INSERT INTO `user_log` VALUES ('36', 'cg', '2017-01-06 22:00:37', '::1');
-INSERT INTO `user_log` VALUES ('37', 'admin', '2017-01-06 22:17:18', '::1');
-INSERT INTO `user_log` VALUES ('38', 'admin', '2017-01-06 22:35:12', '::1');
-INSERT INTO `user_log` VALUES ('39', 'cg', '2017-01-06 22:42:05', '::1');
-INSERT INTO `user_log` VALUES ('40', 'admin', '2017-01-06 22:46:09', '::1');
-INSERT INTO `user_log` VALUES ('41', 'admin', '2017-01-06 22:50:33', '192.168.1.9');
-INSERT INTO `user_log` VALUES ('42', 'cg', '2017-01-06 22:51:25', '192.168.1.9');
-INSERT INTO `user_log` VALUES ('43', 'cg', '2017-01-07 09:10:25', '::1');
-INSERT INTO `user_log` VALUES ('44', 'admin', '2017-01-07 09:15:48', '::1');
-INSERT INTO `user_log` VALUES ('45', 'cg', '2017-01-07 09:18:15', '::1');
-INSERT INTO `user_log` VALUES ('46', 'admin', '2017-01-07 09:24:01', '::1');
-INSERT INTO `user_log` VALUES ('47', 'cg', '2017-01-07 09:46:41', '::1');
-INSERT INTO `user_log` VALUES ('48', 'admin', '2017-01-07 12:42:12', '::1');
-INSERT INTO `user_log` VALUES ('49', 'cg', '2017-01-07 14:59:15', '::1');
-INSERT INTO `user_log` VALUES ('50', 'root', '2017-01-07 15:22:05', '192.168.1.227');
-INSERT INTO `user_log` VALUES ('51', 'admin', '2017-01-07 15:25:05', '192.168.1.227');
-INSERT INTO `user_log` VALUES ('52', 'admin', '2017-01-07 15:52:56', '::1');
-INSERT INTO `user_log` VALUES ('53', 'cg', '2017-01-07 17:02:42', '::1');
-INSERT INTO `user_log` VALUES ('54', 'admin', '2017-01-07 17:05:16', '::1');
-INSERT INTO `user_log` VALUES ('55', 'admin', '2017-01-07 21:04:32', '::1');
-INSERT INTO `user_log` VALUES ('56', 'admin', '2017-01-07 22:51:22', '192.168.1.7');
-INSERT INTO `user_log` VALUES ('57', 'root', '2017-01-07 22:59:32', '192.168.1.7');
-INSERT INTO `user_log` VALUES ('58', 'cg', '2017-01-07 23:00:29', '192.168.1.7');
-INSERT INTO `user_log` VALUES ('59', 'admin', '2017-01-07 23:05:47', '192.168.1.7');
-INSERT INTO `user_log` VALUES ('60', 'cg', '2017-01-08 11:46:28', '::1');
-INSERT INTO `user_log` VALUES ('61', 'admin', '2017-01-08 11:55:32', '::1');
-INSERT INTO `user_log` VALUES ('62', 'cg', '2017-01-08 12:30:03', '::1');
-INSERT INTO `user_log` VALUES ('63', 'admin', '2017-01-08 15:39:47', '::1');
-INSERT INTO `user_log` VALUES ('64', 'cg', '2017-01-08 19:41:12', '::1');
-INSERT INTO `user_log` VALUES ('65', 'admin', '2017-01-08 19:45:09', '::1');
-INSERT INTO `user_log` VALUES ('66', 'cg', '2017-01-08 20:22:53', '::1');
-INSERT INTO `user_log` VALUES ('67', 'admin', '2017-01-08 20:23:55', '::1');
-INSERT INTO `user_log` VALUES ('68', 'root', '2017-01-08 20:24:08', '::1');
-INSERT INTO `user_log` VALUES ('69', 'admin', '2017-01-08 20:33:16', '::1');
-INSERT INTO `user_log` VALUES ('70', 'nan', '2017-01-08 20:37:23', '::1');
-INSERT INTO `user_log` VALUES ('71', 'admin', '2017-01-08 20:37:32', '::1');
-INSERT INTO `user_log` VALUES ('72', 'nan', '2017-01-08 20:41:00', '::1');
-INSERT INTO `user_log` VALUES ('73', 'admin', '2017-01-08 20:43:07', '::1');
-INSERT INTO `user_log` VALUES ('74', 'admin', '2017-01-08 20:53:29', '::1');
-INSERT INTO `user_log` VALUES ('75', 'admin', '2017-01-08 20:54:08', '::1');
-INSERT INTO `user_log` VALUES ('76', 'admin', '2017-01-09 08:43:02', '::1');
-INSERT INTO `user_log` VALUES ('77', 'admin', '2017-01-09 17:03:08', '192.168.43.152');
-INSERT INTO `user_log` VALUES ('78', 'admin', '2017-01-09 17:03:16', '::1');
-INSERT INTO `user_log` VALUES ('79', 'cg', '2017-01-09 18:04:03', '192.168.43.152');
-INSERT INTO `user_log` VALUES ('80', 'admin', '2017-01-09 18:09:35', '192.168.43.152');
-INSERT INTO `user_log` VALUES ('81', 'cg', '2017-01-09 18:27:41', '192.168.43.152');
-INSERT INTO `user_log` VALUES ('82', 'admin', '2017-01-09 18:41:21', '192.168.43.152');
-INSERT INTO `user_log` VALUES ('83', 'cg', '2017-01-10 07:58:33', '::1');
-INSERT INTO `user_log` VALUES ('84', 'admin', '2017-01-10 08:06:04', '::1');
-INSERT INTO `user_log` VALUES ('85', 'admin', '2017-01-10 18:45:44', '::1');
-INSERT INTO `user_log` VALUES ('86', 'admin', '2017-01-10 18:47:03', '::1');
-INSERT INTO `user_log` VALUES ('87', 'admin', '2017-01-10 18:47:10', '::1');
-INSERT INTO `user_log` VALUES ('88', 'admin', '2017-01-10 18:49:07', '::1');
-INSERT INTO `user_log` VALUES ('89', 'admin', '2017-01-10 18:51:08', '::1');
-INSERT INTO `user_log` VALUES ('90', 'admin', '2017-01-10 18:51:27', '::1');
-INSERT INTO `user_log` VALUES ('91', 'admin', '2017-01-10 18:52:15', '::1');
-INSERT INTO `user_log` VALUES ('92', 'admin', '2017-01-10 18:52:32', '::1');
-INSERT INTO `user_log` VALUES ('93', 'admin', '2017-01-10 18:53:57', '::1');
-INSERT INTO `user_log` VALUES ('94', 'admin', '2017-01-10 18:55:13', '::1');
-INSERT INTO `user_log` VALUES ('95', 'admin', '2017-01-10 18:55:27', '::1');
-INSERT INTO `user_log` VALUES ('96', 'admin', '2017-01-10 18:57:02', '::1');
-INSERT INTO `user_log` VALUES ('97', 'admin', '2017-01-10 18:58:17', '::1');
-INSERT INTO `user_log` VALUES ('98', 'admin', '2017-01-10 18:58:52', '::1');
-INSERT INTO `user_log` VALUES ('99', 'admin', '2017-01-10 18:59:40', '::1');
-INSERT INTO `user_log` VALUES ('100', 'admin', '2017-01-10 19:00:07', '::1');
-INSERT INTO `user_log` VALUES ('101', 'admin', '2017-01-10 19:01:02', '::1');
-INSERT INTO `user_log` VALUES ('102', 'cg', '2017-01-10 19:01:12', '::1');
-INSERT INTO `user_log` VALUES ('103', 'admin', '2017-01-10 19:03:42', '::1');
-INSERT INTO `user_log` VALUES ('104', 'cg', '2017-01-10 19:03:51', '::1');
-INSERT INTO `user_log` VALUES ('105', 'admin', '2017-01-10 19:04:57', '::1');
-INSERT INTO `user_log` VALUES ('106', 'admin', '2017-01-10 19:05:44', '::1');
-INSERT INTO `user_log` VALUES ('107', 'admin', '2017-01-10 22:33:13', '::1');
-INSERT INTO `user_log` VALUES ('108', 'cg', '2017-01-10 22:51:07', '::1');
-INSERT INTO `user_log` VALUES ('109', 'admin', '2017-01-10 22:52:51', '::1');
-INSERT INTO `user_log` VALUES ('110', 'admin', '2017-01-11 11:30:49', '::1');
 
 -- ----------------------------
 -- Table structure for visit

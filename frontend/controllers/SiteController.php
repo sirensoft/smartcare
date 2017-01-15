@@ -96,7 +96,8 @@ class SiteController extends Controller {
             $ip = \Yii::$app->getRequest()->getUserIP();
             $sql = " INSERT INTO `user_log` (`username`, `login_date`, `ip`) VALUES ('$username',NOW(), '$ip') ";
             \Yii::$app->db->createCommand($sql)->execute();
-            \Yii::$app->session->setFlash('sucess',$u->role_name." ".$u->u_name." ".$u->u_lname);
+            \Yii::$app->session->setFlash('success',"<h4>สวัสดี!</h4>".$u->role_name." ".$u->u_name." ".$u->u_lname);
+           
             return $this->goBack();
         } else {
             return $this->render('login', [

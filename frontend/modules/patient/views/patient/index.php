@@ -4,6 +4,7 @@ use yii\helpers\Html;
 //use yii\grid\GridView;
 use kartik\grid\GridView;
 use common\components\MyHelper;
+use yii\bootstrap\Alert;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\PatientSearch */
@@ -16,23 +17,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="patient-index">
 
-    <?php if (\Yii::$app->session->hasFlash('sucess')): ?>
-        <div class="alert alert-info alert-dismissable">
-            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-            <h4><i class="icon fa fa-check"></i>สวัสดี!</h4>
-            <?= \Yii::$app->session->getFlash('sucess') ?>
-        </div>
-    <?php endif; ?>
-
-
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+        <?php // echo $this->render('_search', ['model' => $searchModel]);   ?>
 
     <p>
         <?php if (MyHelper::getUserRole() !== 3): ?>
             <?= Html::a('<i class="glyphicon glyphicon-map-marker"></i> แผนที่', ['/map'], ['class' => 'btn btn-warning', 'target' => '_blank']) ?>
             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เพิ่ม', ['create'], ['class' => 'btn btn-success']) ?>
 
-        <?php endif; ?>
+    <?php endif; ?>
     </p>
     <?php
     $columns = [
