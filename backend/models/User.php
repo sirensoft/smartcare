@@ -44,12 +44,12 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'password_hash', 'role'], 'required','message' => ''],
+            [['username', 'password_hash', 'role','office','u_cid','u_name','u_lname'], 'required','message' => ''],
             [['status', 'role' ], 'integer'],
             [['password_reset_token', 'email', 'role_name', 'u_prename', 'u_name', 'u_lname', 'office', 'officer_type', 'office_position'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['register_no','counsil','created_at', 'updated_at'],'safe'],
-            [['u_cid'], 'string'],
+            [['u_cid'], 'unique'],
             [['username'],'string','min'=>3],
             [['password_hash'],'string'],
             [['username'], 'unique']

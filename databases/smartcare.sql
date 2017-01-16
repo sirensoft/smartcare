@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-16 08:40:44
+Date: 2017-01-16 09:40:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3315,6 +3315,12 @@ INSERT INTO `c_role` VALUES ('0', '0-New Signup');
 INSERT INTO `c_role` VALUES ('1', '1-System Admin');
 INSERT INTO `c_role` VALUES ('2', '2-Care Manager');
 INSERT INTO `c_role` VALUES ('3', '3-Care Giver');
+INSERT INTO `c_role` VALUES ('4', '4-ทีมหมอครอบครัว');
+INSERT INTO `c_role` VALUES ('5', '5-พยาบาลวิชาชีพ');
+INSERT INTO `c_role` VALUES ('6', '6-แพทย์');
+INSERT INTO `c_role` VALUES ('7', '7-กายภาพบำบัด');
+INSERT INTO `c_role` VALUES ('8', '8-นักวิชาการสาธารณสุข');
+INSERT INTO `c_role` VALUES ('9', '9-อาสาสมัครสาธารณสุข');
 
 -- ----------------------------
 -- Table structure for c_tai
@@ -12312,11 +12318,11 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `auth_key` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `auth_key` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password_reset_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `status` smallint(6) NOT NULL DEFAULT '10',
+  `status` smallint(6) DEFAULT '10',
   `role` int(11) NOT NULL,
   `role_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `u_cid` varchar(13) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -12328,19 +12334,22 @@ CREATE TABLE `user` (
   `office_position` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `register_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'เลขที่ใบอนุญาต',
   `counsil` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` int(11) NOT NULL,
-  `updated_at` int(11) NOT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
-  UNIQUE KEY `email` (`email`),
-  UNIQUE KEY `password_reset_token` (`password_reset_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  UNIQUE KEY `u_cid` (`u_cid`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', 'admin', '', '1234', null, 'admin@localhost.com', '10', '2', '2-Care Manager', '111', 'นาย', 'อุเทน', 'จาดยางโทน', '11253', null, null, null, null, '1482803441', '1482803441');
 INSERT INTO `user` VALUES ('15', 'cg', '', '1234', null, '', '10', '3', '3-Care Giver', '222', 'นาย', 'นพ', 'เก้า', '11253', null, null, null, null, '0', '0');
+INSERT INTO `user` VALUES ('17', 'root', '', '112233', null, 'root', '10', '1', '1-System Admin', '0000000000000', '', 'ROOT', 'ROOT', 'all', 'แพทย์', 'แพทย์', '', '', '0', '1484533258');
+INSERT INTO `user` VALUES ('18', 'sas', null, '112233', null, 'don@gg.com', '10', '3', '3-Care Giver', '3650011234557', 'นาย', 'ดร', 'แป้น', '', '', '', '', '', '1484533386', '1484533651');
+INSERT INTO `user` VALUES ('19', 'ppp', null, '112233', null, 'ppp@gmail.com', '10', '2', '2-Care Manager', '1456677852114', 'นาย', 'อุเทน', 'จาดยางโทน', '', '', '', '', '', '1484533774', '1484533774');
+INSERT INTO `user` VALUES ('21', 'ten', null, '112233', null, '', '10', '2', '2-Care Manager', '1144552233', 'นาย', 'ก', 'จ', '112', '', '', '', '', '1484534340', '1484534414');
 
 -- ----------------------------
 -- Table structure for user_log
@@ -12352,7 +12361,7 @@ CREATE TABLE `user_log` (
   `login_date` datetime DEFAULT NULL,
   `ip` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_log
@@ -12388,6 +12397,11 @@ INSERT INTO `user_log` VALUES ('28', 'admin', '2017-01-15 22:33:10', '::1');
 INSERT INTO `user_log` VALUES ('29', 'admin', '2017-01-15 22:33:29', '::1');
 INSERT INTO `user_log` VALUES ('30', 'admin', '2017-01-15 22:45:10', '::1');
 INSERT INTO `user_log` VALUES ('31', 'admin', '2017-01-16 07:40:38', '::1');
+INSERT INTO `user_log` VALUES ('32', 'root', '2017-01-16 08:45:07', '::1');
+INSERT INTO `user_log` VALUES ('33', 'root', '2017-01-16 08:46:06', '::1');
+INSERT INTO `user_log` VALUES ('34', 'ppp', '2017-01-16 09:30:00', '::1');
+INSERT INTO `user_log` VALUES ('35', 'ppp', '2017-01-16 09:33:10', '::1');
+INSERT INTO `user_log` VALUES ('36', 'admin', '2017-01-16 09:34:11', '::1');
 
 -- ----------------------------
 -- Table structure for visit
