@@ -44,15 +44,15 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash', 'email', 'role', 'created_at', 'updated_at'], 'required'],
-            [['status', 'role', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'password_hash', 'password_reset_token', 'email', 'role_name', 'u_prename', 'u_name', 'u_lname', 'office', 'officer_type', 'office_position'], 'string', 'max' => 255],
+            [['username', 'password_hash', 'role'], 'required','message' => ''],
+            [['status', 'role' ], 'integer'],
+            [['password_reset_token', 'email', 'role_name', 'u_prename', 'u_name', 'u_lname', 'office', 'officer_type', 'office_position'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
-            [['register_no','counsil'],'safe'],
-            [['u_cid'], 'string', 'max' => 13],
-            [['username'], 'unique'],
-            [['email'], 'unique'],
-            [['password_reset_token'], 'unique'],
+            [['register_no','counsil','created_at', 'updated_at'],'safe'],
+            [['u_cid'], 'string'],
+            [['username'],'string','min'=>3],
+            [['password_hash'],'string'],
+            [['username'], 'unique']
         ];
     }
 
@@ -69,15 +69,15 @@ class User extends \yii\db\ActiveRecord
             //'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
             'status' => 'Status',
-            'role' => 'Role',
-            'role_name' => 'Role Name',
+            'role' => 'ประเภท-USER',
+            'role_name' => 'ประเภท-USER',
             'u_cid' => 'เลขบัตร 13 หลัก',
             'u_prename' => 'คำนำ',
             'u_name' => 'ชื่อ',
             'u_lname' => 'นามสกุล',
             'office' => 'รหัสหน่วยงาน5หลัก',
-            'officer_type' => 'Officer Type',
-            'office_position' => 'Office Position',
+            'officer_type' => 'ระบุประเภท(เช่น แพทย์/พยาบาล ...)',
+            'office_position' => 'ตำแหน่ง (เช่น แพทย์/พยาบาล ...)',
             'register_no'=>'เลขที่ใบอนญาต',
             'counsil'=>'วิชาชีพ',
             'created_at' => 'Created At',

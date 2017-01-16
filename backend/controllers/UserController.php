@@ -8,7 +8,7 @@ use backend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use common\components\MyHelper;
 /**
  * UserController implements the CRUD actions for User model.
  */
@@ -64,8 +64,13 @@ class UserController extends Controller
     public function actionCreate()
     {
         $model = new User();
+        //$model->auth_key = \time();
+        $model->status = 10;
+        $model->created_at = \time();
+        $model->updated_at =  \time();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            MyHelper::execSql("CAll set_user_role;");
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -83,8 +88,10 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->updated_at =  \time();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            MyHelper::execSql("CAll set_user_role;");
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
