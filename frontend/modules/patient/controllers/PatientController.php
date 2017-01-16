@@ -151,6 +151,7 @@ class PatientController extends AppController {
     }
 
     public function actionFindHdc() {
+        $this->permitRole([2]);
         $this->layout = 'main';
         $hos = MyHelper::getUserOffice();
 

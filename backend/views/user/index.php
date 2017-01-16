@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'username:text:user',
            // 'auth_key',
             'password_hash:text:pass',
@@ -34,12 +34,12 @@ $this->params['breadcrumbs'][] = $this->title;
              'status',
             // 'role',
              'role_name:text:กลุ่ม',
-             'u_cid:text:cid',
+             //'u_cid:text:cid',
              'u_prename:text:คำนำ',
              'u_name:text:name',
              'u_lname:text:lname',
              'office:text:หน่วยบริการ',
-             'officer_type:text:ประเภท',
+             //'officer_type:text:ประเภท',
              'office_position:text:ตำแหน่ง',
              'last_login',
             // 'created_at',
