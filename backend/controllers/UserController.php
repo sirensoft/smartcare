@@ -65,7 +65,7 @@ class UserController extends Controller
     {
         $model = new User();
         //$model->auth_key = \time();
-        $model->status = 10;
+        $model->status = 0;
         $model->created_at = \time();
         $model->updated_at =  \time();
 
