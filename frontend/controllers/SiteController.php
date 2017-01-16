@@ -93,12 +93,15 @@ class SiteController extends Controller {
 
             $username = $model->username;
             $u = User::find()->where('username = :username', [':username' => $username])->one();
-            
+
             $ip = \Yii::$app->getRequest()->getUserIP();
             $sql = " INSERT INTO `user_log` (`username`, `login_date`, `ip`) VALUES ('$username',NOW(), '$ip') ";
             \Yii::$app->db->createCommand($sql)->execute();
-            \Yii::$app->session->setFlash('success',  Html::tag('h3', 'สวัสดี!!!').$u->role_name." ".$u->u_name." ".$u->u_lname);
-           
+            \Yii::$app->session->setFlash('success', Html::tag('h3', 'สวัสดี!!!') . $u->role_name . " " . $u->u_name . " " . $u->u_lname);
+
+            $u->last_login = date('Y-m-d H:i:s');
+            $u->update();
+
             return $this->goBack();
         } else {
             return $this->render('login', [

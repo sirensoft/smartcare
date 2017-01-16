@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
              'office:text:หน่วยบริการ',
              'officer_type:text:ประเภท',
              'office_position:text:ตำแหน่ง',
+             'last_login',
             // 'created_at',
              //'updated_at',
 

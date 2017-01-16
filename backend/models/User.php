@@ -27,31 +27,30 @@ use Yii;
  * @property string $counsil
  * @property integer $created_at
  * @property integer $updated_at
+ * @property string $last_login
  */
-class User extends \yii\db\ActiveRecord
-{
+class User extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'user';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['username', 'password_hash', 'role','office','u_cid','u_name','u_lname','status'], 'required','message' => ''],
-            [['status', 'role' ], 'integer'],
+            [['username', 'password_hash', 'role', 'office', 'u_cid', 'u_name', 'u_lname', 'status'], 'required', 'message' => ''],
+            [['status', 'role'], 'integer'],
             [['password_reset_token', 'email', 'role_name', 'u_prename', 'u_name', 'u_lname', 'office', 'officer_type', 'office_position'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
-            [['register_no','counsil','created_at', 'updated_at'],'safe'],
+            [['register_no', 'counsil', 'created_at', 'updated_at', 'last_login'], 'safe'],
             [['u_cid'], 'unique'],
-            [['username'],'string','min'=>3],
-            [['password_hash'],'string'],
+            [['username'], 'string', 'min' => 3],
+            [['password_hash'], 'string'],
             [['username'], 'unique']
         ];
     }
@@ -59,8 +58,7 @@ class User extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'username' => 'Username',
@@ -78,10 +76,12 @@ class User extends \yii\db\ActiveRecord
             'office' => 'รหัสหน่วยงาน5หลัก',
             'officer_type' => 'ระบุประเภท(เช่น แพทย์/พยาบาล ...)',
             'office_position' => 'ตำแหน่ง (เช่น แพทย์/พยาบาล ...)',
-            'register_no'=>'เลขที่ใบอนญาต',
-            'counsil'=>'วิชาชีพ',
+            'register_no' => 'เลขที่ใบอนญาต',
+            'counsil' => 'วิชาชีพ',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
+            'last_login' => 'ใช้ล่าสุด'
         ];
     }
+
 }

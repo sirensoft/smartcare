@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-16 10:05:47
+Date: 2017-01-16 10:21:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -12338,6 +12338,7 @@ CREATE TABLE `user` (
   `counsil` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` int(11) DEFAULT NULL,
   `updated_at` int(11) DEFAULT NULL,
+  `last_login` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `u_cid` (`u_cid`) USING BTREE
@@ -12346,10 +12347,10 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', '', '1234', null, 'admin@localhost.com', '1', '2', '2-Care Manager', '111', 'นาย', 'อุเทน', 'จาดยางโทน', '11253', '', '', '', '', '1482803441', '1484535920');
-INSERT INTO `user` VALUES ('15', 'cg', '', '1234', null, '', '0', '3', '3-Care Giver', '222', 'นาย', 'นพ', 'เก้า', '11253', null, null, null, null, '0', '0');
-INSERT INTO `user` VALUES ('17', 'root', '', '112233', null, 'root', '1', '1', '1-System Admin', '0000000000000', '', 'ROOT', 'ROOT', 'all', 'แพทย์', 'แพทย์', '', '', '0', '1484533258');
-INSERT INTO `user` VALUES ('21', 'ten', null, '112233', null, '', '0', '2', '2-Care Manager', '1144552233', 'นาย', 'ก', 'จ', '112', '', '', '', '', '1484534340', '1484534414');
+INSERT INTO `user` VALUES ('1', 'admin', '', '1234', null, 'admin@localhost.com', '1', '2', '2-Care Manager', '111', 'นาย', 'อุเทน', 'จาดยางโทน', '11253', '', '', '', '', '1482803441', '1484535920', '2017-01-16 10:20:49');
+INSERT INTO `user` VALUES ('15', 'cg', '', '1234', null, '', '0', '3', '3-Care Giver', '222', 'นาย', 'นพ', 'เก้า', '11253', null, null, null, null, '0', '0', null);
+INSERT INTO `user` VALUES ('17', 'root', '', '112233', null, 'root', '1', '1', '1-System Admin', '0000000000000', '', 'ROOT', 'ROOT', 'all', 'แพทย์', 'แพทย์', '', '', '0', '1484533258', null);
+INSERT INTO `user` VALUES ('21', 'ten', null, '112233', null, '', '0', '2', '2-Care Manager', '1144552233', 'นาย', 'ก', 'จ', '112', '', '', '', '', '1484534340', '1484534414', null);
 
 -- ----------------------------
 -- Table structure for user_log
@@ -12361,7 +12362,7 @@ CREATE TABLE `user_log` (
   `login_date` datetime DEFAULT NULL,
   `ip` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_log
@@ -12408,6 +12409,8 @@ INSERT INTO `user_log` VALUES ('39', 'admin', '2017-01-16 09:54:07', '::1');
 INSERT INTO `user_log` VALUES ('40', 'admin', '2017-01-16 09:54:17', '::1');
 INSERT INTO `user_log` VALUES ('41', 'admin', '2017-01-16 09:56:04', '::1');
 INSERT INTO `user_log` VALUES ('42', 'admin', '2017-01-16 09:58:10', '::1');
+INSERT INTO `user_log` VALUES ('43', 'admin', '2017-01-16 10:20:23', '::1');
+INSERT INTO `user_log` VALUES ('44', 'admin', '2017-01-16 10:20:49', '::1');
 
 -- ----------------------------
 -- Table structure for visit
