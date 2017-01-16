@@ -42,6 +42,9 @@ class PatientController extends AppController {
 
         if (MyHelper::getUserOffice() !== 'all') {
             $searchModel->hospcode = MyHelper::getUserOffice();
+            if (MyHelper::isCm()) {
+                $searchModel->cm_id = MyHelper::getUserId();
+            }
         }
 
         if (MyHelper::isCg()) {
@@ -82,10 +85,11 @@ class PatientController extends AppController {
     public function actionCreate() {
         $this->permitRole([2]);
         $model = new Patient();
+        $model->cm_id = MyHelper::getUserId();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             MyHelper::execSql("CALL set_patient_age()");
-            \Yii::$app->session->setFlash('success',"บันทึกสำเร็จ!!!");
+            \Yii::$app->session->setFlash('success', "บันทึกสำเร็จ!!!");
             return $this->redirect(['view', 'pid' => $model->id]);
         } else {
             return $this->render('create', [
@@ -105,7 +109,7 @@ class PatientController extends AppController {
         $model = $this->findModel($pid);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            \Yii::$app->session->setFlash('success',"บันทึกสำเร็จ!!!");
+            \Yii::$app->session->setFlash('success', "บันทึกสำเร็จ!!!");
             return $this->redirect(['view', 'pid' => $model->id]);
         } else {
             return $this->render('update', [
@@ -148,7 +152,7 @@ class PatientController extends AppController {
 
     public function actionFindHdc() {
         $this->layout = 'main';
-        $hos= MyHelper::getUserOffice();
+        $hos = MyHelper::getUserOffice();
 
         $cid = \Yii::$app->request->post('cid');
         if (empty($cid)) {
@@ -181,18 +185,18 @@ LEFT JOIN campur amp ON amp.ampurcodefull = LEFT(t.vhid,4)
 LEFT JOIN ctambon tmb ON tmb.tamboncodefull = LEFT(t.vhid,6) ";
 
 
-        
-        
+
+
         $sql.=" WHERE t.HOSPCODE='$hos' AND t.DISCHARGE=9 AND  ( t.CID LIKE '%$cid%' ";
         $sql.=" or  t.NAME LIKE '%$cid%') ";
-        
+
         $sql.= " GROUP BY t.CID order by t.TYPEAREA ASC,t.age_y DESC LIMIT 20 ";
-        
+
         $raw = \Yii::$app->db_hdc->createCommand($sql)->queryAll();
 
         $dataProvider = new ArrayDataProvider([
             'allModels' => $raw,
-            'pagination'=>FALSE
+            'pagination' => FALSE
         ]);
         return $this->render('find-hdc', [
                     'cid' => $cid,
