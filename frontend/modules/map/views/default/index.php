@@ -38,19 +38,36 @@ var baseLayers = {
  var _group1 = L.layerGroup().addTo(map);
         
  
- var ic1   =L.mapbox.marker.icon({'marker-color': '#ffff00'});
- var ic2 = L.mapbox.marker.icon({'marker-color': '#0000FF'});
- var ic3 = L.mapbox.marker.icon({'marker-color': '#ff0033'});  
+ var ic_y   =L.mapbox.marker.icon({'marker-color': '#ffff00'});//y
+ var ic_b = L.mapbox.marker.icon({'marker-color': '#0000FF'});//b
+ var ic_r = L.mapbox.marker.icon({'marker-color': '#ff0033'});//r
+ var ic_w = L.mapbox.marker.icon({'marker-color': '#FFFFFF'});//w
         
  var pt_layer =L.geoJson($pt_json,{                
             
-           onEachFeature:function(feature,layer){    
-                layer.setIcon(L.mapbox.marker.icon({'marker-color': '#ffff00','marker-symbol':'h'})); 
+           onEachFeature:function(feature,layer){   
+               
+                 //layer.setIcon(L.mapbox.marker.icon({'marker-color': '#0000FF','marker-symbol':'h'}));
+                switch(feature.properties.RAPID){
+                    case 'blue':
+                        layer.setIcon(L.mapbox.marker.icon({'marker-color': '#0000FF','marker-symbol':''}));
+                        break;
+                    case 'yellow':
+                        layer.setIcon(L.mapbox.marker.icon({'marker-color': '#ffff00','marker-symbol':''}));
+                        break;
+                    case 'red':
+                        layer.setIcon(L.mapbox.marker.icon({'marker-color': '#ff0033','marker-symbol':''}));
+                        break;
+                    default:
+                        layer.setIcon(L.mapbox.marker.icon({'marker-color': '#FFFFFF','marker-symbol':''}));
+                }
+
+        
                 layer.bindPopup(feature.properties.NAME);
-                //layer.bindLabel(feature.properties.HOS);
-                
+                //layer.bindLabel(feature.properties.NAME);              
                
            },
+        //L.marker([16.627849, 100.117535], {icon:ic1}).addTo(map).bindPopup('นาง จ');
            
     }).addTo(_group1);
  map.fitBounds(pt_layer.getBounds());
@@ -60,7 +77,7 @@ var baseLayers = {
  };
         
         
-//L.marker([16.627849, 100.117535], {icon:ic1}).addTo(map).bindPopup('นาง จ');
+
 L.control.layers(baseLayers,overlays).addTo(map);
         
         

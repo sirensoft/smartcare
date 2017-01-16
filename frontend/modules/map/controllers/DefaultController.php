@@ -16,21 +16,23 @@ class DefaultController extends AppController {
      */
     public function actionIndex() {
 
-        $hos=MyHelper::getUserOffice();
+        $hos = MyHelper::getUserOffice();
         $this->layout = 'main';
         $this->permitRole([1, 2]);
 
-        $sql = " SELECT t.`name`,t.lname,t.age_y,t.class_name,t.lat,t.lon FROM patient t
+        $sql = " SELECT t.`name`,t.lname,t.age_y,t.color rapid,t.tai,t.color,t.class_name,t.lat,t.lon FROM patient t
                 WHERE t.hospcode = '$hos' ";
-         $raw = \Yii::$app->db->createCommand($sql)->queryAll();
-         
-         $pt_json = [];
+        $raw = \Yii::$app->db->createCommand($sql)->queryAll();
+
+        $pt_json = [];
         foreach ($raw as $value) {
             $pt_json[] = [
                 'type' => 'Feature',
                 'properties' => [
-                    'NAME' => $value['name'].' '.$value['lname'].'('.$value['age_y'].'ปี) '.$value['class_name'],
-                    'SEARCH_TEXT' => $value['name'],
+                    'NAME' => $value['name'] . ' ' . $value['lname'] . '(' . $value['age_y'] . 'ปี) ' . $value['class_name'],
+                    'TAI' => $value['tai'],
+                    'RAPID' => $value['rapid'],
+                    'SEARCH_TEXT' => $value['name'] . ' ' . $value['lname'],
                 ],
                 'geometry' => [
                     'type' => 'Point',
@@ -40,8 +42,8 @@ class DefaultController extends AppController {
         }
         $pt_json = json_encode($pt_json);
 
-        return $this->render('index',[
-            'pt_json'=>$pt_json
+        return $this->render('index', [
+                    'pt_json' => $pt_json
         ]);
     }
 
