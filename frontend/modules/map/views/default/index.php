@@ -1,8 +1,12 @@
 <?php
 $this->title = "MAP";
 $this->registerCssFile('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', ['async' => false, 'defer' => true]);
+$this->registerCssFile('./lib-gis/leaflet-search.min.css',['async' => false, 'defer' => true]);
+$this->registerCssFile('./lib-gis/leaflet.label.css',['async' => false, 'defer' => true]);
 
 $this->registerJsFile('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js', ['position' => $this::POS_HEAD]);
+$this->registerJsFile('./lib-gis/leaflet-search.min.js',['position' => $this::POS_HEAD]);
+$this->registerJsFile('./lib-gis/leaflet.label.js',['position' => $this::POS_HEAD]);
 ?>
 
 
@@ -31,18 +35,52 @@ var baseLayers = {
         "แผนที่ดาวเทียม": L.mapbox.tileLayer('mapbox.satellite'),
         
     };
+ var _group1 = L.layerGroup().addTo(map);
         
- var overlays = {  };
+ 
  var ic1   =L.mapbox.marker.icon({'marker-color': '#ffff00'});
  var ic2 = L.mapbox.marker.icon({'marker-color': '#0000FF'});
  var ic3 = L.mapbox.marker.icon({'marker-color': '#ff0033'});  
         
-L.marker([16.619849, 100.107535], {icon:ic1}).addTo(map).bindPopup('นาย ก');
-L.marker([16.74981939,100.34430566], {icon:ic2}).addTo(map).bindPopup('นาย ข');
-L.marker([16.607849, 100.117535], {icon:ic3}).addTo(map).bindPopup('นาย ค');
-L.marker([16.707849, 100.317535], {icon:ic2}).addTo(map).bindPopup('นาง ง');
-L.marker([16.627849, 100.117535], {icon:ic1}).addTo(map).bindPopup('นาง จ');
+ var pt_layer =L.geoJson($pt_json,{                
+            
+           onEachFeature:function(feature,layer){    
+                layer.setIcon(L.mapbox.marker.icon({'marker-color': '#ffff00','marker-symbol':'h'})); 
+                layer.bindPopup(feature.properties.NAME);
+                //layer.bindLabel(feature.properties.HOS);
+                
+               
+           },
+           
+    }).addTo(_group1);
+ map.fitBounds(pt_layer.getBounds());
+        
+ var overlays = { 
+     "ผู้สูงอายุ": _group1, 
+ };
+        
+        
+//L.marker([16.627849, 100.117535], {icon:ic1}).addTo(map).bindPopup('นาง จ');
 L.control.layers(baseLayers,overlays).addTo(map);
+        
+        
+ //search
+    var searchControl = new L.Control.Search({
+		layer: pt_layer,
+		propertyName: 'SEARCH_TEXT',
+		circleLocation: false,
+		
+    });
+    searchControl.on('search:locationfound', function(e) {
+				
+		if(e.layer._popup)e.layer.openPopup();
+    }).on('search:collapsed', function(e) {
+		pt_layer.eachLayer(function(layer) {	
+			pt_layer.resetStyle(layer);
+		});	
+    });
+    map.addControl( searchControl );  
+ //end-search
         
 JS;
 $this->registerJs($js);
