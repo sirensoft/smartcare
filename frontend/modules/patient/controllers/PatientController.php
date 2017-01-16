@@ -148,6 +148,7 @@ class PatientController extends AppController {
 
     public function actionFindHdc() {
         $this->layout = 'main';
+        $hos= MyHelper::getUserOffice();
 
         $cid = \Yii::$app->request->post('cid');
         if (empty($cid)) {
@@ -182,15 +183,16 @@ LEFT JOIN ctambon tmb ON tmb.tamboncodefull = LEFT(t.vhid,6) ";
 
         
         
-        $sql.=" WHERE t.DISCHARGE=9 AND  ( t.CID LIKE '%$cid%' ";
+        $sql.=" WHERE t.HOSPCODE='$hos' AND t.DISCHARGE=9 AND  ( t.CID LIKE '%$cid%' ";
         $sql.=" or  t.NAME LIKE '%$cid%') ";
         
-        $sql.= " GROUP BY t.CID order by t.age_y DESC LIMIT 25 ";
+        $sql.= " GROUP BY t.CID order by t.TYPEAREA ASC,t.age_y DESC LIMIT 20 ";
         
         $raw = \Yii::$app->db_hdc->createCommand($sql)->queryAll();
 
         $dataProvider = new ArrayDataProvider([
-            'allModels' => $raw
+            'allModels' => $raw,
+            'pagination'=>FALSE
         ]);
         return $this->render('find-hdc', [
                     'cid' => $cid,

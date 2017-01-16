@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use common\components\AppController;
 use frontend\models\Patient;
 use common\components\MyHelper;
+use frontend\models\CChronic;
 
 /**
  * PlanController implements the CRUD actions for Plan model.
@@ -81,12 +82,23 @@ class PlanController extends AppController {
         $model->tai = $pt->tai;
         $model->tai_text = "กลุ่มที่ " . $pt->class_id . ";" . $pt->class_name;
         $model->hospcode = MyHelper::getUserOffice();
+
+        $disease = explode(",", $pt->disease);
+        if (!empty($disease[0])) {
+            $dx1 = CChronic::find()->where(['id_chronic' => $disease[0]])->one();
+        }
+        if (!empty($disease[1])) {
+            $dx2 = CChronic::find()->where(['id_chronic' => $disease[1]])->one();
+        }
+        $model->dx1 = empty($disease[0]) ? '' : $disease[0] . "-" . $dx1->tchronic;
+        $model->dx2 = empty($disease[1]) ? '' : $disease[1] . "-" . $dx2->tchronic;
+
         $model->d_update = date('Y-m-d H:i:s');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
+
             MyHelper::ptRapidColor($model->patient_id);
-            
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -106,7 +118,7 @@ class PlanController extends AppController {
         $model->d_update = date('Y-m-d H:i:s');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
+
             MyHelper::ptRapidColor($model->patient_id);
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -157,21 +169,21 @@ class PlanController extends AppController {
         $excel->getActiveSheet()->setCellValue('C5', $patient->prename . $patient->name . " " . $patient->lname);
         $excel->getActiveSheet()->setCellValue('D6', $patient->cid);
         $excel->getActiveSheet()->setCellValue('C7', $patient->birth);
-        $excel->getActiveSheet()->setCellValue('D7', "อายุ ".$patient->age_y." ปี");
-        $addr = "ที่อยู่ปัจจุบัน ".$patient->house_no." ม.".$patient->village_no
-                ." ต.".$patient->subdistrict ." อ.".$patient->district." โทร.".$patient->tel;
-        
+        $excel->getActiveSheet()->setCellValue('D7', "อายุ " . $patient->age_y . " ปี");
+        $addr = "ที่อยู่ปัจจุบัน " . $patient->house_no . " ม." . $patient->village_no
+                . " ต." . $patient->subdistrict . " อ." . $patient->district . " โทร." . $patient->tel;
+
         $excel->getActiveSheet()->setCellValue('D10', $model->rapid_code);
-        
+
         $excel->getActiveSheet()->setCellValue('C11', $model->adl);
         $excel->getActiveSheet()->setCellValue('C12', $model->tai);
         $excel->getActiveSheet()->setCellValue('D11', $model->adl_text);
         $excel->getActiveSheet()->setCellValue('D12', $model->tai_text);
-        
+
         $excel->getActiveSheet()->setCellValue('A8', $addr);
         $excel->getActiveSheet()->setCellValue('A14', $model->budget_need);
         $excel->getActiveSheet()->setCellValue('C14', "=BAHTTEXT(A14)");
-        
+
         $excel->getActiveSheet()->setCellValue('C15', $model->dx1);
         $excel->getActiveSheet()->setCellValue('A17', $model->dx2);
         $excel->getActiveSheet()->setCellValue('A20', $model->drug);
