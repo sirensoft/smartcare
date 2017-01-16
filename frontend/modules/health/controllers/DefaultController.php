@@ -15,6 +15,7 @@ class DefaultController extends AppController
      */
     public function actionIndex($pid)
     {
+        \Yii::$app->session->setFlash('danger', "ไม่สามารถเชื่อมต่อระบบ HDC", TRUE);
         return $this->render('index',[
             'pid'=>$pid
         ]);

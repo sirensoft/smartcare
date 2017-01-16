@@ -67,7 +67,7 @@ var baseLayers = {
                 //layer.bindLabel(feature.properties.NAME);              
                
            },
-        //L.marker([16.627849, 100.117535], {icon:ic1}).addTo(map).bindPopup('นาง จ');
+        
            
     }).addTo(_group1);
  map.fitBounds(pt_layer.getBounds());
