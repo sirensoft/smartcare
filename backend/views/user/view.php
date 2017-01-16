@@ -39,14 +39,16 @@ $this->params['breadcrumbs'][] = $this->title;
             //'role',
             'role_name',
             'u_cid',
-            'u_prename',
-            'u_name',
-            'u_lname',
+            'fullname',
+            //'u_prename',
+            //'u_name',
+            //'u_lname',
             'office',
             'officer_type',
             'office_position',
-            'created_at',
-            'updated_at',
+            //'created_at',
+            //'updated_at',
+            'last_login:datetime:ใช้ล่าสุด'
         ],
     ]) ?>
 

@@ -108,12 +108,23 @@ class Patient extends \yii\db\ActiveRecord {
             'cousin'=>'ชื่อญาติ/คนดูแล',
             'tel'=>'เบอร์ติดต่อ',
             'dupdate' => 'วันอัพเดทข้อมูล',
+            'fullname'=>'ชื่อ-สกุล',
+            'fulladdr'=>'ที่อยู่ปัจจุบัน'
         ];
     }
     
      public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'cg_id']);
+    }
+    
+    function getFullname() {
+        return $this->prename . $this->name.' '.$this->lname;
+    }
+    
+    function getFulladdr(){
+        return $this->house_no.' หมู่ที่ '.$this->village_no.' '.$this->village_name
+                .' ต.'.$this->subdistrict.' อ.'.$this->district.' จ.'.$this->province;
     }
 
 }

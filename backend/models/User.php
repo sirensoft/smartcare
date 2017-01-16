@@ -80,8 +80,13 @@ class User extends \yii\db\ActiveRecord {
             'counsil' => 'วิชาชีพ',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
-            'last_login' => 'ใช้ล่าสุด'
+            'last_login' => 'ใช้ล่าสุด',
+            'fullname'=>'ชื่อ-สกุล'
         ];
+    }
+
+    function getFullname() {
+        return $this->u_prename . $this->u_name.' '.$this->u_lname;
     }
 
 }
