@@ -50,16 +50,16 @@ var baseLayers = {
                  //layer.setIcon(L.mapbox.marker.icon({'marker-color': '#0000FF','marker-symbol':'h'}));
                 switch(feature.properties.RAPID){
                     case 'blue':
-                        layer.setIcon(L.mapbox.marker.icon({'marker-color': '#0000FF','marker-symbol':''}));
+                        layer.setIcon(ic_b);
                         break;
                     case 'yellow':
-                        layer.setIcon(L.mapbox.marker.icon({'marker-color': '#ffff00','marker-symbol':''}));
+                        layer.setIcon(ic_y);
                         break;
                     case 'red':
-                        layer.setIcon(L.mapbox.marker.icon({'marker-color': '#ff0033','marker-symbol':''}));
+                        layer.setIcon(ic_r);
                         break;
                     default:
-                        layer.setIcon(L.mapbox.marker.icon({'marker-color': '#FFFFFF','marker-symbol':''}));
+                        layer.setIcon(ic_w);
                 }
 
         
