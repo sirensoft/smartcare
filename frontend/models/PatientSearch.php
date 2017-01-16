@@ -68,6 +68,7 @@ class PatientSearch extends Patient {
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'hospcode'=>  $this->hospcode,
             'birth' => $this->birth,
             'typearea' => $this->typearea,
             'nation' => $this->nation,
@@ -86,7 +87,7 @@ class PatientSearch extends Patient {
                 ->andFilterWhere(['like', 'prename', $this->prename])
                 ->andFilterWhere(['like', 'name', $this->name])
                 ->andFilterWhere(['like', 'lname', $this->lname])
-                ->andFilterWhere(['like', 'hospcode', $this->hospcode])
+                //->andFilterWhere(['like', 'hospcode', $this->hospcode])
                 ->andFilterWhere(['like', 'refer_from', $this->refer_from])
                 ->andFilterWhere(['like', 'province', $this->province])
                 ->andFilterWhere(['like', 'district', $this->district])
