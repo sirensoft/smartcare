@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-16 09:40:30
+Date: 2017-01-16 10:05:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,12 +35,13 @@ CREATE TABLE `assessment` (
   `provider_id` int(11) DEFAULT NULL,
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of assessment
 -- ----------------------------
 INSERT INTO `assessment` VALUES ('1', '1', '2017-01-15', '5', '1B1281', null, 'C3', 'กลุ่มที่ 2 ติดบ้าน-2', null, null, null, null, '1', '2017-01-15 13:46:47');
+INSERT INTO `assessment` VALUES ('2', '3', '2017-01-16', '1', '1B1282', null, 'I1', 'กลุ่มที่ 3 ติดเตียง-2', null, null, null, null, '1', '2017-01-16 09:45:58');
 
 -- ----------------------------
 -- Table structure for c_ampur
@@ -12193,7 +12194,7 @@ CREATE TABLE `patient` (
 -- ----------------------------
 INSERT INTO `patient` VALUES ('1', '3650500516986', 'นาย', 'บาง', 'พงษ์พานิช', 'ชาย', '1936-05-31', '80', 'พิษณุโลก', 'บางกระทุ่ม', 'บางกระทุ่ม', '07', '', '45', '', '', '1', 'ไทย', 'ไทย', 'ศาสนาพุทธ', 'คู่', '11253', null, '', 'C229,I639', '9', null, '15', '5', 'C3', '2', 'ติดบ้าน-2', null, '', '', '2017-01-15');
 INSERT INTO `patient` VALUES ('2', '3650500112346', 'นาย', 'แดง', 'ลี้รักษ์', 'ชาย', '1956-01-01', '61', 'พิษณุโลก', 'บางกระทุ่ม', 'นครป่าหมาก', '09', '', '456', '', '', '1', 'ไทย', 'ไทย', 'ศาสนาพุทธ', 'คู่', '07551', null, '', '', '9', null, '15', null, null, null, null, null, '', '', '2017-01-16');
-INSERT INTO `patient` VALUES ('3', '3650500017017', 'น.ส.', 'กิตจาภักดิ์', 'เพ็งคุ่ย', 'หญิง', '1946-02-01', '70', 'พิษณุโลก', 'บางกระทุ่ม', 'บางกระทุ่ม', '03', '', '78', '', '', '1', 'ไทย', 'ไทย', 'ศาสนาพุทธ', 'ม่าย', '11253', null, '', 'E119,I10', '9', null, '15', null, null, null, null, null, '', '', '2017-01-16');
+INSERT INTO `patient` VALUES ('3', '3650500017017', 'น.ส.', 'กิตจาภักดิ์', 'เพ็งคุ่ย', 'หญิง', '1946-02-01', '70', 'พิษณุโลก', 'บางกระทุ่ม', 'บางกระทุ่ม', '03', '', '78', '', '', '1', 'ไทย', 'ไทย', 'ศาสนาพุทธ', 'ม่าย', '11253', null, '', 'E119,I10', '9', null, '15', '1', 'I1', '4', 'ติดเตียง-2', 'blue', '', '', '2017-01-16');
 INSERT INTO `patient` VALUES ('4', '3650800478346', 'น.ส.', 'สุมาลี', 'ธงศิริ', 'หญิง', '1980-06-05', '36', 'พิษณุโลก', 'บางกระทุ่ม', 'บางกระทุ่ม', '03', '', '456', '', '', '1', 'ไทย', 'ไทย', 'ศาสนาพุทธ', 'โสด', '11253', null, '', '', '9', null, '15', null, null, null, null, null, '', '', '2017-01-16');
 
 -- ----------------------------
@@ -12226,11 +12227,12 @@ CREATE TABLE `plan` (
   `careful` text COMMENT 'ข้อควรระวังในการให้บริการ',
   `d_update` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of plan
 -- ----------------------------
+INSERT INTO `plan` VALUES ('26', '11253', '3', '2017-01-16', 'blue', '1', 'ติดเตียง', 'I1', 'กลุ่มที่ 4;ติดเตียง-2', '', 'E119-เบาหวานชนิดที่ไม่ต้องพึ่งอินซูลิน ไม่มีภาวะแทรกซ้อน', 'I10-ความดันโลหิตสูงไม่ทราบสาเหตุ (ปฐมภูมิ)', '', null, '.... ครั้ง/เดือน', '.... ครั้ง/สัปดาห์ ครั้งละประมาณ ....  นาที', null, '', '', '1. การดูแลด้านการพยาบาล โดยแพทย์/พยาบาลวิชาชีพ\r\n-\r\n2. การฟื้นฟูสภาพร่างกาย โดยนักกายภาพบำบัด/นักกิจกรรมบำบัด/นักการแพทย์แผนไทย/แพทย์ทางเลือก\r\n-\r\n3. การดูแลด้านโภชนาการ โดยนักโภชนาการ\r\n-\r\n4. การดูแลด้านเภสัชกรรม โดยเภสัชกร\r\n-\r\n5. การดูแลด้านสุภาพช่องปาก โดยทันตแพทย์/ทันตาภิบาล\r\n-\r\n6. การดูแลด้านสุขภาพจิต โดยจิตแพทย์/พยาบาลจิตเวช/นักจิตวิทยา\r\n-\r\n7. การช่วยเหลืออื่นๆ\r\n-', '1.ได้รับการดูแลช่วยเหลือกิจวัตรประจำวัน   วันบรรลุเป้าหมาย  ทุกวัน\r\n2.                                                           วันบรรลุเป้าหมาย  .....\r\n3.                                                           วันบรรลุเป้าหมาย  .....', '', '', '2017-01-16 09:46:21');
 
 -- ----------------------------
 -- Table structure for plan_week
@@ -12344,12 +12346,10 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', '', '1234', null, 'admin@localhost.com', '10', '2', '2-Care Manager', '111', 'นาย', 'อุเทน', 'จาดยางโทน', '11253', null, null, null, null, '1482803441', '1482803441');
-INSERT INTO `user` VALUES ('15', 'cg', '', '1234', null, '', '10', '3', '3-Care Giver', '222', 'นาย', 'นพ', 'เก้า', '11253', null, null, null, null, '0', '0');
-INSERT INTO `user` VALUES ('17', 'root', '', '112233', null, 'root', '10', '1', '1-System Admin', '0000000000000', '', 'ROOT', 'ROOT', 'all', 'แพทย์', 'แพทย์', '', '', '0', '1484533258');
-INSERT INTO `user` VALUES ('18', 'sas', null, '112233', null, 'don@gg.com', '10', '3', '3-Care Giver', '3650011234557', 'นาย', 'ดร', 'แป้น', '', '', '', '', '', '1484533386', '1484533651');
-INSERT INTO `user` VALUES ('19', 'ppp', null, '112233', null, 'ppp@gmail.com', '10', '2', '2-Care Manager', '1456677852114', 'นาย', 'อุเทน', 'จาดยางโทน', '', '', '', '', '', '1484533774', '1484533774');
-INSERT INTO `user` VALUES ('21', 'ten', null, '112233', null, '', '10', '2', '2-Care Manager', '1144552233', 'นาย', 'ก', 'จ', '112', '', '', '', '', '1484534340', '1484534414');
+INSERT INTO `user` VALUES ('1', 'admin', '', '1234', null, 'admin@localhost.com', '1', '2', '2-Care Manager', '111', 'นาย', 'อุเทน', 'จาดยางโทน', '11253', '', '', '', '', '1482803441', '1484535920');
+INSERT INTO `user` VALUES ('15', 'cg', '', '1234', null, '', '0', '3', '3-Care Giver', '222', 'นาย', 'นพ', 'เก้า', '11253', null, null, null, null, '0', '0');
+INSERT INTO `user` VALUES ('17', 'root', '', '112233', null, 'root', '1', '1', '1-System Admin', '0000000000000', '', 'ROOT', 'ROOT', 'all', 'แพทย์', 'แพทย์', '', '', '0', '1484533258');
+INSERT INTO `user` VALUES ('21', 'ten', null, '112233', null, '', '0', '2', '2-Care Manager', '1144552233', 'นาย', 'ก', 'จ', '112', '', '', '', '', '1484534340', '1484534414');
 
 -- ----------------------------
 -- Table structure for user_log
@@ -12361,7 +12361,7 @@ CREATE TABLE `user_log` (
   `login_date` datetime DEFAULT NULL,
   `ip` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of user_log
@@ -12402,6 +12402,12 @@ INSERT INTO `user_log` VALUES ('33', 'root', '2017-01-16 08:46:06', '::1');
 INSERT INTO `user_log` VALUES ('34', 'ppp', '2017-01-16 09:30:00', '::1');
 INSERT INTO `user_log` VALUES ('35', 'ppp', '2017-01-16 09:33:10', '::1');
 INSERT INTO `user_log` VALUES ('36', 'admin', '2017-01-16 09:34:11', '::1');
+INSERT INTO `user_log` VALUES ('37', 'ten', '2017-01-16 09:41:30', '::1');
+INSERT INTO `user_log` VALUES ('38', 'admin', '2017-01-16 09:43:09', '::1');
+INSERT INTO `user_log` VALUES ('39', 'admin', '2017-01-16 09:54:07', '::1');
+INSERT INTO `user_log` VALUES ('40', 'admin', '2017-01-16 09:54:17', '::1');
+INSERT INTO `user_log` VALUES ('41', 'admin', '2017-01-16 09:56:04', '::1');
+INSERT INTO `user_log` VALUES ('42', 'admin', '2017-01-16 09:58:10', '::1');
 
 -- ----------------------------
 -- Table structure for visit
