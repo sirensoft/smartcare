@@ -26,12 +26,19 @@ use common\components\MyHelper;
     </div>
 
     <div class="form-group">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <?php
             $sql = "select id,name val from c_role";
             $items = MyHelper::dropDownItems($sql, 'id', 'val');
             ?>
             <?= $form->field($model, 'role')->dropDownList($items) ?>
+            
+        </div>
+        <div class="col-md-6">
+            <?php
+            $items = ['1'=>'YES-เปิดการใช้งาน','0'=>'NO-ปิดการใช้งาน'];
+            ?>
+            <?= $form->field($model, 'status')->dropDownList($items) ?>
         </div>
         
     </div>

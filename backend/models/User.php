@@ -44,7 +44,7 @@ class User extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'password_hash', 'role','office','u_cid','u_name','u_lname'], 'required','message' => ''],
+            [['username', 'password_hash', 'role','office','u_cid','u_name','u_lname','status'], 'required','message' => ''],
             [['status', 'role' ], 'integer'],
             [['password_reset_token', 'email', 'role_name', 'u_prename', 'u_name', 'u_lname', 'office', 'officer_type', 'office_position'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
@@ -68,7 +68,7 @@ class User extends \yii\db\ActiveRecord
             'password_hash' => 'Password',
             //'password_reset_token' => 'Password Reset Token',
             'email' => 'Email',
-            'status' => 'Status',
+            'status' => 'สถานะใช้งาน',
             'role' => 'ประเภท-USER',
             'role_name' => 'ประเภท-USER',
             'u_cid' => 'เลขบัตร 13 หลัก',
