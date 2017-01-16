@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'office_position',
             //'created_at',
             //'updated_at',
-            'last_login:datetime:ใช้ล่าสุด'
+            'last_login'
         ],
     ]) ?>
 
