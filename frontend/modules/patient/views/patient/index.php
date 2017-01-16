@@ -71,6 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'attribute' => 'cg_id',
                             'label' => 'CG',
                             'value' => 'user.u_name',
+                            'group'=>true,
                         ];
                     }
                     ?>
