@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-16 08:11:38
+Date: 2017-01-16 08:40:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -12326,6 +12326,8 @@ CREATE TABLE `user` (
   `office` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `officer_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `office_position` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `register_no` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'เลขที่ใบอนุญาต',
+  `counsil` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -12337,8 +12339,8 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('1', 'admin', '', '1234', null, 'admin@localhost.com', '10', '2', '2-Care Manager', '111', 'นาย', 'อุเทน', 'จาดยางโทน', '11253', null, null, '1482803441', '1482803441');
-INSERT INTO `user` VALUES ('15', 'cg', '', '1234', null, '', '10', '3', '3-Care Giver', '222', 'นาย', 'นพ', 'เก้า', '11253', null, null, '0', '0');
+INSERT INTO `user` VALUES ('1', 'admin', '', '1234', null, 'admin@localhost.com', '10', '2', '2-Care Manager', '111', 'นาย', 'อุเทน', 'จาดยางโทน', '11253', null, null, null, null, '1482803441', '1482803441');
+INSERT INTO `user` VALUES ('15', 'cg', '', '1234', null, '', '10', '3', '3-Care Giver', '222', 'นาย', 'นพ', 'เก้า', '11253', null, null, null, null, '0', '0');
 
 -- ----------------------------
 -- Table structure for user_log
