@@ -37,6 +37,7 @@ use common\components\MyHelper;
         <div class="col-md-6">
             <?php
             $items = ['1'=>'YES-เปิดการใช้งาน','0'=>'NO-ปิดการใช้งาน'];
+            if($model->isNewRecord){$model->status=1;}
             ?>
             <?= $form->field($model, 'status')->dropDownList($items) ?>
         </div>
