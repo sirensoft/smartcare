@@ -50,6 +50,9 @@ class PatientSearch extends Patient {
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination'=>[
+                'pageSize'=>25
+            ]
         ]);
 
         $dataProvider->sort->attributes['user'] = [
