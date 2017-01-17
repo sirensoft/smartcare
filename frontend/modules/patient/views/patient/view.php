@@ -5,6 +5,7 @@ use yii\helpers\Html;
 use kartik\detail\DetailView;
 use yii\bootstrap\ButtonGroup;
 use common\components\MyHelper;
+use yii\web\JsExpression;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Patient */
@@ -73,6 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'nation',
             'race',
             'religion',
+            'disease',
             'discharge',
             'cousin',
             'tel',
@@ -82,11 +84,12 @@ $this->params['breadcrumbs'][] = $this->title;
     ?>
     <p>
     <?php if (MyHelper::isCm()): ?>
-        <?=
-        Html::a('<i class="glyphicon glyphicon-minus"></i> ลบ', ['delete', 'pid' => $model->id], [
+        <?php
+       
+        echo Html::a('<i class="glyphicon glyphicon-minus"></i> ลบ', ['delete', 'pid' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'ยืนยันการลบ!',                
                 'method' => 'post',
             ],
         ])

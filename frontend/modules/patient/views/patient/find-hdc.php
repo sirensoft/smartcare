@@ -52,6 +52,7 @@ $f = ActiveForm::begin([
             window.close();
             
     ";
+    //gridview
     echo GridView::widget([
         'dataProvider' => $dataProvider,
         'responsiveWrap' => false,
