@@ -4,8 +4,14 @@
 <meta charset=utf-8 />
 <title>Driving directions</title>
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
-<link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+<script src='//api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+<link href='//api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css" />
+
+
+<script src="//domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -83,6 +89,13 @@ var directionsErrorsControl = L.mapbox.directions.errorsControl('errors', direct
 
 var directionsRoutesControl = L.mapbox.directions.routesControl('routes', directions)
     .addTo(map);
+    
+ var lc = L.control.locate({
+    position: 'topright',
+    strings: {
+        title: "Show me where I am, yo!"
+    }
+}).addTo(map);
 
 
 </script>

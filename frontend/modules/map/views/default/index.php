@@ -1,10 +1,10 @@
 <?php
 $this->title = "MAP";
-$this->registerCssFile('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', ['async' => false, 'defer' => true]);
+$this->registerCssFile('//api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', ['async' => false, 'defer' => true]);
 $this->registerCssFile('./lib-gis/leaflet-search.min.css',['async' => false, 'defer' => true]);
 $this->registerCssFile('./lib-gis/leaflet.label.css',['async' => false, 'defer' => true]);
 
-$this->registerJsFile('https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js', ['position' => $this::POS_HEAD]);
+$this->registerJsFile('//api.mapbox.com/mapbox.js/v3.0.1/mapbox.js', ['position' => $this::POS_HEAD]);
 $this->registerJsFile('./lib-gis/leaflet-search.min.js',['position' => $this::POS_HEAD]);
 $this->registerJsFile('./lib-gis/leaflet.label.js',['position' => $this::POS_HEAD]);
 ?>
