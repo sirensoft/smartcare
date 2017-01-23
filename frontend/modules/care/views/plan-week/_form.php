@@ -66,23 +66,23 @@ use kartik\widgets\TimePicker;
 </div>
 <div class="form-group">
     <div class="col-md-12">
-<?= $form->field($model, 'title')->textarea(['rows' => 3, 'readonly' => MyHelper::isCg()]) ?>
+        <?= $form->field($model, 'title')->textarea(['rows' => 3, 'readonly' => MyHelper::isCg()]) ?>
     </div>
 </div>
 
 <div class="form-group">
     <div class="col-md-12">
 
-<?php
-$provider_id = MyHelper::getCgId($model->patient_id);
-$hos = MyHelper::getUserOffice();
-$sql = "SELECT t.id,concat(t.u_name,' ',t.u_lname,' (',t.role_name,')') val FROM user t WHERE t.office = '$hos'";
-$items = MyHelper::dropDownItems($sql, 'id', 'val');
-echo $form->field($model, 'provider_id')->dropDownList($items, [
-    'value' => $model->isNewRecord ? MyHelper::getCgId($model->patient_id) : $model->provider_id,
-    'disabled' => MyHelper::isCg()
-]);
-?>
+        <?php
+        $provider_id = MyHelper::getCgId($model->patient_id);
+        $hos = MyHelper::getUserOffice();
+        $sql = "SELECT t.id,concat(t.u_name,' ',t.u_lname,' (',t.role_name,')') val FROM user t WHERE t.office = '$hos'";
+        $items = MyHelper::dropDownItems($sql, 'id', 'val');
+        echo $form->field($model, 'provider_id')->dropDownList($items, [
+            'value' => $model->isNewRecord ? MyHelper::getCgId($model->patient_id) : $model->provider_id,
+            'disabled' => MyHelper::isCg()
+        ]);
+        ?>
     </div>
 </div>
 
@@ -90,7 +90,7 @@ echo $form->field($model, 'provider_id')->dropDownList($items, [
     <div class="form-group">
         <div class="col-md-12">
             <label class="control-label" for="chk_day">
-    <?= Html::checkbox('chk_day', FALSE, ['id' => 'chk_day', 'class' => 'from-control']); ?>
+                <?= Html::checkbox('chk_day', FALSE, ['id' => 'chk_day', 'class' => 'from-control']); ?>
                 ทำทุกวันตลอดสัปดาห์ เวลาเดียวกันนี้
             </label>
         </div>
@@ -102,39 +102,39 @@ echo $form->field($model, 'provider_id')->dropDownList($items, [
     <?php if (!MyHelper::isCg()): ?>
         <div class="form-group">
             <div class="col-md-3">
-        <?= $form->field($model, 'weight')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'weight')->textInput(['maxlength' => true]) ?>
             </div>
             <div class="col-md-3">
-        <?= $form->field($model, 'height')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'height')->textInput(['maxlength' => true]) ?>
             </div>
             <div class="col-md-3">
-        <?= $form->field($model, 'waist')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'waist')->textInput(['maxlength' => true]) ?>
             </div>
             <div class="col-md-3">
-        <?= $form->field($model, 'pulse')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'pulse')->textInput(['maxlength' => true]) ?>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-3">
-        <?= $form->field($model, 'temp')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'temp')->textInput(['maxlength' => true]) ?>
             </div>
             <div class="col-md-2">
-        <?= $form->field($model, 'sbp')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'sbp')->textInput(['maxlength' => true]) ?>
             </div>
             <div class="col-md-2">
-        <?= $form->field($model, 'dbp')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'dbp')->textInput(['maxlength' => true]) ?>
             </div>
             <div class="col-md-2">
-        <?= $form->field($model, 'rr')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'rr')->textInput(['maxlength' => true]) ?>
             </div>
             <div class="col-md-3">
-        <?= $form->field($model, 'sugar')->textInput(['maxlength' => true]) ?>
+                <?= $form->field($model, 'sugar')->textInput(['maxlength' => true]) ?>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-12">
-        <?= $form->field($model, 'note')->textarea(['rows' => 4]) ?>
+                <?= $form->field($model, 'note')->textarea(['rows' => 4]) ?>
             </div>
         </div>
     <?php endif; ?>
