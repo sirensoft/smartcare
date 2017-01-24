@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = "รายการแผน"
                     'adl',
                     // 'adl_text',
                     // 'tai',
-                    'tai_text',
+                    'tai_text:ntext:กลุ่ม',
                 // 'budget_need',
                 // 'dx1',
                 // 'dx2',
