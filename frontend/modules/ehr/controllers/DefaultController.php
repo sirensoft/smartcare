@@ -125,7 +125,7 @@ class DefaultController extends AppController {
         ]);
 
         //วินิจฉัย
-        $sqli = "SELECT d.diagcode,diagename,diagtype
+        $sqli = "select * from ( SELECT d.diagcode,diagename,diagtype
                     FROM tmp_diag_opd  d
                     LEFT JOIN cicd10tm i ON i.diagcode = d.diagcode
                     WHERE cid ='$cid'
@@ -134,7 +134,7 @@ class DefaultController extends AppController {
                     SELECT d.diagcode,diagename,diagtype
                     FROM diagnosis_ipd d
                     LEFT JOIN cicd10tm i ON i.diagcode = d.diagcode
-                    WHERE an ='$an'  AND hospcode = '$hospcode'    ";
+                    WHERE an ='$an'  AND hospcode = '$hospcode' ) t order by diagtype   ";
         $rawi = $connection->createCommand($sqli)
                 ->queryAll();
 
