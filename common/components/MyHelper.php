@@ -101,6 +101,14 @@ class MyHelper extends \yii\base\Component {
             return '0';
         }
     }
+    
+    public static function getUserName() {
+        if (!\Yii::$app->user->isGuest) {
+            return \Yii::$app->user->identity->username;
+        } else {
+            return 'unknow';
+        }
+    }
 
     public static function setPatientADL($pid = NULL) {
         $sql = "select adl_score from assessment where patient_id = $pid and (adl_score is not null and adl_score != '') order by id DESC limit 1";
@@ -179,6 +187,10 @@ GROUP BY t.patient_id,t.start_date,DATE_FORMAT(t.start_time,'%H')";
         $date->modify("+$day day");
         return $date->format('Y-m-d');
         
+    }
+    public static function getPatientCid($pid){
+        $pt=Patient::findOne($pid);
+        return $pt->cid;
     }
 
 }

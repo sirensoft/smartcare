@@ -28,5 +28,8 @@ return [
     'ajax' => [
         'class' => 'frontend\modules\ajax\Ajax',
     ],
+    'ehr' => [
+        'class' => 'frontend\modules\ehr\Ehr',
+    ],
 ];
 
