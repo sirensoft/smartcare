@@ -112,7 +112,7 @@ class DefaultController extends AppController {
                 LEFT JOIN chospital  h ON h.hoscode = s.hospcode
 		LEFT JOIN tmp_admission a ON a.HOSPCODE = s.HOSPCODE AND a.SEQ = s.SEQ
                 WHERE  p.cid = '$cid'
-                ORDER BY date_serv DESC";
+                ORDER BY date_serv DESC LIMIT 20";
         $rawData = $connection->createCommand($sqld)
                 ->queryAll();
 
