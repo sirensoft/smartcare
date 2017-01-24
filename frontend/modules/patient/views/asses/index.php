@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\Html;
 use frontend\models\Patient;
 
 $model = Patient::findOne($pid);
@@ -21,7 +22,7 @@ use kartik\tabs\TabsX;
 
 $tab_items = [];
 $tab_items[] = [
-    'label' => 'ผลการประเมิน',
+    'label' => 'ผลการประเมิน ADL',
     'content' => $this->render('result', [
         'pid' => $pid
     ]),
@@ -29,20 +30,24 @@ $tab_items[] = [
 ];
 
 $tab_items[] = [
-    'label' => 'แบบประเมิน ADL',
+    'label' => 'ทำแบบประเมิน ADL',
     'content' => $this->render('adl'),
 ];
 
 $tab_items[] = [
-    'label' => 'แบบประเมิน TAI ภาพ',
+    'label' => 'ทำแบบประเมิน TAI ภาพ',
     'content' => $this->render('tai_img'),
 ];
 $tab_items[] =[
-    'label'=>'แบบประเมิน 2Q',
+    'label'=>'ผลการประเมินสุขภาพจิต',
+    'content'=>''
+];
+$tab_items[] =[
+    'label'=>'ทำแบบประเมิน 2Q',
     'content'=>$this->render('2q')
 ];
 $tab_items[] =[
-    'label'=>'แบบประเมิน 9Q',
+    'label'=>'ทำแบบประเมิน 9Q',
     'content'=>$this->render('9q')
 ];
 /*

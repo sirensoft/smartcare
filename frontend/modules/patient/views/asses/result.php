@@ -25,10 +25,9 @@ echo GridView::widget([
         ['class' => 'yii\grid\SerialColumn'],
         'DATE_SERV:datetime:วันที่ประเมิน',
         'adl_score:integer:ADL SCORE',
-        'pp_code:text:ผลคัดกรอง สนย.',
-        //'tai_score:integer:TAI SCORE',
         'tai_class:text:TAI CLASS',
-        'group_text:text:กลุ่ม',
+        'group_text:text:จัดกลุ่ม',
+        'pp_code:text:SPECIALPP',
         'provider:text:ผู้ประเมิน',
         'note:text:หมายเหตุ'
     ]
