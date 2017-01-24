@@ -78,7 +78,7 @@ class DefaultController extends AppController {
         // ข้อมูลบุคคล
         $sql = "SELECT p.cid,CONCAT(n.prename,p.name,' ',p.lname) AS tname,sex,
                 CONCAT('เลขที่ ',h.HOUSE,' ต.',t.tambonname,' อ.',a.ampurname,' จ.',c.changwatname) AS taddr,
-                CONCAT(tc.chronic,' ',i.diagename)  as chronic,birth
+                GROUP_CONCAT(DISTINCT CONCAT(tc.chronic,' ',i.diagename))  as chronic,birth
                 FROM person p
                 LEFT JOIN cprename n ON n.id_prename = p.prename
                 LEFT JOIN home h ON h.HOSPCODE = p.HOSPCODE AND h.HID = p.HID
