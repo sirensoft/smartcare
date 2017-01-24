@@ -18,7 +18,7 @@ class DefaultController extends AppController {
   
     public function actionIndex($pids=null) {
         $this->layout = 'main';
-        $this->permitRole([1,2]);// เพิ่ม
+        $this->permitRole([2,4,5,6]);// เพิ่ม
         
         $onoff  = OnOffEhr::find()->one();
         if($onoff->status !== 'on'){
