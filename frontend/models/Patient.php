@@ -2,6 +2,7 @@
 
 namespace frontend\models;
 use backend\models\User;
+use frontend\models\CDischarge;
 use Yii;
 
 /**
@@ -122,6 +123,11 @@ class Patient extends \yii\db\ActiveRecord {
      public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'cg_id']);
+    }
+    
+     public function getCdischarge()
+    {
+        return $this->hasOne(CDischarge::className(), ['dischargecode' => 'discharge']);
     }
     
     function getFullname() {
