@@ -12,6 +12,7 @@ function cal2q() {
        $('#panel_q9').css('display','none')
   }
   $("#q2_point").html(txt)
+  $("#q2_score").val(txt)
 
 }
 $("input[type=radio][data-q2]").on("change", cal2q);

@@ -15,6 +15,7 @@ function cal9q() {
     }
     $("#q9_point_top").html(res+' '+txt)
     $("#q9_point_foot").html(res+' '+txt);
+    $("#q9_score").val(res+'-'+txt);
 
 
 }

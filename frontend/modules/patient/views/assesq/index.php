@@ -24,7 +24,9 @@ $tab_items = [];
 
 $tab_items[] =[
     'label'=>'ผลการประเมินสุขภาพจิต',
-    'content'=>''
+    'content'=>$this->render('result',[
+        'pid'=>$pid
+    ]),
 ];
 $tab_items[] =[
     'label'=>'ประเมิน 2Q',
