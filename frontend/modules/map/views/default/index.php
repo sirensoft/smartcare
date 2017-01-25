@@ -50,6 +50,7 @@ var baseLayers = {
  var ic_b = L.mapbox.marker.icon({'marker-color': '#0000FF'});//b
  var ic_r = L.mapbox.marker.icon({'marker-color': '#ff0033'});//r
  var ic_w = L.mapbox.marker.icon({'marker-color': '#FFFFFF'});//w
+ var ic_bk = L.mapbox.marker.icon({'marker-color': #333333}); /black
         
  var pt_layer =L.geoJson($pt_json,{                
             
@@ -65,6 +66,9 @@ var baseLayers = {
                         break;
                     case 'red':
                         layer.setIcon(ic_r);
+                        break;
+                    case 'black':
+                        layer.setIcon(ic_bk);
                         break;
                     default:
                         layer.setIcon(ic_w);
