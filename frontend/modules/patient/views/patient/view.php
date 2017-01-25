@@ -23,7 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a('<i class="glyphicon glyphicon-edit"></i> แก้ไข', ['update', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
 
             <?= Html::a('<i class="glyphicon glyphicon-briefcase"></i> ประวัติ', ['/ehr/default/index', 'pids' => $model->id], ['class' => 'btn btn-danger','target'=>'_blank']) ?>
-            <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ประเมิน', ['/patient/asses/index', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ADL', ['/patient/asses/index', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
+            <?= Html::a('<i class="glyphicon glyphicon-plus"></i> 2Q/9Q', ['/patient/assesq/index', 'pid' => $model->id], ['class' => 'btn btn-info']) ?>
+            
             <?= Html::a('<i class="glyphicon glyphicon-print"></i> พิมพ์', ['/patient/print/index', 'pid' => $model->id], ['class' => 'btn btn-info pull-right']) ?>
             <?= Html::a('<i class="glyphicon glyphicon-calendar"></i> แผน', ['/care/plan/index', 'pid' => $model->id], ['class' => 'btn btn-warning ']) ?>
 
@@ -31,7 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <?php if (MyHelper::isCg()): ?>
             <?= Html::a('<i class="glyphicon glyphicon-user"></i> ข้อมูล', ['/Profile/', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ประเมิน', ['/patient/asses/index', 'pid' => $model->id], ['class' => 'btn btn-danger']) ?>
+            <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ADL', ['/patient/asses/index', 'pid' => $model->id], ['class' => 'btn btn-danger']) ?>
+            <?= Html::a('<i class="glyphicon glyphicon-plus"></i> 2Q/9Q', ['/patient/assesq/index', 'pid' => $model->id], ['class' => 'btn btn-info']) ?>
             <?= Html::a('<i class="glyphicon glyphicon-calendar"></i> แผน', ['/care/plan-week/index', 'pid' => $model->id], ['class' => 'btn btn-warning ']) ?>
             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เยี่ยม', ['/care/visit/index', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
 

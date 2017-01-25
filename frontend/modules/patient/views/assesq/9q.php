@@ -213,6 +213,8 @@ $this->registerJs($this->render('q9.js'));
 </div>
 
 <div>
-    
-    บันทึกผล
+    <form method="post">
+        
+    </form> 
+   
 </div>
