@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = "จำหน่าย";
 <div class="patient-update">
 
        <div class="panel panel-danger">
-        <div class="panel-heading">* รายละเอียดการจำหน่าย</div>
+           <div class="panel-heading"><b><?=$this->title?></b></div>
         <div class="panel-body">
             <?=
             $this->render('_form_discharge', [
