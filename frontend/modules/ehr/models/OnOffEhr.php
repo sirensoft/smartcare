@@ -20,7 +20,11 @@ class OnOffEhr extends ActiveRecord{
     {
         return 'ehr_onoff';
     }
-    
+    public static  function primaryKey() {
+        return ['status'];
+    }
+
+
     public function rules() {
         return [
             [['status'],'safe']

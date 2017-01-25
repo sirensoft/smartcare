@@ -7,6 +7,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
 use common\components\AppController;
+use frontend\modules\ehr\models\OnOffEhr;
 
 /**
  * Site controller
@@ -27,7 +28,7 @@ class SiteController extends AppController
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index','ehr'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -96,5 +97,18 @@ class SiteController extends AppController
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+    
+    public function actionEhr(){
+        $this->permitRole([1]);
+        $model = OnOffEhr::find()->one();
+        if($model->status == 'on'){
+           $model->status = 'off'; 
+        }else{
+            $model->status='on';
+        }
+        if($model->save()){
+            return $this->redirect(['site/index']);
+        }
     }
 }
