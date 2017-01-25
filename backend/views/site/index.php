@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-/* @var $this yii\web\View */
+use frontend\modules\ehr\models\OnOffEhr;
 
 $this->title = '::Backend::';
 ?>
