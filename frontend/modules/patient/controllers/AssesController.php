@@ -41,6 +41,7 @@ class AssesController extends AppController {
             
             //$model->tai_score = \Yii::$app->request->post('tai_score');
             $model->tai_class = \Yii::$app->request->post('tai_class');
+            $model->note = \Yii::$app->request->post('note');
             $model->provider_id = MyHelper::getUserId();
             $model->d_update = date('Y-m-d H:i:s');
             $model->save();

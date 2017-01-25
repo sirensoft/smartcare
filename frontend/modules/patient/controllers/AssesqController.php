@@ -26,14 +26,16 @@ class AssesqController extends AppController {
             $model = new AssessmentQ();
             $model->patient_id = $pid;
             $model->date_serv = date('Y-m-d');
-            
+
             $model->q2 = \Yii::$app->request->post('q2_score');
             $model->q9 = \Yii::$app->request->post('q9_score');
+            $model->note = \Yii::$app->request->post('note');
+
             $model->provider_id = MyHelper::getUserId();
             $model->d_update = date('Y-m-d H:i:s');
             $model->save();
 
-           
+
             //MyHelper::execSql('CALL set_patient_class()');
 
 
