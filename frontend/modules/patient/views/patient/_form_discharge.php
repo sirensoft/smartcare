@@ -82,7 +82,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
     <div class="col-sm-3"> 
 
         <?= Html::submitButton('<i class="glyphicon glyphicon-ok"></i> บันทึก ', ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('ยกเลิก', ['/patient/patient/index'], ['class' => 'btn btn-default']); ?>
+        <?= Html::a('ยกเลิก', ['/patient/patient/view','pid'=>$model->id], ['class' => 'btn btn-default']); ?>
     </div> 
 </div>
 
