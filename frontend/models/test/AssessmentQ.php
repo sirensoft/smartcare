@@ -1,36 +1,31 @@
 <?php
 
-namespace frontend\models;
+namespace frontend\models\test;
 
 use Yii;
 
 /**
- * This is the model class for table "assessment".
+ * This is the model class for table "assessment_q".
  *
  * @property integer $id
  * @property integer $patient_id
  * @property string $date_serv
- * @property integer $adl_score
- * @property string $pp_code
- * @property integer $tai_score
- * @property string $tai_class
- * @property string $group_text
- * @property string $q2 
- * @property string $q9 
+ * @property string $q2
+ * @property string $q9
  * @property string $q8
  * @property string $note
  * @property string $doc_file
  * @property integer $provider_id
  * @property string $d_update
  */
-class Assessment extends \yii\db\ActiveRecord
+class AssessmentQ extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'assessment';
+        return 'assessment_q';
     }
 
     /**
@@ -39,9 +34,9 @@ class Assessment extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['patient_id', 'adl_score', 'tai_score', 'provider_id'], 'integer'],
+            [['patient_id', 'provider_id'], 'integer'],
             [['date_serv', 'd_update'], 'safe'],
-            [['q8','q9','q2','pp_code','tai_class', 'note', 'doc_file','group_text'], 'string', 'max' => 255],
+            [['q2', 'q9', 'q8', 'note', 'doc_file'], 'string', 'max' => 255],
         ];
     }
 
@@ -54,11 +49,9 @@ class Assessment extends \yii\db\ActiveRecord
             'id' => 'ID',
             'patient_id' => 'Patient ID',
             'date_serv' => 'Date Serv',
-            'adl_score' => 'Adl Score',
-            'pp_code'=>'ผลคัดกรอง(สนย.)',
-            'tai_score' => 'Tai Score',
-            'tai_class' => 'Tai Class',
-            'group_text'=>'กลุ่ม',
+            'q2' => 'Q2',
+            'q9' => 'Q9',
+            'q8' => 'Q8',
             'note' => 'Note',
             'doc_file' => 'Doc File',
             'provider_id' => 'Provider ID',
