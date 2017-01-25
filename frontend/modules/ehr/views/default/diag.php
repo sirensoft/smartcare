@@ -5,18 +5,14 @@ use kartik\grid\GridView;
 ?>
 
 <div class="row">
-    <div class="col-lg-2">
-        <p class="text-right text-green">วันที่รับบริการ : </p>
-        <p class="text-right text-green">อาการสำคัญ : </p>
-        <p class="text-right text-green">สัญญาณชีพ : </p>
+    <div class="col-md-6">
+        <p class="text-green"><u>วันที่รับบริการ</u> : <?=$dateserv?> เวลา : <?=$timeserv?> </p>
+    <p class="text-green"><u>อาการสำคัญ</u> : <?=$cc?></p>
+    <p class="text-green"><u>สัญญาณชีพ</u> : BP = <?=$sbp.':'.$dbp.' ,T='.$btemp.' ,P='.$pr.' ,R='.$rr?></p>
     </div>
-     <div class="col-lg-4">
-        <p class="text-left text-red"><?=': '.$dateserv?> เวลา : <?=$timeserv?> </p>
-        <p class="text-left text-red"><?=': '.$cc?> </p>
-        <p class="text-left text-red">: BP = <?=$sbp.':'.$dbp.' ,T='.$btemp.' ,P='.$pr.' ,R='.$rr?> </p>
-    </div>
-    <div class="col-lg-6">
-        <p class="text-left "> <?= ' สถานที่รับบริการ :'.$hospcode.' '.$hospname?></p>
+   
+    <div class="col-md-6">
+        <p> <?= '<u>หน่วยบริการ</u>  :'.$hospcode.' '.$hospname?></p>
     </div>
 
 </div>
@@ -40,6 +36,7 @@ use kartik\grid\GridView;
 
     echo GridView::widget([
         'dataProvider' => $dataProvider,
+        'responsiveWrap' => false,
         //'filterModel' => $searchModel,
         'autoXlFormat' => true,
         'export' => [

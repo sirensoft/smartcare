@@ -41,6 +41,7 @@ $gridColumns = [
 
 echo GridView::widget([
     'dataProvider' => $dataProvider,
+    'responsiveWrap' => false,
     //'filterModel' => $searchModel,
     'autoXlFormat' => true,
     'export' => [

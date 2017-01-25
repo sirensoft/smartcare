@@ -97,6 +97,7 @@ $this->title = "ประวัติรับบริการ";
                     echo GridView::widget([
                         'dataProvider' => $dataProvider,
                         //'filterModel' => $searchModel,
+                        'responsiveWrap' => false,
                         'autoXlFormat' => true,
                         'export' => [
                             'fontAwesome' => true,
