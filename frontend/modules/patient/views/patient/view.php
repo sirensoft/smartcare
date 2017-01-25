@@ -82,6 +82,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'cousin',
             'tel',
             'dupdate',
+            [
+                'attribute'=>'lat',
+                'format'=>'raw',
+                'label'=>'พิกัด',
+                'value'=>  Html::a($model->lat.",".$model->lon,
+                            ['/gate/go','url'=>"http://maps.google.com/?q=$model->lat,$model->lon"],['target'=>'_blank'])
+                
+                
+            ]
         ],
     ])
     ?>
