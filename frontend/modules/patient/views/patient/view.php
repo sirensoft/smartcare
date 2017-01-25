@@ -25,10 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a('<i class="glyphicon glyphicon-briefcase"></i> ประวัติ', ['/ehr/default/index', 'pids' => $model->id], ['class' => 'btn btn-danger','target'=>'_blank']) ?>
             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ADL', ['/patient/asses/index', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> 2Q/9Q', ['/patient/assesq/index', 'pid' => $model->id], ['class' => 'btn btn-info']) ?>
-            
-            <?= Html::a('<i class="glyphicon glyphicon-print"></i> พิมพ์', ['/patient/print/index', 'pid' => $model->id], ['class' => 'btn btn-info pull-right']) ?>
             <?= Html::a('<i class="glyphicon glyphicon-calendar"></i> แผน', ['/care/plan/index', 'pid' => $model->id], ['class' => 'btn btn-warning ']) ?>
 
+            <?= Html::a('<i class="glyphicon glyphicon-print"></i> พิมพ์', ['/patient/print/index', 'pid' => $model->id], ['class' => 'btn btn-default']) ?>
+            <?= Html::a('<i class="glyphicon glyphicon-pencil"></i> จำหน่าย', ['/patient/patient/discharge', 'pid' => $model->id], ['class' => 'btn btn-danger pull-right']) ?>
+            
         <?php endif; ?>
 
         <?php if (MyHelper::isCg()): ?>
@@ -78,10 +79,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'race',
             'religion',
             'disease',
-            'discharge',
+            
             'cousin',
             'tel',
-            'dupdate',
+            //'dupdate',
             [
                 'attribute'=>'lat',
                 'format'=>'raw',
@@ -90,7 +91,10 @@ $this->params['breadcrumbs'][] = $this->title;
                             ['/gate/go','url'=>"http://maps.google.com/?q=$model->lat,$model->lon"],['target'=>'_blank'])
                 
                 
-            ]
+            ],
+            'discharge',
+            'discharge_date',
+            'discharge_note',
         ],
     ])
     ?>

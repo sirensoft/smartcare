@@ -22,7 +22,7 @@ class PatientSearch extends Patient {
         return [
             [['id'], 'integer'],
             [['user'], 'safe'],
-            [['mstatus','religion','color', 'cousin', 'tel', 'pid', 'refer_from', 'class_name', 'adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'race', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
+            [['discharge_note','mstatus','religion','color', 'cousin', 'tel', 'pid', 'refer_from', 'class_name', 'adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'race', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
             [['typearea', 'class_id'], 'integer'],
         ];
     }
@@ -101,7 +101,9 @@ class PatientSearch extends Patient {
                 ->andFilterWhere(['like', 'tai', $this->tai])
                 ->andFilterWhere(['like', 'class_name', $this->class_name])
                 ->andFilterWhere(['like', 'disease', $this->disease])
-                ->andFilterWhere(['like', 'color', $this->color]);
+                ->andFilterWhere(['like', 'color', $this->color])
+                ->andFilterWhere(['like','discharge_note',$this->discharge_note]);
+      
         if(MyHelper::isCg()){
             $query->andFilterWhere(['cg_id' => $this->cg_id]);
         }else{

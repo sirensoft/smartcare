@@ -31,6 +31,9 @@ use Yii;
  * @property string $refer_from
  * @property string $disease
  * @property string $discharge
+ * @property string $discharge_date
+ * @property string $discharge_time
+ * @property string $discharge_note
  * @property integer $cm_id
  * @property integer $cg_id
  * @property integer $adl
@@ -59,7 +62,7 @@ class Patient extends \yii\db\ActiveRecord {
 
             [['cg_id','house_no','cid', 'prename', 'name', 'lname', 'province', 'district', 'sex', 'subdistrict', 'village_no', 'hospcode'], 'required','message' => ''],
             [['birth'], 'safe'],
-            [['dupdate','cousin','tel'], 'safe'],
+            [['discharge_time','discharge_date','discharge_note','dupdate','cousin','tel'], 'safe'],
             [['age_y','typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
             [['cid', 'tai'], 'string', 'max' => 13],
             [['mstatus','religion','color','pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'race', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
@@ -98,6 +101,9 @@ class Patient extends \yii\db\ActiveRecord {
             'refer_from'=>'รับส่งต่อจาก',
             'disease' => 'โรคประจำตัว',
             'discharge' => 'การจำหน่าย',
+             'discharge_date' => 'วันจำหน่าย',
+             'discharge_time' => 'เวลา',
+            'discharge_note'=>'รายละเอียดการจำหน่าย',
             'cm_id' => 'CareManager',
             'cg_id' => 'CG',
             'adl' => 'คะแนน ADL',

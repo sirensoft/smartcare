@@ -117,6 +117,20 @@ class PatientController extends AppController {
             ]);
         }
     }
+    
+     public function actionDischarge($pid) {
+        $this->permitRole([2]);
+        $model = $this->findModel($pid);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            \Yii::$app->session->setFlash('success', "บันทึกสำเร็จ!!!");
+            return $this->redirect(['view', 'pid' => $model->id]);
+        } else {
+            return $this->render('discharge', [
+                        'model' => $model,
+            ]);
+        }
+    }
 
     /**
      * Deletes an existing Patient model.
