@@ -5,11 +5,11 @@
        <form method="POST">
             <div class="row">
                 <div class="form-group col-md-5" >
-                    <label for="q2_score">ผลประเมิน 2Q:</label>
+                    <label for="q2_score">ผลคัดกรอง 2Q:</label>
                     <input type="text" class="form-control" id="q2_score" name="q2_score" placeholder="ผลประเมิน 2Q">
                 </div>
                 <div class="form-group col-md-7" >
-                    <label for="q9_score">คะแนนประเมิน 9Q:</label>
+                    <label for="q9_score">ผลประเมิน 9Q:</label>
                     <input type="text" class="form-control" id="q9_score" name="q9_score" placeholder="คะแนนประเมิน 9Q">
                     
                 </div>
