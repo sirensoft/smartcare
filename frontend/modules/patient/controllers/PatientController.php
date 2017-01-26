@@ -219,8 +219,29 @@ LEFT JOIN ctambon tmb ON tmb.tamboncodefull = LEFT(t.vhid,6) ";
         ]);
     }
     
-    public function actionIndexdischarge(){
-        
+    public function actionIndexDischarge(){
+       $searchModel = new PatientSearch();
+       $searchModel->discharge =1;
+
+        if (MyHelper::getUserOffice() !== 'all') {
+            $searchModel->hospcode = MyHelper::getUserOffice();
+            if (MyHelper::isCm()) {
+                $searchModel->cm_id = MyHelper::getUserId();
+            }
+        }
+
+        if (MyHelper::isCg()) {
+            $searchModel->cg_id = MyHelper::getUserId();
+        }
+        if (MyHelper::isGuest()) {
+            $searchModel->dupdate = '0001-01-01';
+        }
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index-discharge', [
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
+        ]);
     }
 
 }
