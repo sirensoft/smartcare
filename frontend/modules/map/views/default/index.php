@@ -38,6 +38,7 @@ var baseLayers = {
         
     };
  var _group1 = L.layerGroup().addTo(map);
+ var _group2 =L.layerGroup();
         
  
  var ic_y   =L.mapbox.marker.icon({'marker-color': '#ffff00'});//y
@@ -79,6 +80,7 @@ var baseLayers = {
         
  var overlays = { 
      "ผู้สูงอายุ": _group1, 
+     "จำหน่ายแล้ว":_group2,
  };
         
         
