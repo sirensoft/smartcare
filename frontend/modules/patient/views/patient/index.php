@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a('<i class="glyphicon glyphicon-map-marker"></i> แผนที่', ['/map'], ['class' => 'btn btn-warning', 'target' => '_blank']) ?>
             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เพิ่ม', ['create'], ['class' => 'btn btn-success']) ?>
         
-            <?= Html::a('<i class="glyphicon glyphicon-user"></i> จำหน่ายแล้ว', ['index-discharge'], ['class' => 'btn btn-default pull-right','target'=>'_blank']) ?>
+            <?= Html::a('<i class="glyphicon glyphicon-user"></i> จำหน่ายแล้ว', ['index-discharge'], ['class' => 'btn btn-default pull-right']) ?>
 
     <?php endif; ?>
     </p>
