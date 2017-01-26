@@ -60,7 +60,7 @@
                             ได้
                         </li>
                         <li>
-                            <input type="radio" name="q8_31" data-q8 value="6">
+                            <input type="radio" name="q8_31" data-q8 value="8">
                             ไม่ได้
                         </li>                      
                     </ul>
@@ -73,7 +73,7 @@
                             ไม่มี
                         </li>
                         <li>
-                            <input type="radio" name="q8_4" data-q8 value="6">
+                            <input type="radio" name="q8_4" data-q8 value="8">
                             มี
                         </li>                      
                     </ul>
@@ -85,7 +85,7 @@
                             ไม่มี
                         </li>
                         <li>
-                            <input type="radio" name="q8_5" data-q8 value="6">
+                            <input type="radio" name="q8_5" data-q8 value="9">
                             มี
                         </li>                      
                     </ul>
@@ -98,7 +98,7 @@
                             ไม่มี
                         </li>
                         <li>
-                            <input type="radio" name="q8_6" data-q8 value="6">
+                            <input type="radio" name="q8_6" data-q8 value="4">
                             มี
                         </li>                      
                     </ul>
@@ -110,7 +110,7 @@
                             ไม่มี
                         </li>
                         <li>
-                            <input type="radio" name="q8_7" data-q8 value="6">
+                            <input type="radio" name="q8_7" data-q8 value="10">
                             มี
                         </li>                      
                     </ul>
@@ -122,7 +122,7 @@
                             ไม่มี
                         </li>
                         <li>
-                            <input type="radio" name="q8_8" data-q8 value="6">
+                            <input type="radio" name="q8_8" data-q8 value="4">
                             มี
                         </li>                      
                     </ul>
