@@ -21,7 +21,8 @@ class DefaultController extends AppController {
         $this->permitRole([1, 2]);
 
         $sql = " SELECT t.`name`,t.lname,t.age_y,t.color rapid,t.tai,t.color,t.class_name,t.lat,t.lon FROM patient t
-                WHERE t.hospcode = '$hos' AND t.lat <>''";
+                WHERE t.hospcode = '$hos' AND t.lat <>'' AND t.discharge=9";
+        
         $raw = \Yii::$app->db->createCommand($sql)->queryAll();
 
         $pt_json = [];
@@ -45,6 +46,10 @@ class DefaultController extends AppController {
         return $this->render('index', [
                     'pt_json' => $pt_json
         ]);
+    }
+    
+    public function actionTest(){
+        return $this->render('test');
     }
 
 }

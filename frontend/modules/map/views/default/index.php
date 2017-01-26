@@ -3,17 +3,12 @@ $this->title = "MAP";
 $this->registerCssFile('//api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', ['async' => false, 'defer' => true]);
 $this->registerCssFile('./lib-gis/leaflet-search.min.css',['async' => false, 'defer' => true]);
 $this->registerCssFile('./lib-gis/leaflet.label.css',['async' => false, 'defer' => true]);
-
 $this->registerCssFile('//domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css', ['async' => false, 'defer' => true]);
 $this->registerCssFile('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', ['async' => false, 'defer' => true]);
-
 $this->registerJsFile('//api.mapbox.com/mapbox.js/v3.0.1/mapbox.js', ['position' => $this::POS_HEAD]);
 $this->registerJsFile('./lib-gis/leaflet-search.min.js',['position' => $this::POS_HEAD]);
 $this->registerJsFile('./lib-gis/leaflet.label.js',['position' => $this::POS_HEAD]);
-
 $this->registerJsFile('//domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js', ['position' => $this::POS_HEAD]);
-
-
 ?>
 
 
@@ -33,7 +28,6 @@ $this->registerJsFile('//domoritz.github.io/leaflet-locatecontrol/dist/L.Control
 <?php
 $js = <<<JS
         
-
             
 L.mapbox.accessToken = 'pk.eyJ1IjoidGVobm5uIiwiYSI6ImNpZzF4bHV4NDE0dTZ1M200YWxweHR0ZzcifQ.lpRRelYpT0ucv1NN08KUWQ';
 var map = L.mapbox.map('map').setView([16.74094277,100.27255121], 9); 
@@ -50,7 +44,7 @@ var baseLayers = {
  var ic_b = L.mapbox.marker.icon({'marker-color': '#0000FF'});//b
  var ic_r = L.mapbox.marker.icon({'marker-color': '#ff0033'});//r
  var ic_w = L.mapbox.marker.icon({'marker-color': '#FFFFFF'});//w
- var ic_bk = L.mapbox.marker.icon({'marker-color': #333333}); /black
+ var ic_bk = L.mapbox.marker.icon({'marker-color': '#333333'});//bk
         
  var pt_layer =L.geoJson($pt_json,{                
             
@@ -73,7 +67,6 @@ var baseLayers = {
                     default:
                         layer.setIcon(ic_w);
                 }
-
         
                 layer.bindPopup(feature.properties.NAME);
                 //layer.bindLabel(feature.properties.NAME);              
@@ -89,7 +82,6 @@ var baseLayers = {
  };
         
         
-
 L.control.layers(baseLayers,overlays).addTo(map);
         
         
