@@ -29,7 +29,7 @@ $tab_items[] =[
     ]),
 ];
 $tab_items[] =[
-    'label'=>'ประเมิน 2Q',
+    'label'=>'คัดกรอง 2Q',
     'content'=>$this->render('2q')
 ];
 $tab_items[] =[

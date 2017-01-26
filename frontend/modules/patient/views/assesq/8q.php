@@ -1,217 +1,146 @@
 <div id="panel_q8" >
-    
 
-<table class="table table-bordered">
-    <tbody>
-        <tr>
-            <td align="center">
-                <div style="font-weight: bold">คะแนน 8Q = <span id='q8_point_top'></span></div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <b>ในช่วง 2 สัปดาห์ที่ผ่านมารวมทั้งวันนี้ ท่านมีอาการเหล่านี้บ่อยแค่ไหน</b>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <ol>
-                    <li style="font-weight: bold">เบื่อ ไม่สนใจอยากทำอะไร </li>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td align="center">
+                    <div style="font-weight: bold">คะแนน 8Q = <span id='q8_point_top'></span></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    แบบประเมินการฆ่าตัวตาย 8 คำถาม (8Q)
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+
+                    <b>1.คิดอยากตาย หรือ คิดว่าตายไปจะดีกว่า</b> 
                     <ul>
                         <li>
                             <input type="radio" name="q8_1" data-q8  value="0">
-                            ไม่มีเลย
+                            ไม่มี
                         </li>
                         <li>
                             <input type="radio" name="q8_1" data-q8 value="1">
-                            เป็นบางวัน 1-7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_1" data-q8 value="2">
-                            เป็นบ่อย มากกว่า 7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_1" data-q8 value="3">
-                            เป็นทุกวัน
-                        </li>
+                            มี
+                        </li>                      
                     </ul>
-                    
-                    <li style="font-weight: bold">ไม่สบายใจ ซึมเศร้า ท้อแท้</li>
+
+                    <b>2.อยากทำร้ายตัวเอง หรือ ทำให้ตัวเองบาดเจ็บ </b>
                     <ul>
                         <li>
                             <input type="radio" name="q8_2" data-q8  value="0">
-                            ไม่มีเลย
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_2" data-q8 value="1">
-                            เป็นบางวัน 1-7 วัน
+                            ไม่มี
                         </li>
                         <li>
                             <input type="radio" name="q8_2" data-q8 value="2">
-                            เป็นบ่อย มากกว่า 7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_2" data-q8 value="3">
-                            เป็นทุกวัน
-                        </li>
+                            มี
+                        </li>                      
                     </ul>
-                    
-                     <li style="font-weight: bold">หลับยากหรือหลับๆตื่นๆหรือหลับมากไป</li>
+
+                    <b>3.ในช่วง 1 เดือนที่ผ่าานมา คิดเกี่ยวกับการฆ่าตัวตาย (ถ้าตอบว่าคิดเกี่ยวกับฆ่าตัวตายให้ถามต่อ 3.1) </b>
                     <ul>
                         <li>
-                            <input type="radio" name="q8_3" data-q8  value="0">
-                            ไม่มีเลย
+                            <input type="radio" name="q8_2" data-q8  value="0">
+                            ไม่มี
                         </li>
                         <li>
-                            <input type="radio" name="q8_3" data-q8 value="1">
-                            เป็นบางวัน 1-7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_3" data-q8 value="2">
-                            เป็นบ่อย มากกว่า 7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_3" data-q8 value="3">
-                            เป็นทุกวัน
-                        </li>
+                            <input type="radio" name="q8_2" data-q8 value="6">
+                            มี
+                        </li>                      
                     </ul>
-                     
-                      <li style="font-weight: bold">เหนื่อยง่ายหรือไม่ค่อยมีแรง</li>
+                    <div style="margin-left: 20px">
+                    3.1  ท่านสามารถควบคุมความอยากฆ่าตัวตายที่ท่านคิดอยู่นั้นได้หรือไม่ หรือบอกได้ไหมว่าคงจะไม่ทำตามความคิดนั้นในขณะนี้ 
                     <ul>
                         <li>
-                            <input type="radio" name="q8_4" data-q8  value="0">
-                            ไม่มีเลย
+                            <input type="radio" name="q8_2" data-q8  value="0">
+                            ได้
                         </li>
                         <li>
-                            <input type="radio" name="q8_4" data-q8 value="1">
-                            เป็นบางวัน 1-7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_4" data-q8 value="2">
-                            เป็นบ่อย มากกว่า 7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_4" data-q8 value="3">
-                            เป็นทุกวัน
-                        </li>
+                            <input type="radio" name="q8_2" data-q8 value="6">
+                            ไม่ได้
+                        </li>                      
                     </ul>
-                      
-                       <li style="font-weight: bold">เบื่ออาหารหรือกินมากเกินไป</li>
+                    </div>
+
+                    <b>4.ในช่วง 1 เดือนที่ผ่าานมา มีแผนการที่จะฆ่าตัวตาย </b>
                     <ul>
                         <li>
-                            <input type="radio" name="q8_5" data-q8  value="0">
-                            ไม่มีเลย
+                            <input type="radio" name="q8_2" data-q8  value="0">
+                            ไม่มี
                         </li>
                         <li>
-                            <input type="radio" name="q8_5" data-q8 value="1">
-                            เป็นบางวัน 1-7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_5" data-q8 value="2">
-                            เป็นบ่อย มากกว่า 7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_5" data-q8 value="3">
-                            เป็นทุกวัน
-                        </li>
+                            <input type="radio" name="q8_2" data-q8 value="6">
+                            มี
+                        </li>                      
                     </ul>
-                       
-                        <li style="font-weight: bold">รู้สึกไม่ดีกับตัวเอง คิดว่าตัวเองล้มเหลวหรือครอบครัวผิดหวัง</li>
+
+                    <b>5.ในช่วง 1 เดือนที่ผ่าานมา ได้เตรียมการที่จะทำร้ายตนเองหรือเตรียมการจะฆ่าตัวตายโดยตั้งใจว่าจะให้ตายจริง ๆ </b>
                     <ul>
                         <li>
-                            <input type="radio" name="q8_6" data-q8  value="0">
-                            ไม่มีเลย
+                            <input type="radio" name="q8_2" data-q8  value="0">
+                            ไม่มี
                         </li>
                         <li>
-                            <input type="radio" name="q8_6" data-q8 value="1">
-                            เป็นบางวัน 1-7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_6" data-q8 value="2">
-                            เป็นบ่อย มากกว่า 7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_6" data-q8 value="3">
-                            เป็นทุกวัน
-                        </li>
+                            <input type="radio" name="q8_2" data-q8 value="6">
+                            มี
+                        </li>                      
                     </ul>
-                        
-                         <li style="font-weight: bold">สมาธิไม่ดี เวลาทำอะไร เช่น ดูโทรทัศน์ ฟังวิทยุ หรือทำงานที่ต้องใช้ความตั้งใจ</li>
+
+
+                    <b>6.ได้ทำให้ตนเองบาดเจ็บแต่ไม่ตั้งใจที่จะทำให้เสียชีวิต </b>
                     <ul>
                         <li>
-                            <input type="radio" name="q8_7" data-q8  value="0">
-                            ไม่มีเลย
+                            <input type="radio" name="q8_2" data-q8  value="0">
+                            ไม่มี
                         </li>
                         <li>
-                            <input type="radio" name="q8_7" data-q8 value="1">
-                            เป็นบางวัน 1-7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_7" data-q8 value="2">
-                            เป็นบ่อย มากกว่า 7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_7" data-q8 value="3">
-                            เป็นทุกวัน
-                        </li>
+                            <input type="radio" name="q8_2" data-q8 value="6">
+                            มี
+                        </li>                      
                     </ul>
-                         
-                          <li style="font-weight: bold">พูดช้า ทำอะไรช้าลงจนคนอื่นสังเกตเห็นได้หรือกระสับกระส่ายไม่สามารถอยู่นิ่งได้เหมือนที่เคยเป็น</li>
+
+                    <b>7.ได้พยายามฆ่าตัวตายโดยคาดหวัง/ตั้งใจที่จะให้ตาย </b>
                     <ul>
                         <li>
-                            <input type="radio" name="q8_8" data-q8  value="0">
-                            ไม่มีเลย
+                            <input type="radio" name="q8_2" data-q8  value="0">
+                            ไม่มี
                         </li>
                         <li>
-                            <input type="radio" name="q8_8" data-q8 value="1">
-                            เป็นบางวัน 1-7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_8" data-q8 value="2">
-                            เป็นบ่อย มากกว่า 7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_8" data-q8 value="3">
-                            เป็นทุกวัน
-                        </li>
+                            <input type="radio" name="q8_2" data-q8 value="6">
+                            มี
+                        </li>                      
                     </ul>
-                          
-                           <li style="font-weight: bold">คิดทำร้ายตนเอง หรือคิดว่าถ้าตายไปคงจะด</li>
+
+                    <b>8.ตลอดชีวิตที่ผ่านมา เคยพยายามฆ่าตัวตาย </b>
                     <ul>
                         <li>
-                            <input type="radio" name="q8_9" data-q8  value="0">
-                            ไม่มีเลย
+                            <input type="radio" name="q8_2" data-q8  value="0">
+                            ไม่มี
                         </li>
                         <li>
-                            <input type="radio" name="q8_9" data-q8 value="1">
-                            เป็นบางวัน 1-7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_9" data-q8 value="2">
-                            เป็นบ่อย มากกว่า 7 วัน
-                        </li>
-                        <li>
-                            <input type="radio" name="q8_9" data-q8 value="3">
-                            เป็นทุกวัน
-                        </li>
+                            <input type="radio" name="q8_2" data-q8 value="6">
+                            มี
+                        </li>                      
                     </ul>
-                    
-                    
-                </ol>
-            </td>
-        </tr>
-         <tr>
-            <td align="center">
-                <div style="font-weight: bold">คะแนน 8Q = <span id='q8_point_foot'></span></div>
-            </td>
-        </tr>
-    </tbody>
-</table>
+
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <div style="font-weight: bold">คะแนน 8Q = <span id='q8_point_foot'></span></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <div>
-        <?=  yii\helpers\Html::img('./images/8q.png')?>
+        <?= yii\helpers\Html::img('./images/8q.png') ?>
     </div>
-<?php
-$this->registerJs($this->render('q8.js'));
-?>
+    <?php
+    $this->registerJs($this->render('q8.js'));
+    ?>
 </div>
 
