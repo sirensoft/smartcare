@@ -38,7 +38,11 @@ $tab_items[] =[
 ];
 $tab_items[] =[
     'label'=>'ประเมิน 8Q',
-    'content'=>'8q'
+    'content'=>$this->render('8q')
+];
+$tab_items[] =[
+    'label'=>'บันทึก',
+    'content'=>$this->render('save')
 ];
 
 

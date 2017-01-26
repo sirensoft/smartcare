@@ -37,6 +37,9 @@
         </tr>
     </tbody>
 </table>
+<div>
+    <?= yii\helpers\Html::img('./images/2q.png') ?>
+</div>
 <?php
 $this->registerJs($this->render('q2.js'));
 ?>

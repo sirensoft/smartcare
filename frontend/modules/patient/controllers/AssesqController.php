@@ -29,7 +29,8 @@ class AssesqController extends AppController {
 
             $model->q2 = \Yii::$app->request->post('q2_score');
             $model->q9 = \Yii::$app->request->post('q9_score');
-            $model->note = \Yii::$app->request->post('note');
+            $model->q8 = \Yii::$app->request->post('q8_score');
+            $model->note = \Yii::$app->request->post('note_q');
 
             $model->provider_id = MyHelper::getUserId();
             $model->d_update = date('Y-m-d H:i:s');
