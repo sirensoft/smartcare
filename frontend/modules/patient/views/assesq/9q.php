@@ -1,4 +1,4 @@
-<div id="panel_q9" style="display: none">
+<div id="panel_q9" >
     
 
 <table class="table table-bordered">

@@ -9,7 +9,7 @@ function cal2q() {
       $('#panel_q9').css('display','')
   }else{
       txt = "ปกติ";
-       $('#panel_q9').css('display','none')
+       
   }
   $("#q2_point").html(txt)
   $("#q2_score").val(txt)
