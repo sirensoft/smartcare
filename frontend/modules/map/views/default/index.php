@@ -51,7 +51,7 @@ var baseLayers = {
             
            onEachFeature:function(feature,layer){   
                
-                 //layer.setIcon(L.mapbox.marker.icon({'marker-color': '#0000FF','marker-symbol':'h'}));
+                 
                 switch(feature.properties.RAPID){
                     case 'blue':
                         layer.setIcon(ic_b);
@@ -70,12 +70,41 @@ var baseLayers = {
                 }
         
                 layer.bindPopup(feature.properties.NAME);
-                //layer.bindLabel(feature.properties.NAME);              
+                            
                
-           },
-        
+           },        
            
     }).addTo(_group1);
+        
+     var pt_layer_disc =L.geoJson($pt_json_disc,{                
+            
+           onEachFeature:function(feature,layer){   
+               
+                
+                switch(feature.properties.RAPID){
+                    case 'blue':
+                        layer.setIcon(ic_b);
+                        break;
+                    case 'yellow':
+                        layer.setIcon(ic_y);
+                        break;
+                    case 'red':
+                        layer.setIcon(ic_r);
+                        break;
+                    case 'black':
+                        layer.setIcon(ic_bk);
+                        break;
+                    default:
+                        layer.setIcon(ic_w);
+                }
+        
+                layer.bindPopup(feature.properties.NAME);
+                          
+               
+           },        
+           
+    }).addTo(_group2);
+        
  map.fitBounds(pt_layer.getBounds());
         
  var overlays = { 

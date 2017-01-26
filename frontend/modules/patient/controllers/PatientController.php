@@ -218,5 +218,9 @@ LEFT JOIN ctambon tmb ON tmb.tamboncodefull = LEFT(t.vhid,6) ";
                     'dataProvider' => $dataProvider
         ]);
     }
+    
+    public function actionIndexdischarge(){
+        
+    }
 
 }
