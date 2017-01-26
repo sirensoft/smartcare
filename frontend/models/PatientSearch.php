@@ -22,7 +22,7 @@ class PatientSearch extends Patient {
         return [
             [['id'], 'integer'],
             [['user'], 'safe'],
-            [['discharge_note','mstatus','religion','color', 'cousin', 'tel', 'pid', 'refer_from', 'class_name', 'adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'race', 'hospcode', 'discharge', 'cm_id', 'cg_id'], 'safe'],
+            [['discharge_note','mstatus','religion','color', 'cousin', 'tel', 'pid', 'refer_from', 'class_name', 'adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'race', 'hospcode', 'discharge','discharge_date', 'cm_id', 'cg_id'], 'safe'],
             [['typearea', 'class_id'], 'integer'],
         ];
     }
@@ -77,6 +77,7 @@ class PatientSearch extends Patient {
             'nation' => $this->nation,
             'race' => $this->race,
             'discharge' => $this->discharge,
+            'discharge_date' => $this->discharge_date,
             'dupdate' => $this->dupdate,
             'cm_id' => $this->cm_id,
             //'cg_id' => $this->cg_id,
