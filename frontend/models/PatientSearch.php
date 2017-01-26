@@ -14,6 +14,7 @@ use common\components\MyHelper;
 class PatientSearch extends Patient {
 
     public $user;
+    public $is_discharge=0;
 
     /**
      * @inheritdoc
@@ -21,7 +22,7 @@ class PatientSearch extends Patient {
     public function rules() {
         return [
             [['id'], 'integer'],
-            [['user'], 'safe'],
+            [['user','is_discharge'], 'safe'],
             [['discharge_note','mstatus','religion','color', 'cousin', 'tel', 'pid', 'refer_from', 'class_name', 'adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'race', 'hospcode', 'discharge','discharge_date', 'cm_id', 'cg_id'], 'safe'],
             [['typearea', 'class_id'], 'integer'],
         ];
@@ -44,6 +45,9 @@ class PatientSearch extends Patient {
      */
     public function search($params) {
         $query = Patient::find();
+        if($this->is_discharge===1){
+          $query->where('discharge != :d', ['d'=>9]);
+        }
         $query->joinWith(['user']);
 
         // add conditions that should always apply here

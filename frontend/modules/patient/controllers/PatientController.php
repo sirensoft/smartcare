@@ -39,6 +39,7 @@ class PatientController extends AppController {
 
 
         $searchModel = new PatientSearch();
+        $searchModel->discharge =9;
 
         if (MyHelper::getUserOffice() !== 'all') {
             $searchModel->hospcode = MyHelper::getUserOffice();
@@ -221,7 +222,7 @@ LEFT JOIN ctambon tmb ON tmb.tamboncodefull = LEFT(t.vhid,6) ";
     
     public function actionIndexDischarge(){
        $searchModel = new PatientSearch();
-       $searchModel->discharge =1;
+       $searchModel->is_discharge =1;
 
         if (MyHelper::getUserOffice() !== 'all') {
             $searchModel->hospcode = MyHelper::getUserOffice();
