@@ -12,6 +12,8 @@ use common\components\MyHelper;
  * @author utehn
  */
 class PrintController extends AppController {
+    
+            
     public function beforeAction($action) {
         if ($action->id == 'index') {
             $this->enableCsrfValidation = false;
@@ -19,7 +21,9 @@ class PrintController extends AppController {
         return parent::beforeAction($action);
     }
     
-    public function actionIndex($pid){
+    public function actionIndex($pid){        
+        $this->layout = 'main';
+        $this->permitRole([1,2]);
         return $this->render('index',[
             'pid'=>$pid
         ]);
