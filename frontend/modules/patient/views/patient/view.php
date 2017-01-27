@@ -6,6 +6,8 @@ use kartik\detail\DetailView;
 use yii\bootstrap\ButtonGroup;
 use common\components\MyHelper;
 use yii\web\JsExpression;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Patient */
@@ -40,9 +42,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เยี่ยม', ['/care/visit/index', 'pid' => $model->id], ['class' => 'btn btn-success']) ?>
 
         <?php endif; ?>
-
-
-    </p>
 
     <?=
     DetailView::widget([
