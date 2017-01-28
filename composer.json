@@ -21,6 +21,7 @@
          "kartik-v/yii2-mpdf": "@dev",
         "kartik-v/yii2-grid": "@dev",
         "2amigos/yii2-arrayquery-component" : "*",
+        "2amigos/yii2-google-maps-library" : "*",
         "yiisoft/yii2-jui": "^2.0",
         "kartik-v/yii2-dynagrid": "@dev",
         "yii2mod/yii2-array-query": "*",
