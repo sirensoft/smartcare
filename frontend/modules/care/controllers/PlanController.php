@@ -166,6 +166,11 @@ class PlanController extends AppController {
         $model = Plan::findOne($id);
         $patient = Patient::findOne($model->patient_id);
 
+        $excel->getActiveSheet()->setCellValue('C1', $patient->prename . $patient->name . " " . $patient->lname);
+        $excel->getActiveSheet()->setCellValue('E1', "อายุ " . $patient->age_y . " ปี");
+        $excel->getActiveSheet()->setCellValue('F1', "หน่วยบริการ: ".MyHelper::getUserOfficeName());
+        $excel->getActiveSheet()->setCellValue('J1', "วันที่จัดทำ : ".$model->d_update);
+        
         $excel->getActiveSheet()->setCellValue('C5', $patient->prename . $patient->name . " " . $patient->lname);
         $excel->getActiveSheet()->setCellValue('D6', $patient->cid);
         $excel->getActiveSheet()->setCellValue('C7', $patient->birth);

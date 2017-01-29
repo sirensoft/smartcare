@@ -7,6 +7,7 @@ use frontend\models\CLine;
 use frontend\models\Version;
 use backend\models\User;
 use frontend\models\Patient;
+use frontend\models\CHospital;
 
 class MyHelper extends \yii\base\Component {
 
@@ -53,6 +54,15 @@ class MyHelper extends \yii\base\Component {
     public static function getUserOffice() {
         if (!\Yii::$app->user->isGuest) {
             return \Yii::$app->user->identity->office;
+        } else {
+            return '00000';
+        }
+    }
+    
+    public static function getUserOfficeName() {
+        if (!\Yii::$app->user->isGuest) {
+            $hos= \Yii::$app->user->identity->office;
+            return CHospital::findOne($hos)->hosname;
         } else {
             return '00000';
         }
