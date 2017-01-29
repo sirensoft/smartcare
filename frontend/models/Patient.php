@@ -46,6 +46,7 @@ use Yii;
  * @property string $tel
  * @property string $dupdate
  * @property string $fullname
+ * @property string $next_visit_date
  */
 class Patient extends \yii\db\ActiveRecord {
 
@@ -64,7 +65,7 @@ class Patient extends \yii\db\ActiveRecord {
         return [
 
             [['cg_id','house_no','cid', 'prename', 'name', 'lname', 'province', 'district', 'sex', 'subdistrict', 'village_no', 'hospcode'], 'required','message' => ''],
-            [['birth'], 'safe'],
+            [['next_visit_date','birth'], 'safe'],
             [['discharge_time','discharge_date','discharge_note','dupdate','cousin','tel'], 'safe'],
             [['age_y','typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
             [['cid', 'tai'], 'string', 'max' => 13],
@@ -118,7 +119,8 @@ class Patient extends \yii\db\ActiveRecord {
             'tel'=>'เบอร์ติดต่อ',
             'dupdate' => 'วันอัพเดทข้อมูล',
             'fullname'=>'ชื่อ-สกุล',
-            'fulladdr'=>'ที่อยู่ปัจจุบัน'
+            'fulladdr'=>'ที่อยู่ปัจจุบัน',
+            'next_visit_date'=>'เยี่ยมถัดไป'
         ];
     }
     

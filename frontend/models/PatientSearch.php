@@ -22,7 +22,7 @@ class PatientSearch extends Patient {
     public function rules() {
         return [
             [['id'], 'integer'],
-            [['user','is_discharge'], 'safe'],
+            [['next_visit_date','user','is_discharge'], 'safe'],
             [['discharge_note','mstatus','religion','color', 'cousin', 'tel', 'pid', 'refer_from', 'class_name', 'adl', 'tai', 'cid', 'prename', 'name', 'lname', 'birth', 'province', 'district', 'disease', 'subdistrict', 'village_no', 'village_name', 'house_no', 'lat', 'lon', 'dupdate', 'nation', 'race', 'hospcode', 'discharge','discharge_date', 'cm_id', 'cg_id'], 'safe'],
             [['typearea', 'class_id'], 'integer'],
         ];
@@ -88,6 +88,7 @@ class PatientSearch extends Patient {
             'adl' => $this->adl,
             'class_id' => $this->class_id,
             'pid' => $this->pid,
+            'next_visit_date'=>  $this->next_visit_date
                 //'color'=>  $this->color
         ]);
 

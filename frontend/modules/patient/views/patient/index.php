@@ -29,10 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php endif; ?>
     </p>
     <?php
+    $today = date('Y-m-d');
     $columns = [
         ['class' => 'yii\grid\SerialColumn'],
         'class_name',
-        'disease',
+        //'disease',
         [
             'attribute' => 'color',
             'contentOptions' => function ($model) {
@@ -60,6 +61,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         'village_no',
                         // 'village_name',
                         'house_no',
+                               
+                        'next_visit_date'
+                        
                             // 'typearea',
                             // 'nation',
                             // 'race',
