@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50548
 File Encoding         : 65001
 
-Date: 2017-01-29 17:36:40
+Date: 2017-01-29 21:32:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -12648,17 +12648,21 @@ DELIMITER ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `set_next_visit_date`;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `set_next_visit_date`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `set_next_visit_date`(in ipid int(11))
 BEGIN
-	UPDATE patient t SET t.next_visit_date = null;
+
+	SET @pid = ipid;
+
 
 	UPDATE patient t
 	SET t.next_visit_date = (
 		SELECT MIN(p.start_date) from plan_week p
 		WHERE TIMESTAMPDIFF(DAY,CURDATE(),p.start_date) >= 0
-		AND p.patient_id = t.id 
+		AND p.patient_id = @pid
 		
-	);
+	) WHERE  t.id = @pid;
+
+
 
 END
 ;;
