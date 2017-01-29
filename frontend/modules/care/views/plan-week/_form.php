@@ -170,12 +170,12 @@ use kartik\widgets\TimePicker;
             'planweek_id' => $model->id,
             'start_date' => $model->start_date,
             'start_time' => $model->start_time
-                ], ['class' => 'btn btn-primary'])
+                ], ['class' => 'btn btn-success'])
         ?>
 
     <?php else: ?>
 
-        <button type="button" disabled="" class = 'btn btn-primary' ><i class="glyphicon glyphicon-ok"></i> บันทึกเยี่ยม</button>  
+        <button type="button" disabled="" class = 'btn btn-success' ><i class="glyphicon glyphicon-ok"></i> บันทึกเยี่ยม</button>  
 
     <?php endif; ?>
 <?php endif; ?>

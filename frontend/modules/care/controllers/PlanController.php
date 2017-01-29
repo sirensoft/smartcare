@@ -194,6 +194,9 @@ class PlanController extends AppController {
         $excel->getActiveSheet()->setCellValue('E26', $model->short_goal);
         $excel->getActiveSheet()->setCellValue('I27', $model->extra_service);
         $excel->getActiveSheet()->setCellValue('E30', $model->careful);
+        
+        $excel->getActiveSheet()->setCellValue('D26', $model->fct_care_time);
+        $excel->getActiveSheet()->setCellValue('D27', $model->cg_care_time);
 
 
 
