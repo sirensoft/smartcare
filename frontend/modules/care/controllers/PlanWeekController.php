@@ -132,8 +132,8 @@ class PlanWeekController extends AppController {
                     $i++;
                 }
             }
-            $hos = MyHelper::getUserOffice();
-            $sql = "CALL set_next_visit_date('$hos')";
+            
+            $sql = "CALL set_next_visit_date($pid)";
             MyHelper::execSql($sql);
 
             return $this->redirect(['index', 'pid' => $model->patient_id]);
@@ -170,8 +170,8 @@ class PlanWeekController extends AppController {
                 $patient = Patient::findOne($pid);
                 MyHelper::sendLineNotify($patient->prename . $patient->name . " " . $patient->lname . "..ได้รับการ.." . $model->title);
             }
-            $hos = MyHelper::getUserOffice();
-            $sql = "CALL set_next_visit_date('$hos')";
+            
+            $sql = "CALL set_next_visit_date($model->patient_id)";
             MyHelper::execSql($sql);
             return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {
@@ -189,8 +189,8 @@ class PlanWeekController extends AppController {
      */
     public function actionDelete($id, $pid) {
         $this->findModel($id)->delete();
-        $hos = MyHelper::getUserOffice();
-        $sql = "CALL set_next_visit_date('$hos')";
+        
+        $sql = "CALL set_next_visit_date($pid)";
         MyHelper::execSql($sql);
         return $this->redirect(['index', 'pid' => $pid]);
     }
