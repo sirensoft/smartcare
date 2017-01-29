@@ -164,14 +164,27 @@ use frontend\models\CTemplateVisit;
         </div>
     </div>
 
-    <?= $form->field($model, 'job_result')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'problem')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'next_plan')->textInput(['maxlength' => true]) ?>
+    <div class="form-group">
+        <div class="col-md-12">
+            <?= $form->field($model, 'job_result')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-12">
+            <?= $form->field($model, 'problem')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <div class="col-md-12">
+            <?= $form->field($model, 'next_plan')->textInput(['maxlength' => true]) ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <?= Html::submitButton($model->isNewRecord ? 'บันทึก' : 'บันทึก', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        </div>
     </div>
 
     <?php ActiveForm::end(); ?>
