@@ -3,10 +3,16 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use frontend\models\CTemplateVisit;
+use common\components\MyHelper;
+use frontend\models\Patient;
 
-/* @var $this yii\web\View */
-/* @var $model frontend\models\Visit */
-/* @var $form yii\widgets\ActiveForm */
+$css = <<< CSS
+.alignment
+{
+    margin-top:25px;
+}
+CSS;
+$this->registerCss($css);
 ?>
 
 <div class="visit-form">
@@ -71,7 +77,20 @@ use frontend\models\CTemplateVisit;
         </div>
 
         <div class="col-md-3">
-            <?= $form->field($model, 'obj_adl')->textInput() ?>
+            <?php
+            if (empty($model->obj_adl)) {
+                $pt = Patient::findOne($model->patient_id);
+                $model->obj_adl = $pt->adl;
+            }
+            ?>
+            <div class="input-group">
+                <?= $form->field($model, 'obj_adl')->textInput() ?>
+                <span class="input-group-btn">
+                    <?=  Html::a('<i class="glyphicon glyphicon-list-alt"></i>'
+                            ,['/patient/asses/index','pid'=>$model->patient_id],['class'=>'btn btn-default alignment'])?>
+                    
+                </span> 
+            </div>
         </div>
     </div>
     <div class="form-group">

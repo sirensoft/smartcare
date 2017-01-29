@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\components\MyHelper;
+use frontend\models\PlanWeek;
 
 /**
  * VisitController implements the CRUD actions for Visit model.
@@ -81,6 +82,11 @@ class VisitController extends Controller {
 
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
+            $mPlanWeek  = PlanWeek::findOne($model->plan_week_id);
+            $mPlanWeek->is_done = '1';
+            $mPlanWeek->update();
+            
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
