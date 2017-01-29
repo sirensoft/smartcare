@@ -207,11 +207,15 @@ class PlanWeekController extends AppController {
         if (MyHelper::getDay($start) !== 'Mon') {
             return;
         }
-
+        $pt = Patient::findOne($pid);
         $filePath = "./excel/plan_week.xls";
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $excel = $objReader->load($filePath);
-
+        
+         $excel->getActiveSheet()->setCellValue("C1",  $pt->prename.$pt->name." ".$pt->lname);
+         $excel->getActiveSheet()->setCellValue("E1",  "อายุ ".$pt->age_y." ปี");
+         $excel->getActiveSheet()->setCellValue("F1",  "หน่วยบริการ: ".MyHelper::getUserOfficeName());
+         $excel->getActiveSheet()->setCellValue("I1",  "วันที่จัดทำ: ".$start);
 
         $excel->getActiveSheet()->setCellValue("C5", $start);
         for ($i = 6; $i < 24; $i++) {
