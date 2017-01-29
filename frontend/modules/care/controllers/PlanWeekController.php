@@ -132,6 +132,9 @@ class PlanWeekController extends AppController {
                     $i++;
                 }
             }
+            $hos = MyHelper::getUserOffice();
+            $sql = "CALL set_next_visit_date('$hos')";
+            MyHelper::execSql($sql);
 
             return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {
