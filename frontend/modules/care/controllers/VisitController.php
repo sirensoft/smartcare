@@ -114,9 +114,11 @@ class VisitController extends Controller {
      * @return mixed
      */
     public function actionDelete($id) {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        $model = $this->findModel($id);
+        $pid = $model->patient_id;
+        $model->delete();
+        
+        return $this->redirect(['index','pid'=>$pid]);
     }
 
     /**
