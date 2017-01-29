@@ -2,17 +2,18 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use common\components\MyHelper;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Visit */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Visits', 'url' => ['index']];
+$this->title = MyHelper::ptInfo_($model->patient_id);
+$this->params['breadcrumbs'][] = ['label' => 'รายการเยี่ยม', 'url' => ['index','pid'=>$model->patient_id]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="visit-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+   
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -28,11 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            //'id',
             'plan_week_id',
-            'patient_id',
+            //'patient_id',
             'provider_id',
-            'hospcode',
+            //'hospcode',
             'date_visit',
             'start_time',
             'end_time',

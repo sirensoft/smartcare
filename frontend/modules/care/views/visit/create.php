@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Visit */
 
-$this->title = 'Create Visit';
-$this->params['breadcrumbs'][] = ['label' => 'Visits', 'url' => ['index']];
+$this->title = 'เพิ่มการเยี่ยม';
+$this->params['breadcrumbs'][] = ['label' => 'รายการเยี่ยม', 'url' => ['index','pid'=>$model->patient_id]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="visit-create">

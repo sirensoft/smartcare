@@ -8,17 +8,17 @@ use frontend\models\VisitSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\components\MyHelper;
 
 /**
  * VisitController implements the CRUD actions for Visit model.
  */
-class VisitController extends Controller
-{
+class VisitController extends Controller {
+
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'verbs' => [
                 'class' => VerbFilter::className(),
@@ -33,14 +33,15 @@ class VisitController extends Controller
      * Lists all Visit models.
      * @return mixed
      */
-    public function actionIndex()
-    {
+    public function actionIndex($pid) {
         $searchModel = new VisitSearch();
+        $searchModel->patient_id = $pid;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel,
+                    'dataProvider' => $dataProvider,
+                    'pid'=>$pid
         ]);
     }
 
@@ -49,10 +50,9 @@ class VisitController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
-    {
+    public function actionView($id) {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+                    'model' => $this->findModel($id),
         ]);
     }
 
@@ -61,15 +61,30 @@ class VisitController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
+    public function actionCreate() {
+
         $model = new Visit();
+        $req = \Yii::$app->request;
+        $model->patient_id = $req->get('pid');
+        $model->plan_week_id = $req->get('planweek_id');
+        $model->date_visit = $req->get('start_date');
+        if(empty($model->date_visit)){
+            $model->date_visit = date('Y-m-d');
+        }
+        $model->start_time = $req->get('start_time');
+        $model->provider_id = MyHelper::getUserId();
+
+
+
+
+
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
@@ -80,15 +95,14 @@ class VisitController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
-    {
+    public function actionUpdate($id) {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                'model' => $model,
+                        'model' => $model,
             ]);
         }
     }
@@ -99,8 +113,7 @@ class VisitController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
-    {
+    public function actionDelete($id) {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -113,12 +126,12 @@ class VisitController extends Controller
      * @return Visit the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
-    {
+    protected function findModel($id) {
         if (($model = Visit::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
 }
