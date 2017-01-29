@@ -170,6 +170,9 @@ class PlanWeekController extends AppController {
                 $patient = Patient::findOne($pid);
                 MyHelper::sendLineNotify($patient->prename . $patient->name . " " . $patient->lname . "..ได้รับการ.." . $model->title);
             }
+            $hos = MyHelper::getUserOffice();
+            $sql = "CALL set_next_visit_date('$hos')";
+            MyHelper::execSql($sql);
             return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {
             return $this->renderAjax('update', [
@@ -186,7 +189,9 @@ class PlanWeekController extends AppController {
      */
     public function actionDelete($id, $pid) {
         $this->findModel($id)->delete();
-
+        $hos = MyHelper::getUserOffice();
+        $sql = "CALL set_next_visit_date('$hos')";
+        MyHelper::execSql($sql);
         return $this->redirect(['index', 'pid' => $pid]);
     }
 
@@ -212,33 +217,33 @@ class PlanWeekController extends AppController {
         for ($i = 6; $i < 24; $i++) {
             $excel->getActiveSheet()->setCellValue("C" . $i, MyHelper::getPlan($pid, $start, $i));
         }
-        
-        $excel->getActiveSheet()->setCellValue("D5", MyHelper::datePlus($start,1));
+
+        $excel->getActiveSheet()->setCellValue("D5", MyHelper::datePlus($start, 1));
         for ($i = 6; $i < 24; $i++) {
             $excel->getActiveSheet()->setCellValue("D" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 1), $i));
         }
-        
-        $excel->getActiveSheet()->setCellValue("E5", MyHelper::datePlus($start,2));
+
+        $excel->getActiveSheet()->setCellValue("E5", MyHelper::datePlus($start, 2));
         for ($i = 6; $i < 24; $i++) {
             $excel->getActiveSheet()->setCellValue("E" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 2), $i));
         }
-        
-        $excel->getActiveSheet()->setCellValue("F5", MyHelper::datePlus($start,3));
+
+        $excel->getActiveSheet()->setCellValue("F5", MyHelper::datePlus($start, 3));
         for ($i = 6; $i < 24; $i++) {
             $excel->getActiveSheet()->setCellValue("F" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 3), $i));
         }
-        
-        $excel->getActiveSheet()->setCellValue("G5", MyHelper::datePlus($start,4));
+
+        $excel->getActiveSheet()->setCellValue("G5", MyHelper::datePlus($start, 4));
         for ($i = 6; $i < 24; $i++) {
             $excel->getActiveSheet()->setCellValue("G" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 4), $i));
         }
-        
-        $excel->getActiveSheet()->setCellValue("H5", MyHelper::datePlus($start,5));
+
+        $excel->getActiveSheet()->setCellValue("H5", MyHelper::datePlus($start, 5));
         for ($i = 6; $i < 24; $i++) {
             $excel->getActiveSheet()->setCellValue("H" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 5), $i));
         }
-        
-        $excel->getActiveSheet()->setCellValue("I5", MyHelper::datePlus($start,6));
+
+        $excel->getActiveSheet()->setCellValue("I5", MyHelper::datePlus($start, 6));
         for ($i = 6; $i < 24; $i++) {
             $excel->getActiveSheet()->setCellValue("I" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 6), $i));
         }
