@@ -1,7 +1,8 @@
 <?php
 
 namespace common\components;
-
+use backend\models\CRole;
+use backend\models\CRoleCantDo;
 
 class AppController extends \yii\web\Controller {
 
@@ -9,64 +10,61 @@ class AppController extends \yii\web\Controller {
         parent::init();
     }
     
-    protected function overclock($memory='2048M'){
+   
+
+    protected function overclock($memory = '2048M') {
         //ini_set('max_execution_time', 15 * 60);
         set_time_limit(0);
         ini_set('memory_limit', $memory);
     }
-    
-     protected function exec_sql($sql) {
+
+    protected function exec_sql($sql) {
         $affect_row = \Yii::$app->db->createCommand($sql)->execute();
         return $affect_row;
     }
 
-    
-
-    protected function doLogin(){
+    protected function doLogin() {
         if (\Yii::$app->user->isGuest) {
-            $this->redirect(['site/login']);           
+            $this->redirect(['site/login']);
         }
     }
 
-    
-    protected function getRole(){
+    protected function getRole() {
         if (!\Yii::$app->user->isGuest) {
-             return \Yii::$app->user->identity->role;
-         }  else {
-             return "?";            
-         }
+            return \Yii::$app->user->identity->role;
+        } else {
+            return "?";
+        }
     }
 
-    public function permitRole($role=[]){ 
-        
+    public function permitRole($role = []) {
+
         $r = $this->getRole();
-       
-        if(empty($role)){
-             throw  new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
-             
+
+        if (empty($role)) {
+            throw new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
         }
-        if( !in_array($r,$role)){
-            throw  new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
-        }         
+        if (!in_array($r, $role)) {
+            throw new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
+        }
+      
+        
         
     }
-    
-    
+
     protected function identify_key() {
         $sql = "select district_code from sys_config_main limit 1";
         $raw = \Yii::$app->db->createCommand($sql)->queryOne();
-        $distcode = $raw['district_code'];        
+        $distcode = $raw['district_code'];
         DhdcKeys::permit($distcode);
-
-        
     }
-    
-    protected function curl(){
-        /*$url = "url";
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
-        $output = curl_exec($ch);*/
+
+    protected function curl() {
+        /* $url = "url";
+          $ch = curl_init($url);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+          $output = curl_exec($ch); */
     }
 
 }

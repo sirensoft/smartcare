@@ -79,5 +79,12 @@ class DefaultController extends AppController {
         $date = date("Y-m-d");
         echo date('d', strtotime($date));
     }
+    
+    public function actionGetRoute(){
+       $route=\Yii::$app->urlManager->parseRequest(\Yii::$app->request);
+       echo $route[0];
+        echo "<br>";
+        echo $this->getRoute();
+    }
 
 }
