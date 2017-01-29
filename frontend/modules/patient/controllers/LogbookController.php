@@ -34,14 +34,16 @@ class LogbookController extends AppController
      * Lists all Logbook models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($pid)
     {
         $searchModel = new LogbookSearch();
+        $searchModel->patient_id = $pid;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'pid'=>$pid
         ]);
     }
 
@@ -62,15 +64,18 @@ class LogbookController extends AppController
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($pid)
     {
         $model = new Logbook();
-
+        $model->patient_id=$pid;
+        $model->d_update = date('Y-m-d H:i:s');
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'pid'=>$pid
             ]);
         }
     }

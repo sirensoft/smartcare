@@ -45,12 +45,14 @@ use Yii;
  * @property string $cousin
  * @property string $tel
  * @property string $dupdate
+ * @property string $fullname
  */
 class Patient extends \yii\db\ActiveRecord {
 
     /**
      * @inheritdoc
      */
+    //public $fullname;
     public static function tableName() {
         return 'patient';
     }

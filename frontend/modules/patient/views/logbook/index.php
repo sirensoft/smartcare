@@ -12,11 +12,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="logbook-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+   
+
 
     <p>
-        <?= Html::a('Create Logbook', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Logbook', ['create','pid'=>$pid], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,11 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'patient_id',
             'cg_id',
             'cm_id',
-            'cc:ntext',
+            //'cc:ntext',
             // 'pi:ntext',
             // 'fh:ntext',
             // 'ph:ntext',
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'pl:ntext',
             // 'pm:ntext',
             // 'co:ntext',
-            // 'd_update',
+             'd_update',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
