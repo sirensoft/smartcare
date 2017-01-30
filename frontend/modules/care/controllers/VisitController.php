@@ -80,12 +80,14 @@ class VisitController extends Controller {
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
             $mPlanWeek = PlanWeek::findOne($model->plan_week_id);
-            $mPlanWeek->is_done = '1';
-            $mPlanWeek->update();
+            if ($mPlanWeek) {
+                $mPlanWeek->is_done = '1';
+                $mPlanWeek->update();
+            }
 
-           
+
             $patient = Patient::findOne($model->patient_id);
-            MyHelper::sendLineNotify($patient->prename . $patient->name . " " . $patient->lname . "..ได้รับการเยี่ยมโดย..".MyHelper::getUserFullName());
+            MyHelper::sendLineNotify($patient->prename . $patient->name . " " . $patient->lname . "..ได้รับการเยี่ยมดูแลโดย.." . MyHelper::getUserFullName());
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
