@@ -231,3 +231,16 @@ $this->registerCss($css);
     <?php ActiveForm::end(); ?>
 
 </div>
+<?php
+$js=<<<JS
+      $( "#visit-obj_bmi" ).focusin(function() {
+            var h = $("#visit-obj_heigh").val();
+            var w = $("#visit-obj_weight").val();
+            var bmi = w/(h*h*100*100);
+            var b = bmi;
+            $( this ).val(b);
+        });  
+JS;
+
+$this->registerJs($js);
+?>
