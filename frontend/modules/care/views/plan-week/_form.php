@@ -169,7 +169,8 @@ use kartik\widgets\TimePicker;
             'pid' => $model->patient_id,
             'planweek_id' => $model->id,
             'start_date' => $model->start_date,
-            'start_time' => $model->start_time
+            'start_time' => $model->start_time,
+            'end_time'=>$model->end_time
                 ], ['class' => 'btn btn-success'])
         ?>
 

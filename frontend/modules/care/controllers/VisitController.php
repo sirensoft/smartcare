@@ -73,6 +73,7 @@ class VisitController extends Controller {
             $model->date_visit = date('Y-m-d');
         }
         $model->start_time = $req->get('start_time');
+        $model->end_time = $req->get('end_time');
         $model->provider_id = MyHelper::getUserId();
 
 
