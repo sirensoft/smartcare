@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\components\MyHelper;
 use frontend\models\PlanWeek;
+use frontend\models\Patient;
 
 /**
  * VisitController implements the CRUD actions for Visit model.
@@ -42,7 +43,7 @@ class VisitController extends Controller {
         return $this->render('index', [
                     'searchModel' => $searchModel,
                     'dataProvider' => $dataProvider,
-                    'pid'=>$pid
+                    'pid' => $pid
         ]);
     }
 
@@ -69,25 +70,23 @@ class VisitController extends Controller {
         $model->patient_id = $req->get('pid');
         $model->plan_week_id = $req->get('planweek_id');
         $model->date_visit = $req->get('start_date');
-        if(empty($model->date_visit)){
+        if (empty($model->date_visit)) {
             $model->date_visit = date('Y-m-d');
         }
         $model->start_time = $req->get('start_time');
         $model->end_time = $req->get('end_time');
         $model->provider_id = MyHelper::getUserId();
 
-
-
-
-
-
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
-            $mPlanWeek  = PlanWeek::findOne($model->plan_week_id);
+
+            $mPlanWeek = PlanWeek::findOne($model->plan_week_id);
             $mPlanWeek->is_done = '1';
             $mPlanWeek->update();
-            
+
+           
+            $patient = Patient::findOne($model->patient_id);
+            MyHelper::sendLineNotify($patient->prename . $patient->name . " " . $patient->lname . "..ได้รับการเยี่ยมโดย..".MyHelper::getUserFullName());
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -124,8 +123,8 @@ class VisitController extends Controller {
         $model = $this->findModel($id);
         $pid = $model->patient_id;
         $model->delete();
-        
-        return $this->redirect(['index','pid'=>$pid]);
+
+        return $this->redirect(['index', 'pid' => $pid]);
     }
 
     /**

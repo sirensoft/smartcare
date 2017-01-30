@@ -119,6 +119,15 @@ class MyHelper extends \yii\base\Component {
             return 'unknow';
         }
     }
+    
+     public static function getUserFullName() {
+        if (!\Yii::$app->user->isGuest) {
+            $u = User::findOne(\Yii::$app->user->identity->id);
+            return $u->u_name.' '.$u->u_lname;
+        } else {
+            return 'unknow';
+        }
+    }
 
     public static function setPatientADL($pid = NULL) {
         $sql = "select adl_score from assessment where patient_id = $pid and (adl_score is not null and adl_score != '') order by id DESC limit 1";
