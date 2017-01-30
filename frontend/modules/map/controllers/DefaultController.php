@@ -35,6 +35,7 @@ class DefaultController extends AppController {
                     'TAI' => $value['tai'],
                     'RAPID' => $value['rapid'],
                     'SEARCH_TEXT' => $value['name'] . ' ' . $value['lname'],
+                    
                 ],
                 'geometry' => [
                     'type' => 'Point',

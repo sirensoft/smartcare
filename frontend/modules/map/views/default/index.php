@@ -68,8 +68,11 @@ var baseLayers = {
                     default:
                         layer.setIcon(ic_w);
                 }
+                var lat = feature.geometry.coordinates[1] ;
+                var lon = feature.geometry.coordinates[0] ;
+                var ll = lat+','+lon;
         
-                layer.bindPopup(feature.properties.NAME);
+                layer.bindPopup(feature.properties.NAME+'<hr>'+'<a href=//www.google.co.th/maps?q='+ll+' target=_blank>ระยะทาง</a>');
                             
                
            },        
