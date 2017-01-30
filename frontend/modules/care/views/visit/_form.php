@@ -236,8 +236,8 @@ $js=<<<JS
       $( "#visit-obj_bmi" ).focusin(function() {
             var h = $("#visit-obj_heigh").val();
             var w = $("#visit-obj_weight").val();
-            var bmi = w/(h*h*100*100);
-            var b = bmi;
+            var bmi = w/((h*h)/10000);
+            var b = bmi.toFixed(2);
             $( this ).val(b);
         });  
 JS;
