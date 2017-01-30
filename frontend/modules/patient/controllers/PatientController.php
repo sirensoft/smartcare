@@ -72,7 +72,7 @@ class PatientController extends AppController {
      * @return mixed
      */
     public function actionView($pid) {
-        $this->permitRole([1, 2, 3,10]);
+        $this->permitRole([1, 2, 3,4,10]);
         return $this->render('view', [
                     'model' => $this->findModel($pid),
         ]);

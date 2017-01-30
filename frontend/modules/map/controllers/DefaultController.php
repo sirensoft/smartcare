@@ -18,7 +18,7 @@ class DefaultController extends AppController {
 
         $hos = MyHelper::getUserOffice();
         $this->layout = 'main';
-        $this->permitRole([1, 2]);
+        $this->permitRole([1, 2,4,10]);
 
         //ไม่ discharge
         $sql = " SELECT t.`name`,t.lname,t.age_y,t.color rapid,t.tai,t.color,t.class_name,t.lat,t.lon FROM patient t

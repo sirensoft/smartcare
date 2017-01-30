@@ -62,7 +62,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'adl',
             'tai',
             'cid',
-            'fullname',
+            [
+                'attribute'=>'fullname',
+                'value'=>  MyHelper::ptInfo_($model->id)
+            ],
+            
             //'prename',
             //'name',
             //'lname',
@@ -73,7 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'village_no',
             //'village_name',
             //'house_no',
-            'typearea',
+           'typearea',
             'nation',
             'race',
             'religion',
