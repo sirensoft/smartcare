@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'provider_id',
             //'hospcode',
             'date_visit:date:วันที่',
-            'start_time:time:เวลา',
+            //'start_time:time:เวลา',
             // 'end_time',
             // 'subjective:ntext',
             // 'obj_weight',
@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'obj_pulse',
             // 'obj_rr',
             // 'obj_bp',
-            'obj_adl:text:คะแนน ADL',
+            //'obj_adl:text:คะแนน ADL',
             // 'asses_1:ntext',
             // 'asses_2:ntext',
             // 'asses_3:ntext',
@@ -55,13 +55,14 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'asses_8:ntext',
             // 'asses_9:ntext',
             'job_result:text:ผลการปฏิบัติงาน',
+            //'next_plan:text:ครั้งถัดไป',
             [
                 'attribute'=>'provider_id',
                 'value'=>'user.u_name'
               
             ],
             // 'problem',
-            // 'next_plan',
+            
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]);
