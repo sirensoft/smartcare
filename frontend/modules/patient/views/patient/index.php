@@ -32,37 +32,42 @@ $this->params['breadcrumbs'][] = $this->title;
     $today = date('Y-m-d');
     $columns = [
         ['class' => 'yii\grid\SerialColumn'],
-        'class_name',
+        
+       
         //'disease',
         [
             'attribute' => 'color',
             'contentOptions' => function ($model) {
                 if ($model->color == 'yellow') {
-                    return ['style' => "color:black;background-color:$model->color;"];
+                    return ['style' => "color:black;background-color:$model->color;",'class' => 'text-center'];
                 }
-                return ['style' => "color:white;background-color:$model->color;"];
+                return ['style' => "color:white;background-color:$model->color;",'class' => 'text-center'];
             }
-                ],
-                [
-                    'attribute' => 'cid',
-                    'format' => 'raw',
-                    'value' => function($model) {
-                        return Html::a($model->cid, ['/patient/patient/view', 'pid' => $model->id]);
-                    }
-                        ],
-                        //'prename',
-                        'name',
-                        'lname',
-                        'age_y',
-                        //'birth',
-                        // 'province',
-                        // 'district',
-                        'subdistrict',
-                        'village_no',
-                        // 'village_name',
-                        'house_no',
+        ],
+        'class_name',
+               
+        //'prename',
+        'name',
+        'lname',
+        'age_y',
+        //'birth',
+        // 'province',
+        // 'district',
+        'subdistrict',
+        'village_no',
+        // 'village_name',
+        //'house_no',
                                
-                        'next_visit_date'
+        'next_visit_date',
+        [
+            //'attribute' => 'cid',
+                'label'=>'#',
+                'format' => 'raw',
+                'value' => function($model) {
+                    return Html::a('<i class="glyphicon glyphicon-zoom-in"></i>', ['/patient/patient/view', 'pid' => $model->id]);
+                },
+                'filter'=>FALSE
+        ],
                         
                             // 'typearea',
                             // 'nation',
