@@ -7,6 +7,7 @@ use common\components\MyHelper;
 use frontend\models\Patient;
 use kartik\widgets\DatePicker;
 use kartik\widgets\TimePicker;
+use kartik\widgets\Select2;
 
 $css = <<< CSS
 .alignment
@@ -26,39 +27,68 @@ $this->registerCss($css);
 
     <?php //$form->field($model, 'patient_id')->textInput() ?>
 
-    <?php //$form->field($model, 'provider_id')->textInput() ?>
+    <?php if (!MyHelper::isCg()): ?>
+        <div class="form-group">
+            <div class="col-md-12">
+                <?php
+                $office = MyHelper::getUserOffice();
+                $sql = " SELECT t.id,CONCAT(t.u_prename,t.u_name,' ',t.u_lname,' (',t.role_name,')') val FROM `user` t 
+WHERE t.office = '$office' order by t.role ";
+                $items = MyHelper::dropDownItems($sql, 'id', 'val');
+                ?>
+                <?=
+                $form->field($model, 'provider_id')->widget(Select2::classname(), [
+                    'data' => $items,
+                    'language' => 'th',
+                    'options' => ['placeholder' => 'เลือก ...'],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
+                ]);
+                ?>  
+            </div>
+        </div>
+    <?php endif; ?>
+
 
     <?php //$form->field($model, 'hospcode')->textInput(['maxlength' => true]) ?>
     <div class="form-group">
+
         <div class="col-md-4">
-            <?= $form->field($model, 'date_visit')->widget(DatePicker::classname(), [
-            'pickerButton' => [
-                'icon' => 'ok',
-            ],
-            'pluginOptions' => [
-                'autoclose' => true,
-                'format' => 'yyyy-mm-dd'
-            ]
-        ]) ?>
+            <?=
+            $form->field($model, 'date_visit')->widget(DatePicker::classname(), [
+                'pickerButton' => [
+                    'icon' => 'ok',
+                ],
+                'pluginOptions' => [
+                    'autoclose' => true,
+                    'format' => 'yyyy-mm-dd'
+                ]
+            ])
+            ?>
         </div>
         <div class="col-md-4">
-            <?= $form->field($model, 'start_time')->widget(TimePicker::classname(), [
+            <?=
+            $form->field($model, 'start_time')->widget(TimePicker::classname(), [
                 'pluginOptions' => [
                     'showSeconds' => FALSE,
                     'showMeridian' => FALSE,
                     'minuteStep' => 1,
                 ],
-            ]) ?>
+            ])
+            ?>
         </div>
         <div class="col-md-4">
 
-            <?= $form->field($model, 'end_time')->widget(TimePicker::classname(), [
+            <?=
+            $form->field($model, 'end_time')->widget(TimePicker::classname(), [
                 'pluginOptions' => [
                     'showSeconds' => FALSE,
                     'showMeridian' => FALSE,
                     'minuteStep' => 1,
                 ],
-            ]) ?>
+            ])
+            ?>
         </div>
     </div>
     <div class="form-group">
@@ -108,9 +138,11 @@ $this->registerCss($css);
             <div class="input-group">
                 <?= $form->field($model, 'obj_adl')->textInput() ?>
                 <span class="input-group-btn">
-                    <?=  Html::a('<i class="glyphicon glyphicon-list-alt"></i>'
-                            ,['/patient/asses/index','pid'=>$model->patient_id],['class'=>'btn btn-default alignment'])?>
-                    
+                    <?=
+                    Html::a('<i class="glyphicon glyphicon-list-alt"></i>'
+                            , ['/patient/asses/index', 'pid' => $model->patient_id], ['class' => 'btn btn-default alignment'])
+                    ?>
+
                 </span> 
             </div>
         </div>
@@ -232,7 +264,7 @@ $this->registerCss($css);
 
 </div>
 <?php
-$js=<<<JS
+$js = <<<JS
       $( "#visit-obj_bmi" ).focusin(function() {
             var h = $("#visit-obj_heigh").val();
             var w = $("#visit-obj_weight").val();

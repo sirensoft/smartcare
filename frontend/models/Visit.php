@@ -71,7 +71,7 @@ class Visit extends \yii\db\ActiveRecord
             'id' => 'ID',
             'plan_week_id' => 'Plan Week ID',
             'patient_id' => 'Patient ID',
-            'provider_id' => 'Provider ID',
+            'provider_id' => 'ผู้เยี่ยมดูแล',
             'hospcode' => 'Hospcode',
             'date_visit' => 'วันเยี่ยม',
             'start_time' => 'เวลาเริ่มเยี่ยม',

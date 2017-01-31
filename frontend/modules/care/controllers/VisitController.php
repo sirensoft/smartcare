@@ -75,7 +75,9 @@ class VisitController extends Controller {
         }
         $model->start_time = $req->get('start_time');
         $model->end_time = $req->get('end_time');
-        $model->provider_id = MyHelper::getUserId();
+        if(MyHelper::isCg()){
+            $model->provider_id = MyHelper::getUserId();
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
