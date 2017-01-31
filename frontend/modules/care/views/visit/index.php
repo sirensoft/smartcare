@@ -55,6 +55,11 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'asses_8:ntext',
             // 'asses_9:ntext',
             'job_result:text:ผลการปฏิบัติงาน',
+            [
+                'attribute'=>'provider_id',
+                'value'=>'user.u_name'
+              
+            ],
             // 'problem',
             // 'next_plan',
             ['class' => 'yii\grid\ActionColumn'],

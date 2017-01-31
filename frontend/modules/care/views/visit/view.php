@@ -32,7 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
             'plan_week_id',
             //'patient_id',
-            'provider_id',
+            [
+                'attribute'=>'provider_id',
+                'value'=>$model->user->u_name." ".$model->user->u_lname
+            ],
             //'hospcode',
             'date_visit',
             'start_time',
