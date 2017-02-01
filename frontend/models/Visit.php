@@ -54,6 +54,7 @@ class Visit extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['provider_id'],'required','message'=>''],
             [['plan_week_id', 'patient_id', 'provider_id','obj_pulse', 'obj_rr', 'obj_adl'], 'integer'],
             [['date_visit', 'start_time', 'end_time'], 'safe'],
             [['subjective', 'asses_1', 'asses_2', 'asses_3', 'asses_4', 'asses_5', 'asses_6', 'asses_7', 'asses_8', 'asses_9'], 'string'],
