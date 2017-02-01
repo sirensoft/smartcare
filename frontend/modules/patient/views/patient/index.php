@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'next_visit_date',
         [
             //'attribute' => 'cid',
-                'label'=>'#',
+                'label'=>' ',
                 'format' => 'raw',
                 'value' => function($model) {
                     return Html::a('<i class="glyphicon glyphicon-zoom-in"></i>', ['/patient/patient/view', 'pid' => $model->id]);
