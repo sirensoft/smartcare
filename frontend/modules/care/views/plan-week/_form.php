@@ -161,16 +161,25 @@ use kartik\widgets\TimePicker;
         'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
     ])
     ?>
+    <?=
+    Html::a('<i class="glyphicon glyphicon-plus"></i> เยี่ยม', ['/care/visit/create',
+        'pid' => $model->patient_id,
+        'planweek_id' => $model->id,
+        'start_date' => $model->start_date,
+        'start_time' => $model->start_time,
+        'end_time' => $model->end_time
+            ], ['class' => 'btn btn-success'])
+    ?>
 <?php else: ?> 
     <?php if (MyHelper::getUserId() == $model->provider_id): ?>
 
         <?=
-        Html::a('<i class="glyphicon glyphicon-ok"></i> บันทึกเยี่ยม', ['/care/visit/create',
+        Html::a('<i class="glyphicon glyphicon-plus"></i> เยี่ยม', ['/care/visit/create',
             'pid' => $model->patient_id,
             'planweek_id' => $model->id,
             'start_date' => $model->start_date,
             'start_time' => $model->start_time,
-            'end_time'=>$model->end_time
+            'end_time' => $model->end_time
                 ], ['class' => 'btn btn-success'])
         ?>
 
