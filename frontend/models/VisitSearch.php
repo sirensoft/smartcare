@@ -49,6 +49,7 @@ class VisitSearch extends Visit {
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+             'sort'=> ['defaultOrder' => ['date_visit'=>SORT_DESC]]
         ]);
 
         $dataProvider->sort->attributes['user'] = [

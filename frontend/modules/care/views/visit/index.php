@@ -66,7 +66,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' =>[
                     'class'=>'text-center'
                 ],
-                'filter'=>FALSE
+                'filter'=>FALSE,
+                //'sort'=>FALSE
             ],
             [
                 'attribute'=>'provider_id',

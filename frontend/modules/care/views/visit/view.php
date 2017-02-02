@@ -8,8 +8,10 @@ use common\components\MyHelper;
 /* @var $model frontend\models\Visit */
 
 $this->title = MyHelper::ptInfo_($model->patient_id);
-$this->params['breadcrumbs'][] = ['label' => 'รายการเยี่ยม', 'url' => ['index','pid'=>$model->patient_id]];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => MyHelper::ptInfo_($model->patient_id), 'url' =>['/patient/patient/view','pid'=>$model->patient_id]];
+
+$this->params['breadcrumbs'][] = 'รายการเยี่ยม';
+
 ?>
 <div class="visit-view">
 
