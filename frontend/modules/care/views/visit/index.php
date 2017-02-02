@@ -65,14 +65,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'contentOptions' =>[
                     'class'=>'text-center'
-                ]
+                ],
+                'filter'=>FALSE
             ],
             [
                 'attribute'=>'provider_id',
                 'value'=>'user.u_name'
               
             ],
-            //'plan_week_id',
+            //'plan_week_id:integer:แผน',
             // 'problem',
            
             
