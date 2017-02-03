@@ -58,7 +58,17 @@ $this->params['breadcrumbs'][] = $this->title;
         // 'village_name',
         //'house_no',
                                
-        'next_visit_date',
+        //'next_visit_date',
+         [
+            'attribute' => 'next_visit_date',
+            'contentOptions' => function ($model) use ($today) {
+                if (!empty($model->next_visit_date) and $model->next_visit_date < $today) {
+                    return ['style' => "color:white;background-color:#e77070;"];
+                }
+               
+            }
+        ],
+                
         [
             //'attribute' => 'cid',
                 'label'=>' ',
