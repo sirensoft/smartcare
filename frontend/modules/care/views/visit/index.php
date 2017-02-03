@@ -74,7 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>'user.u_name'
               
             ],
-            //'plan_week_id:integer:แผน',
+            //'plan_week_id:integer:ลำดับแผน',
             // 'problem',
            
             

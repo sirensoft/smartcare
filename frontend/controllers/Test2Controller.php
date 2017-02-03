@@ -11,5 +11,9 @@ class Test2Controller extends \yii\web\Controller
         $color = \Yii::$app->db->createCommand($sql)->queryScalar();
         echo $color;
     }
+    
+    public function actionTestTime(){
+        return date('Y-m-d H:i:s');
+    }
 
 }
