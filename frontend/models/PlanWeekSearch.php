@@ -84,13 +84,14 @@ class PlanWeekSearch extends PlanWeek {
             'd_update' => $this->d_update,
         ]);
 
-        $query->andFilterWhere(['like', 'patient_id', $this->patient_id])
+        $query
+                //->andFilterWhere(['like', 'patient_id', $this->patient_id])
                 ->andFilterWhere(['like', 'title', $this->title])
                 ->andFilterWhere(['like', 'color', $this->color])
                 ->andFilterWhere(['like', 'bg_color', $this->bg_color])
                 ->andFilterWhere(['like', 'border_color', $this->border_color])
                 ->andFilterWhere(['like', 'text_color', $this->text_color])
-                ->andFilterWhere(['like', 'provider_id', $this->provider_id])
+                //->andFilterWhere(['like', 'provider_id', $this->provider_id])
                 ->andFilterWhere(['like', 'weight', $this->weight])
                 ->andFilterWhere(['like', 'height', $this->height])
                 ->andFilterWhere(['like', 'pulse', $this->pulse])
