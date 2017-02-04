@@ -2,13 +2,14 @@
 
 use yii\helpers\Html;
 use frontend\models\Patient;
+use common\components\MyHelper;
 
-$model = Patient::findOne($pid);
+//$model = Patient::findOne($pid);
 
-$this->title = $model->name . " " . $model->lname;
+$this->title = MyHelper::ptInfo_($pid);
 $this->params['breadcrumbs'][] = ['label' => 'รายชื่อ', 'url' => ['/patient/patient/index']];
-$this->params['breadcrumbs'][] = ['label' => 'ข้อมูล', 'url' => ['/patient/patient/view', 'pid' => $pid]];
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => MyHelper::ptInfo_($pid), 'url' => ['/patient/patient/view', 'pid' => $pid]];
+$this->params['breadcrumbs'][] = 'การประเมิน ADL';
 
 use kartik\tabs\TabsX;
 ?>
