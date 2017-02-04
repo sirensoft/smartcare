@@ -10,24 +10,25 @@ use frontend\models\Plan;
 /**
  * PlanSearch represents the model behind the search form about `frontend\models\Plan`.
  */
-class PlanWeekSearch extends PlanWeek
-{
+class PlanWeekSearch extends PlanWeek {
+
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public $user;
+    public $patient;
+
+    public function rules() {
         return [
             [['id'], 'integer'],
-            [['waist','is_done','patient_id', 'title', 'start_date', 'start_time', 'end_date', 'end_time', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'care_date', 'care_time', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar', 'note', 'd_create', 'd_update'], 'safe'],
+            [['patient','user', 'waist', 'is_done', 'patient_id', 'title', 'start_date', 'start_time', 'end_date', 'end_time', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'care_date', 'care_time', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar', 'note', 'd_create', 'd_update'], 'safe'],
         ];
     }
 
     /**
      * @inheritdoc
      */
-    public function scenarios()
-    {
+    public function scenarios() {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
@@ -39,15 +40,26 @@ class PlanWeekSearch extends PlanWeek
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
-    {
+    public function search($params) {
         $query = PlanWeek::find();
+        $query->joinWith(['user']);
+        $query->joinWith(['patient']);
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+
+        $dataProvider->sort->attributes['user'] = [
+            'asc' => ['user.u_name' => SORT_ASC],
+            'desc' => ['user.u_name' => SORT_DESC],
+        ];
+        
+        $dataProvider->sort->attributes['patient'] = [
+            'asc' => ['patient.name' => SORT_ASC],
+            'desc' => ['patient.name' => SORT_DESC],
+        ];
 
         $this->load($params);
 
@@ -66,29 +78,32 @@ class PlanWeekSearch extends PlanWeek
             'end_time' => $this->end_time,
             'care_date' => $this->care_date,
             'care_time' => $this->care_time,
-            'is_done'=>  $this->is_done,
-            'waist'=>  $this->waist,
+            'is_done' => $this->is_done,
+            'waist' => $this->waist,
             'd_create' => $this->d_create,
             'd_update' => $this->d_update,
         ]);
 
         $query->andFilterWhere(['like', 'patient_id', $this->patient_id])
-            ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'color', $this->color])
-            ->andFilterWhere(['like', 'bg_color', $this->bg_color])
-            ->andFilterWhere(['like', 'border_color', $this->border_color])
-            ->andFilterWhere(['like', 'text_color', $this->text_color])
-            ->andFilterWhere(['like', 'provider_id', $this->provider_id])
-            ->andFilterWhere(['like', 'weight', $this->weight])
-            ->andFilterWhere(['like', 'height', $this->height])
-            ->andFilterWhere(['like', 'pulse', $this->pulse])
-            ->andFilterWhere(['like', 'temp', $this->temp])
-            ->andFilterWhere(['like', 'sbp', $this->sbp])
-            ->andFilterWhere(['like', 'dbp', $this->dbp])
-            ->andFilterWhere(['like', 'rr', $this->rr])
-            ->andFilterWhere(['like', 'sugar', $this->sugar])
-            ->andFilterWhere(['like', 'note', $this->note]);
+                ->andFilterWhere(['like', 'title', $this->title])
+                ->andFilterWhere(['like', 'color', $this->color])
+                ->andFilterWhere(['like', 'bg_color', $this->bg_color])
+                ->andFilterWhere(['like', 'border_color', $this->border_color])
+                ->andFilterWhere(['like', 'text_color', $this->text_color])
+                ->andFilterWhere(['like', 'provider_id', $this->provider_id])
+                ->andFilterWhere(['like', 'weight', $this->weight])
+                ->andFilterWhere(['like', 'height', $this->height])
+                ->andFilterWhere(['like', 'pulse', $this->pulse])
+                ->andFilterWhere(['like', 'temp', $this->temp])
+                ->andFilterWhere(['like', 'sbp', $this->sbp])
+                ->andFilterWhere(['like', 'dbp', $this->dbp])
+                ->andFilterWhere(['like', 'rr', $this->rr])
+                ->andFilterWhere(['like', 'sugar', $this->sugar])
+                ->andFilterWhere(['like', 'note', $this->note]);
+         $query->andFilterWhere(['like', 'user.u_name', $this->provider_id]);
+         $query->andFilterWhere(['like', 'patient.name', $this->patient_id]);
 
         return $dataProvider;
     }
+
 }

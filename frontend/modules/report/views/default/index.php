@@ -1,5 +1,12 @@
+<?php
+use yii\helpers\Html;
+
+$this->params['breadcrumbs'][] = 'รายงาน';
+?>
 <div class="report-default-index">
-    <?php
-    \Yii::$app->session->setFlash('danger', 'ระบบรายงานไม่พร้อมใช้งาน');
-    ?>
+    <ol>
+        <li>
+            <?=  Html::a('รายงานผลการดูแล',['/report/default/visit-done'])?>
+        </li>
+    </ol>
 </div>

@@ -2,6 +2,8 @@
 
 namespace frontend\models;
 
+use backend\models\User;
+use frontend\models\Patient;
 use Yii;
 
 /**
@@ -35,36 +37,41 @@ use Yii;
  * @property string $d_create
  * @property string $d_update
  */
-class PlanWeek extends \yii\db\ActiveRecord
-{
+class PlanWeek extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'plan_week';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             //[['patient_id','title','start_date'], 'required'],
-            [['start_date'],'safe'],
-            [['start_time','waist'],'safe'],
-            [['title', 'note','is_done'], 'string'],
+            [['start_date'], 'safe'],
+            [['start_time', 'waist'], 'safe'],
+            [['title', 'note', 'is_done'], 'string'],
             [['end_date', 'end_time', 'care_date', 'care_time', 'd_create', 'd_update'], 'safe'],
             [['patient_id', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar'], 'string', 'max' => 255],
         ];
     }
 
+    public function getUser() {
+        return $this->hasOne(User::className(), ['id' => 'provider_id']);
+    }
+    
+     public function getPatient() {
+        return $this->hasOne(Patient::className(), ['id' => 'patient_id']);
+    }
+
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'ID',
             'patient_id' => 'รหัสผู้ป่วย',
@@ -82,7 +89,7 @@ class PlanWeek extends \yii\db\ActiveRecord
             'care_time' => 'Care Time',
             'weight' => 'น้ำหนัก(กก)',
             'height' => 'ส่วนสูง(ซม)',
-            'waist'=>'รอบเอว(ซม)',
+            'waist' => 'รอบเอว(ซม)',
             'pulse' => 'ชีพจร',
             'temp' => 'อุณหภูมิ',
             'sbp' => 'ความดัน(บน)',
@@ -90,9 +97,10 @@ class PlanWeek extends \yii\db\ActiveRecord
             'rr' => 'อัตราหายใจ',
             'sugar' => 'ค่าน้ำตาล',
             'note' => 'บันทึกการดูแล',
-            'is_done'=>'ได้รับการดูแล',
+            'is_done' => 'ได้รับการดูแล',
             'd_create' => 'D Create',
             'd_update' => 'D Update',
         ];
     }
+
 }
