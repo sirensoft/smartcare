@@ -113,7 +113,15 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         <?= $form->field($model, 'lat')->textInput(['maxlength' => true]) ?>
     </div>
     <div class="col-sm-2">
-        <?= $form->field($model, 'lon')->textInput(['maxlength' => true]) ?>
+        <div class="input-group">
+            <?= $form->field($model, 'lon')->textInput(['maxlength' => true]) ?>
+            <span class="input-group-btn">
+
+                <button class="btn btn-default alignment" type="button" id="btn_find_map" >
+                    <i class="glyphicon glyphicon-map-marker"></i>
+                </button>
+            </span
+        </div>
     </div>  
 
 </div>
@@ -163,7 +171,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
     <div class="col-sm-2">
         <?= $form->field($model, 'religion')->textInput() ?>
     </div>
-      <div class="col-sm-3">
+    <div class="col-sm-3">
         <?= $form->field($model, 'mstatus')->textInput() ?>
     </div>
 </div>
@@ -228,7 +236,7 @@ WHERE t.role = 3 AND t.office = '$office' ";
     <div class="col-sm-3"> 
 
         <?= Html::submitButton($model->isNewRecord ? '<i class="glyphicon glyphicon-ok"></i> เพิ่ม' : '<i class="glyphicon glyphicon-ok"></i> บันทึก ', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-        <?= Html::a('ยกเลิก',['/patient/patient/index'],['class'=>'btn btn-default']);?>
+        <?= Html::a('ยกเลิก', ['/patient/patient/index'], ['class' => 'btn btn-default']); ?>
     </div> 
 </div>
 
@@ -237,10 +245,17 @@ WHERE t.role = 3 AND t.office = '$office' ";
 
 <?php
 $route = Url::toRoute(['/patient/patient/find-hdc']);
+$route_map = Url::toRoute(['/patient/patient/find-map']);
 $js = <<<JS
     $('#btn_find_hdc').click(function(){
        var win = window.open('$route', 'win', 'left=100,top=80,menubar=no,location=no,resizable=yes,width=720px,height=500px');
    });
+   
+    $('#btn_find_map').click(function(){
+       var win_map = window.open('$route_map', 'win_map', 'left=100,top=80,menubar=no,location=no,resizable=yes,width=720px,height=550px');
+   });
+        
+   
 JS;
 
 $this->registerJs($js);

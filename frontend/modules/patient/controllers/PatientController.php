@@ -244,5 +244,11 @@ LEFT JOIN ctambon tmb ON tmb.tamboncodefull = LEFT(t.vhid,6) ";
                     'dataProvider' => $dataProvider,
         ]);
     }
+    public function actionFindMap(){
+        $this->permitRole([2]);
+        $this->layout = 'main';
+        
+        return $this->render('find-map');
+    }
 
 }
