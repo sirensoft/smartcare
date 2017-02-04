@@ -16,6 +16,12 @@ $this->params['breadcrumbs'][] = 'รายงานผลการดูแล'
 
 $searchModel = new PlanWeekSearch();
 $searchModel->is_done = '0';
+$searchModel->is_cm = MyHelper::isCm();
+$searchModel->hospcode = MyHelper::getUserOffice();
+
+if(MyHelper::isCg()){
+    $searchModel->provider_id = MyHelper::getUserId();
+}
 $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
 echo GridView::widget([
@@ -40,6 +46,7 @@ echo GridView::widget([
         [
             'attribute'=>'is_done',
             'filter'=>['0'=>'0-ยังไม่ดูแล','1'=>'1-ดูแลแล้ว'],
+            
             'contentOptions' => function ($model) {
                 if ($model->is_done=='0') {
                     return ['style' => "color:white;background-color:red;text-aling:center"];
@@ -51,6 +58,7 @@ echo GridView::widget([
         [
             'attribute'=>'provider_id',
             'value'=>'user.u_name',
+            'filter'=>!MyHelper::isCg()
         ]
         
     ]

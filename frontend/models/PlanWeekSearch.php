@@ -17,11 +17,13 @@ class PlanWeekSearch extends PlanWeek {
      */
     public $user;
     public $patient;
+    public $is_cm = TRUE;
+    public $hospcode;
 
     public function rules() {
         return [
             [['id'], 'integer'],
-            [['patient','user', 'waist', 'is_done', 'patient_id', 'title', 'start_date', 'start_time', 'end_date', 'end_time', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'care_date', 'care_time', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar', 'note', 'd_create', 'd_update'], 'safe'],
+            [['patient', 'user', 'waist', 'is_done', 'patient_id', 'title', 'start_date', 'start_time', 'end_date', 'end_time', 'color', 'bg_color', 'border_color', 'text_color', 'provider_id', 'care_date', 'care_time', 'weight', 'height', 'pulse', 'temp', 'sbp', 'dbp', 'rr', 'sugar', 'note', 'd_create', 'd_update'], 'safe'],
         ];
     }
 
@@ -55,7 +57,7 @@ class PlanWeekSearch extends PlanWeek {
             'asc' => ['user.u_name' => SORT_ASC],
             'desc' => ['user.u_name' => SORT_DESC],
         ];
-        
+
         $dataProvider->sort->attributes['patient'] = [
             'asc' => ['patient.name' => SORT_ASC],
             'desc' => ['patient.name' => SORT_DESC],
@@ -101,9 +103,18 @@ class PlanWeekSearch extends PlanWeek {
                 ->andFilterWhere(['like', 'rr', $this->rr])
                 ->andFilterWhere(['like', 'sugar', $this->sugar])
                 ->andFilterWhere(['like', 'note', $this->note]);
-         $query->andFilterWhere(['like', 'user.u_name', $this->provider_id]);
-         $query->andFilterWhere(['like', 'patient.name', $this->patient_id]);
-         $query->orFilterWhere(['like', 'patient.lname', $this->patient_id]);
+        if ($this->is_cm) {
+            $query->andFilterWhere(['like', 'user.u_name', $this->provider_id]);
+        } else {
+            $query->andFilterWhere(['like', 'provider_id', $this->provider_id]);
+        }
+        
+        $query->andFilterWhere(['like', 'patient.name', $this->patient_id]);
+        $query->orFilterWhere(['like', 'patient.lname', $this->patient_id]);
+        
+        if($this->hospcode){
+           $query->andFilterWhere([ 'patient.hospcode'=>  $this->hospcode]); 
+        }
 
         return $dataProvider;
     }
