@@ -25,6 +25,7 @@ echo GridView::widget([
         'start_date:text:แผนวันที่',
          [
             'attribute'=>'patient_id',
+            'label'=>'ผู้สูงอายุ',
             'value'=>function($model){
                 return $model->patient->prename.$model->patient->name.' '.$model->patient->lname;
             }
@@ -43,9 +44,7 @@ echo GridView::widget([
         ],
         [
             'attribute'=>'provider_id',
-            'value'=>function($model){
-                return $model->user->u_name;
-            }
+            'value'=>'user.u_name',
         ]
         
     ]
