@@ -5,6 +5,10 @@ use kartik\grid\GridView;
 use yii\helpers\Html;
 use frontend\models\PlanWeekSearch;
 use yii\helpers\ArrayHelper;
+use kartik\widgets\Select2;
+use frontend\models\Patient;
+
+
 
 $this->title = 'รายงาน';
 $this->params['breadcrumbs'][]=['label'=>'รายงาน','url'=>['/report/']];
@@ -15,6 +19,9 @@ $searchModel->is_done = '0';
 $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
 echo GridView::widget([
+    'panel'=>[
+        'before'=>''
+    ],
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
     'responsiveWrap' => false,
@@ -26,9 +33,8 @@ echo GridView::widget([
          [
             'attribute'=>'patient_id',
             'label'=>'ผู้สูงอายุ',
-            'value'=>function($model){
-                return $model->patient->prename.$model->patient->name.' '.$model->patient->lname;
-            }
+            'value'=>'patient.fullname'
+            
         ],
         'title',
         [

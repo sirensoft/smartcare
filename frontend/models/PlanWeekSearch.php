@@ -103,6 +103,7 @@ class PlanWeekSearch extends PlanWeek {
                 ->andFilterWhere(['like', 'note', $this->note]);
          $query->andFilterWhere(['like', 'user.u_name', $this->provider_id]);
          $query->andFilterWhere(['like', 'patient.name', $this->patient_id]);
+         $query->orFilterWhere(['like', 'patient.lname', $this->patient_id]);
 
         return $dataProvider;
     }
