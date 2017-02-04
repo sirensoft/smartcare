@@ -12,7 +12,7 @@ use frontend\models\Patient;
 
 $this->title = 'รายงาน';
 $this->params['breadcrumbs'][]=['label'=>'รายงาน','url'=>['/report/']];
-$this->params['breadcrumbs'][] = 'รายงานผลการดูแล';
+$this->params['breadcrumbs'][] = 'รายงานผลการดูแลตามแผน';
 
 $searchModel = new PlanWeekSearch();
 $searchModel->is_done = '0';
@@ -39,10 +39,11 @@ echo GridView::widget([
          [
             'attribute'=>'patient_id',
             'label'=>'ผู้สูงอายุ',
-            'value'=>'patient.fullname'
+            'value'=>'patient.fullname',
+             'group'=>true,
             
         ],
-        'title',
+        'title:text:กิจกรรมตามแผน',
         [
             'attribute'=>'is_done',
             'filter'=>['0'=>'0-ยังไม่ดูแล','1'=>'1-ดูแลแล้ว'],
