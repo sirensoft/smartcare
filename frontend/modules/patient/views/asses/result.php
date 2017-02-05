@@ -51,6 +51,10 @@ echo GridView::widget([
 
 </div>
 <?php
+$sql = " SELECT t.d_update 'DATE_SERV',t.adl_score FROM assessment t  
+        WHERE  t.patient_id = '$pid' order by t.d_update ASC";
+
+$raw = \Yii::$app->db->createCommand($sql)->queryAll();
 $categories = [];
 $data = [];
 foreach ($raw as $value) {
