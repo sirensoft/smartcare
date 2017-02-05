@@ -6,13 +6,13 @@ use kartik\grid\GridView;
 
 <div class="row">
     <div class="col-md-6">
-        <p class="text-green"><u>วันที่รับบริการ</u> : <?=$dateserv?> เวลา : <?=$timeserv?> </p>
-    <p class="text-green"><u>อาการสำคัญ</u> : <?=$cc?></p>
-    <p class="text-green"><u>สัญญาณชีพ</u> : BP = <?=$sbp.':'.$dbp.' ,T='.$btemp.' ,P='.$pr.' ,R='.$rr?></p>
+        <p class="text-green">วันที่รับบริการ : <?=$dateserv?> เวลา : <?=$timeserv?> </p>
+    <p class="text-green">อาการสำคัญ : <?=$cc?></p>
+    <p class="text-green">สัญญาณชีพ : BP = <?=$sbp.':'.$dbp.' ,T='.$btemp.' ,P='.$pr.' ,R='.$rr?></p>
     </div>
    
     <div class="col-md-6">
-        <p> <?= '<u>หน่วยบริการ</u>  :'.$hospcode.' '.$hospname?></p>
+        <p> <?= 'หน่วยบริการ  :'.$hospcode.' '.$hospname?></p>
     </div>
 
 </div>
