@@ -53,6 +53,7 @@ $js = <<<JS
     var baseLayers = {
 	"แผนที่ถนน": L.mapbox.tileLayer('mapbox.streets'),        
         "แผนที่ดาวเทียม": L.mapbox.tileLayer('mapbox.satellite').addTo(map),
+       
         
     }; 
      map.setView(new L.LatLng($lat,$lon), $z);
