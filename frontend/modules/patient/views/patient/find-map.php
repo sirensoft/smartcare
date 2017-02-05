@@ -57,7 +57,7 @@ $js = <<<JS
     }; 
      map.setView(new L.LatLng($lat,$lon), $z);
      
-     L.control.locate().addTo(map);
+     //L.control.locate().addTo(map);
      L.control.layers(baseLayers,{}).addTo(map);
       
    
