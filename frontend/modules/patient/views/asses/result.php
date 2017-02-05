@@ -98,7 +98,7 @@ $js = <<<JS
         series: [{
             name: 'ADL',
             data: $data,
-            color:'red'
+            color:'blue'
         }]
     });
 });     
