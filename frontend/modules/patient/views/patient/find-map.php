@@ -59,6 +59,8 @@ $js = <<<JS
      map.setView(new L.LatLng($lat,$lon), $z);
      
      //L.control.locate().addTo(map);
+     var lc = L.control.locate({position: 'topleft'}).addTo(map);
+        
      L.control.layers(baseLayers,{}).addTo(map);
       
    
@@ -91,7 +93,8 @@ $js = <<<JS
         
     function getLocation() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition,showErr,options);
+            //navigator.geolocation.getCurrentPosition(showPosition,showErr,options);
+            navigator.geolocation.getCurrentPosition(showPosition);
         } else {
             alert("Geolocation is not supported by this browser.");
         }
