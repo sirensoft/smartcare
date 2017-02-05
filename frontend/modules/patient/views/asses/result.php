@@ -68,7 +68,9 @@ $js = <<<JS
    $(function () {
     Highcharts.chart('chart', {
         chart: {
-            type: 'line'
+            type: 'line',
+            //width: 100%,
+            height: 300
         },
         title: {
             text: ' '
