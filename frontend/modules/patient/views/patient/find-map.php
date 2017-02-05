@@ -86,13 +86,18 @@ $js = <<<JS
         $('#lat').val(position.lat); 
         $('#lon').val(position.lng); 
     });
+    
+    var options = { enableHighAccuracy: true, maximumAge: 100, timeout: 50000 };
         
     function getLocation() {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
+            navigator.geolocation.getCurrentPosition(showPosition,showErr,options);
         } else {
             alert("Geolocation is not supported by this browser.");
         }
+    }
+    function showErr(err){
+        alert('err');
     }
     function showPosition(position) {
         lat = position.coords.latitude;
