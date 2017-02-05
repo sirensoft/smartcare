@@ -47,3 +47,4 @@ echo TabsX::widget([
     'items' => $tab_items
 ]);
 
+

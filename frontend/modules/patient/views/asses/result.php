@@ -2,6 +2,13 @@
 
 use yii\data\ArrayDataProvider;
 use kartik\grid\GridView;
+use miloschuman\highcharts\HighchartsAsset;
+
+HighchartsAsset::register($this)->withScripts([
+    //'highstock',
+    'modules/exporting',
+        //'modules/drilldown'
+]);
 
 $sql = " SELECT t.d_update 'DATE_SERV',t.adl_score,t.pp_code,tai_score,t.tai_class,t.group_text,t.note
 ,concat(u.u_prename,u.u_name,' ',u.u_lname) provider FROM assessment t 
@@ -13,7 +20,7 @@ $raw = \Yii::$app->db->createCommand($sql)->queryAll();
 $dataProvider = new ArrayDataProvider([
     'allModels' => $raw,
     'pagination' => [
-        'pageSize' => 15
+        'pageSize' => 10
     ]
         ]);
 
@@ -32,5 +39,70 @@ echo GridView::widget([
         'note:text:หมายเหตุ'
     ]
 ]);
+?>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        แผนภูมิแสดงคะแนนประเมิน ADL
+    </div>
+    <div class="panel-body" id='chart'>
+
+    </div>
+
+</div>
+<?php
+$categories = [];
+$data = [];
+foreach ($raw as $value) {
+    $date = new DateTime($value['DATE_SERV']);
+    $date = $date->format('Y-m-d');
+    $categories[] =$date;
+    
+    $data[]=$value['adl_score']*1;
+}
+
+$categories = json_encode($categories);
+$data = json_encode($data);
+
+$js = <<<JS
+   $(function () {
+    Highcharts.chart('chart', {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: ' '
+        },
+        
+        xAxis: {
+            categories: $categories
+        },
+        yAxis: {
+            min: 0,
+            max: 20,
+            tickInterval: 2,
+            title: {
+                text: 'ADL SCORE'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
+        },
+        series: [{
+            name: 'ADL',
+            data: $data,
+            color:'red'
+        }]
+    });
+});     
+JS;
+
+$this->registerJs($js);
+?>
 
 
