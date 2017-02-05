@@ -245,13 +245,18 @@ WHERE t.role = 3 AND t.office = '$office' ";
 
 <?php
 $route = Url::toRoute(['/patient/patient/find-hdc']);
-$route_map = Url::toRoute(['/patient/patient/find-map']);
+
+$lat = $model->lat;
+$lon = $model->lon;
+$route_map = Url::toRoute(['/patient/patient/find-map','lat'=>$lat,'lon'=>$lon]);
 $js = <<<JS
     $('#btn_find_hdc').click(function(){
        var win = window.open('$route', 'win', 'left=100,top=80,menubar=no,location=no,resizable=yes,width=720px,height=500px');
    });
    
     $('#btn_find_map').click(function(){
+       //var lat = $('#patient-lat').val();
+       //var lon = $('#patient-lon').val();
        var win_map = window.open('$route_map', 'win_map', 'left=100,top=80,menubar=no,location=no,resizable=yes,width=720px,height=550px');
    });
         

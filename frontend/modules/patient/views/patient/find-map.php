@@ -1,6 +1,15 @@
 <?php
 $this->title = "FIND MAP";
 
+$lat = \Yii::$app->request->get('lat');
+$lon = \Yii::$app->request->get('lon');
+$z = 16;
+if (empty($lat) or empty($lon)) {
+    $lat = 16;
+    $lon = 100;
+    $z = 8;
+}
+
 use yii\helpers\Html;
 
 $this->registerCssFile('//api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', ['async' => false, 'defer' => true]);
@@ -13,22 +22,27 @@ $this->registerJsFile('//domoritz.github.io/leaflet-locatecontrol/dist/L.Control
 <div class="panel panel-info">
 
     <div class="panel-body" >
-        <div id="map" style="width: 100%;height: 75vh;"></div>  
-        <div>
-            
-                <div class="row">
-                    <div class="col-md-4">
-                        <input type="text" id="lat" name="lat" class="form-control">
-                    </div>
-                    <div class="col-md-4">
-                        <input type="text" id="lon" name="lon" class="form-control">
-                    </div>
-                    <div class="col-md-4">
-                        <button id="btnLocate" class="form-control"> พิกัด </button>
-                    </div>
-                </div>
-           
-        </div>
+        <div id="map" style="width: 100%;height: 80vh;"></div>  
+
+
+        <table style="margin-top: 3px">
+            <tr>
+                <td>
+                    <input type="text" id="lat" name="lat" class="form-control" value="<?= $lat ?>">
+                </td>
+                <td>
+                    <input type="text" id="lon" name="lon" class="form-control" value="<?= $lon ?>">
+                </td>
+                <td>
+                    <button id="btnLocate" class="form-control"> <i class="glyphicon glyphicon-map-marker"></i> </button>
+                </td>
+                <td>
+                    <button id="btnOk" class="form-control" style="margin-left: 10px"> ตกลง </button>
+                </td>
+            </tr>
+        </table>
+
+
     </div>
 
 </div>
@@ -37,20 +51,24 @@ $js = <<<JS
     L.mapbox.accessToken = 'pk.eyJ1IjoidGVobm5uIiwiYSI6ImNpZzF4bHV4NDE0dTZ1M200YWxweHR0ZzcifQ.lpRRelYpT0ucv1NN08KUWQ';
     var map = L.map('map');
     var baseLayers = {
-	"แผนที่ถนน": L.mapbox.tileLayer('mapbox.streets').addTo(map),        
-        "แผนที่ดาวเทียม": L.mapbox.tileLayer('mapbox.satellite'),
+	"แผนที่ถนน": L.mapbox.tileLayer('mapbox.streets'),        
+        "แผนที่ดาวเทียม": L.mapbox.tileLayer('mapbox.satellite').addTo(map),
         
     }; 
-     map.setView(new L.LatLng(16,100), 8);
+     map.setView(new L.LatLng($lat,$lon), $z);
      
      L.control.locate().addTo(map);
      L.control.layers(baseLayers,{}).addTo(map);
-        
-    var pos = [16,100];
-        
-     var marker = L.marker(pos, {
+      
+   
+    var marker = L.marker([$lat,$lon], {
             draggable: true
      });
+        
+          
+    
+        
+     
      marker.bindPopup("อยู่ที่นี่..")
      marker.addTo(map);
         
@@ -89,6 +107,12 @@ $js = <<<JS
     }
     $('#btnLocate').on('click',function(){
         getLocation();
+    });
+        
+    $('#btnOk').click(function(){
+         window.opener.$('#patient-lat').val($('#lat').val());
+         window.opener.$('#patient-lon').val($('#lon').val());
+         window.close();
     });
         
 JS;
