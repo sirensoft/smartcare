@@ -67,7 +67,7 @@ $js = <<<JS
          locateOptions: {
                maxZoom: 16
          },
-        icon:'fa fa-refresh'
+        icon:'fa fa-street-view'
       }).addTo(map);
         
      L.control.layers(baseLayers,{}).addTo(map);

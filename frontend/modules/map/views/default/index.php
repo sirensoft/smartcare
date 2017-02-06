@@ -42,7 +42,7 @@ var map = L.mapbox.map('map').setView([16.74094277,100.27255121], 9);
          locateOptions: {
                maxZoom: 16
          },
-        icon:'fa fa-refresh'
+        icon:'fa fa-street-view'
       }).addTo(map);
         
 var baseLayers = {
