@@ -36,10 +36,10 @@ $this->params['breadcrumbs'][] = "รายการแผน"
                 'attribute' => 'date_create',
                 'format' => 'raw',
                 'value' => function($model) {
-                    return \kartik\helpers\Html::a($model->date_create, ['view', 'id' => $model->id]);
+                    return Html::a($model->date_create, ['view', 'id' => $model->id]);
                 }
-                    ],
-                   [
+            ],
+            [
             'attribute' => 'rapid_code',
             'contentOptions' => function ($model) {
                 if ($model->rapid_code == 'yellow') {

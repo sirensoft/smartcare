@@ -8,5 +8,5 @@ return [
         'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
     ],
     'modules' => require(__DIR__ . '/modules.php'),
-    'language'=>'th'
+    'language'=>'th-TH'
 ];

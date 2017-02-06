@@ -35,7 +35,7 @@ echo GridView::widget([
     'columns'=>[
         ['class' => 'yii\grid\SerialColumn'],
         
-        'start_date:text:แผนวันที่',
+        'start_date:date:แผนวันที่',
          [
             'attribute'=>'patient_id',
             'label'=>'ผู้สูงอายุ',
