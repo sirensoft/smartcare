@@ -3,7 +3,7 @@ $this->title = "FIND MAP";
 
 $lat = \Yii::$app->request->get('lat');
 $lon = \Yii::$app->request->get('lon');
-$z = 16;
+$z = 15;
 if (empty($lat) or empty($lon)) {
     $lat = 16;
     $lon = 100;
@@ -13,10 +13,13 @@ if (empty($lat) or empty($lon)) {
 use yii\helpers\Html;
 
 $this->registerCssFile('//api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', ['async' => false, 'defer' => true]);
-$this->registerCssFile('//domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css', ['async' => false, 'defer' => true]);
-$this->registerCssFile('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', ['async' => false, 'defer' => true]);
 $this->registerJsFile('//api.mapbox.com/mapbox.js/v3.0.1/mapbox.js', ['position' => $this::POS_HEAD]);
-$this->registerJsFile('//domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js', ['position' => $this::POS_HEAD]);
+
+$this->registerCssFile('//api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.mapbox.css', ['async' => false, 'defer' => true]);
+$this->registerJsFile('//api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.min.js', ['position' => $this::POS_HEAD]);
+
+$this->registerCssFile('//api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/css/font-awesome.min.css', ['async' => false, 'defer' => true]);
+
 ?>
 
 <div class="panel panel-info">
@@ -59,7 +62,12 @@ $js = <<<JS
      map.setView(new L.LatLng($lat,$lon), $z);
      
      //L.control.locate().addTo(map);
-     var lc = L.control.locate({position: 'topleft'}).addTo(map);
+     var lc = L.control.locate({
+         position: 'topright',
+         locateOptions: {
+               maxZoom: 16
+         }
+      }).addTo(map);
         
      L.control.layers(baseLayers,{}).addTo(map);
       
