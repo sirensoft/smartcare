@@ -22,13 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ['class' => 'yii\grid\SerialColumn'],
         'class_name',
        
-        [
-            'attribute' => 'cid',
-            'format' => 'raw',
-            'value' => function($model) {
-                return Html::a($model->cid, ['/patient/patient/view', 'pid' => $model->id]);
-            }
-                ],
+       
                 //'prename',
                 'name',
                 'lname',
@@ -43,11 +37,21 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 'typearea',
                     // 'nation',
                     // 'race',
-                    'discharge_date:text:จำหน่าย',
+                    'discharge_date:date:จำหน่าย',
+                    //'discharge_note:ntext',
                     // 
                     // 'dupdate',
                     //['class' => 'yii\grid\ActionColumn'],
+            [
+             'label'=>' ',
+                'format' => 'raw',
+                'value' => function($model) {
+                    return Html::a('<i class="glyphicon glyphicon-zoom-in"></i>', ['/patient/patient/view', 'pid' => $model->id]);
+                },
+                'filter'=>FALSE
+                ],
             ];
+            
             if (!MyHelper::isCg()) {
                 $columns[] = [
                     'attribute' => 'cg_id',

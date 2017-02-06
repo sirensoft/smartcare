@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = 'รายการเยี่ยม';
                 'value'=>$model->user->u_name." ".$model->user->u_lname
             ],
             //'hospcode',
-            'date_visit',
+            'date_visit:date',
             'start_time',
             'end_time',
             'subjective:ntext',

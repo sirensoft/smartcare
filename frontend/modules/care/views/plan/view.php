@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title
             //'id',
             //'hospcode',
             //'patient_id',
-            'date_create',
+            'date_create:date',
             'rapid_code',
             'adl',
             'adl_text',

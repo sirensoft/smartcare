@@ -57,6 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'รายละเอียด',
                 'rowOptions' => ['class' => 'info']
             ],
+            'discharge_date:date',
             'class_name',
             'adl',
             'tai',
@@ -95,7 +96,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>$model->discharge."-".$model->cdischarge->dischargedesc
             ],
             //'cdischarge.dischargedesc',
-            'discharge_date',
+            
             'discharge_note',
         ],
     ])
