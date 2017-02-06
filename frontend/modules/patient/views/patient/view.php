@@ -114,7 +114,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php if (MyHelper::isCm()): ?>
         <?php
        
-        echo Html::a('<i class="glyphicon glyphicon-minus"></i> ลบ', ['delete', 'pid' => $model->id], [
+        echo Html::a('<i class="glyphicon glyphicon-minus"></i> ลบข้อมูล', ['delete', 'pid' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'ยืนยันการลบ!',                
