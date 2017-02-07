@@ -239,6 +239,11 @@ WHERE t.office = '$office' order by t.role ";
 
     <div class="form-group">
         <div class="col-md-12">
+             <?php
+            if (empty($model->job_result) && $model->isNewRecord) {
+                $model->job_result = CTemplateVisit::findOne(11)->templat_text;
+            }
+            ?>
             <?= $form->field($model, 'job_result')->textInput(['maxlength' => true]) ?>
         </div>
     </div>
@@ -256,7 +261,7 @@ WHERE t.office = '$office' order by t.role ";
 
     <div class="form-group">
         <div class="col-md-12">
-            <?= Html::submitButton($model->isNewRecord ? 'บันทึก' : 'บันทึก', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+            <?= Html::submitButton('<i class="glyphicon glyphicon-ok"></i> บันทึก', ['class' => 'btn btn-success']) ?>
         </div>
     </div>
 

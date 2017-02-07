@@ -8,35 +8,40 @@ use common\components\MyHelper;
 /* @var $model frontend\models\Visit */
 
 $this->title = MyHelper::ptInfo_($model->patient_id);
-$this->params['breadcrumbs'][] = ['label' => MyHelper::ptInfo_($model->patient_id), 'url' =>['/patient/patient/view','pid'=>$model->patient_id]];
+$this->params['breadcrumbs'][] = ['label' => MyHelper::ptInfo_($model->patient_id), 'url' => ['/patient/patient/view', 'pid' => $model->patient_id]];
 
 $this->params['breadcrumbs'][] = 'รายการเยี่ยม';
-
 ?>
 <div class="visit-view">
 
-   
+
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+
+        <?=
+        Html::a('<i class="glyphicon glyphicon-remove"></i> ลบ', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
-        ]) ?>
+        ])
+        ?>
+        <?= Html::a('<i class="glyphicon glyphicon-pencil"></i> แก้ไข', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-ok"></i> ตกลง', ['/patient/patient/view', 'pid' => $model->patient_id], ['class' => 'btn btn-success pull-right']) ?>
+
     </p>
 
-    <?= DetailView::widget([
+    <?=
+    DetailView::widget([
         'model' => $model,
         'attributes' => [
             //'id',
             'plan_week_id',
             //'patient_id',
             [
-                'attribute'=>'provider_id',
-                'value'=>$model->user->u_name." ".$model->user->u_lname
+                'attribute' => 'provider_id',
+                'value' => $model->user->u_name . " " . $model->user->u_lname
             ],
             //'hospcode',
             'date_visit:date',
@@ -64,6 +69,7 @@ $this->params['breadcrumbs'][] = 'รายการเยี่ยม';
             'problem',
             'next_plan',
         ],
-    ]) ?>
+    ])
+    ?>
 
 </div>

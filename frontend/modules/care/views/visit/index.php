@@ -34,6 +34,20 @@ $this->params['breadcrumbs'][] = $this->title;
             //'provider_id',
             //'hospcode',
             'date_visit:date:วันที่',
+            [
+                'attribute'=>'plan_week_id',
+                'format'=>'raw',
+                'label'=>'ตามแผน',
+                'value'=>function($model){
+                    return !empty($model->plan_week_id)?'<i class="glyphicon glyphicon-ok"></i>':NULL ;
+                },
+                'contentOptions' =>[
+                    'class'=>'text-center',
+                    'style' => "background-color:#00ff7f;"
+                ],
+                'filter'=>FALSE,
+                //'sort'=>FALSE
+            ],
             //'start_time:time:เวลา',
             // 'end_time',
             // 'subjective:ntext',
@@ -56,19 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'asses_9:ntext',
             'job_result:text:ผลการปฏิบัติงาน',
             //'next_plan:text:ครั้งถัดไป',
-             [
-                'attribute'=>'plan_week_id',
-                'format'=>'raw',
-                'label'=>'ตามแผน',
-                'value'=>function($model){
-                    return !empty($model->plan_week_id)?'<i class="glyphicon glyphicon-ok"></i>':NULL ;
-                },
-                'contentOptions' =>[
-                    'class'=>'text-center'
-                ],
-                'filter'=>FALSE,
-                //'sort'=>FALSE
-            ],
+             
             [
                 'attribute'=>'provider_id',
                 'value'=>'user.u_name'
