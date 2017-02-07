@@ -41,10 +41,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>function($model){
                     return !empty($model->plan_week_id)?'<i class="glyphicon glyphicon-ok"></i>':NULL ;
                 },
-                'contentOptions' =>[
-                    'class'=>'text-center',
-                    'style' => "background-color:#00ff7f;"
-                ],
+                'contentOptions' =>function($model){
+                    if (!empty($model->plan_week_id)) {
+                        return ['style' => "background-color:#00ff7f;",'class' => 'text-center'];
+                    }
+                        return ['class' => 'text-center'];
+                },
                 'filter'=>FALSE,
                 //'sort'=>FALSE
             ],
