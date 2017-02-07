@@ -63,8 +63,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'attribute' => 'next_visit_date',
              'format'=>'date',
             'contentOptions' => function ($model) use ($today) {
-                if (!empty($model->next_visit_date) and $model->next_visit_date < $today) {
-                    //return ['style' => "color:white;background-color:#e77070;"];
+                if ($model->next_visit_date == $today) {
+                    return ['style' => "background-color:#85f24e;"];
                 }
                
             }
