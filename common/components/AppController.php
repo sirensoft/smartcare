@@ -66,5 +66,9 @@ class AppController extends \yii\web\Controller {
           curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
           $output = curl_exec($ch); */
     }
+    
+    protected function query_all($sql){
+        return \Yii::$app->db->createCommand($sql)->queryAll();
+    }
 
 }
