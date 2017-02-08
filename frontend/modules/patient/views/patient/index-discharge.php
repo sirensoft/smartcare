@@ -24,7 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
        
        
                 //'prename',
-                'name',
+                [
+                    'attribute'=>'name',
+                    'contentOptions'=>function($model){
+                        if($model->discharge==1){
+                            return ['style' => "color:white;background-color:#332e2e;"];
+                        }
+                    }
+                ],
                 'lname',
                 //'age_y',
                 //'birth',
