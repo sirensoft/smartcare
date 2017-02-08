@@ -84,6 +84,7 @@ class PlanWeekSearch extends PlanWeek {
             'waist' => $this->waist,
             'd_create' => $this->d_create,
             'd_update' => $this->d_update,
+            'patient.discharge'=>9
         ]);
 
         $query
@@ -103,6 +104,7 @@ class PlanWeekSearch extends PlanWeek {
                 ->andFilterWhere(['like', 'rr', $this->rr])
                 ->andFilterWhere(['like', 'sugar', $this->sugar])
                 ->andFilterWhere(['like', 'note', $this->note]);
+                 
         if ($this->is_cm) {
             $query->andFilterWhere(['like', 'user.u_name', $this->provider_id]);
         } else {
@@ -111,6 +113,7 @@ class PlanWeekSearch extends PlanWeek {
         
         $query->andFilterWhere(['like', 'patient.name', $this->patient_id]);
         $query->orFilterWhere(['like', 'patient.lname', $this->patient_id]);
+       
         
         if($this->hospcode){
            $query->andFilterWhere([ 'patient.hospcode'=>  $this->hospcode]); 

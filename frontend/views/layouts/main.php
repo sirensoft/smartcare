@@ -86,7 +86,7 @@ AppAsset::register($this);
 
         <footer class="footer">
             <div class="container">
-                <p class="pull-left">Version <?=  MyHelper::getVersion();?> </p>
+                <p class="pull-left">Version <?=  MyHelper::getVersion();?> Server Time: <span id="s_time"><?=date('Y-m-d H:i:s')?></span> </p>
 
                 <p class="pull-right">&copy; สสจ.พล</p>
             </div>

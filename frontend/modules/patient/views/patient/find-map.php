@@ -133,15 +133,7 @@ $js = <<<JS
          window.close();
     });
      
-    map.on("moveend", function (e) {
-        
-        if(marker){
-            marker.setLatLng(map.getCenter());
-            var pos=marker.getLatLng();
-            $('#lat').val(pos.lat); 
-            $('#lon').val(pos.lng); 
-        }
-    });
+   
         
 JS;
 
