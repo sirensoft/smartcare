@@ -46,7 +46,7 @@ class DefaultController extends AppController {
         $pt_json = json_encode($pt_json);
         
         // เคส discharge        
-         $sql = " SELECT t.`name`,t.lname,t.age_y,t.color rapid,t.tai,t.color,t.class_name,t.lat,t.lon FROM patient t
+         $sql = " SELECT t.`name`,t.lname,t.age_y,t.discharge,t.tai,t.color,t.class_name,t.lat,t.lon FROM patient t
                 WHERE t.hospcode = '$hos' AND t.discharge<>9 AND t.lat <>'' ";
         
         $raw = \Yii::$app->db->createCommand($sql)->queryAll();
@@ -58,7 +58,7 @@ class DefaultController extends AppController {
                 'properties' => [
                     'NAME' => $value['name'] . ' ' . $value['lname'] . '(' . $value['age_y'] . 'ปี) ' . $value['class_name'],
                     'TAI' => $value['tai'],
-                    'RAPID' => 'black',
+                    'RAPID' => $value['discharge']==1?'black':'white',
                     'SEARCH_TEXT' => $value['name'] . ' ' . $value['lname'],
                 ],
                 'geometry' => [
