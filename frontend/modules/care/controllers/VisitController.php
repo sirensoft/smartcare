@@ -75,7 +75,7 @@ class VisitController extends Controller {
         }
         $model->start_time = $req->get('start_time');
         $model->end_time = $req->get('end_time');
-        if(MyHelper::isCg()){
+        if (MyHelper::isCg()) {
             $model->provider_id = MyHelper::getUserId();
         }
 
@@ -89,7 +89,24 @@ class VisitController extends Controller {
 
 
             $patient = Patient::findOne($model->patient_id);
-            MyHelper::sendLineNotify($patient->prename . $patient->name . " " . $patient->lname . "..ได้รับการเยี่ยมดูแลโดย.." . MyHelper::getUserFullName());
+            $msg = $patient->prename . $patient->name . " " . $patient->lname;
+            $msg.="\r\n";
+            $msg.="เยี่ยมดูแลโดย " . MyHelper::getUserFullName();
+            $msg.="\r\n";
+            $msg.="หนัก" . $model->obj_weight . "กก. ,";
+            $msg.="สูง" . $model->obj_heigh . "ซม. ,";
+            $msg.="bmi=" . $model->obj_bmi;
+            $msg.="\r\n";
+            $msg.="อุณภูมิ:" . $model->obj_temperature;
+            $msg.=",ชีพจร:" . $model->obj_pulse;
+            $msg.=",ความดัน:" . $model->obj_bp;
+            $msg.=",หายใจ:" . $model->obj_rr;
+            $msg.=",ADL=" . $model->obj_adl;
+            $msg.="\r\n";
+            $msg.="ผลการเยี่ยม: ".$model->job_result;
+            $msg.="\r\n";
+            $msg.="ปัญหาที่พบ: ".$model->problem;
+            MyHelper::sendLineNotify($msg);
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
