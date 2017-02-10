@@ -89,7 +89,9 @@ class VisitController extends Controller {
 
 
             $patient = Patient::findOne($model->patient_id);
-            $msg = $patient->prename . $patient->name . " " . $patient->lname;
+            $msg = $patient->prename . $patient->name . " " . $patient->lname . "(" . $patient->age_y . "ปี)";
+            $msg.="\r\n";
+            $msg.=" กลุ่ม (" . $patient->class_name . ")";
             $msg.="\r\n";
             $msg.="เยี่ยมดูแลโดย " . MyHelper::getUserFullName();
             $msg.="\r\n";
@@ -105,9 +107,9 @@ class VisitController extends Controller {
             $msg.=",หายใจ:" . $model->obj_rr;
             $msg.=",ADL=" . $model->obj_adl;
             $msg.="\r\n";
-            $msg.="ผลการเยี่ยม: ".$model->job_result;
+            $msg.="ผลการเยี่ยม: " . $model->job_result;
             $msg.="\r\n";
-            $msg.="ปัญหาที่พบ: ".$model->problem;
+            $msg.="ปัญหาที่พบ: " . $model->problem;
             MyHelper::sendLineNotify($msg);
 
             return $this->redirect(['view', 'id' => $model->id]);
