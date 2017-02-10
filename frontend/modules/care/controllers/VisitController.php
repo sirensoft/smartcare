@@ -93,6 +93,8 @@ class VisitController extends Controller {
             $msg.="\r\n";
             $msg.="เยี่ยมดูแลโดย " . MyHelper::getUserFullName();
             $msg.="\r\n";
+            $msg.=$model->subjective;
+            $msg.="\r\n";
             $msg.="หนัก" . $model->obj_weight . "กก. ,";
             $msg.="สูง" . $model->obj_heigh . "ซม. ,";
             $msg.="bmi=" . $model->obj_bmi;

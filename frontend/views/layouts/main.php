@@ -43,7 +43,6 @@ AppAsset::register($this);
                 ['label' => 'Home', 'url' => ['/site/index']],
                 ['label' => 'ข้อมูล', 'url' => ['/site']],
                 ['label' => 'รายงาน', 'url' => ['/report/default/index']],
-                
                     //['label' => 'Contact', 'url' => ['/site/contact']],
             ];
             if (Yii::$app->user->isGuest) {
@@ -62,13 +61,13 @@ AppAsset::register($this);
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => $menuItems,
             ]);
-            
+
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-left'],
                 'encodeLabels' => false,
                 'items' => [['label' => 'SmartCare']],
             ]);
-            
+
             NavBar::end();
             ?>
 
