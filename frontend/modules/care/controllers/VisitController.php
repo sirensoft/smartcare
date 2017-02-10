@@ -93,8 +93,6 @@ class VisitController extends Controller {
             $msg.="\r\n";
             $msg.=" กลุ่ม (" . $patient->class_name . ")";
             $msg.="\r\n";
-            $msg.="เยี่ยมดูแลโดย " . MyHelper::getUserFullName();
-            $msg.="\r\n";
             $msg.=$model->subjective;
             $msg.="\r\n";
             $msg.="หนัก" . $model->obj_weight . "กก. ,";
@@ -110,6 +108,9 @@ class VisitController extends Controller {
             $msg.="ผลการเยี่ยม: " . $model->job_result;
             $msg.="\r\n";
             $msg.="ปัญหาที่พบ: " . $model->problem;
+            $msg.="\r\n";
+            $msg.="ผู้เยี่ยม:" . MyHelper::getUserFullName();
+            
             MyHelper::sendLineNotify($msg);
 
             return $this->redirect(['view', 'id' => $model->id]);
