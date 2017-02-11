@@ -9,11 +9,11 @@ use kartik\tabs\TabsX;
 $this->title = '::Backend::';
 ?>
 <div class="site-index">
-    <div> Server Time : 
-        <span id="time">
-        <?=date('Y-m-d H:i:s')?>
-        </span>
+    <div style="padding: 5px"> 
+        Server Time :<span id="time" style="color: white;background-color: blueviolet"><?=date('Y-m-d H:i:s')?></span> 
+        ,Last Job Time :<span id="job" style="background-color: lightgreen">0000-00-00 00:00:00</span>
     </div>
+  
 
     <?php
     $items = [
@@ -22,8 +22,12 @@ $this->title = '::Backend::';
             'content' => $this->render('admin', []),
         ],
         [
+            'label'=>'MySQL',
+            'content'=>$this->render('mysql')
+        ],
+        [
             'label' => 'เกี่ยวกับ',
-        //'content' => $this->render('admin', []),
+       
         ],
     ];
     ?>
@@ -45,11 +49,18 @@ $this->title = '::Backend::';
 </div>
 <?php
 $rout_ajax_time = Url::toRoute(['util/ajax-time']);
+$route_last_job_time = Url::toRoute(['util/last-job-time']);
 $js = <<<JS
      
      setInterval(function(){
         $.get('$rout_ajax_time',function(data){
             $('#time').html(data);
+        });
+     },1000);
+     
+     setTimeout(function(){
+        $.get('$route_last_job_time',function(data){
+            $('#job').html(data);
         });
      },1000);
     
