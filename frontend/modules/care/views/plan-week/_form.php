@@ -18,16 +18,7 @@ use kartik\widgets\TimePicker;
 <?php endif; ?>
 
 <?php $form = ActiveForm::begin(['id' => 'plan-form']); ?>
-<?php if (MyHelper::isCm()): ?>
-    <div class="form-group">
-        <div class="col-md-12">
-            <label class="control-label" for="chk_cg">
-                <?= Html::checkbox('chk_cg', FALSE, ['id' => 'chk_cg', 'class' => 'from-control']); ?>
-                ดูแลโดย CG
-            </label>
-        </div>
-    </div>
-<?php endif; ?>
+
 
 <div class="form-group">
     <div class="col-md-6">
@@ -64,11 +55,31 @@ use kartik\widgets\TimePicker;
         <?php endif; ?>
     </div>
 </div>
+<?php if (MyHelper::isCm()): ?>
+    <div class="form-group">
+        <div class="col-md-12">
+            <label class="control-label" for="chk_cg">
+                <?= Html::checkbox('chk_cg', FALSE, ['id' => 'chk_cg', 'class' => 'from-control']); ?>
+                ดูแลโดย CG
+            </label>
+        </div>
+    </div>
+<?php endif; ?>
 <div class="form-group">
     <div class="col-md-12">
         <?= $form->field($model, 'title')->textarea(['rows' => 3, 'readonly' => MyHelper::isCg()]) ?>
     </div>
 </div>
+<?php if ($model->isNewRecord and MyHelper::getDay($model->start_date) == 'Mon'): ?>
+    <div class="form-group">
+        <div class="col-md-12">
+            <label class="control-label" for="chk_day">
+                <?= Html::checkbox('chk_day', FALSE, ['id' => 'chk_day', 'class' => 'from-control']); ?>
+                ทำทุกวันตลอดสัปดาห์ เวลาเดียวกันนี้
+            </label>
+        </div>
+    </div>
+<?php endif; ?>
 
 <div class="form-group">
     <div class="col-md-12">
@@ -86,16 +97,7 @@ use kartik\widgets\TimePicker;
     </div>
 </div>
 
-<?php if ($model->isNewRecord and MyHelper::getDay($model->start_date) == 'Mon'): ?>
-    <div class="form-group">
-        <div class="col-md-12">
-            <label class="control-label" for="chk_day">
-                <?= Html::checkbox('chk_day', FALSE, ['id' => 'chk_day', 'class' => 'from-control']); ?>
-                ทำทุกวันตลอดสัปดาห์ เวลาเดียวกันนี้
-            </label>
-        </div>
-    </div>
-<?php endif; ?>
+
 
 
 <?php if (!$model->isNewRecord): ?>
@@ -200,7 +202,11 @@ use kartik\widgets\TimePicker;
 <?php
 $js = <<<JS
    $('#chk_cg').change( function(){
-       $('#planweek-title').text('ดูแลโดยCG');
+        if(this.checked){
+            $('#planweek-title').text('ดูแลโดยCG');
+        }else{
+            $('#planweek-title').text('');
+        }
        
     });
 JS;
