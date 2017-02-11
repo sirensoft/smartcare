@@ -3,7 +3,12 @@
 use yii\grid\GridView;
 use yii\data\ArrayDataProvider;
 use yii\widgets\Pjax;
+use yii\helpers\Html;
+?>
 
+<?php Pjax::begin(); ?>
+<?= Html::a("Refresh", ['/util/mysql'], ['id' => 'refreshButton','style'=>'display']) ?>
+<?php
 $sql = " show processlist;";
 $raw = \Yii::$app->db->createCommand($sql)->queryAll();
 $dataProvider = new ArrayDataProvider([
@@ -26,6 +31,16 @@ echo GridView::widget([
         
     ]
 ]);
+?>
+<?php Pjax::end(); ?>
+
+<?php
+$script = <<< JS
+$(document).ready(function() {
+    setInterval(function(){ $("#refreshButton").click(); }, 5000);
+});
+JS;
+$this->registerJs($script);
 ?>
 
 

@@ -23,7 +23,7 @@ $this->title = '::Backend::';
         ],
         [
             'label'=>'MySQL',
-            'content'=>$this->render('mysql')
+            'content'=>$this->render('/util/mysql')
         ],
         [
             'label' => 'เกี่ยวกับ',
@@ -35,7 +35,7 @@ $this->title = '::Backend::';
         <div class="panel-heading">
             <i class="glyphicon glyphicon-cog"></i> จัดการระบบ
         </div>
-        <div class="panel-body">
+        <div class="panel-body" style="padding: 10px">
             <?php
             echo TabsX::widget([
                 'items' => $items,
