@@ -24,9 +24,10 @@ class DefaultController extends AppController {
         $this->permitRole([1, 2, 3, 4]);
         $uid = MyHelper::getUserId();
 
-        $sql = " SELECT concat(t.prename,t.`name`,' ',t.lname) 'ผู้สูงอายุ',t.age_y 'อายุ(ปี)',t.class_name 'กลุ่ม',t.village_no 'หมู่ที่',t.house_no 'บ้านเลขที่'
-,u.u_name 'CG',COUNT(DISTINCT v.date_visit) 'เยี่ยมแล้ว(ครั้ง)' 
-,MAX(DISTINCT v.date_visit) 'เยียมล่าสุด'
+        $sql = " SELECT concat(t.prename,t.`name`,' ',t.lname) 'name',color,t.age_y
+,t.class_name ,t.village_no ,t.house_no
+,u.u_name 'cg',COUNT(DISTINCT v.date_visit) 'count_visit' 
+,MAX(DISTINCT v.date_visit) 'last_visit'
 FROM patient t
 LEFT JOIN visit v ON v.patient_id = t.id 
 LEFT JOIN `user` u on u.id = t.cg_id
