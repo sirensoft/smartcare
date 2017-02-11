@@ -158,12 +158,18 @@ $this->title = "ประวัติรับบริการ";
                                         'dataProvider' => $dataProviderdr,
                                 ]),
                             ],
-                                [
+                             [
                                 'label' => 'Lab',
                                 'content' => $this->render('lab', [
                                     'dataProvider' => $dataProviderl,
                                 ]),
                             ],
+                            [
+                                'label'=>'หัตถการ',
+                                'content'=>$this->render('proced',[
+                                    'dataProvider'=>$dataProviderp
+                                ])
+                            ]
                             /*  [
                               'label' => 'หัตถการ',
                               'content' => $this->render('diag', [

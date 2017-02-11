@@ -204,12 +204,27 @@ class DefaultController extends AppController {
                 'pageSize' => 20
             ],
         ]);
+        
+        //หัตถการ
+        $sql_proced = " SELECT s.PROCEDCODE 'CODE',c.en_desc 'PROCED' FROM tmp_procedure_opd s 
+INNER JOIN cproced c ON c.procedcode = s.PROCEDCODE
+WHERE s.HOSPCODE = '$hospcode' AND s.CID='$cid' AND s.SEQ ='$seq' ";
+        $raw_proced = $connection->createCommand($sql_proced)
+                ->queryAll();
+        $dataProviderp = new ArrayDataProvider([
+            //'key' => 'hoscode',
+            'allModels' => $raw_proced,
+            'pagination' => [
+                'pageSize' => 20
+            ],
+        ]);
 
         return $this->render('index', ['cid' => $cid, 'tname' => $tname, 'taddr' => $taddr, 'sex' => $sex, 'chronic' => $chronic,'birth'=>$birth,
                     'dataProvider' => $dataProvider,
                     'dataProvideri' => $dataProvideri,
                     'dataProviderl' => $dataProviderl,
                     'dataProviderdr' => $dataProviderdr,
+                    'dataProviderp'=>$dataProviderp,
                     'dateserv' => $date_serv,
                     'cc' => $cc,
                     'sbp' => $sbp,
