@@ -31,7 +31,7 @@ $this->title = '::Backend::';
         ],
     ];
     ?>
-    <div class="panel panel-success" style="margin-top: 15px">
+    <div class="panel panel-warning" style="margin-top: 15px">
         <div class="panel-heading">
             <i class="glyphicon glyphicon-cog"></i> จัดการระบบ
         </div>
