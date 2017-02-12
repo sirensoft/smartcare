@@ -10,10 +10,12 @@ $this->registerCssFile('//api.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol
 
 
 
-$this->registerCssFile('./lib-gis/leaflet-search.min.css',['async' => false, 'defer' => true]);
-$this->registerCssFile('./lib-gis/leaflet.label.css',['async' => false, 'defer' => true]);
-$this->registerJsFile('./lib-gis/leaflet-search.min.js',['position' => $this::POS_HEAD]);
-$this->registerJsFile('./lib-gis/leaflet.label.js',['position' => $this::POS_HEAD]);
+$this->registerCssFile('./lib-gis/leaflet-search.min.css', ['async' => false, 'defer' => true]);
+$this->registerCssFile('./lib-gis/leaflet.label.css', ['async' => false, 'defer' => true]);
+$this->registerJsFile('./lib-gis/leaflet-search.min.js', ['position' => $this::POS_HEAD]);
+$this->registerJsFile('./lib-gis/leaflet.label.js', ['position' => $this::POS_HEAD]);
+
+
 ?>
 
 
@@ -27,6 +29,7 @@ $this->registerJsFile('./lib-gis/leaflet.label.js',['position' => $this::POS_HEA
     <div class="panel-footer" id="info">
 
     </div>
+
 </div>
 
 
@@ -36,6 +39,7 @@ $js = <<<JS
             
 L.mapbox.accessToken = 'pk.eyJ1IjoidGVobm5uIiwiYSI6ImNpZzF4bHV4NDE0dTZ1M200YWxweHR0ZzcifQ.lpRRelYpT0ucv1NN08KUWQ';
 var map = L.mapbox.map('map').setView([16.74094277,100.27255121], 9); 
+
 
  var lc = L.control.locate({
          position: 'topright',
@@ -49,6 +53,8 @@ var baseLayers = {
 	"แผนที่ถนน": L.mapbox.tileLayer('mapbox.streets').addTo(map),  
         "แผนที่ถนนละเอียด":new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png'),
         "แผนที่ดาวเทียม": L.mapbox.tileLayer('mapbox.satellite'),
+       
+        
         
         
     };
