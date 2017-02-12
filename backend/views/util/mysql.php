@@ -1,6 +1,6 @@
 <?php
 
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use yii\data\ArrayDataProvider;
 use yii\widgets\Pjax;
 use yii\helpers\Html;
@@ -19,6 +19,7 @@ $dataProvider = new ArrayDataProvider([
 
 <?php
 echo GridView::widget([
+    'responsiveWrap' => false,
     'dataProvider'=>$dataProvider,
     'columns'=>[
         'Id',
