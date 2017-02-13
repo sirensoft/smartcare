@@ -102,43 +102,45 @@ use kartik\widgets\TimePicker;
 
 <?php if (!$model->isNewRecord): ?>
     <?php if (!MyHelper::isCg()): ?>
-        <div class="form-group">
-            <div class="col-md-3">
-                <?= $form->field($model, 'weight')->textInput(['maxlength' => true]) ?>
+        <?php if (1 == 2): ?>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <?= $form->field($model, 'weight')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-md-3">
+                    <?= $form->field($model, 'height')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-md-3">
+                    <?= $form->field($model, 'waist')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-md-3">
+                    <?= $form->field($model, 'pulse')->textInput(['maxlength' => true]) ?>
+                </div>
             </div>
-            <div class="col-md-3">
-                <?= $form->field($model, 'height')->textInput(['maxlength' => true]) ?>
-            </div>
-            <div class="col-md-3">
-                <?= $form->field($model, 'waist')->textInput(['maxlength' => true]) ?>
-            </div>
-            <div class="col-md-3">
-                <?= $form->field($model, 'pulse')->textInput(['maxlength' => true]) ?>
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-3">
-                <?= $form->field($model, 'temp')->textInput(['maxlength' => true]) ?>
+            <div class="form-group">
+                <div class="col-md-3">
+                    <?= $form->field($model, 'temp')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-md-2">
+                    <?= $form->field($model, 'sbp')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-md-2">
+                    <?= $form->field($model, 'dbp')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-md-2">
+                    <?= $form->field($model, 'rr')->textInput(['maxlength' => true]) ?>
+                </div>
+                <div class="col-md-3">
+                    <?= $form->field($model, 'sugar')->textInput(['maxlength' => true]) ?>
+                </div>
             </div>
-            <div class="col-md-2">
-                <?= $form->field($model, 'sbp')->textInput(['maxlength' => true]) ?>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <?= $form->field($model, 'note')->textarea(['rows' => 4]) ?>
+                </div>
             </div>
-            <div class="col-md-2">
-                <?= $form->field($model, 'dbp')->textInput(['maxlength' => true]) ?>
-            </div>
-            <div class="col-md-2">
-                <?= $form->field($model, 'rr')->textInput(['maxlength' => true]) ?>
-            </div>
-            <div class="col-md-3">
-                <?= $form->field($model, 'sugar')->textInput(['maxlength' => true]) ?>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-12">
-                <?= $form->field($model, 'note')->textarea(['rows' => 4]) ?>
-            </div>
-        </div>
+        <?php endif; ?>
     <?php endif; ?>
 
 <?php endif; ?>
