@@ -50,8 +50,8 @@ var map = L.mapbox.map('map').setView([16.74094277,100.27255121], 9);
       }).addTo(map);
         
 var baseLayers = {
-	"แผนที่ถนน": L.mapbox.tileLayer('mapbox.streets').addTo(map),  
-        "แผนที่ถนนละเอียด":new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png'),
+	//"แผนที่ถนน": L.mapbox.tileLayer('mapbox.streets').addTo(map),  
+        "แผนที่ถนน":new L.tileLayer('//{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map),
         "แผนที่ดาวเทียม": L.mapbox.tileLayer('mapbox.satellite'),
        
         
