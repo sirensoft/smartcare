@@ -103,6 +103,7 @@ class VisitController extends Controller {
             $msg.=",ชีพจร:" . $model->obj_pulse;
             $msg.=",ความดัน:" . $model->obj_bp;
             $msg.=",หายใจ:" . $model->obj_rr;
+             $msg.=",น้ำตาล:" . $model->obj_sugar;
             $msg.=",ADL=" . $model->obj_adl;
             $msg.="\r\n";
             $msg.="ผลการเยี่ยม: " . $model->job_result;
