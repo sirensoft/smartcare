@@ -7,7 +7,7 @@ use yii\helpers\Html;
 ?>
 
 <?php Pjax::begin(); ?>
-<?= Html::a("Refresh", ['/util/mysql'], ['id' => 'refreshButton','style'=>'display']) ?>
+<?= Html::a("Refresh", ['/util/process-list'], ['id' => 'refreshButton','style'=>'display']) ?>
 <?php
 $sql = " show processlist;";
 $raw = \Yii::$app->db->createCommand($sql)->queryAll();

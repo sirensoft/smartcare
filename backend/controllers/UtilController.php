@@ -17,8 +17,8 @@ class UtilController extends AppController
         $raw = \Yii::$app->db->createCommand($sql)->queryScalar();
         return $raw;
     }
-    public function actionMysql(){
-        return $this->render('mysql');
+    public function actionProcessList(){
+        return $this->render('process-list');
     }
 
 }

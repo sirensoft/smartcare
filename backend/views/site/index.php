@@ -22,8 +22,8 @@ $this->title = '::Backend::';
             'content' => $this->render('admin', []),
         ],
         [
-            'label'=>'MySQL',
-            'content'=>$this->render('/util/mysql')
+            'label'=>'สถานะ MySQL',
+            'content'=>$this->render('/util/process-list')
         ],
         [
             'label' => 'เกี่ยวกับ',
