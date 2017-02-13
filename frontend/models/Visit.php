@@ -24,6 +24,7 @@ use backend\models\User;
  * @property integer $obj_pulse
  * @property integer $obj_rr
  * @property string $obj_bp
+ * @property double $obj_sugar
  * @property integer $obj_adl
  * @property string $asses_1
  * @property string $asses_2
@@ -58,7 +59,7 @@ class Visit extends \yii\db\ActiveRecord
             [['plan_week_id', 'patient_id', 'provider_id','obj_pulse', 'obj_rr', 'obj_adl'], 'integer'],
             [['date_visit', 'start_time', 'end_time'], 'safe'],
             [['subjective', 'asses_1', 'asses_2', 'asses_3', 'asses_4', 'asses_5', 'asses_6', 'asses_7', 'asses_8', 'asses_9'], 'string'],
-            [['obj_weight', 'obj_heigh', 'obj_bmi', 'obj_temperature'], 'number','message' => ''],
+            [['obj_sugar','obj_weight', 'obj_heigh', 'obj_bmi', 'obj_temperature'], 'number','message' => ''],
             [['hospcode'], 'string', 'max' => 5],
             [['obj_bp', 'job_result', 'problem', 'next_plan'], 'string', 'max' => 255],
         ];
@@ -90,6 +91,7 @@ class Visit extends \yii\db\ActiveRecord
             'obj_pulse' => 'ชีพจร',
             'obj_rr' => 'หายใจ',
             'obj_bp' => 'ความดัน',
+            'obj_sugar' => 'ค่าน้ำตาล',
             'obj_adl' => 'คะแนน ADL',
             'asses_1' => '1.การดูแลกิจวัตรประจำวันพื้นฐาน',
             'asses_2' => '2. การดูแลผู้มีอุปกรณ์การแพทย์',

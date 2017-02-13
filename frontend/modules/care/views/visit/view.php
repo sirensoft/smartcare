@@ -55,6 +55,7 @@ $this->params['breadcrumbs'][] = 'รายการเยี่ยม';
             'obj_pulse',
             'obj_rr',
             'obj_bp',
+            'obj_sugar',
             'obj_adl',
             'asses_1:ntext',
             'asses_2:ntext',

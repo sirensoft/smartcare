@@ -21,7 +21,7 @@ class VisitSearch extends Visit {
         return [
             [['id', 'plan_week_id', 'patient_id',  'obj_pulse', 'obj_rr', 'obj_adl'], 'integer'],
             [['provider_id','user','hospcode', 'date_visit', 'start_time', 'end_time', 'subjective', 'obj_bp', 'asses_1', 'asses_2', 'asses_3', 'asses_4', 'asses_5', 'asses_6', 'asses_7', 'asses_8', 'asses_9', 'job_result', 'problem', 'next_plan'], 'safe'],
-            [['obj_weight', 'obj_heigh', 'obj_bmi', 'obj_temperature'], 'number'],
+            [['obj_sugar','obj_weight', 'obj_heigh', 'obj_bmi', 'obj_temperature'], 'number'],
         ];
     }
 
@@ -80,6 +80,7 @@ class VisitSearch extends Visit {
             'obj_temperature' => $this->obj_temperature,
             'obj_pulse' => $this->obj_pulse,
             'obj_rr' => $this->obj_rr,
+            'obj_sugar' => $this->obj_sugar,
             'obj_adl' => $this->obj_adl,
         ]);
 

@@ -102,33 +102,38 @@ WHERE t.office = '$office' order by t.role ";
         </div>
     </div>
     <div class="form-group">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <?= $form->field($model, 'obj_weight')->textInput() ?>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <?= $form->field($model, 'obj_heigh')->textInput() ?>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <?= $form->field($model, 'obj_bmi')->textInput() ?>
-        </div>
-        <div class="col-md-3">
-            <?= $form->field($model, 'obj_temperature')->textInput() ?>
-        </div>
+        </div>       
     </div>
     <div class="form-group">
-        <div class="col-md-3">
+         <div class="col-md-4">
+            <?= $form->field($model, 'obj_temperature')->textInput() ?>
+        </div>
+        <div class="col-md-4">
             <?= $form->field($model, 'obj_pulse')->textInput() ?>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <?= $form->field($model, 'obj_rr')->textInput() ?>
         </div>
-
-        <div class="col-md-3">
+       
+    </div>
+    <div class="form-group">
+         <div class="col-md-4">
             <?= $form->field($model, 'obj_bp')->textInput(['maxlength' => true]) ?>
         </div>
+        <div class="col-md-4">
+            <?= $form->field($model, 'obj_sugar')->textInput() ?>
+        </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <?php
             if (empty($model->obj_adl)) {
                 $pt = Patient::findOne($model->patient_id);
@@ -146,6 +151,7 @@ WHERE t.office = '$office' order by t.role ";
                 </span> 
             </div>
         </div>
+        
     </div>
     <div class="form-group">
         <div class="col-md-6">
