@@ -89,20 +89,23 @@ class VisitController extends Controller {
 
 
             $patient = Patient::findOne($model->patient_id);
-            $msg = $patient->prename . $patient->name . " " . $patient->lname . "(" . $patient->age_y . "ปี)";
+            $msg="\r\n";
+            $msg.= $patient->prename . $patient->name . " " . $patient->lname . "(" . $patient->age_y . "ปี)";
             $msg.="\r\n";
             $msg.=" กลุ่ม (" . $patient->class_name . ")";
             $msg.="\r\n";
             $msg.=$model->subjective;
             $msg.="\r\n";
-            $msg.="หนัก" . $model->obj_weight . "กก. ,";
+            $msg.="นน." . $model->obj_weight . "กก. ,";
             $msg.="สูง" . $model->obj_heigh . "ซม. ,";
             $msg.="bmi=" . $model->obj_bmi;
             $msg.="\r\n";
             $msg.="อุณภูมิ:" . $model->obj_temperature;
             $msg.=",ชีพจร:" . $model->obj_pulse;
+            $msg.="\r\n";
             $msg.=",ความดัน:" . $model->obj_bp;
             $msg.=",หายใจ:" . $model->obj_rr;
+            $msg.="\r\n";
              $msg.=",น้ำตาล:" . $model->obj_sugar;
             $msg.=",ADL=" . $model->obj_adl;
             $msg.="\r\n";
