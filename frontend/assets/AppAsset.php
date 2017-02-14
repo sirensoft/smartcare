@@ -14,6 +14,7 @@ class AppAsset extends AssetBundle {
     public $css = [
         'css/site.css',
         'css/navbar.css',
+        'css/btn_plus.css'
     ];
     public $js = [
         'js/yii_overrides.js',
