@@ -61,7 +61,8 @@ class Visit extends \yii\db\ActiveRecord
             [['subjective', 'asses_1', 'asses_2', 'asses_3', 'asses_4', 'asses_5', 'asses_6', 'asses_7', 'asses_8', 'asses_9'], 'string'],
             [['obj_sugar','obj_weight', 'obj_heigh', 'obj_bmi', 'obj_temperature'], 'number','message' => ''],
             [['hospcode'], 'string', 'max' => 5],
-            [['obj_bp', 'job_result', 'problem', 'next_plan'], 'string', 'max' => 255],
+            [['job_result', 'problem', 'next_plan'], 'string', 'max' => 255],
+            [['obj_bp'], 'string', 'max' => 7],
         ];
     }
     
