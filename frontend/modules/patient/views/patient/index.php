@@ -105,6 +105,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         'responsiveWrap' => false,
                         'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
                         'columns' => $columns,
+                        'panel'=>[
+                            'before'=>''
+                        ]
                     ]);
                     ?>
 </div>
