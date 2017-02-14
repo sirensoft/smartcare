@@ -92,7 +92,7 @@ class VisitController extends Controller {
             $msg="\r\n";
             $msg.= $patient->prename . $patient->name . " " . $patient->lname . "(" . $patient->age_y . "ปี)";
             $msg.="\r\n";
-            $msg.=" กลุ่ม (" . $patient->class_name . ")";
+            $msg.="กลุ่ม (" . $patient->class_name . ")";
             $msg.="\r\n";
             $msg.=$model->subjective;
             $msg.="\r\n";
@@ -101,13 +101,13 @@ class VisitController extends Controller {
             $msg.="bmi=" . $model->obj_bmi;
             $msg.="\r\n";
             $msg.="อุณภูมิ:" . $model->obj_temperature;
-            $msg.=",ชีพจร:" . $model->obj_pulse;
+            $msg.=" ,ชีพจร:" . $model->obj_pulse;
             $msg.="\r\n";
-            $msg.=",ความดัน:" . $model->obj_bp;
-            $msg.=",หายใจ:" . $model->obj_rr;
+            $msg.="ความดัน:" . $model->obj_bp;
+            $msg.=" ,หายใจ:" . $model->obj_rr;
             $msg.="\r\n";
-             $msg.=",น้ำตาล:" . $model->obj_sugar;
-            $msg.=",ADL=" . $model->obj_adl;
+             $msg.="น้ำตาล:" . $model->obj_sugar;
+            $msg.=" ,ADL=" . $model->obj_adl;
             $msg.="\r\n";
             $msg.="ผลการเยี่ยม: " . $model->job_result;
             $msg.="\r\n";
