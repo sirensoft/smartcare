@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= Html::a('<i class="glyphicon glyphicon-calendar"></i> แผน', ['/care/plan/index', 'pid' => $model->id], ['class' => 'btn btn-deep-orange ']) ?>
             <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เยี่ยม', ['/care/visit/index', 'pid' => $model->id], ['class' => 'btn btn-green']) ?>
 
-            <?= Html::a('<i class="glyphicon glyphicon-print"></i> พิมพ์', ['/patient/print/index', 'pid' => $model->id], ['class' => 'btn btn-default','target'=>'_blank']) ?>
+            <?= Html::a(' <i class="glyphicon glyphicon-signal"></i> ', ['/patient/chart/index', 'pid' => $model->id], ['class' => 'btn btn-default','target'=>'_blank']) ?>
             <?= Html::a(' <i class="glyphicon glyphicon-remove"></i> ', ['/patient/patient/discharge', 'pid' => $model->id], ['class' => 'btn btn-danger pull-right']) ?>
             
         <?php endif; ?>

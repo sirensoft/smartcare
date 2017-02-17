@@ -42,9 +42,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     return ['style' => "color:black;background-color:$model->color;",'class' => 'text-center'];
                 }
                 return ['style' => "color:white;background-color:$model->color;",'class' => 'text-center'];
-            }
+            },
+            
         ],
-        'class_name',
+        [
+            'attribute'=>'class_name',
+            //'group'=>true,  // enable grouping,
+            
+        ],
                
         //'prename',
         'name',
@@ -93,7 +98,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             'attribute' => 'cg_id',
                             'label' => 'CG',
                             'value' => 'user.u_name',
-                            'group'=>true,
+                            //'group'=>true,
+                            //'groupedRow'=>true,  
+                            
                         ];
                     }
                     ?>
