@@ -40,8 +40,8 @@ AppAsset::register($this);
                 ],
             ]);
             $menuItems = [
-                ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'ข้อมูล', 'url' => ['/site']],
+                ['label' => 'กลุ่มพึ่งพิง', 'url' => ['/site/index']],
+                ['label' => 'กลุ่มปกติ', 'url' => ['/aging/']],
                 ['label' => 'รายงาน', 'url' => ['/report/default/index']],
                     //['label' => 'Contact', 'url' => ['/site/contact']],
             ];
