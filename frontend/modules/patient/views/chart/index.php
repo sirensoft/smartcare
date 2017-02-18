@@ -2,24 +2,66 @@
 
 use common\components\MyHelper;
 use yii\helpers\Html;
+use kartik\tabs\TabsX;
+use yii\bootstrap\Tabs;
+use miloschuman\highcharts\HighchartsAsset;
+
+HighchartsAsset::register($this)->withScripts(['modules/exporting', 'modules/drilldown']);
 
 $this->title = MyHelper::ptInfo_($pid);
-
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="panel panel-success">
     <div class="panel-heading">
-        <h4><?= $this->title ?></h4>
+<?= MyHelper::ptInfoDiv($pid) ?>
     </div>
     <div class="panel-body">
-        <ul>
-            <li><?= Html::a('ข้อมูลบุคคล') ?></li>
-            <li><?= Html::a('ประวัติการดูแล') ?></li>
-            
-        </ul>
+<?php
+echo TabsX::widget([
+    //'position' => TabsX::POS_ABOVE,
+    //'align' => TabsX::ALIGN_LEFT,
+  
+    'items' => [
+        [
+            'label' => 'ADL',
+            'content' => $this->render('adl', [
+                'pid' => $pid
+            ]),
+        ],
+        [
+            'label' => 'น้ำหนัก',
+            'content' => $this->render('weight', [
+                'pid' => $pid
+            ]),
+        ],
+        [
+            'label' => 'ความดัน',
+            'content' => $this->render('bp', [
+                'pid' => $pid
+            ]),
+        ],
+        [
+            'label' => 'น้ำตาล',
+            'content' => $this->render('sugar', [
+                'pid' => $pid
+            ]),
+        ]
+    ],
+]);
+?>
 
     </div>
 
 </div>
+<?php
+$js = <<<JS
+    $("#chart_adl").width('100%');
+    $("#chart_weight").width('100%');
+    $("#chart_bp").width('100%');
+    $("#chart_sugar").width('100%');
+JS;
+
+$this->registerJs($js)
+
+?>
 
