@@ -56,9 +56,9 @@ echo TabsX::widget([
 <?php
 $js = <<<JS
     $("#chart_adl").width('100%');
-    $("#chart_weight").width('100%');
-    $("#chart_bp").width('100%');
-    $("#chart_sugar").width('100%');
+    $("#chart_weight").width('95%');
+    $("#chart_bp").width('95%');
+    $("#chart_sugar").width('95%');
 JS;
 
 $this->registerJs($js)

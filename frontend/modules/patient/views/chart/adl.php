@@ -4,18 +4,18 @@
 <?php
 
 
-$sql = " SELECT t.d_update 'DATE_SERV',t.adl_score FROM assessment t  
-        WHERE  t.patient_id = '$pid' order by t.d_update ASC";
+$sql = "select * from (SELECT t.d_update 'd',t.adl_score a FROM assessment t  
+        WHERE  t.patient_id = '$pid' ORDER BY t.d_update DESC limit 24) tt order by d asc";
 
 $raw = \Yii::$app->db->createCommand($sql)->queryAll();
 $categories = [];
 $data = [];
 foreach ($raw as $value) {
-    $date = new DateTime($value['DATE_SERV']);
+    $date = new DateTime($value['d']);
     $date = $date->format('Y-m-d');
     $categories[] =$date;
     
-    $data[]=$value['adl_score']*1;
+    $data[]=$value['a']*1;
 }
 
 $categories = json_encode($categories);
