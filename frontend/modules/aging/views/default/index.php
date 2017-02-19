@@ -34,7 +34,7 @@ echo GridView::widget([
     'beforeHeader'=>[
         [
             'columns'=>[
-               
+                ['content'=>'#', 'options'=>['colspan'=>1, 'class'=>'text-center warning']],
                 ['content'=>'ผู้สูงอายุ', 'options'=>['colspan'=>6, 'class'=>'text-center warning']],
                 ['content'=>'ADL', 'options'=>['colspan'=>2, 'class'=>'text-center warning']],
                 ['content'=>'เบาหวาน', 'options'=>['colspan'=>2, 'class'=>'text-center warning']],
@@ -52,7 +52,16 @@ echo GridView::widget([
             //'options'=>['class'=>'skip-export'] // remove this row from export
         ]
     ],
-    'columns' => [      
+    'columns' => [  
+        [
+            
+                'label'=>' ',
+                'format' => 'raw',
+                'value' => function($model) {
+                    return Html::a('<i class="glyphicon glyphicon-zoom-in"></i>', ['/aging/default/view', 'cid' => $model['cid']]);
+                },
+                'filter'=>FALSE
+        ],
         'cid',
         'name:text:ชื่อ', 
         'lname:text:สกุล',

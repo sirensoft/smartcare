@@ -24,4 +24,21 @@ class DefaultController extends AppController
                     
         ]);
     }
+    
+    public function actionView($cid){
+        
+        $searchModel = new RptAging();  
+        
+        $params= \Yii::$app->request->queryParams;
+        
+        $dataProvider = $searchModel->search(['RptAging'=>['cid'=>$cid]]);
+        
+        return $this->render('view', [
+                    
+                    'dataProvider' => $dataProvider,
+                    'params'=>$params
+                    
+                    
+        ]);
+    }
 }
