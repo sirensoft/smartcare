@@ -133,6 +133,10 @@ class VisitController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
+        
+        if(MyHelper::isCg() and $model->provider_id !== MyHelper::getUserId()){
+            throw  new \yii\web\ConflictHttpException('ไม่อนุญาต');
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -151,6 +155,11 @@ class VisitController extends Controller {
      */
     public function actionDelete($id) {
         $model = $this->findModel($id);
+        
+        if(MyHelper::isCg() and $model->provider_id !== MyHelper::getUserId()){
+            throw  new \yii\web\ConflictHttpException('ไม่อนุญาต');
+        }
+        
         $pid = $model->patient_id;
         $model->delete();
 
