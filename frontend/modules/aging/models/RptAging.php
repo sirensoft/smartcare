@@ -9,21 +9,20 @@ use common\components\MyHelper;
 
 class RptAging extends Model {
 
-    public  $cid,$name,$lname, $moo,$adl_code,$dm_risk,$ht_risk,$cvd_res,$amt_code;
-   
+    public $sex, $cid, $name, $lname, $moo, $adl_code, $dm_risk, $ht_risk, $cvd_res;
 
     public function rules() {
         return [
-            [['cid','name','lname','moo','adl_code','dm_risk','ht_risk','cvd_res','amt_code'], 'safe']
+            [['sex', 'cid', 'name', 'lname', 'moo', 'adl_code', 'dm_risk', 'ht_risk', 'cvd_res'], 'safe']
         ];
     }
 
     public function search($params = null) {
         $hospcode = MyHelper::getUserOffice();
-       
-            
-            $sql = " SELECT
-p.CID cid ,p.`NAME` 'name',p.LNAME 'lname',p.SEX sex,p.age_y age,RIGHT(p.vhid,2) moo
+
+
+        $sql = " SELECT
+p.CID cid ,pn.prename,p.`NAME` 'name',p.LNAME 'lname',p.SEX sex,p.age_y age,RIGHT(p.vhid,2) moo
 
 ,t.adl_date,t.adl_code
 ,t.ht_date,t.ht_risk
@@ -46,10 +45,11 @@ END as 'cvd_res'
 
 FROM t_aged t INNER JOIN t_person_cid p ON t.cid=p.cid
 LEFT JOIN chospital_amp h on t.HOSPCODE = h.hoscode
+LEFT JOIN cprename pn on pn.id_prename = p.PRENAME
 WHERE p.check_typearea in(1,3) AND p.NATION in(99) AND p.DISCHARGE in(9) AND LENGTH(TRIM(p.CID)) = 13
 AND p.age_y >= 60 AND p.age_y < 200
 AND h.hoscode = '$hospcode' ";
-   
+
 
         $models = \Yii::$app->db_hdc->createCommand($sql)->queryAll();
 
@@ -58,17 +58,16 @@ AND h.hoscode = '$hospcode' ";
         $query->from($models);
 
         if ($this->load($params) && $this->validate()) {
-             $query->andFilterWhere(['like', 'cid', $this->cid]);  
+            $query->andFilterWhere(['like', 'cid', $this->cid]);
             $query->andFilterWhere(['like', 'name', $this->name]);
-            $query->andFilterWhere(['like', 'lname', $this->lname]);            
-            $query->andFilterWhere(['moo'=> $this->moo]);
-            $query->andFilterWhere(['adl_code'=> $this->adl_code]);
-             $query->andFilterWhere(['dm_risk'=> $this->dm_risk]);
-              $query->andFilterWhere(['ht_risk'=> $this->ht_risk]);
-               $query->andFilterWhere(['cvd_res'=> $this->cvd_res]);
-                $query->andFilterWhere(['amt_code'=> $this->amt_code]);
-           
-            
+            $query->andFilterWhere(['like', 'lname', $this->lname]);
+            $query->andFilterWhere(['moo' => $this->moo]);
+            $query->andFilterWhere(['adl_code' => $this->adl_code]);
+            $query->andFilterWhere(['dm_risk' => $this->dm_risk]);
+            $query->andFilterWhere(['ht_risk' => $this->ht_risk]);
+            $query->andFilterWhere(['cvd_res' => $this->cvd_res]);
+            //$query->andFilterWhere(['amt_code' => $this->amt_code]);
+            $query->andFilterWhere(['sex' => $this->sex]);
         }
         $all_models = $query->all();
         if (!empty($all_models[0])) {

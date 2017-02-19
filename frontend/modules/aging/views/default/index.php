@@ -31,7 +31,7 @@ echo GridView::widget([
         'before'=>'(เชื่อมต่อข้อมูลจากระบบ HDC กระทรวงสาธารณสุข)',
         'heading'=>'รายชื่อ'
     ],
-    'beforeHeader'=>[
+    /*'beforeHeader'=>[
         [
             'columns'=>[
                 ['content'=>'#', 'options'=>['colspan'=>1, 'class'=>'text-center warning']],
@@ -51,25 +51,33 @@ echo GridView::widget([
             ],
             //'options'=>['class'=>'skip-export'] // remove this row from export
         ]
-    ],
+    ],*/
     'columns' => [  
-        [
-            
-                'label'=>' ',
-                'format' => 'raw',
-                'value' => function($model) {
-                    return Html::a('<i class="glyphicon glyphicon-zoom-in"></i>', ['/aging/default/view', 'cid' => $model['cid']]);
-                },
-                'filter'=>FALSE
+        [            
+            'label'=>'',
+            'format' => 'raw',
+            'value' => function($model) {
+                return Html::a('<i class="glyphicon glyphicon-zoom-in"></i>', ['/aging/default/view', 'cid' => $model['cid']]);
+            },
+            'filter'=>FALSE
         ],
-        'cid',
+        //'cid',
+        'prename:text:คำนำ',            
         'name:text:ชื่อ', 
         'lname:text:สกุล',
-        'sex:text:เพศ',
+        [
+            'attribute'=>'sex',
+            'label'=>'เพศ',
+            'filter'=>['1'=>'ชาย','2'=>'หญิง'],
+            'value'=>function($model){
+                $val=['1'=>'ชาย','2'=>'หญิง'];
+                return $val[$model['sex']];
+            }
+        ],
         'age:integer:อายุ',
         'moo:text:หมู่ที่',
         
-        'adl_date:date:คัด',
+        
         [
             'attribute'=>'adl_code',
             'label'=>'ADL',
@@ -83,7 +91,7 @@ echo GridView::widget([
             }
         ],
                 
-        'dm_date:date:คัด',
+        
         [
             'attribute'=>'dm_risk',
             'label'=>'DM',
@@ -97,7 +105,7 @@ echo GridView::widget([
             }
         ],
                 
-        'ht_date:date:คัด',
+        
         [
             'attribute'=>'ht_risk',
             'label'=>'HT',
@@ -111,7 +119,7 @@ echo GridView::widget([
             }
         ],
         
-        'cvd_score:text:คะแนน',
+        
         [
             'attribute'=>'cvd_res',
             'filter'=>['1'=>'ต่ำ','2'=>'ปานกลาง','3'=>'สูง','4'=>'สูงมาก','5'=>'สูงอันตราย'],
@@ -125,10 +133,10 @@ echo GridView::widget([
             }
         ],
                 
-        'dent_date:date:คัด',
+       
         [
             'attribute'=>'dent_code',
-            'label'=>'ช่องปาก',
+            'label'=>'ปาก',
             'filter'=>['1B1260'=>'ปกติ','1B1261'=>'ผิดปกติ','1B1269'=>'ไม่ระบุ'],
             'value'=>function($model){
                 $code = $model['dent_code'];
@@ -139,7 +147,7 @@ echo GridView::widget([
             }
         ],
         
-        'amt_date:date:คัด',
+        
         [
             'attribute'=>'amt_code',
             'label'=>'AMT',
@@ -153,7 +161,7 @@ echo GridView::widget([
             }
         ],
                 
-        '2q_date:date:คัด',
+       
         [
             'attribute'=>'2q_code',
             'label'=>'2Q',
@@ -167,7 +175,7 @@ echo GridView::widget([
             }
         ],
                 
-        'knee_date:date:คัด',
+        
         [
             'attribute'=>'knee_code',
             'label'=>'เข่า',
@@ -181,7 +189,7 @@ echo GridView::widget([
             }
         ],
                 
-         'fall_date:date:คัด',
+        
         [
             'attribute'=>'fall_code',
             'label'=>'หกล้ม',
