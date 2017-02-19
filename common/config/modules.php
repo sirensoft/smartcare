@@ -31,5 +31,8 @@ return [
     'ehr' => [
         'class' => 'frontend\modules\ehr\Ehr',
     ],
+    'aging' => [
+        'class' => 'frontend\modules\aging\Aging',
+    ],
 ];
 
