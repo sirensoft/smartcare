@@ -64,6 +64,7 @@ echo GridView::widget([
         [
             'attribute'=>'adl_code',
             'label'=>'ADL',
+            'filter'=>['1B1280'=>'ติดสังคม','1B1281'=>'ติดบ้าน','1B1282'=>'ติดเตียง'],
             'value'=>function($model){
                 $code = $model['adl_code'];
                 $val =['1B1280'=>'ติดสังคม','1B1281'=>'ติดบ้าน','1B1282'=>'ติดเตียง'];
@@ -77,6 +78,7 @@ echo GridView::widget([
         [
             'attribute'=>'dm_risk',
             'label'=>'DM',
+            'filter'=>['0'=>'ปกติ','1'=>'เสี่ยง','2'=>'เสี่ยงสูง'],
             'value'=>function($model){
                 $code = $model['dm_risk'];
                 $val =['0'=>'ปกติ','1'=>'เสี่ยง','2'=>'เสี่ยงสูง'];
@@ -90,6 +92,7 @@ echo GridView::widget([
         [
             'attribute'=>'ht_risk',
             'label'=>'HT',
+            'filter'=>['0'=>'ปกติ','1'=>'เสี่ยง','2'=>'เสี่ยงสูง'],
             'value'=>function($model){
                 $code = $model['ht_risk'];
                 $val =['0'=>'ปกติ','1'=>'เสี่ยง','2'=>'เสี่ยงสูง'];
@@ -101,7 +104,8 @@ echo GridView::widget([
         
         'cvd_score:text:คะแนน',
         [
-            'attribute'=>'cvd_score',
+            'attribute'=>'cvd_res',
+            'filter'=>['1'=>'ต่ำ','2'=>'ปานกลาง','3'=>'สูง','4'=>'สูงมาก','5'=>'สูงอันตราย'],
             'label'=>'CVD',
             'value'=>function($model){
                 $code = $model['cvd_res'];
@@ -116,6 +120,7 @@ echo GridView::widget([
         [
             'attribute'=>'dent_code',
             'label'=>'ช่องปาก',
+            'filter'=>['1B1260'=>'ปกติ','1B1261'=>'ผิดปกติ','1B1269'=>'ไม่ระบุ'],
             'value'=>function($model){
                 $code = $model['dent_code'];
                 $val =['1B1260'=>'ปกติ','1B1261'=>'ผิดปกติ','1B1269'=>'ไม่ระบุ'];
@@ -129,6 +134,7 @@ echo GridView::widget([
         [
             'attribute'=>'amt_code',
             'label'=>'AMT',
+            'filter'=>['1B1220'=>'ปกติ','1B1221'=>'ผิดปกติ(1B1221)','1B1223'=>'ผิดปกติ(1B1223)','1B1229'=>'ไม่ระบุ'],
             'value'=>function($model){
                 $code = $model['amt_code'];
                 $val =['1B1220'=>'ปกติ','1B1221'=>'ผิดปกติ','1B1223'=>'ผิดปกติ','1B1229'=>'ไม่ระบุ'];
@@ -142,6 +148,7 @@ echo GridView::widget([
         [
             'attribute'=>'2q_code',
             'label'=>'2Q',
+            'filter'=>['1B0280'=>'ปกติ','1B0281'=>'ผิดปกติ'],
             'value'=>function($model){
                 $code = $model['2q_code'];
                 $val =['1B0280'=>'ปกติ','1B0281'=>'ผิดปกติ'];
@@ -155,6 +162,7 @@ echo GridView::widget([
         [
             'attribute'=>'knee_code',
             'label'=>'เข่า',
+            'filter'=>['1B1270'=>'ปกติ','1B1271'=>'ผิดปกติ(1B1271)','1B1272'=>'ผิดปกติ(1B1272)','1B1279'=>'ไม่ระบุ'],
             'value'=>function($model){
                 $code = $model['knee_code'];
                 $val =['1B1270'=>'ปกติ','1B1271'=>'ผิดปกติ','1B1272'=>'ผิดปกติ','1B1279'=>'ไม่ระบุ'];
@@ -168,6 +176,7 @@ echo GridView::widget([
         [
             'attribute'=>'fall_code',
             'label'=>'หกล้ม',
+            'filter'=>['1B1200'=>'ปกติ','1B1201'=>'ผิดปกติ(1B1201)','1B1202'=>'ผิดปกติ(1B1202)','1B1209'=>'ไม่ระบุ'],
             'value'=>function($model){
                 $code = $model['fall_code'];
                 $val =['1B1200'=>'ปกติ','1B1201'=>'ผิดปกติ','1B1202'=>'ผิดปกติ','1B1209'=>'ไม่ระบุ'];

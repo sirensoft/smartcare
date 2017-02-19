@@ -9,12 +9,12 @@ use common\components\MyHelper;
 
 class RptAging extends Model {
 
-    public  $cid,$name,$lname, $moo;
+    public  $cid,$name,$lname, $moo,$adl_code,$dm_risk,$ht_risk,$cvd_res;
    
 
     public function rules() {
         return [
-            [['cid','name','lname','moo'], 'safe']
+            [['cid','name','lname','moo','adl_code','dm_risk','ht_risk','cvd_res'], 'safe']
         ];
     }
 
@@ -62,6 +62,10 @@ AND h.hoscode = '$hospcode' ";
             $query->andFilterWhere(['like', 'name', $this->name]);
             $query->andFilterWhere(['like', 'lname', $this->lname]);            
             $query->andFilterWhere(['moo'=> $this->moo]);
+            $query->andFilterWhere(['adl_code'=> $this->adl_code]);
+             $query->andFilterWhere(['dm_risk'=> $this->dm_risk]);
+              $query->andFilterWhere(['ht_risk'=> $this->ht_risk]);
+               $query->andFilterWhere(['cvd_res'=> $this->cvd_res]);
            
             
         }
