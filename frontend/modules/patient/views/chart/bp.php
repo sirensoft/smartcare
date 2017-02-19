@@ -55,10 +55,12 @@ $js = <<<JS
                 enableMouseTracking: true
             }
         },
+        
         series: [{
             name: 'ความดัน',
             data: $data,
-            color:'blue'
+            color:'blue',
+            hasCustomFlag: true,
         }]
     });
 });     
