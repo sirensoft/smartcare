@@ -28,7 +28,7 @@ echo GridView::widget([
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
     'panel'=>[
-        'before'=>'(เชื่อมต่อข้อมูลจากระบบ HDC กระทรวงสาธารณสุข)',
+        'before'=>'(เชื่อมต่อกับ 43 แฟ้ม)',
         'heading'=>'รายชื่อ'
     ],
     /*'beforeHeader'=>[
