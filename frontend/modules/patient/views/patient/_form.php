@@ -189,6 +189,9 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
     <div class="col-sm-3">  
         <?php
         $sql = "SELECT t.dischargecode id , concat(t.dischargecode,'-',t.dischargedesc) val from c_discharge t";
+        if($model->isNewRecord){
+          $sql = "SELECT t.dischargecode id , concat(t.dischargecode,'-',t.dischargedesc) val from c_discharge t where t.dischargecode=9";   
+        }
         $items = MyHelper::dropDownItems($sql, 'id', 'val');
 
         echo $form->field($model, 'discharge')->widget(Select2::classname(), [

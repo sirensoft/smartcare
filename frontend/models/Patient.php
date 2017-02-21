@@ -64,7 +64,7 @@ class Patient extends \yii\db\ActiveRecord {
     public function rules() {
         return [
 
-            [['cg_id','house_no','cid', 'prename', 'name', 'lname', 'province', 'district', 'sex', 'subdistrict', 'village_no', 'hospcode'], 'required','message' => ''],
+            [['cg_id','house_no','cid', 'prename', 'name', 'lname', 'province', 'district', 'sex', 'subdistrict', 'village_no', 'hospcode','discharge'], 'required','message' => ''],
             [['next_visit_date','birth'], 'safe'],
             [['discharge_time','discharge_date','discharge_note','dupdate','cousin','tel'], 'safe'],
             [['age_y','typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
