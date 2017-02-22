@@ -233,6 +233,11 @@ WHERE t.role = 3 AND t.office = '$office' ";
         ?>
     </div>
 </div>
+<div class="form-group">
+    <div class="col-sm-12"> 
+    <?=$form->field($model,'note')->textarea(['rows'=>4,'cols'=>4])?>
+    </div>
+</div>
 
 
 <div class="form-group">

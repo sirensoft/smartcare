@@ -47,6 +47,7 @@ use Yii;
  * @property string $dupdate
  * @property string $fullname
  * @property string $next_visit_date
+ * @property string $note 
  */
 class Patient extends \yii\db\ActiveRecord {
 
@@ -66,7 +67,7 @@ class Patient extends \yii\db\ActiveRecord {
 
             [['cg_id','house_no','cid', 'prename', 'name', 'lname', 'province', 'district', 'sex', 'subdistrict', 'village_no', 'hospcode','discharge'], 'required','message' => ''],
             [['next_visit_date','birth'], 'safe'],
-            [['discharge_time','discharge_date','discharge_note','dupdate','cousin','tel'], 'safe'],
+            [['note','discharge_time','discharge_date','discharge_note','dupdate','cousin','tel'], 'safe'],
             [['age_y','typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
             [['cid', 'tai'], 'string', 'max' => 13],
             [['mstatus','religion','color','pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'race', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
@@ -120,7 +121,8 @@ class Patient extends \yii\db\ActiveRecord {
             'dupdate' => 'วันอัพเดทข้อมูล',
             'fullname'=>'ชื่อ-สกุล',
             'fulladdr'=>'ที่อยู่ปัจจุบัน',
-            'next_visit_date'=>'เยี่ยมถัดไป'
+            'next_visit_date'=>'เยี่ยมถัดไป',
+            'note'=>'ข้อมูลอื่นๆ'
         ];
     }
     
