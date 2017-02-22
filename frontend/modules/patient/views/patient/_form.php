@@ -237,6 +237,7 @@ WHERE t.role = 3 AND t.office = '$office' ";
     <div class="col-sm-12"> 
     <?=$form->field($model,'note')->textarea(['rows'=>4,'cols'=>4])?>
     </div>
+    
 </div>
 
 
@@ -246,6 +247,7 @@ WHERE t.role = 3 AND t.office = '$office' ";
         <?= Html::submitButton($model->isNewRecord ? '<i class="glyphicon glyphicon-ok"></i> เพิ่ม' : '<i class="glyphicon glyphicon-ok"></i> บันทึก ', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         <?= Html::a('ยกเลิก', ['/patient/patient/index'], ['class' => 'btn btn-default']); ?>
     </div> 
+    
 </div>
 
 <?= $form->field($model, 'dupdate')->hiddenInput(['value' => date('Y-m-d')])->label(FALSE) ?>
