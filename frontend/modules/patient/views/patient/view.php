@@ -103,12 +103,15 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             //'cdischarge.dischargedesc',
             'discharge_date:date',
-            'discharge_note',
+            'discharge_note',           
             [
+                'attribute'=>'note',
+                'value'=>$model->note
+            ],
+             [
                 'attribute'=>'cg_id',
                 'value'=>$model->user->u_prename.$model->user->u_name.' '.$model->user->u_lname
             ],
-            'note'
         ],
     ])
     ?>
