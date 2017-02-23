@@ -8,5 +8,6 @@ return [
         'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
     ],
     'modules' => require(__DIR__ . '/modules.php'),
-    'language'=>'th-TH'
+    'language'=>'th-TH',
+     'timeZone' => 'Asia/Bangkok'
 ];
