@@ -9,5 +9,5 @@ return [
     ],
     'modules' => require(__DIR__ . '/modules.php'),
     'language'=>'th-TH',
-     'timeZone' => 'Asia/Bangkok'
+    'timeZone' => 'Asia/Bangkok'
 ];

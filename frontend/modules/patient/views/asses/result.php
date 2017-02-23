@@ -10,7 +10,7 @@ HighchartsAsset::register($this)->withScripts([
         //'modules/drilldown'
 ]);
 
-$sql = " SELECT t.d_update 'DATE_SERV',t.adl_score,t.pp_code,tai_score,t.tai_class,t.group_text,t.note
+$sql = " SELECT t.date_serv 'DATE_SERV',t.adl_score,t.pp_code,tai_score,t.tai_class,t.group_text,t.note
 ,concat(u.u_prename,u.u_name,' ',u.u_lname) provider FROM assessment t 
 LEFT JOIN `user` u on u.id = t.provider_id
 WHERE  t.patient_id = '$pid' order by t.id DESC";
@@ -30,7 +30,7 @@ echo GridView::widget([
     'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
     'columns' => [
         ['class' => 'yii\grid\SerialColumn'],
-        'DATE_SERV:datetime:วันที่ประเมิน',
+        'DATE_SERV:date:วันที่ประเมิน',
         'adl_score:integer:ADL SCORE',
         'tai_class:text:TAI CLASS',
         'group_text:text:จัดกลุ่ม',
