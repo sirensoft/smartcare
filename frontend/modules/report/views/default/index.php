@@ -11,5 +11,8 @@ $this->params['breadcrumbs'][] = 'รายงาน';
         <li>
             <?=  Html::a('รายงานผลการดูแลรายคน',['/report/default/report2'])?>
         </li>
+        <li>
+            <?=  Html::a('ความเคลื่อนไหว ADL',['/report/default/report3'])?>
+        </li>
     </ol>
 </div>
