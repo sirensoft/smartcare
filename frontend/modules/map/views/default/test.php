@@ -1,19 +1,7 @@
 <?php
 $this->title = "MAP";
-$this->registerCssFile('//api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', ['async' => false, 'defer' => true]);
-//$this->registerCssFile('./lib-gis/leaflet-search.min.css',['async' => false, 'defer' => true]);
-//$this->registerCssFile('./lib-gis/leaflet.label.css',['async' => false, 'defer' => true]);
-
-//$this->registerCssFile('//domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css', ['async' => false, 'defer' => true]);
-//$this->registerCssFile('//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', ['async' => false, 'defer' => true]);
-
-$this->registerJsFile('//api.mapbox.com/mapbox.js/v3.0.1/mapbox.js', ['position' => $this::POS_HEAD]);
-//$this->registerJsFile('./lib-gis/leaflet-search.min.js',['position' => $this::POS_HEAD]);
-//$this->registerJsFile('./lib-gis/leaflet.label.js',['position' => $this::POS_HEAD]);
-
-//$this->registerJsFile('//domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js', ['position' => $this::POS_HEAD]);
-
-
+use frontend\modules\map\assets\MapAsset;
+MapAsset::register($this);
 ?>
 
 

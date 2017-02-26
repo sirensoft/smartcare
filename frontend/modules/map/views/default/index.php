@@ -1,5 +1,7 @@
 <?php
 $this->title = "MAP";
+//use frontend\modules\map\assets\MapAsset;
+//MapAsset::register($this);
 $this->registerCssFile('//api.mapbox.com/mapbox.js/v3.0.1/mapbox.css', ['async' => false, 'defer' => true]);
 $this->registerJsFile('//api.mapbox.com/mapbox.js/v3.0.1/mapbox.js', ['position' => $this::POS_HEAD]);
 
