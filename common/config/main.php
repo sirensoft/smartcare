@@ -10,4 +10,10 @@ return [
     'modules' => require(__DIR__ . '/modules.php'),
     'language'=>'th-TH',
     'timeZone' => 'Asia/Bangkok'
+    
+    /* ที่ server
+     extension=php_intl.dll
+     [intl] 
+     intl.default_locale =th_TH.UTF-8
+     */
 ];
