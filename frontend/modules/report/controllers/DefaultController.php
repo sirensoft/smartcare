@@ -12,6 +12,9 @@ use yii\data\ArrayDataProvider;
 class DefaultController extends AppController {
 
     public function actionCalAdlMonth() {
+        
+        MyHelper::execSql("CALL set_adl_month;");
+        
         for ($id = 1; $id <= 100; $id++) {
             MyHelper::execSql(" CALL add_adl_month($id)");
         }

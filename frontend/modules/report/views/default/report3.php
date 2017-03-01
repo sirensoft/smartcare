@@ -1,8 +1,12 @@
 <?php
 
+$c_year = \Yii::$app->db->createCommand("select c_year from c_year_process")->queryScalar();
+$c_year = ($c_year*1)+543;
+
 $this->title = 'รายงาน';
 $this->params['breadcrumbs'][] = ['label' => 'รายงาน', 'url' => ['/report/']];
-$this->params['breadcrumbs'][] = 'รายงานความเคลื่อนไหว ADL';
+$this->params['breadcrumbs'][] = "รายงานความเคลื่อนไหว ADL ";
+
 
 use kartik\grid\GridView;
 
@@ -11,20 +15,21 @@ echo GridView::widget([
     'dataProvider'=>$dataProvider,
     'filterModel'=>$searchModel,
     'panel'=>[
-        'before'=>''
+        'before'=>"<h4>ปี $c_year</h4>"
     ],
     'beforeHeader'=>[
         [
             'columns'=>[
-                ['content'=>'ผู้สูงอายุ', 'options'=>['colspan'=>5, 'class'=>'text-center warning']], 
-                ['content'=>'ADL SCORE (ปี-2560)', 'options'=>['colspan'=>12, 'class'=>'text-center warning']],
+                ['content'=>'', 'options'=>['colspan'=>1, 'class'=>'text-center warning']],
+                ['content'=>'ผู้สูงอายุ', 'options'=>['colspan'=>4, 'class'=>'text-center warning']], 
+                ['content'=>'ADL SCORE', 'options'=>['colspan'=>12, 'class'=>'text-center warning']],
                 
             ],
             //'options'=>['class'=>'skip-export'] // remove this row from export
         ]
     ],
     'columns'=>[
-        ['class' => 'yii\grid\SerialColumn'],
+        ['class' => 'yii\grid\SerialColumn',],
         'name:text:ชื่อ-สกุล',
         'age_y:integer:อายุ(ปี)',
         'moo:text:หมู่ที่',
