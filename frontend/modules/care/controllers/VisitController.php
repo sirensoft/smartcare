@@ -116,6 +116,10 @@ class VisitController extends Controller {
             $msg.="ผู้เยี่ยม:" . MyHelper::getUserFullName();
             
             MyHelper::sendLineNotify($msg);
+            
+            //adl_month
+            $sql = "CALL add_adl_month($patient->id)";
+            MyHelper::execSql($sql);
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
