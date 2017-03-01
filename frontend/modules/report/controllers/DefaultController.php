@@ -11,6 +11,12 @@ use yii\data\ArrayDataProvider;
  */
 class DefaultController extends AppController {
 
+    public function actionCalAdlMonth() {
+        for ($id = 1; $id <= 100; $id++) {
+            MyHelper::execSql(" CALL add_adl_month($id)");
+        }
+    }
+
     public function actionIndex() {
         return $this->render('index');
     }
@@ -51,6 +57,19 @@ WHERE t.discharge=9 ";
 
         return $this->render('report2', [
                     'dataProvider' => $dataProvider
+        ]);
+    }
+
+    public function actionReport3() {
+        $hospcode = MyHelper::getUserOffice();
+        $searchModel = new \frontend\modules\report\models\RptAdlMonth($hospcode);
+
+        $dataProvider = $searchModel->search(\Yii::$app->request->queryParams);
+
+
+        return $this->render('report3', [
+                    'dataProvider' => $dataProvider,
+                    'searchModel' => $searchModel
         ]);
     }
 
