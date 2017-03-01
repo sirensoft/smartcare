@@ -34,7 +34,7 @@ echo GridView::widget([
         'age_y:integer:อายุ(ปี)',
         'moo:text:หมู่ที่',
         'class_name:text:กลุ่ม',
-         'm01:text:ม.ค.',
+         'm01:text:ม.ค.',      
          'm02:text:ก.พ.',
          'm03:text:มี.ค.',
          'm04:text:เม.ย.',
