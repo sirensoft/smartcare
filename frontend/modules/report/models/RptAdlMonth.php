@@ -39,7 +39,7 @@ AND p.hospcode = '$this->hospcode' ";
 
             $query->andFilterWhere(['like', 'name', $this->name]);
             $query->andFilterWhere(['like', 'class_name', $this->class_name]);
-            $query->andFilterWhere([ 'moo', $this->moo]);
+            $query->andFilterWhere([ 'moo'=> $this->moo]);
         }
         $all_models = $query->all();
         if (!empty($all_models[0])) {

@@ -16,6 +16,7 @@ $data = [];
 foreach ($raw as $value) {
     $date = new DateTime($value['d']);
     $date = $date->format('Y-m-d');
+    $date = \Yii::$app->formatter->asDate($date);
     $categories[] =$date;
     
     $data[]=$value['a']*1;
@@ -27,6 +28,9 @@ $data = json_encode($data);
 $js = <<<JS
    $(function () {
     Highcharts.chart('chart_bp', {
+        credits: {
+            enabled: false
+        },
         chart: {
             type: 'line',
             //width: 100%,
