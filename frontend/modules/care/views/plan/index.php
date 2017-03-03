@@ -36,7 +36,10 @@ $this->params['breadcrumbs'][] = "รายการแผน"
                 'attribute' => 'date_create',
                 'format' => 'raw',
                 'value' => function($model) {
-                    return Html::a($model->date_create, ['view', 'id' => $model->id]);
+                    //\Yii::$app->formatter->locale = 'th-TH';
+                    $d=$model->date_create;
+                    $d = \Yii::$app->formatter->asDate($d);
+                    return Html::a($d, ['view', 'id' => $model->id]);
                 }
             ],
             [

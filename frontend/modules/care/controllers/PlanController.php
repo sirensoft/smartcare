@@ -159,6 +159,7 @@ class PlanController extends AppController {
     }
 
     public function actionExcel($id) {
+        $fmt=\Yii::$app->formatter;
 
         $filePath = "./excel/plan.xls";
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
@@ -169,11 +170,11 @@ class PlanController extends AppController {
         $excel->getActiveSheet()->setCellValue('C1', $patient->prename . $patient->name . " " . $patient->lname);
         $excel->getActiveSheet()->setCellValue('E1', "อายุ " . $patient->age_y . " ปี");
         $excel->getActiveSheet()->setCellValue('F1', "หน่วยบริการ: ".MyHelper::getUserOfficeName());
-        $excel->getActiveSheet()->setCellValue('J1', "วันที่จัดทำ : ".$model->d_update);
+        $excel->getActiveSheet()->setCellValue('J1', "วันที่จัดทำ : ".$fmt->asDate($model->d_update));
         
         $excel->getActiveSheet()->setCellValue('C5', $patient->prename . $patient->name . " " . $patient->lname);
         $excel->getActiveSheet()->setCellValue('D6', $patient->cid);
-        $excel->getActiveSheet()->setCellValue('C7', $patient->birth);
+        $excel->getActiveSheet()->setCellValue('C7', $fmt->asDate($patient->birth));
         $excel->getActiveSheet()->setCellValue('D7', "อายุ " . $patient->age_y . " ปี");
         $addr = "ที่อยู่ปัจจุบัน " . $patient->house_no . " ม." . $patient->village_no
                 . " ต." . $patient->subdistrict . " อ." . $patient->district . " โทร." . $patient->tel;
