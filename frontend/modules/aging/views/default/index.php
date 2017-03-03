@@ -53,6 +53,10 @@ echo GridView::widget([
         ]
     ],*/
     'columns' => [  
+        [
+        'class' => 'yii\grid\SerialColumn',
+        
+        ],
         [            
             'label'=>'',
             'format' => 'raw',
@@ -61,6 +65,7 @@ echo GridView::widget([
             },
             'filter'=>FALSE
         ],
+        
         //'cid',
         'prename:text:คำนำ',            
         'name:text:ชื่อ', 
