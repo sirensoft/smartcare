@@ -1,6 +1,7 @@
 <?php
 
 namespace frontend\controllers;
+use frontend\models\Person;
 
 class Test2Controller extends \yii\web\Controller
 {
@@ -14,6 +15,10 @@ class Test2Controller extends \yii\web\Controller
     
     public function actionTestTime(){
         return date('Y-m-d H:i:s');
+    }
+    public function actionPerson() {
+        $models = Person::find()->where(['HOSPCODE'=>'07552','CID'=>'1650501125470'])->all();
+        var_dump($models);
     }
 
 }
