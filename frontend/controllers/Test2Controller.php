@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use frontend\models\Person;
 use frontend\models\FilePerson;
+use common\components\MyHelper;
 
 class Test2Controller extends \yii\web\Controller {
 
@@ -20,15 +21,19 @@ class Test2Controller extends \yii\web\Controller {
 
     public function actionPerson() {
 
-        $obj = Person::findOne(['HOSPCODE' => '07552']);
+        $hospcode = MyHelper::getUserOffice();
+        $oModel = Person::findAll(['HOSPCODE' => $hospcode]);
 
-        $clone = new FilePerson();
-        $clone->attributes = $obj->attributes;
-        try {
-            $clone->save();
-        } catch (\yii\db\Exception $e) {
-            $clone->isNewRecord = false;
-            $clone->save();
+        foreach ($oModel as $obj) {
+            $clone = new FilePerson();
+            $clone->attributes = $obj->attributes;
+
+            try {
+                $clone->save();
+            } catch (\yii\db\Exception $e) {
+                $clone->isNewRecord = false;
+                $clone->save();
+            }
         }
     }
 
