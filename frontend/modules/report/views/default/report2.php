@@ -50,6 +50,7 @@ $columns =[
     ],
     [
         'attribute'=>'last_visit',
+        'format'=>'date',
         'label'=>'เยี่ยมล่าสุด'
     ],
     
