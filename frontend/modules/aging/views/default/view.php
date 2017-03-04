@@ -18,7 +18,7 @@ echo TabsX::widget([
         ],
         [
             'label'=>'คัดกรอง-ออนไลน์',
-            'content'=>'<div></div>'
+            'content'=>'<div>ยังไม่เปิดใช้งาน</div>'
         ]
     ]
 ]);
