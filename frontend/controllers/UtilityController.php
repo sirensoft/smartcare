@@ -1,21 +1,20 @@
 <?php
 
 namespace frontend\controllers;
-use common\components\AppController;
 
+use common\components\AppController;
 use frontend\models\Person;
 use frontend\models\FilePerson;
 use common\components\MyHelper;
 use frontend\models\Patient;
 
-class UtilityController extends AppController
-{
-        
-    public function actionTime(){
+class UtilityController extends AppController {
+
+    public function actionTime() {
         return date('Y-m-d H:i:s');
     }
-    
-     public function actionPerson() {
+
+    public function actionPerson() {
 
         $hospcode = MyHelper::getUserOffice();
         $oModel = Person::findAll(['HOSPCODE' => $hospcode]);
@@ -32,6 +31,17 @@ class UtilityController extends AppController
             }
         }
     }
-    
+
+    public function actionAddAdlMon() {
+
+        $hospcode = MyHelper::getUserOffice();
+        $oModel = Patient::findAll(['hospcode' => $hospcode]);
+        foreach ($oModel as $obj) {
+            $pid = $obj->id;
+            //adl_month
+            $sql = "CALL add_adl_month($pid)";
+            MyHelper::execSql($sql);
+        }
+    }
 
 }
