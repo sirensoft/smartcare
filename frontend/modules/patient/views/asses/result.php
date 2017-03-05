@@ -72,11 +72,15 @@ $data = json_encode($data);
 $js = <<<JS
    $(function () {
     Highcharts.chart('chart', {
+        credits: {
+            enabled: false
+        },
         chart: {
             type: 'line',
             //width: 100%,
             height: 300
         },
+       
         title: {
             text: ' '
         },
