@@ -107,10 +107,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'note:ntext',
              [
                 'attribute'=>'cg_id',
-                'value'=>function($model){
-                    if(empty($model->cg_id))return NULL;
-                    return $model->user->u_prename.$model->user->u_name.' '.$model->user->u_lname;
-                }
+                'value'=>  !empty($model->user->u_name)?$model->user->u_prename.$model->user->u_name.' '.$model->user->u_lname:NULL
+                
             ],
         ],
     ])
