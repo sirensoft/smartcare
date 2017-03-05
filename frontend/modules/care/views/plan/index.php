@@ -46,12 +46,20 @@ $this->params['breadcrumbs'][] = "รายการแผน"
             'attribute' => 'rapid_code',
             'contentOptions' => function ($model) {
                 if ($model->rapid_code == 'yellow') {
-                    return ['style' => "color:black;background-color:$model->rapid_code;"];
+                    return ['style' => "color:black;background-color:$model->rapid_code;",'class' => 'text-center'];
                 }
-                return ['style' => "color:white;background-color:$model->rapid_code;"];
+                return ['style' => "color:white;background-color:$model->rapid_code;",'class' => 'text-center'];
             }
                 ],
-                    'adl',
+                    //'adl:integer:คะแนน ADL',
+                [
+                    'attribute'=>'adl',
+                    'label'=>'คะแนน ADL',
+                    'format'=>'integer',
+                    'contentOptions'=>[
+                        'class'=>'text-center'
+                    ]
+                ],
                     // 'adl_text',
                     // 'tai',
                     'tai_text:ntext:กลุ่ม',
