@@ -43,7 +43,7 @@ echo GridView::widget([
              'group'=>true,
             
         ],
-        'title:text:กิจกรรมตามแผน',
+        'title:ntext:กิจกรรมตามแผน',
         [
             'attribute'=>'is_done',
             'filter'=>['0'=>'0-ยังไม่ดูแล','1'=>'1-ดูแลแล้ว'],
