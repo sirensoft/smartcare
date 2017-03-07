@@ -3,8 +3,8 @@
 namespace frontend\controllers;
 
 use common\components\AppController;
-use frontend\models\Person;
-use frontend\models\FilePerson;
+use frontend\models\files43\Person;
+use frontend\models\files43\FilePerson;
 use common\components\MyHelper;
 use frontend\models\Patient;
 
