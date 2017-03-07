@@ -47,7 +47,12 @@ class Test2Controller extends \yii\web\Controller {
     }
 
     public function loadLastService($id) {
+        $count=1;
         $hospcode = MyHelper::getUserOffice();
+        $mCount = FileService::find()->where(['HOSPCODE' => $hospcode]);
+        if($mCount){
+            $count = $mCount->count()+1;
+        }
         $pt = Patient::findOne($id);
         if ($pt) {
             $pid = $pt->pid;
@@ -55,6 +60,7 @@ class Test2Controller extends \yii\web\Controller {
             return;
         }
         $model = new FileService();
+
         $service = Service::find()
                 ->where(['HOSPCODE' => $hospcode])
                 ->andWhere(['PID' => $pid])
@@ -63,6 +69,15 @@ class Test2Controller extends \yii\web\Controller {
                 ->one();
         $model->attributes = $service->attributes;
         try {
+            $model->SEQ = 'S'.$count;
+            $model->CHIEFCOMP = "คัดกรองผู้สูงอายุ (SmartCare)";
+            $model->DATE_SERV = date("Y-m-d");
+            $model->TIME_SERV = date("His");
+            $model->COST =0;
+            $model->PRICE=0;
+            $model->PAYPRICE=0;
+            $model->ACTUALPAY=0;
+            $model->D_UPDATE = new \yii\db\Expression('NOW()');
             $model->save();
         } catch (\yii\db\Exception $e) {
             $model->isNewRecord = false;
@@ -72,27 +87,6 @@ class Test2Controller extends \yii\web\Controller {
 
     public function actionService($id) {
         $this->loadLastService($id);
-
-        $hospcode = MyHelper::getUserOffice();
-        $pt = Patient::findOne($id);
-
-        $pid = $pt->pid;
-
-        $new_service = FileService::find()
-                ->where(['HOSPCODE' => $hospcode])
-                ->andWhere(['PID' => $pid])
-                //->asArray()
-                ->orderBy(['DATE_SERV' => SORT_DESC])
-                ->one();
-        $count= FileService::find()
-                ->where(['HOSPCODE' => $hospcode])
-                ->count();
-        //$new_service = FileService::findOne(4);
-        $new_service->SEQ = 'S' . $count;
-        $new_service->CHIEFCOMP = "คัดกรองผู้สูงอายุ (SmartCare)";
-        $new_service->DATE_SERV = date("Y-m-d");
-        $new_service->TIME_SERV = date("His");
-        $new_service->update();
     }
 
 }
