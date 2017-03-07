@@ -37,6 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
         //'disease',
         [
             'attribute' => 'color',
+            'filter'=>['red'=>'red','yellow'=>'yellow','blue'=>'blue'],
             'contentOptions' => function ($model) {
                 if ($model->color == 'yellow') {
                     return ['style' => "color:black;background-color:$model->color;",'class' => 'text-center'];
