@@ -45,13 +45,13 @@ class Test2Controller extends \yii\web\Controller {
         echo "<pre>";
         \yii\helpers\VarDumper::dump($model);
     }
-    
-    public function loadLastService($id){
+
+    public function loadLastService($id) {
         $hospcode = MyHelper::getUserOffice();
         $pt = Patient::findOne($id);
-        if($pt){
+        if ($pt) {
             $pid = $pt->pid;
-        }  else {
+        } else {
             return;
         }
         $model = new FileService();
@@ -72,7 +72,27 @@ class Test2Controller extends \yii\web\Controller {
 
     public function actionService($id) {
         $this->loadLastService($id);
-                
+
+        $hospcode = MyHelper::getUserOffice();
+        $pt = Patient::findOne($id);
+
+        $pid = $pt->pid;
+
+        $new_service = FileService::find()
+                ->where(['HOSPCODE' => $hospcode])
+                ->andWhere(['PID' => $pid])
+                //->asArray()
+                ->orderBy(['DATE_SERV' => SORT_DESC])
+                ->one();
+        $count= FileService::find()
+                ->where(['HOSPCODE' => $hospcode])
+                ->count();
+        //$new_service = FileService::findOne(4);
+        $new_service->SEQ = 'S' . $count;
+        $new_service->CHIEFCOMP = "คัดกรองผู้สูงอายุ (SmartCare)";
+        $new_service->DATE_SERV = date("Y-m-d");
+        $new_service->TIME_SERV = date("His");
+        $new_service->update();
     }
 
 }
