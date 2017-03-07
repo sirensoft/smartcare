@@ -29,8 +29,13 @@ class Test2Controller extends \yii\web\Controller {
     
     public function actionFindPerson(){
         $arr = [1,9];
-        $model = TestPerson::find()->where(['<','pid',3])->orWhere(['>','pid',9])
-                ->asArray()->all();
+        $model = TestPerson::find()
+                ->where(['<','pid',3])
+                ->orWhere(['>','pid',9])
+                ->asArray()
+                ->orderBy('pid')
+                ->all();
+        echo json_encode($model);
         echo "<pre>";
         \yii\helpers\VarDumper::dump($model);
        
