@@ -32,8 +32,9 @@ class Test2Controller extends \yii\web\Controller {
         $model = TestPerson::find()
                 ->where(['<','pid',3])
                 ->orWhere(['>','pid',9])
+                ->andWhere(['name'=>NULL])
                 ->asArray()
-                ->orderBy('pid')
+                ->orderBy(['pid'=>SORT_DESC])
                 ->all();
         echo json_encode($model);
         echo "<pre>";
