@@ -1,6 +1,7 @@
 <?php
 
 namespace frontend\controllers;
+use frontend\models\test\TestPerson;
 
 class Test2Controller extends \yii\web\Controller {
 
@@ -23,6 +24,16 @@ class Test2Controller extends \yii\web\Controller {
        }else{
            echo "model don't exist.";
        }
+        
+    }
+    
+    public function actionFindPerson(){
+        $arr = [1,9];
+        $model = TestPerson::find()->where(['<','pid',3])->orWhere(['>','pid',9])
+                ->asArray()->all();
+        echo "<pre>";
+        \yii\helpers\VarDumper::dump($model);
+       
         
     }
 
