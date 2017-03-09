@@ -9,7 +9,7 @@ use common\components\MyHelper;
 
 class RptAdlMonth extends Model {
 
-    public $hospcode, $name, $class_name,$moo;
+    public $hospcode, $name, $class_name,$moo,$patient_id;
 
     public function __construct($hospcode) {
         $this->hospcode = $hospcode;
@@ -17,13 +17,13 @@ class RptAdlMonth extends Model {
 
     public function rules() {
         return [
-            [['name', 'hospcode', 'class_name','moo'], 'safe']
+            [['name', 'hospcode', 'class_name','moo','patient_id'], 'safe']
         ];
     }
 
     public function search($params = null) {
 
-        $sql = " SELECT concat(p.prename,p.`name`,' ',p.lname) name
+        $sql = " SELECT t.patient_id,concat(p.prename,p.`name`,' ',p.lname) name
 ,p.age_y,p.class_name,p.village_no moo,t.*,p.cg_id from adl_month t
 INNER JOIN patient p ON p.id = t.patient_id AND p.discharge = 9 
 AND p.hospcode = '$this->hospcode' ";

@@ -1,5 +1,5 @@
 <?php
-
+use yii\helpers\Html;
 $c_year = \Yii::$app->db->createCommand("select c_year from c_year_process")->queryScalar();
 $c_year = ($c_year*1)+543;
 
@@ -30,6 +30,16 @@ echo GridView::widget([
     ],
     'columns'=>[
         ['class' => 'yii\grid\SerialColumn',],
+        [
+            //'attribute' => 'cid',
+                'label'=>' ',
+                'format' => 'raw',
+                'value' => function($model) {
+                    $pid=$model['patient_id'];
+                    return Html::a('<i class="glyphicon glyphicon-zoom-in"></i>', ['/patient/patient/view', 'pid' => $pid]);
+                },
+                'filter'=>FALSE
+        ],
         'name:text:ชื่อ-สกุล',
         'age_y:integer:อายุ(ปี)',
         'moo:text:หมู่ที่',
