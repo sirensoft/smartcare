@@ -5,6 +5,7 @@ namespace frontend\modules\patient\controllers;
 use common\components\AppController;
 use common\components\MyHelper;
 use frontend\models\Assessment;
+use yii\filters\VerbFilter;
 
 /**
  * Description of AssesController
@@ -18,6 +19,17 @@ class AssesController extends AppController {
             $this->enableCsrfValidation = false;
         }
         return parent::beforeAction($action);
+    }
+    
+       public function behaviors() {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'delete' => ['POST'],
+                ],
+            ],
+        ];
     }
 
     public function actionIndex($pid) {
@@ -64,6 +76,20 @@ class AssesController extends AppController {
         return $this->render('index', [
                     'pid' => $pid
         ]);
+    }
+    public function actionUpdate($id){
+        $model = Assessment::findOne($id);
+        if ($model->load(\Yii::$app->request->post()) && $model->save()) {
+            \Yii::$app->session->setFlash('success', "บันทึกสำเร็จ!!!");
+               //adl_month
+            $sql = "CALL add_adl_month($model->patient_id)";
+            MyHelper::execSql($sql);
+            return $this->redirect(['index', 'pid' => $model->patient_id]);
+        } else {
+            return $this->render('update', [
+                        'model' => $model,
+            ]);
+        }
     }
 
 }

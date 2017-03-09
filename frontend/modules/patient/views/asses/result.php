@@ -3,6 +3,8 @@
 use yii\data\ArrayDataProvider;
 use kartik\grid\GridView;
 use miloschuman\highcharts\HighchartsAsset;
+use common\components\MyHelper;
+use yii\helpers\Html;
 
 HighchartsAsset::register($this)->withScripts([
     //'highstock',
@@ -10,7 +12,7 @@ HighchartsAsset::register($this)->withScripts([
         //'modules/drilldown'
 ]);
 
-$sql = " SELECT t.date_serv 'DATE_SERV',t.adl_score,t.pp_code,tai_score,t.tai_class,t.group_text,t.note
+$sql = " SELECT t.id aid,t.date_serv 'DATE_SERV',t.adl_score,t.pp_code,tai_score,t.tai_class,t.group_text,t.note
 ,concat(u.u_prename,u.u_name,' ',u.u_lname) provider FROM assessment t 
 LEFT JOIN `user` u on u.id = t.provider_id
 WHERE  t.patient_id = '$pid' order by t.id DESC";
@@ -24,20 +26,38 @@ $dataProvider = new ArrayDataProvider([
     ]
         ]);
 
+
+$cols = [
+    ['class' => 'yii\grid\SerialColumn'],
+    //'aid',
+    'DATE_SERV:date:วันที่ประเมิน',
+    'adl_score:integer:ADL SCORE',
+    'tai_class:text:TAI CLASS',
+    'group_text:text:จัดกลุ่ม',
+    'pp_code:text:SPECIALPP',
+    'provider:text:ผู้ประเมิน',
+    'note:text:หมายเหตุ',
+];
+if (MyHelper::isCm()) {
+    $cols[] = [
+        'class' => 'yii\grid\ActionColumn',
+        'header' => '#',
+        'template' => '{update}',
+        'buttons'=>[
+        'update' => function($url,$model,$key) use ($dataProvider){
+            $data = $dataProvider->getModels();            
+            $aid = $data[$key]['aid'];
+            return Html::a('<i class="glyphicon glyphicon-edit"></i>',['/patient/asses/update','id'=>$aid]);
+        },
+       
+    ]
+    ];
+}
 echo GridView::widget([
     'dataProvider' => $dataProvider,
     'responsiveWrap' => false,
     'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '-'],
-    'columns' => [
-        ['class' => 'yii\grid\SerialColumn'],
-        'DATE_SERV:date:วันที่ประเมิน',
-        'adl_score:integer:ADL SCORE',
-        'tai_class:text:TAI CLASS',
-        'group_text:text:จัดกลุ่ม',
-        'pp_code:text:SPECIALPP',
-        'provider:text:ผู้ประเมิน',
-        'note:text:หมายเหตุ'
-    ]
+    'columns' => $cols
 ]);
 ?>
 
@@ -61,9 +81,9 @@ foreach ($raw as $value) {
     $date = new DateTime($value['d']);
     $date = $date->format('Y-m-d');
     $date = \Yii::$app->formatter->asDate($date);
-    $categories[] =$date;
-    
-    $data[]=$value['a']*1;
+    $categories[] = $date;
+
+    $data[] = $value['a'] * 1;
 }
 
 $categories = json_encode($categories);
