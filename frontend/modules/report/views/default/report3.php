@@ -21,7 +21,7 @@ echo GridView::widget([
         [
             'columns'=>[
                 ['content'=>'', 'options'=>['colspan'=>1, 'class'=>'text-center warning']],
-                ['content'=>'ผู้สูงอายุ', 'options'=>['colspan'=>4, 'class'=>'text-center warning']], 
+                ['content'=>'ผู้สูงอายุ', 'options'=>['colspan'=>5, 'class'=>'text-center warning']], 
                 ['content'=>'ADL SCORE', 'options'=>['colspan'=>12, 'class'=>'text-center warning']],
                 
             ],
