@@ -4,8 +4,8 @@
 <?php
 
 
-$sql = "select * from (SELECT t.d_update 'd',t.adl_score a FROM assessment t  
-        WHERE  t.patient_id = '$pid' ORDER BY t.d_update DESC limit 24) tt order by d asc";
+$sql = "select * from (SELECT t.date_serv 'd',t.adl_score a FROM assessment t  
+        WHERE  t.patient_id = '$pid' ORDER BY t.date_serv DESC limit 24) tt order by d asc";
 
 $raw = \Yii::$app->db->createCommand($sql)->queryAll();
 $categories = [];
