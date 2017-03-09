@@ -81,6 +81,10 @@ class AssesController extends AppController {
         $model = Assessment::findOne($id);
         if ($model->load(\Yii::$app->request->post()) && $model->save()) {
             \Yii::$app->session->setFlash('success', "บันทึกสำเร็จ!!!");
+            
+            MyHelper::setPatientADL($model->patient_id);
+            //MyHelper::setPatientTAI($pid);            
+            //MyHelper::execSql('CALL set_patient_class()');
                //adl_month
             $sql = "CALL add_adl_month($model->patient_id)";
             MyHelper::execSql($sql);
