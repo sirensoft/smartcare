@@ -15,7 +15,7 @@ HighchartsAsset::register($this)->withScripts([
 $sql = " SELECT t.id aid,t.date_serv 'DATE_SERV',t.adl_score,t.pp_code,tai_score,t.tai_class,t.group_text,t.note
 ,concat(u.u_prename,u.u_name,' ',u.u_lname) provider FROM assessment t 
 LEFT JOIN `user` u on u.id = t.provider_id
-WHERE  t.patient_id = '$pid' order by t.id DESC";
+WHERE  t.patient_id = '$pid' order by t.date_serv DESC";
 
 $raw = \Yii::$app->db->createCommand($sql)->queryAll();
 
@@ -71,8 +71,8 @@ echo GridView::widget([
 
 </div>
 <?php
-$sql = " select * from (SELECT t.d_update 'd',t.adl_score a FROM assessment t  
-        WHERE  t.patient_id = '$pid' ORDER BY t.d_update DESC limit 24) tt order by d asc";
+$sql = " select * from (SELECT t.date_serv 'd',t.adl_score a FROM assessment t  
+        WHERE  t.patient_id = '$pid' ORDER BY t.date_serv DESC limit 24) tt order by d asc";
 
 $raw = \Yii::$app->db->createCommand($sql)->queryAll();
 $categories = [];

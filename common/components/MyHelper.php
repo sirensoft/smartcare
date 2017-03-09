@@ -130,14 +130,14 @@ class MyHelper extends \yii\base\Component {
     }
 
     public static function setPatientADL($pid = NULL) {
-        $sql = "select adl_score from assessment where patient_id = $pid and (adl_score is not null and adl_score != '') order by id DESC limit 1";
+        $sql = "select adl_score from assessment where patient_id = $pid and (adl_score is not null and adl_score != '') order by date_serv DESC limit 1";
         $adl = \Yii::$app->db->createCommand($sql)->queryScalar();
         $sql = "update patient set adl='$adl' where id=$pid";
         return \Yii::$app->db->createCommand($sql)->execute();
     }
 
     public static function setPatientTAI($pid = NULL) {
-        $sql = "select tai_class from assessment where patient_id = $pid and (tai_class is not null and tai_class != '') order by id DESC limit 1";
+        $sql = "select tai_class from assessment where patient_id = $pid and (tai_class is not null and tai_class != '') order by date_serv DESC limit 1";
         $tai = \Yii::$app->db->createCommand($sql)->queryScalar();
         $sql = "update patient set tai='$tai' where id=$pid";
         return \Yii::$app->db->createCommand($sql)->execute();
