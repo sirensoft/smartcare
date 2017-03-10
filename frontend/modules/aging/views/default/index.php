@@ -61,7 +61,7 @@ echo GridView::widget([
             'label'=>'',
             'format' => 'raw',
             'value' => function($model) {
-                return Html::a('<i class="glyphicon glyphicon-zoom-in"></i>', ['/aging/default/view', 'cid' => $model['cid']]);
+                return Html::a('<i class="glyphicon glyphicon-search"></i>', ['/aging/default/view', 'cid' => $model['cid']],['class'=>'btn btn-sm btn-info']);
             },
             'filter'=>FALSE
         ],
