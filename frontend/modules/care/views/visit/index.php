@@ -28,6 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template'=>'{view}',
+                'buttons'=>[
+                    'view'=>function($url,$model,$key){
+                        return Html::a('<i class="glyphicon glyphicon-search"></i>',$url,['class'=>'btn btn-info btn-sm']);
+                    }
+                ]
+            ],
             //'id',
             //'plan_week_id',
             //'patient_id',
@@ -86,15 +95,7 @@ $this->params['breadcrumbs'][] = $this->title;
            
             
             
-            [
-                'class' => 'yii\grid\ActionColumn',
-                'template'=>'{view}',
-                'buttons'=>[
-                    'view'=>function($url,$model,$key){
-                        return Html::a('<i class="glyphicon glyphicon-search"></i>',$url,['class'=>'btn btn-info btn-sm']);
-                    }
-                ]
-            ],
+            
         ],
     ]);
     ?>
