@@ -36,7 +36,7 @@ echo GridView::widget([
                 'format' => 'raw',
                 'value' => function($model) {
                     $pid=$model['patient_id'];
-                    return Html::a('<i class="glyphicon glyphicon-zoom-in"></i>', ['/patient/patient/view', 'pid' => $pid]);
+                    return Html::a('<i class="glyphicon glyphicon-search"></i>', ['/patient/patient/view', 'pid' => $pid],['class'=>'btn btn-sm btn-info']);
                 },
                 'filter'=>FALSE
         ],
