@@ -81,7 +81,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'=>' ',
                 'format' => 'raw',
                 'value' => function($model) {
-                    return Html::a('<i class="glyphicon glyphicon-zoom-in"></i>', ['/patient/patient/view', 'pid' => $model->id]);
+                    return Html::a('<i class="glyphicon glyphicon-search"></i>', ['/patient/patient/view', 'pid' => $model->id],['class'=>'btn btn-info btn-sm']);
                 },
                 'filter'=>FALSE
         ],
