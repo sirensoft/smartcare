@@ -86,7 +86,15 @@ $this->params['breadcrumbs'][] = $this->title;
            
             
             
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template'=>'{view}',
+                'buttons'=>[
+                    'view'=>function($url,$model,$key){
+                        return Html::a('<i class="glyphicon glyphicon-search"></i>',$url,['class'=>'btn btn-info btn-sm']);
+                    }
+                ]
+            ],
         ],
     ]);
     ?>

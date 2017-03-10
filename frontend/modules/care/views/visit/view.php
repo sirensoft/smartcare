@@ -20,15 +20,15 @@ $this->params['breadcrumbs'][] = 'รายการเยี่ยม';
 
         <?=
         Html::a('<i class="glyphicon glyphicon-remove"></i> ลบ', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
+            'class' => 'btn btn-danger btn-sm',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
             ],
         ])
         ?>
-        <?= Html::a('<i class="glyphicon glyphicon-pencil"></i> แก้ไข', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('<i class="glyphicon glyphicon-ok"></i> ตกลง', ['/patient/patient/view', 'pid' => $model->patient_id], ['class' => 'btn btn-success pull-right']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-pencil"></i> แก้ไข', ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-ok"></i> ตกลง', ['/patient/patient/view', 'pid' => $model->patient_id], ['class' => 'btn btn-success btn-sm pull-right']) ?>
 
     </p>
 
