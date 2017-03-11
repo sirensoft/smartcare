@@ -37,7 +37,11 @@ $this->params['breadcrumbs'][] = $this->title;
         //'disease',
         [
             'attribute' => 'color',
+            'format'=>'html',
             'filter'=>['red'=>'red','yellow'=>'yellow','blue'=>'blue'],
+            'value' => function($model) {
+                    return Html::a('<i class="glyphicon glyphicon-search"></i>', ['/patient/patient/view', 'pid' => $model->id],['class'=>'btn btn-sm btn-default']);
+                },
             'contentOptions' => function ($model) {
                 if ($model->color == 'yellow') {
                     return ['style' => "color:black;background-color:$model->color;",'class' => 'text-center'];
@@ -76,7 +80,7 @@ $this->params['breadcrumbs'][] = $this->title;
             }
         ],
                 
-        [
+        /*[
             //'attribute' => 'cid',
                 'label'=>' ',
                 'format' => 'raw',
@@ -84,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::a('<i class="glyphicon glyphicon-search"></i>', ['/patient/patient/view', 'pid' => $model->id],['class'=>'btn btn-info btn-sm']);
                 },
                 'filter'=>FALSE
-        ],
+        ],*/
                         
                             // 'typearea',
                             // 'nation',
