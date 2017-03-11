@@ -196,8 +196,7 @@ class VisitController extends Controller {
         $excel = $objReader->load($filePath);
         // เขียน CELL
         $this->addCell($excel,'K1',$id);
-        //$excel->getActiveSheet()->setCellValue('C1', $patient->prename . $patient->name . " " . $patient->lname);
-        
+      
         // จบเขียน CELL
         $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
         $objWriter->save($filePath);
