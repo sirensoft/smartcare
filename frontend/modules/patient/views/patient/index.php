@@ -60,15 +60,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'name',
         'lname',
         'age_y',
-        //'birth',
-        // 'province',
-        // 'district',
+     
         'subdistrict',
         'village_no',
-        // 'village_name',
-        //'house_no',
-                               
-        //'next_visit_date',
+     
          [
             'attribute' => 'next_visit_date',
              'format'=>'date',
@@ -79,35 +74,18 @@ $this->params['breadcrumbs'][] = $this->title;
                
             }
         ],
-                
-        /*[
-            //'attribute' => 'cid',
-                'label'=>' ',
-                'format' => 'raw',
-                'value' => function($model) {
-                    return Html::a('<i class="glyphicon glyphicon-search"></i>', ['/patient/patient/view', 'pid' => $model->id],['class'=>'btn btn-info btn-sm']);
-                },
-                'filter'=>FALSE
-        ],*/
-                        
-                            // 'typearea',
-                            // 'nation',
-                            // 'race',
-                            // 'discharge',
-                            // 
-                            // 'dupdate',
-                            //['class' => 'yii\grid\ActionColumn'],
-                    ];
-                    if (!MyHelper::isCg()) {
-                        $columns[] = [
-                            'attribute' => 'cg_id',
-                            'label' => 'CG',
-                            'value' => 'user.u_name',
-                            //'group'=>true,
-                            //'groupedRow'=>true,  
+         [
+             'visible'=>  !MyHelper::isCg(),
+             'attribute' => 'cg_id',
+             'label' => 'CG',
+             'value' => 'user.u_name',
+              //'group'=>true,
+              //'groupedRow'=>true,  
                             
-                        ];
-                    }
+         ]
+     
+    ];
+              
                     ?>
 
                     <?=

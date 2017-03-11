@@ -29,6 +29,20 @@ $dataProvider = new ArrayDataProvider([
 
 $cols = [
     ['class' => 'yii\grid\SerialColumn'],
+    [
+        'visible'=>  MyHelper::isCm(),
+        'class' => 'yii\grid\ActionColumn',        
+        'header' => '',
+        'template' => '{update}',
+        'buttons'=>[
+        'update' => function($url,$model,$key) use ($dataProvider){
+            $data = $dataProvider->getModels();            
+            $aid = $data[$key]['aid'];
+            return Html::a('<i class="glyphicon glyphicon-edit"></i>',['/patient/asses/update','id'=>$aid]);
+        },       
+       
+        ]
+    ],
     //'aid',
     'DATE_SERV:date:วันที่ประเมิน',
     'adl_score:integer:ADL SCORE',
@@ -38,21 +52,7 @@ $cols = [
     'provider:text:ผู้ประเมิน',
     'note:text:หมายเหตุ',
 ];
-if (MyHelper::isCm()) {
-    $cols[] = [
-        'class' => 'yii\grid\ActionColumn',
-        'header' => '#',
-        'template' => '{update}',
-        'buttons'=>[
-        'update' => function($url,$model,$key) use ($dataProvider){
-            $data = $dataProvider->getModels();            
-            $aid = $data[$key]['aid'];
-            return Html::a('<i class="glyphicon glyphicon-edit"></i>',['/patient/asses/update','id'=>$aid]);
-        },
-       
-    ]
-    ];
-}
+
 echo GridView::widget([
     'dataProvider' => $dataProvider,
     'responsiveWrap' => false,
