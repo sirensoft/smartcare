@@ -5,17 +5,18 @@ namespace frontend\modules\care\controllers;
 use Yii;
 use frontend\models\Visit;
 use frontend\models\VisitSearch;
-use yii\web\Controller;
+
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\components\MyHelper;
 use frontend\models\PlanWeek;
 use frontend\models\Patient;
+use common\components\AppController;
 
 /**
  * VisitController implements the CRUD actions for Visit model.
  */
-class VisitController extends Controller {
+class VisitController extends AppController {
 
     /**
      * @inheritdoc
@@ -137,6 +138,7 @@ class VisitController extends Controller {
      * @return mixed
      */
     public function actionUpdate($id) {
+        $this->permitRole([2,3]);
         $model = $this->findModel($id);
 
         if (MyHelper::isCg() and $model->provider_id !== MyHelper::getUserId()) {
@@ -159,6 +161,7 @@ class VisitController extends Controller {
      * @return mixed
      */
     public function actionDelete($id) {
+        $this->permitRole([2,3]);
         $model = $this->findModel($id);
 
         if (MyHelper::isCg() and $model->provider_id !== MyHelper::getUserId()) {

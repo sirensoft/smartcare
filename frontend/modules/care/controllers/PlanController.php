@@ -5,7 +5,6 @@ namespace frontend\modules\care\controllers;
 use Yii;
 use frontend\models\Plan;
 use frontend\models\PlanSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\components\AppController;
@@ -65,6 +64,7 @@ class PlanController extends AppController {
      * @return mixed
      */
     public function actionCreate($pid) {
+         $this->permitRole([2]);
         $pt = Patient::findOne($pid);
 
 
@@ -114,6 +114,7 @@ class PlanController extends AppController {
      * @return mixed
      */
     public function actionUpdate($id) {
+         $this->permitRole([2]);
         $model = $this->findModel($id);
         $model->d_update = date('Y-m-d H:i:s');
 

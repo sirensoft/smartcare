@@ -101,6 +101,7 @@ class PlanWeekController extends AppController {
      * @return mixed
      */
     public function actionCreate($pid, $start) {
+         $this->permitRole([2]);
         $model = new PlanWeek();
         $model->patient_id = $pid;
         $model->start_date = $start;
@@ -151,6 +152,7 @@ class PlanWeekController extends AppController {
      * @return mixed
      */
     public function actionUpdate($id) {
+         $this->permitRole([2]);
         $model = $this->findModel($id);
         $model->d_update = date('Y-m-d H:i:s');
         if (MyHelper::isCg()) {
@@ -188,6 +190,7 @@ class PlanWeekController extends AppController {
      * @return mixed
      */
     public function actionDelete($id, $pid) {
+         $this->permitRole([2]);
         $this->findModel($id)->delete();
         
         $sql = "CALL set_next_visit_date($pid)";
