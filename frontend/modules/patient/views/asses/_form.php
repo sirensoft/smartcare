@@ -1,7 +1,7 @@
 <?php
 
 use kartik\widgets\ActiveForm;
-
+use yii\helpers\Html;
 
 ?>
 
@@ -15,8 +15,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
 <?=$form->field($model,'pp_code')?>
 
 
-
-<button type="submit"> Update </button>
+<button type="submit" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
 
 
 <?php ActiveForm::end(); ?>
