@@ -13,7 +13,7 @@ use kartik\widgets\TimePicker;
 
 <?php if (MyHelper::getDay($model->start_date) == 'Mon' and ! MyHelper::isCg() and $model->isNewRecord): ?>
 
-    <?= Html::a('พิมพ์แผนสัปดาห์', ['/care/plan-week/excel', 'pid' => $model->patient_id, 'start' => $model->start_date], ['class' => 'btn btn-info']) ?>
+    <?= Html::a('<i class="glyphicon glyphicon-print"></i> พิมพ์แผนสัปดาห์', ['/care/plan-week/excel', 'pid' => $model->patient_id, 'start' => $model->start_date], ['class' => 'btn btn-info']) ?>
 
 <?php endif; ?>
 
