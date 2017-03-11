@@ -10,7 +10,7 @@ use common\components\MyHelper;
 $this->title = MyHelper::ptInfo_($model->patient_id);
 $this->params['breadcrumbs'][] = ['label' => MyHelper::ptInfo_($model->patient_id), 'url' => ['/patient/patient/view', 'pid' => $model->patient_id]];
 
-$this->params['breadcrumbs'][] = 'รายการเยี่ยม';
+$this->params['breadcrumbs'][] = 'ข้อมูลการเยี่ยม';
 ?>
 <div class="visit-view">
 
