@@ -101,7 +101,7 @@ class PlanWeekController extends AppController {
      * @return mixed
      */
     public function actionCreate($pid, $start) {
-         $this->permitRole([2]);
+         //$this->permitRole([2]);
         $model = new PlanWeek();
         $model->patient_id = $pid;
         $model->start_date = $start;
@@ -152,7 +152,7 @@ class PlanWeekController extends AppController {
      * @return mixed
      */
     public function actionUpdate($id) {
-         $this->permitRole([2]);
+        $this->permitRole([2,3]);
         $model = $this->findModel($id);
         $model->d_update = date('Y-m-d H:i:s');
         if (MyHelper::isCg()) {
@@ -255,10 +255,6 @@ class PlanWeekController extends AppController {
         for ($i = 6; $i < 24; $i++) {
             $excel->getActiveSheet()->setCellValue("I" . $i, MyHelper::getPlan($pid, MyHelper::datePlus($start, 6), $i));
         }
-
-
-
-
 
 
 
