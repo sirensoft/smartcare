@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = 'รายการเยี่ยม';
         ])
         ?>
         <?= Html::a('<i class="glyphicon glyphicon-pencil"></i> แก้ไข', ['update', 'id' => $model->id], ['class' => 'btn btn-primary btn-sm']) ?>
-        <?= Html::a('<i class="glyphicon glyphicon-ok"></i> ตกลง', ['/patient/patient/view', 'pid' => $model->patient_id], ['class' => 'btn btn-success btn-sm pull-right']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-print"></i> พิมพ์', ['excel', 'id' => $model->id], ['class' => 'btn btn-success btn-sm pull-right']) ?>
 
     </p>
 

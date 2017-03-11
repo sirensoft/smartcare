@@ -89,7 +89,7 @@ class VisitController extends Controller {
 
 
             $patient = Patient::findOne($model->patient_id);
-            $msg="\r\n";
+            $msg = "\r\n";
             $msg.= $patient->prename . $patient->name . " " . $patient->lname . "(" . $patient->age_y . "ปี)";
             $msg.="\r\n";
             $msg.="กลุ่ม (" . $patient->class_name . ")";
@@ -106,7 +106,7 @@ class VisitController extends Controller {
             $msg.="ความดัน:" . $model->obj_bp;
             $msg.=" ,หายใจ:" . $model->obj_rr;
             $msg.="\r\n";
-             $msg.="น้ำตาล:" . $model->obj_sugar;
+            $msg.="น้ำตาล:" . $model->obj_sugar;
             $msg.=" ,ADL=" . $model->obj_adl;
             $msg.="\r\n";
             $msg.="ผลการเยี่ยม: " . $model->job_result;
@@ -114,9 +114,9 @@ class VisitController extends Controller {
             $msg.="ปัญหาที่พบ: " . $model->problem;
             $msg.="\r\n";
             $msg.="ผู้เยี่ยม:" . MyHelper::getUserFullName();
-            
+
             MyHelper::sendLineNotify($msg);
-            
+
             //adl_month
             $sql = "CALL add_adl_month($patient->id)";
             MyHelper::execSql($sql);
@@ -137,9 +137,9 @@ class VisitController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
-        
-        if(MyHelper::isCg() and $model->provider_id !== MyHelper::getUserId()){
-            throw  new \yii\web\ConflictHttpException('ไม่อนุญาต');
+
+        if (MyHelper::isCg() and $model->provider_id !== MyHelper::getUserId()) {
+            throw new \yii\web\ConflictHttpException('ไม่อนุญาต');
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -159,11 +159,11 @@ class VisitController extends Controller {
      */
     public function actionDelete($id) {
         $model = $this->findModel($id);
-        
-        if(MyHelper::isCg() and $model->provider_id !== MyHelper::getUserId()){
-            throw  new \yii\web\ConflictHttpException('ไม่อนุญาต');
+
+        if (MyHelper::isCg() and $model->provider_id !== MyHelper::getUserId()) {
+            throw new \yii\web\ConflictHttpException('ไม่อนุญาต');
         }
-        
+
         $pid = $model->patient_id;
         $model->delete();
 
@@ -183,6 +183,25 @@ class VisitController extends Controller {
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    
+    protected function addCell($excel,$cell,$val){
+        $excel->getActiveSheet()->setCellValue($cell,$val);
+    }
+
+    public function actionExcel($id) {
+        $fmt = \Yii::$app->formatter;
+        $filePath = "./excel/cg_log.xls";
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $excel = $objReader->load($filePath);
+        // เขียน CELL
+        $this->addCell($excel,'K1',$id);
+        //$excel->getActiveSheet()->setCellValue('C1', $patient->prename . $patient->name . " " . $patient->lname);
+        
+        // จบเขียน CELL
+        $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
+        $objWriter->save($filePath);
+        \Yii::$app->response->sendFile($filePath, "cg_log_$id.xls");
     }
 
 }
