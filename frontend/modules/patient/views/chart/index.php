@@ -35,6 +35,12 @@ echo TabsX::widget([
             ]),
         ],
         [
+            'label' => 'รอบเอว',
+            'content' => $this->render('waist', [
+                'pid' => $pid
+            ]),
+        ],
+        [
             'label' => 'ความดัน',
             'content' => $this->render('bp', [
                 'pid' => $pid
@@ -59,6 +65,7 @@ $js = <<<JS
     $("#chart_weight").width('95%');
     $("#chart_bp").width('95%');
     $("#chart_sugar").width('95%');
+     $("#chart_waist").width('95%');
 JS;
 
 $this->registerJs($js)
