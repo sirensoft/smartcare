@@ -7,6 +7,7 @@ use common\components\MyHelper;
 use frontend\models\Assessment;
 use yii\filters\VerbFilter;
 
+
 /**
  * Description of AssesController
  *
@@ -94,6 +95,19 @@ class AssesController extends AppController {
                         'model' => $model,
             ]);
         }
+    }
+    
+      public function actionDelete($id) {
+        $this->permitRole([2]);
+        $model = Assessment::findOne($id);
+        $pid = $model->patient_id;
+        if($model){
+            if($model->delete()){
+                \Yii::$app->session->setFlash('danger', "ลบสำเร็จ!!!");
+            }
+            
+        }       
+        return $this->redirect(['/patient/asses/index','pid'=>$pid]);
     }
 
 }

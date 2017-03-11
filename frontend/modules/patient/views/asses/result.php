@@ -38,7 +38,7 @@ $cols = [
         'update' => function($url,$model,$key) use ($dataProvider){
             $data = $dataProvider->getModels();            
             $aid = $data[$key]['aid'];
-            return Html::a('<i class="glyphicon glyphicon-edit"></i>',['/patient/asses/update','id'=>$aid]);
+            return Html::a('<i class="glyphicon glyphicon-pencil"></i>',['/patient/asses/update','id'=>$aid],['class'=>'btn btn-sm btn-info']);
         },       
        
         ]
