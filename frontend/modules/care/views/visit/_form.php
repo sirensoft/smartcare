@@ -102,13 +102,16 @@ WHERE t.office = '$office' order by t.role ";
         </div>
     </div>
     <div class="form-group">
-        <div class="col-md-4">
+         <div class="col-md-3">
+            <?= $form->field($model, 'obj_waist')->textInput() ?>
+        </div>
+        <div class="col-md-3">
             <?= $form->field($model, 'obj_weight')->textInput() ?>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <?= $form->field($model, 'obj_heigh')->textInput() ?>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <?= $form->field($model, 'obj_bmi')->textInput() ?>
         </div>       
     </div>

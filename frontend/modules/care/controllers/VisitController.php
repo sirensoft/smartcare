@@ -96,6 +96,7 @@ class VisitController extends Controller {
             $msg.="\r\n";
             $msg.=$model->subjective;
             $msg.="\r\n";
+            $msg.="รอบเอว." . $model->obj_waist . "ซม. ,";
             $msg.="นน." . $model->obj_weight . "กก. ,";
             $msg.="สูง" . $model->obj_heigh . "ซม. ,";
             $msg.="bmi=" . $model->obj_bmi;

@@ -19,6 +19,7 @@ use backend\models\User;
  * @property string $subjective
  * @property double $obj_weight
  * @property double $obj_heigh
+ * @property double $obj_waist 
  * @property double $obj_bmi
  * @property double $obj_temperature
  * @property integer $obj_pulse
@@ -59,7 +60,7 @@ class Visit extends \yii\db\ActiveRecord
             [['plan_week_id', 'patient_id', 'provider_id','obj_pulse', 'obj_rr', 'obj_adl'], 'integer'],
             [['date_visit', 'start_time', 'end_time'], 'safe'],
             [['subjective', 'asses_1', 'asses_2', 'asses_3', 'asses_4', 'asses_5', 'asses_6', 'asses_7', 'asses_8', 'asses_9'], 'string'],
-            [['obj_sugar','obj_weight', 'obj_heigh', 'obj_bmi', 'obj_temperature'], 'number','message' => ''],
+            [['obj_sugar','obj_weight', 'obj_heigh','obj_waist', 'obj_bmi', 'obj_temperature'], 'number','message' => ''],
             [['hospcode'], 'string', 'max' => 5],
             [['job_result', 'problem', 'next_plan'], 'string', 'max' => 255],
             [['obj_bp'], 'string', 'max' => 7],
@@ -87,6 +88,7 @@ class Visit extends \yii\db\ActiveRecord
             'subjective' => 'ปัญหา/ความต้องการ ของผู้ป่วยและครอบครัว',
             'obj_weight' => 'หนัก (กก)',
             'obj_heigh' => 'สูง (ซม)',
+            'obj_waist'=>'รอบเอว (ซม)',
             'obj_bmi' => 'ดัชนีมวลกาย',
             'obj_temperature' => 'อุณหภูมิร่างกาย(C)',
             'obj_pulse' => 'ชีพจร',

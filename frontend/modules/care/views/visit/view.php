@@ -50,6 +50,7 @@ $this->params['breadcrumbs'][] = 'รายการเยี่ยม';
             'subjective:ntext',
             'obj_weight',
             'obj_heigh',
+            'obj_waist',
             'obj_bmi',
             'obj_temperature',
             'obj_pulse',

@@ -48,6 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'end_time',
             // 'subjective:ntext',
             'obj_weight',
+            'obj_waist',
             // 'obj_heigh',
             // 'obj_bmi',
             // 'obj_temperature',
