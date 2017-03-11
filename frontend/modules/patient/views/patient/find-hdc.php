@@ -87,12 +87,12 @@ $f = ActiveForm::begin([
                     ]);
                 }
                     ],
-                    'PRENAME',
-                    'NAME',
-                    'LNAME',
-                    'BIRTH',
-                    'AGE',
-                    'TYPEAREA:text:TYPE'
+                    'PRENAME:text:คำนำ',
+                    'NAME:text:ชื่อ',
+                    'LNAME:text:นามสกุล',
+                    'BIRTH:date:วดป.เกิด',
+                    'AGE:integer:อายุ(ปี)',
+                    'TYPEAREA:text:TYPEAREA'
                 ]
             ])
             ?>
