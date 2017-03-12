@@ -39,7 +39,7 @@ class UtilityController extends AppController {
         
         $hospcode = MyHelper::getUserOffice();
         //$oModel = Patient::findAll(['hospcode' => $hospcode]);
-        $oModel = Patient::findAll(['1'=>'1']);
+        $oModel = Patient::find()->all();
         
         foreach ($oModel as $obj) {
             $pid = $obj->id;
