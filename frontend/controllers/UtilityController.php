@@ -34,14 +34,20 @@ class UtilityController extends AppController {
 
     public function actionAddAdlMon() {
 
+        $sql ="CALL set_adl_month";
+        \Yii::$app->db->createCommand($sql)->execute();
+        
         $hospcode = MyHelper::getUserOffice();
-        $oModel = Patient::findAll(['hospcode' => $hospcode]);
+        //$oModel = Patient::findAll(['hospcode' => $hospcode]);
+        $oModel = Patient::findAll(['1'=>'1']);
+        
         foreach ($oModel as $obj) {
             $pid = $obj->id;
             //adl_month
             $sql = "CALL add_adl_month($pid)";
             MyHelper::execSql($sql);
         }
+        return '1';
     }
 
 }
