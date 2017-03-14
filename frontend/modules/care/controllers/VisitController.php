@@ -196,10 +196,15 @@ class VisitController extends AppController {
     public function actionExcel($id) {
         $fmt = \Yii::$app->formatter;
         $filePath = "./excel/cg_log.xls";
+        
+        $model =  Visit::findOne($id);
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $excel = $objReader->load($filePath);
+        
         // เขียน CELL
         $this->addCell($excel,'K1',$id);
+        $this->addCell($excel,'B2',$fmt->asDate($model->date_visit));
+         $this->addCell($excel,'E2',$fmt->asDate($model->date_visit));
       
         // จบเขียน CELL
         $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
