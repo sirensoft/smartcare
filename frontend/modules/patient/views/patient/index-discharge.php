@@ -25,13 +25,20 @@ $this->params['breadcrumbs'][] = $this->title;
        
                 //'prename',
                 [
-                    'attribute'=>'name',
+                    'format'=>'html',
+                    //'attribute'=>'name',
                     'contentOptions'=>function($model){
+                        
                         if($model->discharge==1){
-                            return ['style' => "color:white;background-color:#332e2e;"];
+                            return ['style' => "color:white;background-color:#332e2e;",'class' => 'text-center'];
                         }
-                    }
+                        return ['style' => "color:white;background-color:white;",'class' => 'text-center'];
+                    },
+                    'value' => function($model) {
+                        return Html::a('<i class="glyphicon glyphicon-search"></i>', ['/patient/patient/view', 'pid' => $model->id],['class'=>'btn btn-sm btn-default']);
+                    },
                 ],
+                'name',
                 'lname',
                 //'age_y',
                 //'birth',
@@ -49,14 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 
                     // 'dupdate',
                     //['class' => 'yii\grid\ActionColumn'],
-            [
-             'label'=>' ',
-                'format' => 'raw',
-                'value' => function($model) {
-                    return Html::a('<i class="glyphicon glyphicon-zoom-in"></i>', ['/patient/patient/view', 'pid' => $model->id]);
-                },
-                'filter'=>FALSE
-                ],
+           
             ];
             
             if (!MyHelper::isCg()) {
