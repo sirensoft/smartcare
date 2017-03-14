@@ -5,13 +5,13 @@ namespace frontend\modules\care\controllers;
 use Yii;
 use frontend\models\Visit;
 use frontend\models\VisitSearch;
-
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\components\MyHelper;
 use frontend\models\PlanWeek;
 use frontend\models\Patient;
 use common\components\AppController;
+use backend\models\User;
 
 /**
  * VisitController implements the CRUD actions for Visit model.
@@ -138,7 +138,7 @@ class VisitController extends AppController {
      * @return mixed
      */
     public function actionUpdate($id) {
-        $this->permitRole([2,3]);
+        $this->permitRole([2, 3]);
         $model = $this->findModel($id);
 
         if (MyHelper::isCg() and $model->provider_id !== MyHelper::getUserId()) {
@@ -161,7 +161,7 @@ class VisitController extends AppController {
      * @return mixed
      */
     public function actionDelete($id) {
-        $this->permitRole([2,3]);
+        $this->permitRole([2, 3]);
         $model = $this->findModel($id);
 
         if (MyHelper::isCg() and $model->provider_id !== MyHelper::getUserId()) {
@@ -188,27 +188,46 @@ class VisitController extends AppController {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-    
-    protected function addCell($excel,$cell,$val){
-        $excel->getActiveSheet()->setCellValue($cell,$val);
+
+    protected function addCell($excel, $cell, $val) {
+        $excel->getActiveSheet()->setCellValue($cell, $val);
     }
 
     public function actionExcel($id) {
         $fmt = \Yii::$app->formatter;
         $filePath = "./excel/cg_log.xls";
-        
-        $model =  Visit::findOne($id);
+
+        $model = Visit::findOne($id);
         $objReader = \PHPExcel_IOFactory::createReader('Excel5');
         $excel = $objReader->load($filePath);
-        
+
         // เขียน CELL
-        $this->addCell($excel,'K1',$id);
-        $this->addCell($excel,'B2',$fmt->asDate($model->date_visit));
-        $this->addCell($excel,'E2',$model->start_time);
-        $this->addCell($excel,'G2',$model->end_time);
-        
-        $this->addCell($excel,'A4',$model->problem);
-      
+        $this->addCell($excel, 'K1', $id);
+
+        $this->addCell($excel, 'B2', $fmt->asDate($model->date_visit));
+        $this->addCell($excel, 'E2', $model->start_time);
+        $this->addCell($excel, 'G2', $model->end_time);
+
+        $this->addCell($excel, 'A4', "'" . $model->subjective);
+        $this->addCell($excel, 'C6', $model->obj_weight);
+        $this->addCell($excel, 'F6', $model->obj_heigh);
+        $this->addCell($excel, 'J6', $model->obj_bmi);
+        $this->addCell($excel, 'C7', $model->obj_temperature);
+        $this->addCell($excel, 'H7', $model->obj_pulse);
+        $this->addCell($excel, 'C8', $model->obj_rr);
+        $this->addCell($excel, 'I8', $model->obj_bp);
+        $this->addCell($excel, 'G11', $model->obj_adl);
+        $this->addCell($excel, 'D63', $model->job_result);
+        $this->addCell($excel, 'D64', $model->next_plan);
+
+        $pt_id = $model->patient_id;
+        $pt = Patient::findOne($pt_id);
+        $cg = $pt->cg_id;
+        $user = User::findOne($cg);
+        $cg_name = $user->u_prename . $user->u_name . " " . $user->u_lname;
+
+        $this->addCell($excel, 'B69', "($cg_name)");
+
         // จบเขียน CELL
         $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
         $objWriter->save($filePath);
