@@ -219,9 +219,12 @@ class VisitController extends AppController {
         $this->addCell($excel, 'G11', $model->obj_adl);
         $this->addCell($excel, 'D63', $model->job_result);
         $this->addCell($excel, 'D64', $model->next_plan);
-
+        
         $pt_id = $model->patient_id;
         $pt = Patient::findOne($pt_id);
+        
+        $this->addCell($excel, 'B67', "(".$pt->prename.$pt->name." ".$pt->lname.")");
+        
         $cg = $pt->cg_id;
         $user = User::findOne($cg);
         $cg_name = $user->u_prename . $user->u_name . " " . $user->u_lname;
