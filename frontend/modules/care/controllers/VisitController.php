@@ -204,7 +204,10 @@ class VisitController extends AppController {
         // เขียน CELL
         $this->addCell($excel,'K1',$id);
         $this->addCell($excel,'B2',$fmt->asDate($model->date_visit));
-         $this->addCell($excel,'E2',$fmt->asDate($model->date_visit));
+        $this->addCell($excel,'E2',$model->start_time);
+        $this->addCell($excel,'G2',$model->end_time);
+        
+        $this->addCell($excel,'A4',$model->problem);
       
         // จบเขียน CELL
         $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
