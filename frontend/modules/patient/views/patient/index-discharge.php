@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php
     $columns = [
         ['class' => 'yii\grid\SerialColumn'],
-        'class_name',
+       
        
        
                 //'prename',
@@ -38,6 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Html::a('<i class="glyphicon glyphicon-search"></i>', ['/patient/patient/view', 'pid' => $model->id],['class'=>'btn btn-sm btn-default']);
                     },
                 ],
+                'class_name',
                 'name',
                 'lname',
                 //'age_y',

@@ -32,6 +32,7 @@ AppAsset::register($this);
             <?php
             NavBar::begin([
                 'brandLabel' => '<span class="glyphicon glyphicon-phone"></span>',
+                //'brandLabel'=>  Html::img('./web_img/ltc-icon.jpg', ['width'=>'35','height'=>'35','style'=>'margin-buttom:5px']),
                 'brandUrl' => Yii::$app->homeUrl,
                 //'brandLabel' => 'SmartCare',
                 //'brandUrl' => Yii::$app->homeUrl,
