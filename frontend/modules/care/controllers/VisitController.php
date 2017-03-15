@@ -223,17 +223,20 @@ class VisitController extends AppController {
         $pt_id = $model->patient_id;
         $pt = Patient::findOne($pt_id);
         
-        $this->addCell($excel, 'B67', "(".$pt->prename.$pt->name." ".$pt->lname.")");
+        $this->addCell($excel, 'B67', "       (".$pt->prename.$pt->name." ".$pt->lname.")");
         
         $cg = $pt->cg_id;
         $user = User::findOne($cg);
         $cg_name = $user->u_prename . $user->u_name . " " . $user->u_lname;
 
-        $this->addCell($excel, 'B69', "($cg_name)");
+        $this->addCell($excel, 'B69', "       ($cg_name)");
 
         // จบเขียน CELL
+        
         $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
+        //$objWriter = \PHPExcel_IOFactory::createWriter($excel, 'HTML');
         $objWriter->save($filePath);
+        //$objWriter->save('php://output');
         \Yii::$app->response->sendFile($filePath, "cg_log_$id.xls");
     }
 
