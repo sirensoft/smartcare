@@ -177,8 +177,9 @@ class PlanController extends AppController {
         $excel->getActiveSheet()->setCellValue('D6', $patient->cid);
         $excel->getActiveSheet()->setCellValue('C7', $fmt->asDate($patient->birth));
         $excel->getActiveSheet()->setCellValue('D7', "อายุ " . $patient->age_y . " ปี");
-        $addr = "ที่อยู่ปัจจุบัน " . $patient->house_no . " ม." . $patient->village_no
+        $addr = "ที่อยู่ปัจจุบัน \r" . $patient->house_no . " ม." . $patient->village_no
                 . " ต." . $patient->subdistrict . " อ." . $patient->district . " โทร." . $patient->tel;
+        
 
         $excel->getActiveSheet()->setCellValue('D10', $model->rapid_code);
 
@@ -188,18 +189,31 @@ class PlanController extends AppController {
         $excel->getActiveSheet()->setCellValue('D12', $model->tai_text);
 
         $excel->getActiveSheet()->setCellValue('A8', $addr);
+        $excel->getActiveSheet()->getStyle('A8')->getAlignment()->setWrapText(true);
+        
         $excel->getActiveSheet()->setCellValue('A14', $model->budget_need);
         $excel->getActiveSheet()->setCellValue('C14', "=BAHTTEXT(A14)");
 
         $excel->getActiveSheet()->setCellValue('C15', $model->dx1);
         $excel->getActiveSheet()->setCellValue('A17', $model->dx2);
         $excel->getActiveSheet()->setCellValue('A20', $model->drug);
+        $excel->getActiveSheet()->getStyle('A20')->getAlignment()->setWrapText(true);
 
         $excel->getActiveSheet()->setCellValue('E6', $model->patient_mind);
+        $excel->getActiveSheet()->getStyle('E6')->getAlignment()->setWrapText(true);
+        
         $excel->getActiveSheet()->setCellValue('I6', $model->live_problem);
+        $excel->getActiveSheet()->getStyle('I6')->getAlignment()->setWrapText(true);
+        
         $excel->getActiveSheet()->setCellValue('E12', $model->long_goal);
+        $excel->getActiveSheet()->getStyle('E12')->getAlignment()->setWrapText(true);
+        
         $excel->getActiveSheet()->setCellValue('E26', $model->short_goal);
+        $excel->getActiveSheet()->getStyle('E26')->getAlignment()->setWrapText(true);
+        
         $excel->getActiveSheet()->setCellValue('I27', $model->extra_service);
+        $excel->getActiveSheet()->getStyle('I27')->getAlignment()->setWrapText(true);
+        
         $excel->getActiveSheet()->setCellValue('E30', $model->careful);
         
         $excel->getActiveSheet()->setCellValue('D26', $model->fct_care_time);
@@ -211,7 +225,7 @@ class PlanController extends AppController {
         $objWriter->save($filePath);
 
 
-        \Yii::$app->response->sendFile($filePath, "plan.xls");
+        \Yii::$app->response->sendFile($filePath, "plan_$id.xls");
     }
 
 }
