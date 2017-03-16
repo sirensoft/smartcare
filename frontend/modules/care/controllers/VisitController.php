@@ -209,6 +209,9 @@ class VisitController extends AppController {
         $this->addCell($excel, 'G2', $model->end_time);
 
         $this->addCell($excel, 'A4', "'" . $model->subjective);
+        $excel->getActiveSheet()->getStyle('A4')->getAlignment()->setWrapText(true);
+        $excel->getActiveSheet()->getStyle('A10')->getAlignment()->setWrapText(true);
+        
         $this->addCell($excel, 'C6', $model->obj_weight);
         $this->addCell($excel, 'F6', $model->obj_heigh);
         $this->addCell($excel, 'J6', $model->obj_bmi);
