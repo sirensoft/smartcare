@@ -260,7 +260,7 @@ class PlanWeekController extends AppController {
 
         $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
         $objWriter->save($filePath);
-        \Yii::$app->response->sendFile($filePath, "plan_week.xls");
+        \Yii::$app->response->sendFile($filePath, "plan_week_$pid.xls");
     }
 
 }
