@@ -88,5 +88,31 @@ class Test2Controller extends \yii\web\Controller {
     public function actionService($id) {
         $this->loadLastService($id);
     }
+    
+      protected function addCell($excel, $cell, $val) {
+        $excel->getActiveSheet()->setCellValue($cell, $val);
+    }
+    
+    public function actionExcelTest(){
+        $fmt = \Yii::$app->formatter;
+        $filePath = "./excel/test.xls";
+
+       
+        $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+        $excel = $objReader->load($filePath);
+
+        // เขียน CELL
+       
+        
+
+        // จบเขียน CELL
+        
+        //$objWriter = \PHPExcel_IOFactory::createWriter($excel, 'Excel5');
+        $objWriter = \PHPExcel_IOFactory::createWriter($excel, 'HTML');
+        //$objWriter->save($filePath);
+        //$objWriter->writeAllSheets();
+        $objWriter->save('php://output');
+        //\Yii::$app->response->sendFile($filePath, "cg_log_$id.xls");
+    }
 
 }
