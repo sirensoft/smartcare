@@ -60,7 +60,7 @@ use kartik\widgets\TimePicker;
         <div class="col-md-12">
             <label class="control-label" for="chk_cg">
                 <?= Html::checkbox('chk_cg', FALSE, ['id' => 'chk_cg', 'class' => 'from-control']); ?>
-                ดูแลโดย CG
+                เยี่ยมดูแลโดย CG
             </label>
         </div>
     </div>
@@ -205,7 +205,7 @@ use kartik\widgets\TimePicker;
 $js = <<<JS
    $('#chk_cg').change( function(){
         if(this.checked){
-            $('#planweek-title').text('ดูแลโดยCG');
+            $('#planweek-title').text('เยี่ยมดูแลโดยCG');
         }else{
             $('#planweek-title').text('');
         }
