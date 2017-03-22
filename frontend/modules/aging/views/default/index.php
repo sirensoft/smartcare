@@ -93,7 +93,16 @@ echo GridView::widget([
                 if(!empty($val[$code])){
                     return $val[$code];
                 }
-            }
+            },
+             'contentOptions'=>function($model){
+                $code = $model['adl_code'];
+                if ($code == '1B1282') {
+                    return ['style' => "color:white;background-color:red;",'class' => 'text-center'];
+                }
+                 if ($code == '1B1281') {
+                    return ['style' => "color:black;background-color:yellow;",'class' => 'text-center'];
+                }
+             }
         ],
                 
         
