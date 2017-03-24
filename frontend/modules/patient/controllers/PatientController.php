@@ -11,6 +11,8 @@ use yii\filters\VerbFilter;
 use common\components\AppController;
 use common\components\MyHelper;
 use yii\data\ArrayDataProvider;
+use common\components\SmartKeys;
+use yii\helpers\Html;
 
 /**
  * PatientController implements the CRUD actions for Patient model.
@@ -39,7 +41,7 @@ class PatientController extends AppController {
 
 
         $searchModel = new PatientSearch();
-        $searchModel->discharge =9;
+        $searchModel->discharge = 9;
 
         if (MyHelper::getUserOffice() !== 'all') {
             $searchModel->hospcode = MyHelper::getUserOffice();
@@ -72,7 +74,7 @@ class PatientController extends AppController {
      * @return mixed
      */
     public function actionView($pid) {
-        $this->permitRole([1, 2, 3,4,10]);
+        $this->permitRole([1, 2, 3, 4, 10]);
         return $this->render('view', [
                     'model' => $this->findModel($pid),
         ]);
@@ -84,6 +86,14 @@ class PatientController extends AppController {
      * @return mixed
      */
     public function actionCreate() {
+
+        $hospcode = MyHelper::getUserOffice();
+        if (!in_array($hospcode, SmartKeys::Hospcode())) {
+            //\Yii::$app->user->logout();            
+            \Yii::$app->session->setFlash('danger', Html::tag('h3', "หน่วยบริการ $hospcode ไม่ได้รับอนุญาต"));
+            throw new \yii\web\ForbiddenHttpException("ไม่ได้รับอนุญาต");
+        }
+
         $this->permitRole([2]);
         $model = new Patient();
         $model->cm_id = MyHelper::getUserId();
@@ -118,8 +128,8 @@ class PatientController extends AppController {
             ]);
         }
     }
-    
-     public function actionDischarge($pid) {
+
+    public function actionDischarge($pid) {
         $this->permitRole([2]);
         $model = $this->findModel($pid);
 
@@ -219,10 +229,10 @@ LEFT JOIN ctambon tmb ON tmb.tamboncodefull = LEFT(t.vhid,6) ";
                     'dataProvider' => $dataProvider
         ]);
     }
-    
-    public function actionIndexDischarge(){
-       $searchModel = new PatientSearch();
-       $searchModel->is_discharge =1;
+
+    public function actionIndexDischarge() {
+        $searchModel = new PatientSearch();
+        $searchModel->is_discharge = 1;
 
         if (MyHelper::getUserOffice() !== 'all') {
             $searchModel->hospcode = MyHelper::getUserOffice();
@@ -244,10 +254,11 @@ LEFT JOIN ctambon tmb ON tmb.tamboncodefull = LEFT(t.vhid,6) ";
                     'dataProvider' => $dataProvider,
         ]);
     }
-    public function actionFindMap(){
+
+    public function actionFindMap() {
         $this->permitRole([2]);
         $this->layout = 'main';
-        
+
         return $this->render('find-map');
     }
 
