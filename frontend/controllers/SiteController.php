@@ -16,6 +16,7 @@ use frontend\models\ContactForm;
 use common\components\MyHelper;
 use backend\models\User;
 use yii\helpers\Html;
+use common\components\SmartKeys;
 
 /**
  * Site controller
@@ -90,6 +91,12 @@ class SiteController extends Controller {
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $hospcode = MyHelper::getUserOffice();  
+            
+            if($hospcode!='all' and !in_array($hospcode, SmartKeys::Hospcode())){
+                 \Yii::$app->user->logout();
+                 \Yii::$app->session->setFlash('danger', Html::tag('h3',"หน่วยบริการ $hospcode ไม่ได้รับอนุญาต"));
+            }
 
             $username = $model->username;
             $u = User::find()->where('username = :username', [':username' => $username])->one();
