@@ -21,7 +21,7 @@ echo GridView::widget([
         [
             'columns'=>[
                 ['content'=>'', 'options'=>['colspan'=>1, 'class'=>'text-center warning']],
-                ['content'=>'ผู้สูงอายุ', 'options'=>['colspan'=>5, 'class'=>'text-center warning']], 
+                ['content'=>'ผู้สูงอายุ', 'options'=>['colspan'=>6, 'class'=>'text-center warning']], 
                 ['content'=>'ADL SCORE', 'options'=>['colspan'=>12, 'class'=>'text-center warning']],
                 
             ],
@@ -42,6 +42,7 @@ echo GridView::widget([
         ],
         'name:text:ชื่อ-สกุล',
         'age_y:integer:อายุ(ปี)',
+         'tmb:text:ตำบล',
         'moo:text:หมู่ที่',
         'class_name:text:กลุ่ม',
          'm01:text:ม.ค.',      

@@ -9,7 +9,7 @@ use common\components\MyHelper;
 
 class RptAdlMonth extends Model {
 
-    public $hospcode, $name, $class_name,$moo,$patient_id;
+    public $hospcode, $name, $class_name,$moo,$tmb,$patient_id;
 
     public function __construct($hospcode) {
         $this->hospcode = $hospcode;
@@ -17,16 +17,21 @@ class RptAdlMonth extends Model {
 
     public function rules() {
         return [
-            [['name', 'hospcode', 'class_name','moo','patient_id'], 'safe']
+            [['name', 'hospcode', 'class_name','moo','tmb','patient_id'], 'safe']
         ];
     }
 
     public function search($params = null) {
 
         $sql = " SELECT t.patient_id,concat(p.prename,p.`name`,' ',p.lname) name
-,p.age_y,p.class_name,p.village_no moo,t.*,p.cg_id from adl_month t
-INNER JOIN patient p ON p.id = t.patient_id AND p.discharge = 9 
-AND p.hospcode = '$this->hospcode' ";
+,p.age_y,p.class_name,p.subdistrict tmb,p.village_no moo,t.*,p.cg_id from adl_month t
+INNER JOIN patient p ON p.id = t.patient_id AND p.discharge = 9 ";
+
+if(strlen($this->hospcode==5)){
+    $sql.= " AND p.hospcode = '$this->hospcode' ";
+}
+
+        
         if (MyHelper::isCg()) {
             $cg_id = MyHelper::getUserId();
             $sql.= " AND p.cg_id = '$cg_id' ";
@@ -40,6 +45,7 @@ AND p.hospcode = '$this->hospcode' ";
             $query->andFilterWhere(['like', 'name', $this->name]);
             $query->andFilterWhere(['like', 'class_name', $this->class_name]);
             $query->andFilterWhere([ 'moo'=> $this->moo]);
+            $query->andFilterWhere([ 'tmb'=> $this->tmb]);
         }
         $all_models = $query->all();
         if (!empty($all_models[0])) {
