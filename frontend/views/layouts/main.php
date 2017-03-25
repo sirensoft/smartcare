@@ -42,7 +42,7 @@ AppAsset::register($this);
             ]);
             $menuItems = [
                 ['label' => 'กลุ่มพึ่งพิง', 'url' => ['/site/index']],
-                ['label' => 'กลุ่มทั้งหมด', 'url' => ['/aging/']],
+                ['label' => 'กลุ่มทั้งหมด', 'url' => ['/aging/'],'visible'=>  !MyHelper::isCg()],
                 ['label' => 'รายงาน', 'url' => ['/report/default/index']],
                     //['label' => 'Contact', 'url' => ['/site/contact']],
             ];

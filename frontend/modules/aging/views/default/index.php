@@ -67,8 +67,15 @@ echo GridView::widget([
         ],
         
         //'cid',
-        'prename:text:คำนำ',            
-        'name:text:ชื่อ', 
+        //'prename:text:คำนำ',            
+        //'name:text:ชื่อ', 
+        [
+            'attribute'=>'name',
+            'label'=>'ชื่อ',
+            'value'=>function($model){
+                return $model['prename'].$model['name'];
+            }
+        ],
         'lname:text:สกุล',
         [
             'attribute'=>'sex',
@@ -80,6 +87,7 @@ echo GridView::widget([
             }
         ],
         'age:integer:อายุ',
+        'tmb:text:ตำบล',
         'moo:text:หมู่ที่',
         
         
@@ -144,7 +152,14 @@ echo GridView::widget([
                 if(!empty($val[$code])){
                     return $val[$code];
                 }
-            }
+            },
+            'contentOptions'=>function($model){
+                 $code = $model['cvd_res'];
+                if ($code == '5') {
+                    return ['style' => "color:white;background-color:red;",'class' => 'text-center'];
+                }
+                
+             }
         ],
                 
        

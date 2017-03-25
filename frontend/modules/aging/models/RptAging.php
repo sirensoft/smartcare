@@ -9,20 +9,23 @@ use common\components\MyHelper;
 
 class RptAging extends Model {
 
-    public $sex, $cid, $name, $lname, $moo, $adl_code, $dm_risk, $ht_risk, $cvd_res;
+    public $sex, $cid, $name, $lname, $moo,$tmb, $adl_code, $dm_risk, $ht_risk, $cvd_res;
 
     public function rules() {
         return [
-            [['sex', 'cid', 'name', 'lname', 'moo', 'adl_code', 'dm_risk', 'ht_risk', 'cvd_res'], 'safe']
+            [['sex', 'cid', 'name', 'lname', 'moo','tmb', 'adl_code', 'dm_risk', 'ht_risk', 'cvd_res'], 'safe']
         ];
     }
 
     public function search($params = null) {
+        
         $hospcode = MyHelper::getUserOffice();
 
 
         $sql = " SELECT
-p.CID cid ,pn.prename,p.`NAME` 'name',p.LNAME 'lname',p.SEX sex,p.age_y age,RIGHT(p.vhid,2) moo
+p.CID cid ,pn.prename,p.`NAME` 'name',p.LNAME 'lname',p.SEX sex,p.age_y age
+,RIGHT(p.vhid,2) moo
+,LEFT(p.vhid,6) tmb
 
 ,t.adl_date,t.adl_code
 ,t.ht_date,t.ht_risk
@@ -47,8 +50,14 @@ FROM t_aged t INNER JOIN t_person_cid p ON t.cid=p.cid
 LEFT JOIN chospital_amp h on t.HOSPCODE = h.hoscode
 LEFT JOIN cprename pn on pn.id_prename = p.PRENAME
 WHERE p.check_typearea in(1,3) AND p.NATION in(99) AND p.DISCHARGE in(9) AND LENGTH(TRIM(p.CID)) = 13
-AND p.age_y >= 60 AND p.age_y < 200
-AND h.hoscode = '$hospcode' ";
+AND p.age_y >= 60 AND p.age_y < 200 ";  
+
+if(MyHelper::getUserRole()=='12'){
+    $sql.= "AND concat(h.provcode,h.distcode) = '$hospcode' ";
+}else{    
+    $sql.=" AND h.hoscode = '$hospcode' ";
+}
+
 
 
         $models = \Yii::$app->db_hdc->createCommand($sql)->queryAll();
@@ -62,6 +71,7 @@ AND h.hoscode = '$hospcode' ";
             $query->andFilterWhere(['like', 'name', $this->name]);
             $query->andFilterWhere(['like', 'lname', $this->lname]);
             $query->andFilterWhere(['moo' => $this->moo]);
+            $query->andFilterWhere(['tmb' => $this->tmb]);
             $query->andFilterWhere(['adl_code' => $this->adl_code]);
             $query->andFilterWhere(['dm_risk' => $this->dm_risk]);
             $query->andFilterWhere(['ht_risk' => $this->ht_risk]);

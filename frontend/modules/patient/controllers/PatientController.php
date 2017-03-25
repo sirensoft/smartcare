@@ -43,7 +43,12 @@ class PatientController extends AppController {
         $searchModel = new PatientSearch();
         $searchModel->discharge = 9;
 
-        if (MyHelper::getUserOffice() !== 'all') {
+        $office = MyHelper::getUserOffice();
+        if(MyHelper::getUserRole()=='12'){
+            $office = 'all';
+        }
+        
+        if ($office !== 'all') {
             $searchModel->hospcode = MyHelper::getUserOffice();
             if (MyHelper::isCm()) {
                 $searchModel->cm_id = MyHelper::getUserId();
