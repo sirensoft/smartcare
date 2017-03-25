@@ -74,10 +74,10 @@ var googleTerrain = L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={
         
 var baseLayers = {
 	"OSM ภูมิประเทศ": L.mapbox.tileLayer('mapbox.streets'),  
-        "OSM ถนน":L.tileLayer('//{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map),
+        "OSM ถนน":L.tileLayer('//{s}.tile.osm.org/{z}/{x}/{y}.png'),
         "OSM ดาวเทียม": L.mapbox.tileLayer('mapbox.satellite'),
         "Google Hybrid":googleHybrid,
-        "Google Street":googleStreet
+        "Google Street":googleStreet.addTo(map)
  };
 // base map
  
