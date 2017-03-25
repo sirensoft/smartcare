@@ -9,11 +9,11 @@ use common\components\MyHelper;
 
 class RptAging extends Model {
 
-    public $sex, $cid, $name, $lname, $moo,$tmb, $adl_code, $dm_risk, $ht_risk, $cvd_res;
+    public $sex, $cid, $name, $lname, $moo,$tmb, $adl_code, $dm_risk, $ht_risk, $cvd_res,$hospcode;
 
     public function rules() {
         return [
-            [['sex', 'cid', 'name', 'lname', 'moo','tmb', 'adl_code', 'dm_risk', 'ht_risk', 'cvd_res'], 'safe']
+            [['sex', 'cid', 'name', 'lname', 'moo','tmb', 'adl_code', 'dm_risk', 'ht_risk', 'cvd_res','hospcode'], 'safe']
         ];
     }
 
@@ -22,7 +22,7 @@ class RptAging extends Model {
         $hospcode = MyHelper::getUserOffice();
 
 
-        $sql = " SELECT
+        $sql = " SELECT t.HOSPCODE hospcode,
 p.CID cid ,pn.prename,p.`NAME` 'name',p.LNAME 'lname',p.SEX sex,p.age_y age
 ,RIGHT(p.vhid,2) moo
 ,LEFT(p.vhid,6) tmb
@@ -78,6 +78,7 @@ if(MyHelper::getUserRole()=='12'){
             $query->andFilterWhere(['cvd_res' => $this->cvd_res]);
             //$query->andFilterWhere(['amt_code' => $this->amt_code]);
             $query->andFilterWhere(['sex' => $this->sex]);
+            $query->andFilterWhere(['hospcode' => $this->hospcode]);
         }
         $all_models = $query->all();
         if (!empty($all_models[0])) {

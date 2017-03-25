@@ -69,6 +69,7 @@ echo GridView::widget([
         //'cid',
         //'prename:text:คำนำ',            
         //'name:text:ชื่อ', 
+        'hospcode:text:#',
         [
             'attribute'=>'name',
             'label'=>'ชื่อ',
