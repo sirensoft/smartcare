@@ -27,7 +27,7 @@ class RptAdlMonth extends Model {
 ,p.age_y,p.class_name,p.subdistrict tmb,p.village_no moo,t.*,p.cg_id from adl_month t
 INNER JOIN patient p ON p.id = t.patient_id AND p.discharge = 9 ";
 
-if(strlen($this->hospcode==5)){
+if(strlen($this->hospcode)==5){
     $sql.= " AND p.hospcode = '$this->hospcode' ";
 }
 
