@@ -57,7 +57,13 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
                
         //'prename',
-        'name',
+        [
+            'attribute'=>'name',
+            'label'=>'ชื่อ',
+            'value'=>  function($model){
+                return $model->prename.$model->name;
+            } 
+        ],
         'lname',
         'age_y',
      
@@ -82,6 +88,11 @@ $this->params['breadcrumbs'][] = $this->title;
               //'group'=>true,
               //'groupedRow'=>true,  
                             
+         ],
+         [
+             'attribute'=>'hospcode',
+             'label'=>'หน่วยบริการ',
+             //'visible'=>  MyHelper::getUserRole()=='12'
          ]
      
     ];
