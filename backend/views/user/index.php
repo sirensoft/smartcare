@@ -41,12 +41,12 @@ $this->params['breadcrumbs'][] = $this->title;
              'u_lname:text:lname',
              'office:text:หน่วยบริการ',
              //'officer_type:text:ประเภท',
-             'office_position:text:ตำแหน่ง',
+             //'office_position:text:ตำแหน่ง',
              'last_login',
             // 'created_at',
              //'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn','template'=>'{view}' ],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>

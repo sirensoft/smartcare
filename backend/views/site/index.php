@@ -18,7 +18,7 @@ $this->title = '::Backend::';
     <?php
     $items = [
         [
-            'label' => '<i class="glyphicon glyphicon-user"></i> จัดการ USER',
+            'label' => '<i class="glyphicon glyphicon-user"></i> จัดการ',
             'content' => $this->render('admin', []),
         ],
         [
