@@ -203,6 +203,7 @@ class PatientController extends AppController {
 ,amp.ampurname DISTRICT
 ,tmb.tambonname SUBDISTRICT
 ,RIGHT(t.vhid,2) VILLAGE_NO
+,hm.LATITUDE LAT,hm.LONGITUDE LON
 FROM t_person_cid t 
 LEFT JOIN cprename c on c.id_prename = t.PRENAME
 LEFT JOIN csex s ON s.sex = t.SEX
@@ -213,7 +214,8 @@ LEFT JOIN cnation n on n.nationcode = t.NATION
 LEFT JOIN cnation rc ON rc.nationcode = t.RACE
 LEFT JOIN cchangwat prov on prov.changwatcode = LEFT(t.vhid,2)
 LEFT JOIN campur amp ON amp.ampurcodefull = LEFT(t.vhid,4)
-LEFT JOIN ctambon tmb ON tmb.tamboncodefull = LEFT(t.vhid,6) ";
+LEFT JOIN ctambon tmb ON tmb.tamboncodefull = LEFT(t.vhid,6) 
+LEFT JOIN home hm ON concat(hm.HOSPCODE,hm.HID) = concat(t.HOSPCODE,t.HID)";
 
 
 

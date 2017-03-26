@@ -49,6 +49,8 @@ $f = ActiveForm::begin([
             window.opener.$('#patient-nation').val($(this).attr('nation')).change();
             window.opener.$('#patient-race').val($(this).attr('race')).change();
             window.opener.$('#patient-discharge').val($(this).attr('discharge')).change();
+            window.opener.$('#patient-lat').val($(this).attr('lat'));
+            window.opener.$('#patient-lon').val($(this).attr('lon'));
             window.close();
             
     ";
@@ -82,7 +84,9 @@ $f = ActiveForm::begin([
                                 'province'=>$data['PROVINCE'],
                                 'district'=>$data['DISTRICT'],
                                 'subdistrict'=>$data['SUBDISTRICT'],
-                                'village_no'=>$data['VILLAGE_NO']
+                                'village_no'=>$data['VILLAGE_NO'],
+                                'lat'=>$data['LAT'],
+                                'lon'=>$data['LON']
                                 
                     ]);
                 }
