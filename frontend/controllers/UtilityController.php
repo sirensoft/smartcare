@@ -52,14 +52,17 @@ class UtilityController extends AppController {
     
     
     public function actionLoseVisit(){
+        //call on 13.00 dialy
+        
+        $date = date('Y-m-d');
+        
         $sql = " SELECT t.`name`,t.lname,u.u_name cg 
-
 FROM patient t
 LEFT JOIN `user` u ON u.id = t.cg_id
 LEFT JOIN visit v ON v.patient_id = t.id AND t.next_visit_date = v.date_visit
 AND v.plan_week_id IS NULL
 
-WHERE t.next_visit_date = CURDATE() ";
+WHERE t.next_visit_date = '$date' ";
         
         $raw = \Yii::$app->db->createCommand($sql)->queryAll();
         
