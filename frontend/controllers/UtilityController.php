@@ -49,5 +49,20 @@ class UtilityController extends AppController {
         }
         return '1';
     }
+    
+    
+    public function actionLoseVisit(){
+        $sql = " SELECT t.`name`,t.lname,u.u_name cg 
+,if(v.plan_week_id IS NULL,NULL,'OK') visit
+FROM patient t
+LEFT JOIN `user` u ON u.id = t.cg_id
+LEFT JOIN visit v ON v.patient_id = t.id AND t.next_visit_date = v.date_visit
+
+WHERE t.next_visit_date = CURDATE() ";
+        
+        $raw = \Yii::$app->db->createCommand($sql)->queryAll();
+        
+        
+    }
 
 }
