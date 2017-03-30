@@ -46,7 +46,7 @@ $js = <<<JS
         yAxis: {
             //min: 0,
             //max: 200,
-            //tickInterval: 2,
+            tickInterval: 20,
             title: {
                 text: 'ความดัน(ค่าบน)'
             }

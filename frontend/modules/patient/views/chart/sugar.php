@@ -45,7 +45,7 @@ $js = <<<JS
         yAxis: {
             //min: 20,
             //max: 300,
-            //tickInterval: 5,
+            tickInterval: 20,
             title: {
                 text: 'ค่าน้ำตาลในเลือด'
             }

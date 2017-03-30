@@ -43,7 +43,7 @@ $js = <<<JS
         yAxis: {
             //min: 10,
             //max: 200,
-            //tickInterval: 10,
+            tickInterval: 10,
             title: {
                     text: 'กิโลกรัม'
             }
