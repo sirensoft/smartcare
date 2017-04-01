@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = "รายการแผน"
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> จัดทำแผนการดูแล', ['create', 'pid' => $pid], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> จัดทำแผนการดูแล', ['create', 'pid' => $pid], ['class' => 'btn btn-green']) ?>
     </p>
     <?=
     GridView::widget([
@@ -29,22 +29,7 @@ $this->params['breadcrumbs'][] = "รายการแผน"
         'responsiveWrap' => false,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-             [
-            'attribute' => 'rapid_code',
-            'label'=>'เร่งด่วน',
-             'filter'=>FALSE,
-            'format'=>'html',
-            'value'=>function($model){
-        
-                return Html::a('<i class="glyphicon glyphicon-search"></i>',['view', 'id' => $model->id],['class'=>'btn btn-default btn-sm']);
-            },
-            'contentOptions' => function ($model) {
-                    if ($model->rapid_code == 'yellow') {
-                        return ['style' => "color:black;background-color:$model->rapid_code;",'class' => 'text-center'];
-                    }
-                    return ['style' => "color:white;background-color:$model->rapid_code;",'class' => 'text-center'];
-                }
-            ],
+            
             //'id',
             //'hospcode',
             //'patient_id',
@@ -75,6 +60,22 @@ $this->params['breadcrumbs'][] = "รายการแผน"
                     // 'adl_text',
                     // 'tai',
                     'tai_text:ntext:กลุ่ม',
+                  [
+            'attribute' => 'rapid_code',
+            'label'=>'เร่งด่วน',
+             'filter'=>FALSE,
+            'format'=>'html',
+            'value'=>function($model){
+        
+                return Html::a('<i class="glyphicon glyphicon-search"></i>',['view', 'id' => $model->id],['class'=>'btn btn-default btn-sm']);
+            },
+            'contentOptions' => function ($model) {
+                    if ($model->rapid_code == 'yellow') {
+                        return ['style' => "color:black;background-color:$model->rapid_code;",'class' => 'text-center'];
+                    }
+                    return ['style' => "color:white;background-color:$model->rapid_code;",'class' => 'text-center'];
+                }
+            ],
                 // 'budget_need',
                 // 'dx1',
                 // 'dx2',
