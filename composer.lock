@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "19430380ae266add365ee9dc997c8165",
+    "content-hash": "834b12695352900bdcf38d49b2e46945",
     "packages": [
         {
             "name": "2amigos/yii2-arrayquery-component",
@@ -2802,6 +2802,49 @@
                 "schedule"
             ],
             "time": "2017-01-23T04:29:33+00:00"
+        },
+        {
+            "name": "odaialali/yii2-qrcode-reader",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/odai-alali/yii2-qrcode-reader.git",
+                "reference": "d6f8392078e98473d83bdb869b4bc2bc0cc70f58"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/odai-alali/yii2-qrcode-reader/zipball/d6f8392078e98473d83bdb869b4bc2bc0cc70f58",
+                "reference": "d6f8392078e98473d83bdb869b4bc2bc0cc70f58",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "odaialali\\qrcodereader\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Odai Alali",
+                    "email": "odai.alali@gmail.com"
+                }
+            ],
+            "description": "Yii2 widget for reading qr code using laptop or phone camera",
+            "keywords": [
+                "extension",
+                "javascript",
+                "qrcode",
+                "reader",
+                "yii2"
+            ],
+            "time": "2016-04-16 03:28:08"
         },
         {
             "name": "philippfrenzel/yii2fullcalendar",
@@ -5935,14 +5978,15 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "kartik-v/yii2-mpdf": 20,
         "kartik-v/yii2-grid": 20,
         "kartik-v/yii2-dynagrid": 20,
         "kartik-v/yii2-widget-depdrop": 20,
         "miloschuman/yii2-highcharts-widget": 20,
-        "kartik-v/yii2-helpers": 20
+        "kartik-v/yii2-helpers": 20,
+        "odaialali/yii2-qrcode-reader": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

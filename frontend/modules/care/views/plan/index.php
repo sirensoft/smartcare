@@ -25,10 +25,26 @@ $this->params['breadcrumbs'][] = "รายการแผน"
     <?=
     GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'responsiveWrap' => false,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
+             [
+            'attribute' => 'rapid_code',
+            'label'=>'เร่งด่วน',
+             'filter'=>FALSE,
+            'format'=>'html',
+            'value'=>function($model){
+        
+                return Html::a('<i class="glyphicon glyphicon-search"></i>',['view', 'id' => $model->id],['class'=>'btn btn-default btn-sm']);
+            },
+            'contentOptions' => function ($model) {
+                    if ($model->rapid_code == 'yellow') {
+                        return ['style' => "color:black;background-color:$model->rapid_code;",'class' => 'text-center'];
+                    }
+                    return ['style' => "color:white;background-color:$model->rapid_code;",'class' => 'text-center'];
+                }
+            ],
             //'id',
             //'hospcode',
             //'patient_id',
@@ -39,18 +55,14 @@ $this->params['breadcrumbs'][] = "รายการแผน"
                     //\Yii::$app->formatter->locale = 'th-TH';
                     $d=$model->date_create;
                     $d = \Yii::$app->formatter->asDate($d);
-                    return Html::a($d, ['view', 'id' => $model->id]);
-                }
+                    //return Html::a($d, ['view', 'id' => $model->id]);
+                    return $d;
+                },
+                'contentOptions'=>[
+                        'class'=>'text-center'
+                ]
             ],
-            [
-            'attribute' => 'rapid_code',
-            'contentOptions' => function ($model) {
-                if ($model->rapid_code == 'yellow') {
-                    return ['style' => "color:black;background-color:$model->rapid_code;",'class' => 'text-center'];
-                }
-                return ['style' => "color:white;background-color:$model->rapid_code;",'class' => 'text-center'];
-            }
-                ],
+           
                     //'adl:integer:คะแนน ADL',
                 [
                     'attribute'=>'adl',
