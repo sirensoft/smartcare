@@ -9,6 +9,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 use kartik\tabs\TabsX;
+use yii\helpers\Url;
+$route = Url::to(['/care/plan-week/index','pid'=>$model->patient_id]);
 
 echo TabsX::widget([
     'position' => TabsX::POS_ABOVE,
@@ -24,7 +26,8 @@ echo TabsX::widget([
         ],
         [
             'label'=>'WEEKLY PLAN',
-            'content'=>"<div id='week'>week</div>"
+            'content'=>"<div id='week'>week</div>",
+            //'content'=>$this->render($route)
             
             
             
@@ -40,11 +43,10 @@ echo TabsX::widget([
 </div>
 
 <?php
-use yii\helpers\Url;
-$route = Url::to(['/care/plan-week/index','pid'=>$model->patient_id]);
+
 $js= <<< JS
  
-  //$('#week').load('index.php?r=care/plan-week/index&pid=$model->patient_id') ;
+  
   $('#week').load('$route'); 
   
        
