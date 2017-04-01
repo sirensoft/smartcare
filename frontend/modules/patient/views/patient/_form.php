@@ -211,7 +211,9 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
 <div class="form-group">
     
     <div class="col-sm-3"> 
-        <?= $form->field($model, 'cright')->dropDownList(['บัตรทอง'=>'บัตรทอง','เบิกได้'=>'เบิกได้','จ่ายเอง'=>'จ่ายเอง'],['prompt'=>'']) ?>
+        <?= $form->field($model, 'cright')->dropDownList([
+            'บัตรทอง'=>'บัตรทอง','ประกันสังคม'=>'ประกันสังคม','ข้าราชการ/รัฐวิสาหกิจ'=>'ข้าราชการ/รัฐวิสาหกิจ','จ่ายเอง'=>'จ่ายเอง'
+            ],['prompt'=>'']) ?>
     </div>
     <div class="col-sm-3"> 
         <?= $form->field($model, 'cousin')->textInput() ?>
