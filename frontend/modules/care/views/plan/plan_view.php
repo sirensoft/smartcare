@@ -42,9 +42,9 @@ echo TabsX::widget([
 <?php
 
 $js= <<< JS
-      
+ 
   $('#week').load('index.php?r=care/plan-week/index&pid=$model->patient_id') ;
-        
+     
   
        
 JS;
