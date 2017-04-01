@@ -84,9 +84,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'race',
             'religion',
             'disease',
-            
+            'cright',
             'cousin',
             'tel',
+            
             //'dupdate',
             [
                 'attribute'=>'lat',

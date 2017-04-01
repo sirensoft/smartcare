@@ -9,6 +9,7 @@ use kartik\date\DatePicker;
 use yii\web\JsExpression;
 use kartik\depdrop\DepDrop;
 use yii\helpers\Url;
+use frontend\models\CRight;
 
 $css = <<< CSS
 .alignment
@@ -208,7 +209,11 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
 </div>
 
 <div class="form-group">
-    <div class="col-sm-6"> 
+    
+    <div class="col-sm-3"> 
+        <?= $form->field($model, 'cright')->dropDownList(['บัตรทอง'=>'บัตรทอง','เบิกได้'=>'เบิกได้','จ่ายเอง'=>'จ่ายเอง'],['prompt'=>'']) ?>
+    </div>
+    <div class="col-sm-3"> 
         <?= $form->field($model, 'cousin')->textInput() ?>
     </div>
     <div class="col-sm-3"> 

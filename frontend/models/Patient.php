@@ -35,6 +35,8 @@ use Yii;
  * @property string $discharge_date
  * @property string $discharge_time
  * @property string $discharge_note
+ * @property string $cright 
+ * @property string $cright_group
  * @property integer $cm_id
  * @property integer $cg_id
  * @property integer $adl
@@ -67,7 +69,7 @@ class Patient extends \yii\db\ActiveRecord {
 
             [['birth','cg_id','house_no','cid', 'prename', 'name', 'lname', 'province', 'district', 'sex', 'subdistrict', 'village_no', 'hospcode','discharge'], 'required','message' => ''],
             [['next_visit_date','birth'], 'safe'],
-            [['note','discharge_time','discharge_date','discharge_note','dupdate','cousin','tel'], 'safe'],
+            [['cright','cright_group','note','discharge_time','discharge_date','discharge_note','dupdate','cousin','tel'], 'safe'],
             [['age_y','typearea', 'cm_id', 'cg_id', 'adl', 'class_id'], 'integer'],
             [['cid', 'tai'], 'string', 'max' => 13],
             [['mstatus','religion','color','pid','refer_from','class_name', 'prename', 'sex', 'name', 'lname', 'province', 'district', 'subdistrict', 'village_no', 'village_name', 'house_no', 'disease', 'nation', 'race', 'discharge', 'lat', 'lon'], 'string', 'max' => 255],
@@ -109,6 +111,7 @@ class Patient extends \yii\db\ActiveRecord {
              'discharge_date' => 'วันจำหน่าย',
              'discharge_time' => 'เวลา',
             'discharge_note'=>'รายละเอียดการจำหน่าย',
+            'cright'=>'สิทธิรักษา',
             'cm_id' => 'CareManager',
             'cg_id' => 'CG',
             'adl' => 'คะแนน ADL',
