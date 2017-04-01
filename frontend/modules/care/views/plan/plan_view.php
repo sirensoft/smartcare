@@ -40,11 +40,12 @@ echo TabsX::widget([
 </div>
 
 <?php
-
+use yii\helpers\Url;
+$route = Url::to(['/care/plan-week/index','pid'=>$model->patient_id]);
 $js= <<< JS
  
-  $('#week').load('index.php?r=care/plan-week/index&pid=$model->patient_id') ;
-     
+  //$('#week').load('index.php?r=care/plan-week/index&pid=$model->patient_id') ;
+  $('#week').load('$route'); 
   
        
 JS;
