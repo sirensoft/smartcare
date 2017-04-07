@@ -65,7 +65,15 @@ $this->params['breadcrumbs'][] = $this->title;
             } 
         ],
         'lname',
-        'age_y',
+        [
+            'attribute'=>'age_y',
+            'label'=>'อายุ',
+            'format'=>'html',
+            'value'=>function($model){
+                return "<span class='badge'>$model->age_y ปี</span>";
+            }
+        ],
+        //'age_y',
      
         'subdistrict',
         'village_no',
@@ -75,7 +83,7 @@ $this->params['breadcrumbs'][] = $this->title;
              'format'=>'date',
             'contentOptions' => function ($model) use ($today) {
                 if ($model->next_visit_date == $today) {
-                    return ['style' => "background-color:#85f24e;"];
+                    return ['style' => "color:white;background-color:#f6546a;"];
                 }
                
             }
