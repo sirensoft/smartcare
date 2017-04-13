@@ -59,16 +59,20 @@ class UtilityController extends AppController {
         $sql = " SELECT t.`name`,t.lname,u.u_name cg 
 FROM patient t
 LEFT JOIN `user` u ON u.id = t.cg_id
-LEFT JOIN visit v ON v.patient_id = t.id AND t.next_visit_date = v.date_visit
-AND v.plan_week_id IS NULL
-
-WHERE t.next_visit_date = '$date' ";
+WHERE t.next_visit_date = CURDATE()
+AND t.id not in 
+(SELECT DISTINCT v.patient_id FROM visit v WHERE v.date_visit = CURDATE()) ";
         
+        $date = \Yii::$app->formatter->asDate($date);
+        $i = 1;
         $raw = \Yii::$app->db->createCommand($sql)->queryAll();
-        
+        $msg ="*ประกาศ*\r\nผู้สูงอายุที่ยังไม่ได้รับการเยี่ยมดูแลตามแผนประจำวันที่($date)\r\n";
         foreach ($raw as $val) {
-            echo $val['name']." ".$val['lname']."  (".$val['cg'].")";
+            $msg.= $i."-".$val['name']." ".$val['lname']."  (CG:".$val['cg'].")\r\n";
+            $i++;
         }
+        echo $msg;
+        MyHelper::sendLineNotify($msg);
         
         
     }
