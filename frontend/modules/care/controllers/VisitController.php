@@ -117,7 +117,7 @@ class VisitController extends AppController {
             $msg.="\r\n";
             $msg.="ผู้เยี่ยม:" . MyHelper::getUserFullName();
 
-            MyHelper::sendLineNotify($msg);
+            MyHelper::sendLineNotify('care', $msg);
 
             //adl_month
             $sql = "CALL add_adl_month($patient->id)";

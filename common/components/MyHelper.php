@@ -24,15 +24,15 @@ class MyHelper extends \yii\base\Component {
         return $LINE_API;
     }
 
-    public static function getLineToken() {
-        $model = CLine::findOne(['line_name' => 'care', 'status' => 1]);
+    public static function getLineToken($group) {
+        $model = CLine::findOne(['line_name' => $group, 'status' => 1]);
         return $model->line_token;
     }
 
-    public static function sendLineNotify($message = NULL) {
+    public static function sendLineNotify($group,$message = NULL) {
 
         $LINE_API = MyHelper::getLineApi();
-        $LINE_TOKEN = MyHelper::getLineToken();
+        $LINE_TOKEN = MyHelper::getLineToken($group);
 
         $queryData = ['message' => $message];
         $queryData = http_build_query($queryData, '', '&');

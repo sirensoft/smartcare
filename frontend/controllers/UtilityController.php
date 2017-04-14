@@ -66,13 +66,16 @@ AND t.id not in
         $date = \Yii::$app->formatter->asDate($date);
         $i = 1;
         $raw = \Yii::$app->db->createCommand($sql)->queryAll();
-        $msg ="*ประกาศ*\r\nผู้สูงอายุที่ยังไม่ได้รับการเยี่ยมดูแลตามแผนประจำวันที่($date)\r\n";
+        $msg ="*แจ้งเตือน*\r\nผู้สูงอายุที่ยังไม่ได้รับการเยี่ยมดูแล\r\nตามแผนประจำวันที่($date)\r\n";
+        if(date('H')<13){
+          $msg ="\r\nผู้สูงอายุที่มีแผนเยี่ยมดูแล\r\nประจำวันที่($date)\r\n";  
+        }
         foreach ($raw as $val) {
             $msg.= $i."-".$val['name']." ".$val['lname']."  (CG:".$val['cg'].")\r\n";
             $i++;
         }
-        echo $msg;
-        MyHelper::sendLineNotify($msg);
+        echo $msg.date('H');
+        MyHelper::sendLineNotify('care',$msg);
         
         
     }
