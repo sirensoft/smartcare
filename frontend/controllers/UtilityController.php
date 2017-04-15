@@ -66,7 +66,7 @@ AND t.id not in
         $date = \Yii::$app->formatter->asDate($date);
         $i = 1;
         $raw = \Yii::$app->db->createCommand($sql)->queryAll();
-        $msg ="*แจ้งเตือน*\r\nผู้สูงอายุที่ยังไม่ได้รับการเยี่ยมดูแล\r\nตามแผนประจำวันที่($date)\r\n";
+        $msg ="*แจ้งเตือน*\r\nผู้สูงอายุที่ยังไม่ได้รับการเยี่ยมดูแล\r\nตามแผนประจำวันที่$date\r\n";
         if(date('H')<13){
           $msg ="\r\nผู้สูงอายุที่มีแผนเยี่ยมดูแล\r\nประจำวันที่($date)\r\n";  
         }
