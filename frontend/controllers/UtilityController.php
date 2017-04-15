@@ -70,11 +70,14 @@ AND t.id not in
         if(date('H')<13){
           $msg ="\r\nผู้สูงอายุที่มีแผนเยี่ยมดูแล\r\nประจำวันที่($date)\r\n";  
         }
+        if(count($raw)==0){
+            $msg.= "-ไม่มี";
+        }
         foreach ($raw as $val) {
             $msg.= $i."-".$val['name']." ".$val['lname']."  (CG:".$val['cg'].")\r\n";
             $i++;
         }
-        echo $msg.date('H');
+        echo $msg."<br/>".date('H');
         MyHelper::sendLineNotify('care',$msg);
         
         
