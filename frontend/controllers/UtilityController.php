@@ -71,14 +71,19 @@ AND t.id not in
           $msg ="\r\nผู้สูงอายุที่มีแผนเยี่ยมดูแล\r\nประจำวันที่($date)\r\n";  
         }
         if(count($raw)==0){
-            $msg.= "-ไม่มี";
+            $msg.= "-ไม่มี\r\n";
         }
         foreach ($raw as $val) {
             $msg.= $i."-".$val['name']." ".$val['lname']."  (CG:".$val['cg'].")\r\n";
             $i++;
         }
-        echo $msg."<br/>".date('H');
+        
+        $msg.="(แจ้งโดยระบบอัตโนมัติ)";
         MyHelper::sendLineNotify('care',$msg);
+        
+        echo date('H:i:s');
+        echo "<br>";
+        echo $msg;
         
         
     }
