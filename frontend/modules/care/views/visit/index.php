@@ -21,6 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'pid' => $pid
                 ], ['class' => 'btn btn-success'])
         ?>
+        <?= Html::a(' <i class="glyphicon glyphicon-signal"></i> ', ['/patient/chart/index', 'pid' => $pid], ['class' => 'btn btn-pink pull-right', 'target' => '_blank']) ?>
+
     </p>
     <?=
     GridView::widget([
