@@ -46,7 +46,7 @@ class LogbookSearch extends Logbook
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query,
+            'query' => $query,            
         ]);
 
         $this->load($params);
