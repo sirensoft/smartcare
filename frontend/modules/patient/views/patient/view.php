@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> สุขภาพจิต', ['/patient/assesq/index', 'pid' => $model->id], ['class' => '']) ?>
 
                 </li>
-                 <li>
+                <li>
                     <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> หกล้ม', ['#', 'pid' => $model->id], ['class' => '']) ?>
                 </li>
                 <li>
@@ -51,20 +51,19 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('<i class="glyphicon glyphicon-calendar"></i> แผน', ['/care/plan/index', 'pid' => $model->id], ['class' => 'btn btn-deep-orange ']) ?>
         <?= Html::a('<i class="glyphicon glyphicon-plus"></i> เยี่ยม', ['/care/visit/index', 'pid' => $model->id], ['class' => 'btn btn-green']) ?>
 
-        <?= Html::a(' <i class="glyphicon glyphicon-signal"></i> ', ['/patient/chart/index', 'pid' => $model->id], ['class' => 'btn btn-pink', 'target' => '_blank']) ?>
-        <?= Html::a(' <i class="glyphicon glyphicon-remove"></i> ', ['/patient/patient/discharge', 'pid' => $model->id], ['class' => 'btn btn-black pull-right']) ?>
+        <?= Html::a(' <i class="glyphicon glyphicon-signal"></i> ', ['/patient/chart/index', 'pid' => $model->id], ['class' => 'btn btn-pink pull-right', 'target' => '_blank']) ?>
 
     <?php endif; ?>
 
     <?php if (MyHelper::isCg()): ?>
-        <?= Html::a('<i class="glyphicon glyphicon-user"></i> ข้อมูล', ['/patient/logbook/index', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
-         <div class="btn-group">
+        <?= Html::a('<i class="glyphicon glyphicon-user"></i> ข้อมูล', ['/patient/logbook/index', 'pid' => $model->id], ['class' => 'btn btn-primary','style'=>'display:none']) ?>
+        <div class="btn-group">
             <button type="button" class="btn btn-blue"><i class="glyphicon glyphicon-check"></i> ประเมิน</button>
             <button type="button" class="btn btn-blue dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-               <li>
+                <li>
                     <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> กิจวัตรประจำวัน', ['/patient/asses/index', 'pid' => $model->id], ['class' => '']) ?>
 
                 </li>
@@ -145,9 +144,11 @@ DetailView::widget([
 ?>
 <p>
     <?php if (MyHelper::isCm()): ?>
+        <?= Html::a(' <i class="glyphicon glyphicon-remove"></i> จำหน่าย', ['/patient/patient/discharge', 'pid' => $model->id], ['class' => 'btn btn-black']) ?>
+
         <?php
         echo Html::a('<i class="glyphicon glyphicon-trash"></i> ลบข้อมูล', ['delete', 'pid' => $model->id], [
-            'class' => 'btn btn-danger',
+            'class' => 'btn btn-danger pull-right',
             'data' => [
                 'confirm' => 'ยืนยันการลบข้อมูล!',
                 'method' => 'post',
