@@ -56,7 +56,7 @@ if(strlen($this->hospcode)==5){
             //'totalItems'=>100,
             'sort' => !empty($cols) ? ['attributes' => $cols] : FALSE,
             'pagination' => [
-                'pageSize' => 25
+                'pageSize' => 30
             ]
         ]);
     }
