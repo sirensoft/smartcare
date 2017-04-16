@@ -34,13 +34,13 @@ class UtilityController extends AppController {
 
     public function actionAddAdlMon() {
 
-        $sql ="CALL set_adl_month";
+        $sql = "CALL set_adl_month";
         \Yii::$app->db->createCommand($sql)->execute();
-        
+
         $hospcode = MyHelper::getUserOffice();
         //$oModel = Patient::findAll(['hospcode' => $hospcode]);
         $oModel = Patient::find()->all();
-        
+
         foreach ($oModel as $obj) {
             $pid = $obj->id;
             //adl_month
@@ -49,43 +49,46 @@ class UtilityController extends AppController {
         }
         return '1';
     }
-    
-    
-    public function actionLoseVisit(){
+
+    public function actionLoseVisit() {
         //call on 13.00 dialy
-        
+        $send_sms = TRUE;
         $date = date('Y-m-d');
-        
+
         $sql = " SELECT t.`name`,t.lname,u.u_name cg 
 FROM patient t
 LEFT JOIN `user` u ON u.id = t.cg_id
 WHERE t.next_visit_date = CURDATE()
 AND t.id not in 
 (SELECT DISTINCT v.patient_id FROM visit v WHERE v.date_visit = CURDATE()) ";
-        
+
         $date = \Yii::$app->formatter->asDate($date);
         $i = 1;
         $raw = \Yii::$app->db->createCommand($sql)->queryAll();
-        $msg ="*แจ้งเตือน*\r\nผู้สูงอายุที่ยังไม่ได้รับการเยี่ยมดูแล\r\nตามแผนประจำวันที่$date\r\n";
-        if(date('H')<13){
-          $msg ="\r\nผู้สูงอายุที่มีแผนเยี่ยมดูแล\r\nประจำวันที่($date)\r\n";  
+        
+        if (count($raw) == 0) {
+            $send_sms = FALSE;
         }
-        if(count($raw)==0){
-            $msg.= "-ไม่มี\r\n";
+
+        $msg = "*แจ้งเตือน*\r\nผู้สูงอายุที่ยังไม่ได้รับการเยี่ยมดูแล\r\nตามแผนประจำวันที่ $date\r\n";
+        if (date('H') < 13) {
+            $msg = "\r\nผู้สูงอายุที่มีแผนเยี่ยมดูแล\r\nประจำวันที่ $date\r\n";
         }
+
         foreach ($raw as $val) {
-            $msg.= $i."-".$val['name']." ".$val['lname']."  (CG:".$val['cg'].")\r\n";
+            $msg.= $i . ") " . $val['name'] . " " . $val['lname'] . "  (CG:" . $val['cg'] . ")\r\n";
             $i++;
         }
-        
+
         $msg.="(แจ้งโดยระบบอัตโนมัติ)";
-        MyHelper::sendLineNotify('care',$msg);
-        
+        if ($send_sms) {
+            MyHelper::sendLineNotify('care', $msg);
+        }
+
+
         echo date('H:i:s');
         echo "<br>";
         echo $msg;
-        
-        
     }
 
 }
