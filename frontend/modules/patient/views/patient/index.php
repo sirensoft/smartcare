@@ -100,7 +100,7 @@ $this->params['breadcrumbs'][] = $this->title;
          [
              'attribute'=>'hospcode',
              'label'=>'หน่วยบริการ',
-             //'visible'=>  MyHelper::getUserRole()=='12'
+             'visible'=>  MyHelper::getUserRole()=='12'
          ]
      
     ];
