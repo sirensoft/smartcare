@@ -90,5 +90,8 @@ AND t.id not in
         echo "<br>";
         echo $msg;
     }
+    public function actionTestLine($g){
+        MyHelper::sendLineNotify($g, "Hello!");
+    }
 
 }

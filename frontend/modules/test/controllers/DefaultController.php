@@ -86,9 +86,5 @@ class DefaultController extends AppController {
         echo "<br>";
         echo $this->getRoute();
     }
-    
-    public function actionReadQr(){
-        return $this->render('read-qr');
-    }
 
 }

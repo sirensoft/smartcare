@@ -57,6 +57,11 @@ class PlanController extends AppController {
                     'model' => $this->findModel($id),
         ]);
     }
+     public function actionVieww($id) {
+        return $this->render('plan_vieww', [
+                    'model' => $this->findModel($id),
+        ]);
+    }
 
     /**
      * Creates a new Plan model.
