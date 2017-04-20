@@ -33,11 +33,11 @@ $this->params['breadcrumbs'][] = $this->title;
             </button>
             <ul class="dropdown-menu" role="menu">
                 <li>
-                    <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> กิจวัตรประจำวัน', ['/patient/asses/index', 'pid' => $model->id], ['class' => '']) ?>
+                    <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> ADL', ['/patient/asses/index', 'pid' => $model->id], ['class' => '']) ?>
 
                 </li>
                 <li>
-                    <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> สุขภาพจิต', ['/patient/assesq/index', 'pid' => $model->id], ['class' => '']) ?>
+                    <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> 2Q/9Q', ['/patient/assesq/index', 'pid' => $model->id], ['class' => '']) ?>
 
                 </li>
                 <li>
@@ -45,6 +45,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 </li>
                 <li>
                     <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> สมองเสื่อม', ['#', 'pid' => $model->id], ['class' => '']) ?>
+                </li>
+                <li class="divider"></li>
+                 <li>
+                    <?= Html::a('<i class="glyphicon glyphicon-menu-hamburger"></i> สรุปผล', ['#', 'pid' => $model->id], ['class' => '']) ?>                     
                 </li>
             </ul>
         </div>
