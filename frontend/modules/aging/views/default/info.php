@@ -25,7 +25,7 @@ echo DetailView::widget([
 <?php
 
 echo GridView::widget([
-    'summary'=>'รายการ',
+    'summary'=>'คัดกรอง/ประเมิน',
     'responsiveWrap' => false,
     'dataProvider' => $dataProvider,
     'columns'=>[
