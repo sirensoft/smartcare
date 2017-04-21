@@ -29,6 +29,10 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
  ?>
 
 <button type="submit" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
+<?php
+$url = \Yii::$app->request->referrer;
+?>
+<?= Html::a('<i class="glyphicon glyphicon-repeat"></i> ยกเลิก', $url,['class'=>'btn btn-sm btn-info pull-right']);?>
 
 
 <?php ActiveForm::end(); ?>

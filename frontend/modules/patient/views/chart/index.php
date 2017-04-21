@@ -18,7 +18,7 @@ $this->title = MyHelper::ptInfo_($pid);
     <div class="panel-body">
 <?php
 echo TabsX::widget([
-    //'position' => TabsX::POS_ABOVE,
+    //'position' => TabsX::POS_LEFT,
     //'align' => TabsX::ALIGN_LEFT,
   
     'items' => [
