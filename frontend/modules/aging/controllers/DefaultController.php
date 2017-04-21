@@ -16,6 +16,7 @@ class DefaultController extends AppController
      */
     public function actionIndex()
     {
+        $this->permitRole([2]);
         $searchModel = new RptAging();      
         $dataProvider = $searchModel->search(\Yii::$app->request->queryParams);
         return $this->render('index', [
@@ -26,6 +27,7 @@ class DefaultController extends AppController
     }
     
     public function actionView($cid){
+        $this->permitRole([2]);
         
         $searchModel = new RptAging();  
         

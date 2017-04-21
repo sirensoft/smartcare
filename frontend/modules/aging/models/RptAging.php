@@ -49,6 +49,7 @@ END as 'cvd_res'
 ,t.knee_date,t.knee_code
 ,t.fall_date,t.fall_code
 ,t.bmi_date,t.bmi
+,tc.mix_dx dx
 
 
 FROM t_aged t INNER JOIN t_person_cid p ON t.cid=p.cid
@@ -57,6 +58,7 @@ LEFT JOIN cprename pn on pn.id_prename = p.PRENAME
 LEFT JOIN cchangwat ch ON ch.changwatcode = LEFT(p.vhid,2)
 LEFT JOIN campur am ON am.ampurcodefull = LEFT(p.vhid,4)
 LEFT JOIN ctambon tm ON tm.tamboncodefull = LEFT(p.vhid,6)
+LEFT JOIN t_dmht tc on tc.cid = p.CID
 
 WHERE p.check_typearea in(1,3) AND p.NATION in(99) AND p.DISCHARGE in(9) AND LENGTH(TRIM(p.CID)) = 13
 AND p.age_y >= 60 AND p.age_y < 200 ";  
