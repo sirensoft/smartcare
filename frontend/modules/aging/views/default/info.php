@@ -33,6 +33,11 @@ echo GridView::widget([
         'dm_risk',
         'ht_risk',
         'cvd_score',
+        'dent_code',
+        'amt_code',
+        '2q_code',
+        'knee_code',
+        'fall_code',
         'bmi'
     ]
 ]);
