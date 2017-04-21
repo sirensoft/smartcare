@@ -24,8 +24,13 @@ class RptAging extends Model {
 
         $sql = " SELECT t.HOSPCODE hospcode,
 p.CID cid ,pn.prename,p.`NAME` 'name',p.LNAME 'lname',p.SEX sex,p.age_y age
+,p.addr
 ,RIGHT(p.vhid,2) moo
 ,LEFT(p.vhid,6) tmb
+
+,ch.changwatname prov_name
+,am.ampurname amp_name
+,tm.tambonname tmb_name
 
 ,t.adl_date,t.adl_code
 ,t.ht_date,t.ht_risk
@@ -49,6 +54,10 @@ END as 'cvd_res'
 FROM t_aged t INNER JOIN t_person_cid p ON t.cid=p.cid
 LEFT JOIN chospital_amp h on t.HOSPCODE = h.hoscode
 LEFT JOIN cprename pn on pn.id_prename = p.PRENAME
+LEFT JOIN cchangwat ch ON ch.changwatcode = LEFT(p.vhid,2)
+LEFT JOIN campur am ON am.ampurcodefull = LEFT(p.vhid,4)
+LEFT JOIN ctambon tm ON tm.tamboncodefull = LEFT(p.vhid,6)
+
 WHERE p.check_typearea in(1,3) AND p.NATION in(99) AND p.DISCHARGE in(9) AND LENGTH(TRIM(p.CID)) = 13
 AND p.age_y >= 60 AND p.age_y < 200 ";  
 
