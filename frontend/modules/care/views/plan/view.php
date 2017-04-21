@@ -48,8 +48,8 @@ $this->params['breadcrumbs'][] = $this->title
 
      <p>
         
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('<i class="glyphicon glyphicon-pencil"></i> แก้ไข', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-remove"></i> ลบ', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title
             ],
         ]) ?>
          
-         <?= Html::a('พิมพ์', ['excel', 'id' => $model->id], ['class' => 'btn btn-info pull-right']) ?>
+         <?= Html::a('<i class="glyphicon glyphicon-print"></i> พิมพ์', ['excel', 'id' => $model->id], ['class' => 'btn btn-success pull-right']) ?>
         
         
     </p>
