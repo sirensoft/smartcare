@@ -69,7 +69,12 @@ echo GridView::widget([
         //'cid',
         //'prename:text:คำนำ',            
         //'name:text:ชื่อ', 
-        'hospcode:text:#',
+        //'hospcode',
+        [
+            'attribute'=>'hospcode',
+            'label'=>'#',
+            'visible'=>  !MyHelper::isCm()
+        ],
         [
             'attribute'=>'name',
             'label'=>'ชื่อ',
