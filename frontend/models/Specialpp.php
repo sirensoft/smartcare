@@ -60,12 +60,12 @@ class Specialpp extends \yii\db\ActiveRecord
             'HOSPCODE' => 'Hospcode',
             'PID' => 'Pid',
             'SEQ' => 'Seq',
-            'DATE_SERV' => 'DateServ',
+            'DATE_SERV' => 'Date  Serv',
             'SERVPLACE' => 'Servplace',
             'PPSPECIAL' => 'Ppspecial',
             'PPSPLACE' => 'Ppsplace',
             'PROVIDER' => 'Provider',
-            'D_UPDATE' => 'Dupdate',
+            'D_UPDATE' => 'D  Update',
         ];
     }
 }

@@ -7,6 +7,8 @@ use frontend\models\files43\Person;
 use frontend\models\files43\FilePerson;
 use common\components\MyHelper;
 use frontend\models\Patient;
+use frontend\models\FileSpecialpp;
+use frontend\models\Specialpp;
 
 class UtilityController extends AppController {
 
@@ -30,6 +32,25 @@ class UtilityController extends AppController {
                 $clone->save();
             }
         }
+    }
+    
+      public function actionSpecialpp() {
+
+     
+        $oModel = FileSpecialpp::find()->all();
+
+        foreach ($oModel as $obj) {
+            $clone = new Specialpp();
+            $clone->attributes = $obj->attributes;
+
+            try {
+                $clone->save();
+            } catch (\yii\db\Exception $e) {
+                $clone->isNewRecord = false;
+                $clone->save();
+            }
+        }
+        return '1';
     }
 
     public function actionAddAdlMon() {

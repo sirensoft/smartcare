@@ -81,7 +81,7 @@ class Provider extends \yii\db\ActiveRecord
             'OUTDATE' => 'Outdate',
             'MOVEFROM' => 'Movefrom',
             'MOVETO' => 'Moveto',
-            'D_UPDATE' => 'DUpdate',
+            'D_UPDATE' => 'D  Update',
         ];
     }
 }

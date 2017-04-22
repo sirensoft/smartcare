@@ -6,7 +6,9 @@ use common\components\AppController;
 use common\components\MyHelper;
 use frontend\models\Assessment;
 use yii\filters\VerbFilter;
-
+use frontend\models\Person;
+use frontend\models\FileSpecialpp;
+use frontend\models\Patient;
 
 /**
  * Description of AssesController
@@ -67,7 +69,22 @@ class AssesController extends AppController {
              //adl_month
             $sql = "CALL add_adl_month($pid)";
             MyHelper::execSql($sql);
-
+            
+            // special_pp ***
+            $sp = new FileSpecialpp();
+            $pt = Patient::find()->where(['id'=>$pid])->one();
+            $sp->HOSPCODE = $pt->hospcode;
+            $pn = Person::find()->where(['HOSPCODE'=>$pt->hospcode,'CID'=>$pt->cid])->one();
+            $sp->PID = $pn->PID;
+            $sp->SEQ = 's'.date('YmdHis');
+            $sp->DATE_SERV = $model->date_serv;
+            $sp->SERVPLACE = '2';
+            $sp->PPSPECIAL = $model->pp_code;
+            $sp->PPSPLACE = $pt->hospcode;
+            $sp->PROVIDER = 'smartcare';
+            $sp->D_UPDATE = date('YmdHis');            
+            $sp->save(FALSE);
+            // special_pp ***
 
             \Yii::$app->session->setFlash('success', "บันทึกแล้ว");
 
