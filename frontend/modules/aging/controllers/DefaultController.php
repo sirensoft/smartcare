@@ -28,6 +28,10 @@ class DefaultController extends AppController
     
     public function actionView($cid){
         $this->permitRole([2]);
+        $i = \Yii::$app->request->get('i');
+        if($i){
+            $this->layout = 'main';
+        }
         
         $searchModel = new RptAging();  
         
@@ -38,7 +42,8 @@ class DefaultController extends AppController
         return $this->render('view', [
                     
                     'dataProvider' => $dataProvider,
-                    'params'=>$params
+                    'params'=>$params,
+                    'i'=>  $i
                     
                     
         ]);
