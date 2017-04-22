@@ -1,6 +1,9 @@
 <?php
 use kartik\grid\GridView;
 use yii\widgets\DetailView;
+use yii\helpers\Html;
+use frontend\models\Patient;
+
 echo DetailView::widget([
     'model'=>$model[0],
     'attributes' => [
@@ -28,17 +31,57 @@ echo GridView::widget([
     'summary'=>'คัดกรอง/ประเมิน',
     'responsiveWrap' => false,
     'dataProvider' => $dataProvider,
-    'columns'=>[
-        'adl_code',        
-        'dm_risk',
-        'ht_risk',
-        'cvd_score',
-        'dent_code',
-        'amt_code',
-        '2q_code',
-        'knee_code',
-        'fall_code',
-        'bmi'
+    'columns'=>[        
+        [
+            'attribute'=>'adl_code',
+            'label'=>'ADL'
+        ],
+        [
+            'attribute'=>'dm_risk',
+            'label'=>'เบาหวาน'
+        ],
+        [
+            'attribute'=>'ht_risk',
+            'label'=>'ความดัน'
+        ],       
+        [
+            'attribute'=>'cvd_score',
+            'label'=>'CVD'
+        ],
+        [
+            'attribute'=>'dent_code',
+            'label'=>'ช่องปาก'
+        ], 
+        [
+            'attribute'=>'amt_code',
+            'label'=>'สมอง AMT'
+        ], 
+        [
+            'attribute'=>'2q_code',
+            'label'=>'2Q'
+        ],
+         [
+            'attribute'=>'knee_code',
+            'label'=>'ข้อเข่า'
+        ],
+         [
+            'attribute'=>'fall_code',
+            'label'=>'หกล้ม'
+        ],
+         [
+            'attribute'=>'bmi',
+            'label'=>'BMI'
+        ],
+        
     ]
 ]);
 ?>
+
+<?php
+$pt = Patient::find()->where(['cid'=>$model[0]['cid']])->one();
+?>
+<?php if($pt): ?>
+<p>
+    <?=  Html::a('<i class="glyphicon glyphicon-search"></i> LTC', ['/patient/patient/view','pid'=>$pt->id],['class'=>'btn btn-danger'])?>
+</p>
+<?php endif; ?>
