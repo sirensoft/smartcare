@@ -2,6 +2,7 @@
 
 use kartik\tabs\TabsX;
 use yii\helpers\Html;
+use frontend\models\Patient;
 
 
 $model = $dataProvider->getModels();
@@ -27,6 +28,16 @@ echo TabsX::widget([
     ]
 ]);
 ?>
+
+<?php
+$pt = Patient::find()->where(['cid'=>$model[0]['cid']])->one();
+?>
+<?php if($pt): ?>
+<p>
+    <?=  Html::a('<i class="glyphicon glyphicon-search"></i> LTC', ['/patient/patient/view','pid'=>$pt->id],['class'=>'btn btn-danger'])?>
+</p>
+<?php endif; ?>
+
 
 
 
