@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use common\components\MyHelper;
 
 /* @var $this yii\web\View */
@@ -26,6 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?=
     GridView::widget([
+        'responsiveWrap' => false,
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [

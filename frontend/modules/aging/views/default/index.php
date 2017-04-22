@@ -161,6 +161,9 @@ echo GridView::widget([
             },
             'contentOptions'=>function($model){
                  $code = $model['cvd_res'];
+                if ($code == '4') {
+                    return ['style' => "color:black;background-color:pink;",'class' => 'text-center'];
+                }
                 if ($code == '5') {
                     return ['style' => "color:white;background-color:red;",'class' => 'text-center'];
                 }
