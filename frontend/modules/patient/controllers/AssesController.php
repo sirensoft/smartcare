@@ -75,8 +75,12 @@ class AssesController extends AppController {
                 $sp = new FileSpecialpp();
                 $pt = Patient::find()->where(['id' => $pid])->one();
                 $sp->HOSPCODE = $pt->hospcode;
-                $pn = Person::find()->where(['HOSPCODE' => $pt->hospcode, 'CID' => $pt->cid])->one();
-                $sp->PID = $pn->PID;
+                try {
+                    $pn = Person::find()->where(['HOSPCODE' => $pt->hospcode, 'CID' => $pt->cid])->one();
+                    $sp->PID = $pn->PID;
+                } catch (\yii\db\Exception $e) {
+                    $sp->PID = $pt->cid;
+                }
                 $sp->SEQ = 's' . date('YmdHis');
                 $sp->DATE_SERV = $model->date_serv;
                 $sp->SERVPLACE = '2';
@@ -84,7 +88,13 @@ class AssesController extends AppController {
                 $sp->PPSPLACE = $pt->hospcode;
                 $sp->PROVIDER = 'smartcare';
                 $sp->D_UPDATE = date('YmdHis');
-                $sp->save(FALSE);
+
+                try {
+                    $sp->save(FALSE);
+                } catch (\yii\db\Exception $e) {
+                    $sp->isNewRecord = false;
+                    $sp->save(FALSE);
+                }
             }
             // special_pp ***
 

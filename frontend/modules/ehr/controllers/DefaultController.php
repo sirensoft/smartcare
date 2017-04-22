@@ -19,8 +19,13 @@ class DefaultController extends AppController {
     public function actionIndex($pids=null) {
         $this->layout = 'main';
         $this->permitRole([2,4,5,6]);// เพิ่ม
+        try {
+            $onoff  = OnOffEhr::find()->one();
+        } catch (\yii\db\Exception $e) {
+             throw new \yii\web\ForbiddenHttpException("พบปัญหาการติดต่อฐานข้อมูล 43 แฟ้ม");
+        }
+
         
-        $onoff  = OnOffEhr::find()->one();
         if($onoff->status !== 'on'){
             throw  new \yii\web\ConflictHttpException('ระบบ EHR ถูกปิด');
         }
