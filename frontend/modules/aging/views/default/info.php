@@ -166,6 +166,6 @@ $pt = Patient::find()->where(['cid'=>$model[0]['cid']])->one();
 ?>
 <?php if($pt): ?>
 <p>
-    <?=  Html::a('<i class="glyphicon glyphicon-search"></i> LTC', ['/patient/patient/view','pid'=>$pt->id],['class'=>'btn btn-danger'])?>
+    <?=  Html::a('<i class="glyphicon glyphicon-search"></i> LTC', ['/patient/patient/view','pid'=>$pt->id],['class'=>'btn btn-success'])?>
 </p>
 <?php endif; ?>
