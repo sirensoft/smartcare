@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </li>
                 <li class="divider"></li>
                  <li>
-                    <?= Html::a('<i class="glyphicon glyphicon-menu-hamburger"></i> สรุปผล', ['#', 'pid' => $model->id], ['class' => '']) ?>                     
+                    <?= Html::a('<i class="glyphicon glyphicon-menu-hamburger"></i> สรุปผล', ['/aging/default/view', 'cid' => $model->cid], ['class' => '','target'=>'_blank']) ?>                     
                 </li>
             </ul>
         </div>
