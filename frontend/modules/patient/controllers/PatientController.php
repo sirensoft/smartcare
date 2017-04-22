@@ -44,10 +44,10 @@ class PatientController extends AppController {
         $searchModel->discharge = 9;
 
         $office = MyHelper::getUserOffice();
-        if(MyHelper::getUserRole()=='12'){
+        if (MyHelper::getUserRole() == '12') {
             $office = 'all';
         }
-        
+
         if ($office !== 'all') {
             $searchModel->hospcode = MyHelper::getUserOffice();
             if (MyHelper::isCm()) {
@@ -224,8 +224,11 @@ LEFT JOIN home hm ON concat(hm.HOSPCODE,hm.HID) = concat(t.HOSPCODE,t.HID)";
         $sql.=" or  t.NAME LIKE '%$cid%') ";
 
         $sql.= " GROUP BY t.CID order by t.TYPEAREA ASC,t.age_y DESC LIMIT 20 ";
-
-        $raw = \Yii::$app->db_hdc->createCommand($sql)->queryAll();
+        try {
+            $raw = \Yii::$app->db_hdc->createCommand($sql)->queryAll();
+        } catch (\yii\db\Exception $e) {
+            throw new \yii\web\ForbiddenHttpException("พบปัญหาการติดต่อฐานข้อมูล 43 แฟ้ม");
+        }
 
         $dataProvider = new ArrayDataProvider([
             'allModels' => $raw,

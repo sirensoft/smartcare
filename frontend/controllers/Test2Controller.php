@@ -24,7 +24,7 @@ class Test2Controller extends \yii\web\Controller {
     public function actionDelPerson() {
 
         $model = \frontend\models\test\TestPerson::find()->where(['hospcode' => '00000', 'pid' => '2'])->one();
-        //$model = \frontend\models\test\TestPerson::findOne('00000');
+//$model = \frontend\models\test\TestPerson::findOne('00000');
         if ($model) {
             $model->delete();
         } else {
@@ -47,11 +47,11 @@ class Test2Controller extends \yii\web\Controller {
     }
 
     public function loadLastService($id) {
-        $count=1;
+        $count = 1;
         $hospcode = MyHelper::getUserOffice();
         $mCount = FileService::find()->where(['HOSPCODE' => $hospcode]);
-        if($mCount){
-            $count = $mCount->count()+1;
+        if ($mCount) {
+            $count = $mCount->count() + 1;
         }
         $pt = Patient::findOne($id);
         if ($pt) {
@@ -64,19 +64,19 @@ class Test2Controller extends \yii\web\Controller {
         $service = Service::find()
                 ->where(['HOSPCODE' => $hospcode])
                 ->andWhere(['PID' => $pid])
-                //->asArray()
+//->asArray()
                 ->orderBy(['DATE_SERV' => SORT_DESC])
                 ->one();
         $model->attributes = $service->attributes;
         try {
-            $model->SEQ = 'S'.$count;
+            $model->SEQ = 'S' . $count;
             $model->CHIEFCOMP = "คัดกรองผู้สูงอายุ (SmartCare)";
             $model->DATE_SERV = date("Y-m-d");
             $model->TIME_SERV = date("His");
-            $model->COST =0;
-            $model->PRICE=0;
-            $model->PAYPRICE=0;
-            $model->ACTUALPAY=0;
+            $model->COST = 0;
+            $model->PRICE = 0;
+            $model->PAYPRICE = 0;
+            $model->ACTUALPAY = 0;
             $model->D_UPDATE = new \yii\db\Expression('NOW()');
             $model->save();
         } catch (\yii\db\Exception $e) {
@@ -87,6 +87,16 @@ class Test2Controller extends \yii\web\Controller {
 
     public function actionService($id) {
         $this->loadLastService($id);
+    }
+
+    public function actionConExist() {
+        \Yii::$app->db->open();
+        
+        try {
+            \Yii::$app->db_hdc->open();
+        } catch (\yii\db\Exception $exp) {
+             throw new \yii\web\ForbiddenHttpException("พบปัญหาการติดต่อฐานข้อมูล 43 แฟ้ม");
+        }
     }
 
 }

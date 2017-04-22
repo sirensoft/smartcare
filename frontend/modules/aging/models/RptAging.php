@@ -71,8 +71,11 @@ if(MyHelper::getUserRole()=='12'){
 $sql.=" GROUP BY t.cid ";
 
 
-
-        $models = \Yii::$app->db_hdc->createCommand($sql)->queryAll();
+        try{
+            $models = \Yii::$app->db_hdc->createCommand($sql)->queryAll();
+        }  catch (\yii\db\Exception $e){
+             throw new \yii\web\ForbiddenHttpException("พบปัญหาการติดต่อฐานข้อมูล 43 แฟ้ม");
+        }
 
         $query = new ArrayQuery();
 
