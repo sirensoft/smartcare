@@ -76,7 +76,7 @@ $sql.=" GROUP BY t.cid ";
         }  catch (\yii\db\Exception $e){
              throw new \yii\web\ForbiddenHttpException("พบปัญหาการติดต่อฐานข้อมูล 43 แฟ้ม");
         }
-
+       
         $query = new ArrayQuery();
 
         $query->from($models);

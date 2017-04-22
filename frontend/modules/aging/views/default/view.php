@@ -4,6 +4,10 @@ use kartik\tabs\TabsX;
 use yii\helpers\Html;
 
 $model = $dataProvider->getModels();
+ if(empty($model)){
+     throw new \yii\web\ForbiddenHttpException("ไม่พบข้อมูล 43 แฟ้ม");
+            
+ }
 
 
 $this->title = ' รายละเอียด ';
