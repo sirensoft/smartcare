@@ -34,5 +34,8 @@ return [
     'aging' => [
         'class' => 'frontend\modules\aging\Aging',
     ],
+    'club' => [
+        'class' => 'frontend\modules\club\Club',
+    ],
 ];
 
