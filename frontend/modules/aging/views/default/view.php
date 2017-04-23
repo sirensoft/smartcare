@@ -5,7 +5,7 @@ use yii\helpers\Html;
 
 $model = $dataProvider->getModels();
  if(empty($model)){
-     throw new \yii\web\ForbiddenHttpException("ไม่พบข้อมูล 43 แฟ้ม");
+     throw new \yii\web\ForbiddenHttpException("ไม่พบในฐานข้อมูล 43 แฟ้ม / ไม่ใช่ประชากรในพื้นที่ (TYPE 2,4)");
             
  }
 
