@@ -24,11 +24,13 @@ $dataProvider = new ArrayDataProvider([
 ]);
 
 echo GridView::widget([
+    'layout'=>'{items}',
+    'responsiveWrap' => false,
     'dataProvider'=>$dataProvider,
     'columns'=>[
         ['class' => 'yii\grid\SerialColumn'],
         'name:text:ชื่อชมรม',
-        'date:text:วันที่จัดตั้ง',
+        'date:date:วันที่จัดตั้ง',
         'member:integer:สมาชิก(คน)'
         
     ]
