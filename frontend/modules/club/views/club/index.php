@@ -31,7 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
             //'date_begin',
             //'date_end',
              'member:integer:สมาชิก',
-            'status',
+            [
+              'attribute'=>'status',
+                'filter'=>[
+                    'เปิดดำเนินการ'=>'เปิดดำเนินการ',
+                    'ยุติดำเนินการ'=>'ยุติดำเนินการ',
+                ]
+            ],
+            
             // 'register_no',
             // 'budget',
             // 'hospcode',

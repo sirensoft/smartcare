@@ -1,7 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use kartik\widgets\ActiveForm;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Club */
@@ -14,11 +15,34 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'addr')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'addr')->textarea(['rows' => 3]) ?>
 
-    <?= $form->field($model, 'date_begin')->textInput() ?>
+   
+    <?php
+        echo $form->field($model, 'date_begin')->widget(DatePicker::classname(), [
+            'options' => ['placeholder' => 'ปปปป-ดด-วว'],
+            'pickerButton' => [
+                'icon' => 'ok',
+            ],
+            'pluginOptions' => [
+                'autoclose' => true,
+                'format' => 'yyyy-mm-dd'
+            ]
+        ]);
+        ?>
 
-    <?= $form->field($model, 'date_end')->textInput() ?>
+    <?php
+        echo $form->field($model, 'date_end')->widget(DatePicker::classname(), [
+            'options' => ['placeholder' => 'ปปปป-ดด-วว'],
+            'pickerButton' => [
+                'icon' => 'ok',
+            ],
+            'pluginOptions' => [
+                'autoclose' => true,
+                'format' => 'yyyy-mm-dd'
+            ]
+        ]);
+        ?>
 
    
 
@@ -30,7 +54,7 @@ use yii\widgets\ActiveForm;
 
   
 
-    <?= $form->field($model, 'note')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'note')->textarea(['rows' => 3]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'เพิ่ม' : 'บันทึก', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

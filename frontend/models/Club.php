@@ -55,7 +55,7 @@ class Club extends \yii\db\ActiveRecord
             'name' => 'ชื่อชมรม',
             'addr' => 'ที่ทำการ',
             'date_begin' => 'วันเริ่มก่อตั้ง',
-            'date_end' => 'วันยุติ',
+            'date_end' => 'วันยุติดำเนิการ',
             'member' => 'สมาชิก',
             'status' => 'สถานะ',
             'register_no' => 'ทะเบียนเลขที่',
