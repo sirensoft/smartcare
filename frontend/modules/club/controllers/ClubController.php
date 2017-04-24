@@ -37,6 +37,7 @@ class ClubController extends AppController
      */
     public function actionIndex()
     {
+        $this->permitRole([2]);
         $searchModel = new ClubSearch();
        // $searchModel->status = 'เปิดดำเนินการ';
         $searchModel->hospcode = MyHelper::getUserOffice();
@@ -67,6 +68,7 @@ class ClubController extends AppController
      */
     public function actionCreate()
     {
+         $this->permitRole([2]);
         $model = new Club();
         $model->status = "เปิดดำเนินการ";
         $model->hospcode = MyHelper::getUserOffice();
