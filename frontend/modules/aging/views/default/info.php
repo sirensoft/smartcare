@@ -164,8 +164,9 @@ echo GridView::widget([
 <?php
 $pt = Patient::find()->where(['cid'=>$model[0]['cid']])->one();
 ?>
-<?php if($pt && !$i): ?>
 <p>
+<?php if($pt && !$i): ?>
     <?=  Html::a('<i class="glyphicon glyphicon-search"></i> LTC', ['/patient/patient/view','pid'=>$pt->id],['class'=>'btn btn-success'])?>
-</p>
 <?php endif; ?>
+<?=  Html::a('<i class="glyphicon glyphicon-user"></i> ชมรม', ['#','cid'=>$model[0]['cid']],['class'=>'btn btn-blue'])?>
+</p>
