@@ -14,7 +14,7 @@ use yii\data\ArrayDataProvider;
 <?php
 $data =[
     [
-        'name'=>'ชมรม A',
+        'name'=>'ชมรมผู้สูงอายุตำบลทดสอบ',
         'date'=>'2017-01-01',
         'member'=>'98'
     ]

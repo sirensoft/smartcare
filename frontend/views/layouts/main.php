@@ -46,7 +46,7 @@ AppAsset::register($this);
                 ['label' => 'กลุ่มพึ่งพิง', 'url' => ['/patient/patient/index']],
                 ['label' => 'กลุ่มทั้งหมด', 'url' => ['/aging/default/index'],'visible'=>  !MyHelper::isCg()],
                 ['label' => 'รายงาน', 'url' => ['/report/default/index']],
-                ['label' => 'ชมรม', 'url' => ['/club/default/index'],'visible'=>  MyHelper::isCm()],
+                ['label' => 'ชมรม', 'url' => ['/club/club/index'],'visible'=>  MyHelper::isCm()],
                     //['label' => 'Contact', 'url' => ['/site/contact']],
             ];
             if (Yii::$app->user->isGuest) {
