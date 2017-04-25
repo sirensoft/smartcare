@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use kartik\grid\GridView;
+use yii\web\JsExpression;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\CareItemSearch */
@@ -12,27 +13,34 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="care-item-index">
 
-    
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-   
-    <?= GridView::widget([
-        'responsiveWrap'=>FALSE,
+    <?php 
+    $click = " 
+        window.opener.$('#planweek-title').append(' '+$(this).attr('data'));
+        window.close(); 
+    ";
+    ?>
+
+
+    <?=
+    GridView::widget([
+        'responsiveWrap' => FALSE,
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            //['class' => 'yii\grid\SerialColumn'],
-
-            [
-                'attribute'=>'id',
-                'label'=>'Code',
-                'filter'=>FALSE
-            ],
             'name:text:CareItem',
-            //'category',
-            //'note',
-
-            //['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+            [                
+                'format' => 'raw',
+                'value' => function($model) use ($click) {
+                    return Html::button('<i class="glyphicon glyphicon-ok"></i>',[
+                        'class' => 'btn btn-sm btn-default',
+                        'data'=>$model->name,
+                        'onclick'=> new JsExpression($click)
+                    ]);
+                },
+            ],
+               
+         ],
+    ]);
+  ?>
 </div>
