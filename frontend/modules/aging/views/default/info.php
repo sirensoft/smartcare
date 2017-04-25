@@ -3,7 +3,10 @@ use kartik\grid\GridView;
 use yii\widgets\DetailView;
 use yii\helpers\Html;
 use frontend\models\Patient;
-
+?>
+<div class="row">
+    <div class="col-md-12">
+<?php
 echo DetailView::widget([
     'model'=>$model[0],
     'attributes' => [
@@ -24,7 +27,10 @@ echo DetailView::widget([
     ]   
 ]);
 ?>
-
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
 <?php
 
 echo GridView::widget([
@@ -160,13 +166,19 @@ echo GridView::widget([
     ]
 ]);
 ?>
+        </div>
+</div>
 
 <?php
 $pt = Patient::find()->where(['cid'=>$model[0]['cid']])->one();
 ?>
-<p>
+<div class="row">
 <?php if($pt && !$i): ?>
+   
     <?=  Html::a('<i class="glyphicon glyphicon-search"></i> LTC', ['/patient/patient/view','pid'=>$pt->id],['class'=>'btn btn-success'])?>
+  
 <?php endif; ?>
-<?=  Html::a('<i class="glyphicon glyphicon-user"></i> ชมรม', ['#','cid'=>$model[0]['cid']],['class'=>'btn btn-blue'])?>
-</p>
+   
+<?=  Html::a('<i class="glyphicon glyphicon-user"></i> ชมรม', ['#','cid'=>$model[0]['cid']],['class'=>'btn btn-info'])?>
+    </div>
+
