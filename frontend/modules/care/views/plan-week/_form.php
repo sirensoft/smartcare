@@ -5,6 +5,8 @@ use yii\widgets\ActiveForm;
 use common\components\MyHelper;
 use kartik\widgets\Select2;
 use kartik\widgets\TimePicker;
+use yii\web\JsExpression;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Plan */
@@ -62,6 +64,15 @@ use kartik\widgets\TimePicker;
                 <?= Html::checkbox('chk_cg', FALSE, ['id' => 'chk_cg', 'class' => 'from-control']); ?>
                 เยี่ยมดูแลโดย CG
             </label>
+            <span class="pull-right">
+                <?php
+                $route = Url::toRoute(['/care/default/items']);
+                $event_click = "var win=window.open('$route','win', 'left=100,top=80,menubar=no,location=no,resizable=yes,width=720px,height=500px');";
+                ?>
+                <?=  Html::a(' <i class="glyphicon glyphicon-list-alt"></i>','#'
+                        , ['id'=>'care_item','onclick'=>new JsExpression($event_click)])?>
+               
+            </span>
         </div>
     </div>
 <?php endif; ?>

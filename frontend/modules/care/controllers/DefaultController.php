@@ -17,4 +17,8 @@ class DefaultController extends Controller
     {
         return $this->render('index');
     }
+    public function actionItems(){
+        $this->layout = 'main';
+        return $this->render('items');
+    }
 }
