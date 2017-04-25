@@ -136,7 +136,7 @@ class PlanWeekController extends AppController {
             
             $sql = "CALL set_next_visit_date($pid)";
             MyHelper::execSql($sql);
-
+            
             return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {
             return $this->renderAjax('create', [
