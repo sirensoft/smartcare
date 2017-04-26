@@ -179,6 +179,9 @@ $pt = Patient::find()->where(['cid'=>$model[0]['cid']])->one();
   
 <?php endif; ?>
    
-<?=  Html::a('<i class="glyphicon glyphicon-user"></i> ชมรม', ['/aging/default/member/','cid'=>$model[0]['cid']],['class'=>'btn btn-info'])?>
+<?=  Html::a('<i class="glyphicon glyphicon-user"></i> ชมรม', ['/aging/clubmember/index'
+    ,'cid'=>$model[0]['cid']
+    ,'person_name'=>$model[0]['prename'] . $model[0]['name'] . ' ' . $model[0]['lname'] . '(' . $model[0]['age'] . 'ปี)'
+  ],['class'=>'btn btn-info'])?>
     </div>
 

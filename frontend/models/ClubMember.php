@@ -43,11 +43,11 @@ class ClubMember extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'cid' => 'Cid',
+            'cid' => 'เลข13หลัก',
             'club_id' => 'Club ID',
-            'date_begin' => 'Date Begin',
-            'date_end' => 'Date End',
-            'note' => 'Note',
+            'date_begin' => 'วันที่เข้าเป็นสมาชิก',
+            'date_end' => 'วันพ้นสภาพสมาชิก',
+            'note' => 'หมายเหตุ',
         ];
     }
      public function getClub()

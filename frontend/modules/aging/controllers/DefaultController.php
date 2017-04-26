@@ -48,11 +48,5 @@ class DefaultController extends AppController
                     
         ]);
     }
-    public function actionMember($cid){
-        
-        return $this->render('member',[
-            'cid'=>$cid
-        ]);
-        
-    }
+    
 }
