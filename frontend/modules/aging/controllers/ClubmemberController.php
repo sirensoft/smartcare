@@ -34,7 +34,7 @@ class ClubmemberController extends Controller
      * Lists all ClubMember models.
      * @return mixed
      */
-    public function actionIndex($cid,$person_name)
+    public function actionIndex($cid,$person_name=null)
     {
         $searchModel = new ClubMemberSearch();
         $searchModel->cid = $cid;
@@ -54,7 +54,7 @@ class ClubmemberController extends Controller
      * @param integer $club_id
      * @return mixed
      */
-    public function actionView($cid, $club_id,$person_name)
+    public function actionView($cid, $club_id,$person_name=null)
     {
         return $this->render('view', [
             'model' => $this->findModel($cid, $club_id),
@@ -68,7 +68,7 @@ class ClubmemberController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate($cid,$person_name)
+    public function actionCreate($cid,$person_name=null)
     {
         $model = new ClubMember();
         $model->cid = $cid;
@@ -91,7 +91,7 @@ class ClubmemberController extends Controller
      * @param integer $club_id
      * @return mixed
      */
-    public function actionUpdate($cid, $club_id,$person_name)
+    public function actionUpdate($cid, $club_id,$person_name=null)
     {
         $model = $this->findModel($cid, $club_id);
 
@@ -113,12 +113,13 @@ class ClubmemberController extends Controller
      * @param integer $club_id
      * @return mixed
      */
-    public function actionDelete($cid, $club_id)
+    public function actionDelete($cid, $club_id,$person_name=NULL)
     {
         $this->findModel($cid, $club_id)->delete();
 
         return $this->redirect(['index',[
-            'cid'=>$cid
+            'cid'=>$cid,
+            //'person_name'=>$person_name
         ]]);
     }
 

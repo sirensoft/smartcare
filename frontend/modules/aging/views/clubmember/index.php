@@ -30,7 +30,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'date_end',
             'note:ntext',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'label'=>'',
+                'format'=>'Html',
+                'value'=>function($model) use ($person_name){
+                    return Html::a('<i class="glyphicon glyphicon-search"></i>',['view'
+                        ,'cid'=>$model->cid
+                        ,'club_id'=>$model->club_id
+                        ,'person_name'=>$person_name
+                        
+                    ]);
+                }
+           ],
         ],
     ]); ?>
 </div>
