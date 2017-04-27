@@ -216,7 +216,7 @@ use yii\helpers\Url;
 $js = <<<JS
    $('#chk_cg').change( function(){
         if(this.checked){
-            $('#planweek-title').text('เยี่ยมดูแลโดยCG');
+            $('#planweek-title').text('-เยี่ยมดูแลโดยCG');
         }else{
             $('#planweek-title').text('');
         }

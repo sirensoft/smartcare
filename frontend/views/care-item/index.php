@@ -16,9 +16,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php 
     $click = " 
-        //if(window.opener.$('#planweek-title').val==''){
-            window.opener.$('#planweek-title').append(' '+$(this).attr('data'));
-        //}
+            var txt = window.opener.$('#planweek-title').html().trim();
+            if(!txt){
+                window.opener.$('#planweek-title').append('-'+$(this).attr('data'));
+            }else{               
+                window.opener.$('#planweek-title').append('\\n-'+$(this).attr('data'));
+            }        
         window.close(); 
     ";
     ?>
