@@ -114,7 +114,7 @@ AND t.id not in
         echo $msg;
     }
     public function actionTestLine($g){
-        MyHelper::sendLineNotify($g, "Hello!");
+        MyHelper::sendLineNotify('care', "Hello! สวัสดี");
     }
     
 
