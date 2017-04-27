@@ -16,7 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php 
     $click = " 
-        window.opener.$('#planweek-title').append(' '+$(this).attr('data'));
+        //if(window.opener.$('#planweek-title').val==''){
+            window.opener.$('#planweek-title').append(' '+$(this).attr('data'));
+        //}
         window.close(); 
     ";
     ?>
