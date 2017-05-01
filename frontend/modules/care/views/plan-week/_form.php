@@ -78,7 +78,7 @@ use yii\helpers\Url;
 <?php endif; ?>
 <div class="form-group">
     <div class="col-md-12">
-        <?= $form->field($model, 'title')->textarea(['rows' => 3, 'readonly' => MyHelper::isCg()]) ?>
+        <?= $form->field($model, 'title')->textarea(['rows' => 4, 'readonly' => MyHelper::isCg()]) ?>
     </div>
 </div>
 <?php if ($model->isNewRecord and MyHelper::getDay($model->start_date) == 'Mon'): ?>
