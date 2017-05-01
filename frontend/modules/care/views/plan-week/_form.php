@@ -66,7 +66,7 @@ use yii\helpers\Url;
             </label>
             <span class="pull-right">
                 <?php
-                $route = Url::toRoute(['/care-item/index']);
+                $route = Url::toRoute(['/care/care-item/index']);
                 $event_click = "var win=window.open('$route','win', 'left=100,top=80,menubar=no,location=no,resizable=yes,width=720px,height=500px');";
                 ?>
                 <?=  Html::a(' <i class="glyphicon glyphicon-list-alt"></i>','#'
@@ -216,7 +216,7 @@ use yii\helpers\Url;
 $js = <<<JS
    $('#chk_cg').change( function(){
         if(this.checked){
-            $('#planweek-title').text('-เยี่ยมดูแลโดยCG');
+            $('#planweek-title').text('เยี่ยมดูแลโดยCG');
         }else{
             $('#planweek-title').text('');
         }
