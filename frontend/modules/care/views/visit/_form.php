@@ -242,7 +242,7 @@ WHERE t.office = '$office' order by t.role ";
                 $model->asses_9 = CTemplateVisit::findOne(9)->templat_text;
             }
             ?>
-            <?= $form->field($model, 'asses_9')->textarea(['rows' => 3]) ?>
+            <?= $form->field($model, 'asses_9')->textarea(['rows' => 5]) ?>
         </div>
          <div class="col-md-6">
             <?php
@@ -250,7 +250,7 @@ WHERE t.office = '$office' order by t.role ";
                 $model->asses_10 = CTemplateVisit::findOne(10)->templat_text;
             }
             ?>
-            <?= $form->field($model, 'asses_10')->textarea(['rows' => 3]) ?>
+            <?= $form->field($model, 'asses_10')->textarea(['rows' => 5]) ?>
         </div>
     </div>
 
