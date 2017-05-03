@@ -20,7 +20,7 @@ class VisitSearch extends Visit {
     public function rules() {
         return [
             [['id', 'plan_week_id', 'patient_id',  'obj_pulse', 'obj_rr', 'obj_adl'], 'integer'],
-            [['provider_id','user','hospcode', 'date_visit', 'start_time', 'end_time', 'subjective', 'obj_bp', 'asses_1', 'asses_2', 'asses_3', 'asses_4', 'asses_5', 'asses_6', 'asses_7', 'asses_8', 'asses_9', 'job_result', 'problem', 'next_plan'], 'safe'],
+            [['provider_id','user','hospcode', 'date_visit', 'start_time', 'end_time', 'subjective', 'obj_bp', 'asses_1', 'asses_2', 'asses_3', 'asses_4', 'asses_5', 'asses_6', 'asses_7', 'asses_8', 'asses_9', 'asses_10', 'job_result', 'problem', 'next_plan'], 'safe'],
             [['obj_sugar','obj_weight','obj_waist', 'obj_heigh', 'obj_bmi', 'obj_temperature'], 'number'],
         ];
     }
@@ -97,6 +97,7 @@ class VisitSearch extends Visit {
                 ->andFilterWhere(['like', 'asses_7', $this->asses_7])
                 ->andFilterWhere(['like', 'asses_8', $this->asses_8])
                 ->andFilterWhere(['like', 'asses_9', $this->asses_9])
+                ->andFilterWhere(['like', 'asses_10', $this->asses_10])
                 ->andFilterWhere(['like', 'job_result', $this->job_result])
                 ->andFilterWhere(['like', 'problem', $this->problem])
                 ->andFilterWhere(['like', 'next_plan', $this->next_plan]);

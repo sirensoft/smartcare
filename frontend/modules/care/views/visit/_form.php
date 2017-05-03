@@ -95,7 +95,7 @@ WHERE t.office = '$office' order by t.role ";
         <div class="col-md-12">
             <?php
             if (empty($model->subjective)) {
-                $model->subjective = CTemplateVisit::findOne(10)->templat_text;
+                $model->subjective = CTemplateVisit::findOne(99)->templat_text;
             }
             ?>
             <?= $form->field($model, 'subjective')->textarea(['rows' => 4]) ?>
@@ -236,13 +236,21 @@ WHERE t.office = '$office' order by t.role ";
 
 
     <div class="form-group">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <?php
             if (empty($model->asses_9)) {
                 $model->asses_9 = CTemplateVisit::findOne(9)->templat_text;
             }
             ?>
             <?= $form->field($model, 'asses_9')->textarea(['rows' => 3]) ?>
+        </div>
+         <div class="col-md-6">
+            <?php
+            if (empty($model->asses_10)) {
+                $model->asses_10 = CTemplateVisit::findOne(10)->templat_text;
+            }
+            ?>
+            <?= $form->field($model, 'asses_10')->textarea(['rows' => 3]) ?>
         </div>
     </div>
 

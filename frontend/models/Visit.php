@@ -36,6 +36,7 @@ use backend\models\User;
  * @property string $asses_7
  * @property string $asses_8
  * @property string $asses_9
+ * @property string $asses_10
  * @property string $job_result
  * @property string $problem
  * @property string $next_plan
@@ -59,7 +60,7 @@ class Visit extends \yii\db\ActiveRecord
             [['provider_id'],'required','message'=>''],
             [['plan_week_id', 'patient_id', 'provider_id','obj_pulse', 'obj_rr', 'obj_adl'], 'integer'],
             [['date_visit', 'start_time', 'end_time'], 'safe'],
-            [['subjective', 'asses_1', 'asses_2', 'asses_3', 'asses_4', 'asses_5', 'asses_6', 'asses_7', 'asses_8', 'asses_9'], 'string'],
+            [['subjective', 'asses_1', 'asses_2', 'asses_3', 'asses_4', 'asses_5', 'asses_6', 'asses_7', 'asses_8', 'asses_9','asses_10'], 'string'],
             [['obj_sugar','obj_weight', 'obj_heigh','obj_waist', 'obj_bmi', 'obj_temperature'], 'number','message' => ''],
             [['hospcode'], 'string', 'max' => 5],
             [['job_result', 'problem', 'next_plan'], 'string', 'max' => 255],
@@ -105,6 +106,7 @@ class Visit extends \yii\db\ActiveRecord
             'asses_7' => '7. การดูแลสภาพแวดล้อม',
             'asses_8' => '8. การจัดกิจกรรมออกกำลังกาย/นันทนาการ',
             'asses_9' => '9. การเฝ้าสังเกตและการส่งต่อ',
+            'asses_10' => '10. การบำบัดฟื้นฟู',
             'job_result' => 'ผลการปฏิบัติงาน',
             'problem' => 'ปํญหาที่เกิดขึ้นระหว่างปฏิบัติงาน',
             'next_plan' => 'แผนการช่วยเหลือดูแลในครั้งต่อไป',
