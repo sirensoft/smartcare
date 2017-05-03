@@ -52,6 +52,7 @@ class PatientController extends AppController {
             $searchModel->hospcode = MyHelper::getUserOffice();
             if (MyHelper::isCm()) {
                 $searchModel->cm_id = MyHelper::getUserId();
+                //$searchModel->hospcode = MyHelper::getUserOffice();
             }
         }
 
