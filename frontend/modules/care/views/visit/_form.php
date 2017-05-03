@@ -102,7 +102,7 @@ WHERE t.office = '$office' order by t.role ";
         </div>
     </div>
     <div class="form-group">
-         <div class="col-md-3">
+        <div class="col-md-3">
             <?= $form->field($model, 'obj_waist')->textInput() ?>
         </div>
         <div class="col-md-3">
@@ -116,7 +116,7 @@ WHERE t.office = '$office' order by t.role ";
         </div>       
     </div>
     <div class="form-group">
-         <div class="col-md-4">
+        <div class="col-md-4">
             <?= $form->field($model, 'obj_temperature')->textInput() ?>
         </div>
         <div class="col-md-4">
@@ -126,10 +126,10 @@ WHERE t.office = '$office' order by t.role ";
         <div class="col-md-4">
             <?= $form->field($model, 'obj_rr')->textInput() ?>
         </div>
-       
+
     </div>
     <div class="form-group">
-         <div class="col-md-4">
+        <div class="col-md-4">
             <?= $form->field($model, 'obj_bp')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-md-4">
@@ -154,7 +154,7 @@ WHERE t.office = '$office' order by t.role ";
                 </span> 
             </div>
         </div>
-        
+
     </div>
     <div class="form-group">
         <div class="col-md-6">
@@ -236,7 +236,7 @@ WHERE t.office = '$office' order by t.role ";
 
 
     <div class="form-group">
-        <div class="col-md-6">
+        <div class="col-md-6">           
             <?php
             if (empty($model->asses_9)) {
                 $model->asses_9 = CTemplateVisit::findOne(9)->templat_text;
@@ -244,7 +244,7 @@ WHERE t.office = '$office' order by t.role ";
             ?>
             <?= $form->field($model, 'asses_9')->textarea(['rows' => 5]) ?>
         </div>
-         <div class="col-md-6">
+        <div class="col-md-6">
             <?php
             if (empty($model->asses_10)) {
                 $model->asses_10 = CTemplateVisit::findOne(10)->templat_text;
@@ -256,7 +256,7 @@ WHERE t.office = '$office' order by t.role ";
 
     <div class="form-group">
         <div class="col-md-12">
-             <?php
+            <?php
             if (empty($model->job_result) && $model->isNewRecord) {
                 $model->job_result = CTemplateVisit::findOne(11)->templat_text;
             }
