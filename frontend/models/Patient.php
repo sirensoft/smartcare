@@ -125,7 +125,7 @@ class Patient extends \yii\db\ActiveRecord {
             'fullname'=>'ชื่อ-สกุล',
             'fulladdr'=>'ที่อยู่ปัจจุบัน',
             'next_visit_date'=>'เยี่ยมถัดไป',
-            'note'=>'ข้อมูลอื่นๆ'
+            'note'=>'ข้อมูลอื่นๆ เช่นอุปกรณ์การแพทย์ ,อาชีพ,รายได้'
         ];
     }
     
