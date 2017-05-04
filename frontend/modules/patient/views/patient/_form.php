@@ -76,9 +76,11 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
             'pickerButton' => [
                 'icon' => 'ok',
             ],
+            'language' => 'th',
             'pluginOptions' => [
                 'autoclose' => true,
-                'format' => 'yyyy-mm-dd'
+                'format' => 'yyyy-mm-dd',
+                'todayHighlight' => true
             ]
         ]);
         ?>
