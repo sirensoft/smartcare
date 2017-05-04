@@ -5,7 +5,6 @@ use yii\widgets\ActiveForm;
 use frontend\models\CColor;
 use yii\helpers\ArrayHelper;
 use frontend\models\CTemplate;
-
 use kartik\widgets\DatePicker;
 ?>
 <?php $form = ActiveForm::begin(); ?>
@@ -21,11 +20,13 @@ use kartik\widgets\DatePicker;
         echo $form->field($model, 'date_create')->widget(DatePicker::classname(), [
             //'options' => ['placeholder' => 'วดป.เกิด...'],
             'pickerButton' => [
-                'icon' => 'ok',
+                'icon' => 'calendar',
             ],
+            'language' => 'th',
             'pluginOptions' => [
                 'autoclose' => true,
-                'format' => 'yyyy-mm-dd'
+                'format' => 'yyyy-mm-dd',
+                'todayHighlight' => true
             ]
         ]);
         ?>
@@ -44,7 +45,7 @@ use kartik\widgets\DatePicker;
         <?= $form->field($model, 'adl')->textInput() ?>
     </div>
     <div class="col-md-3">
-        
+
         <?= $form->field($model, 'adl_text')->textInput() ?>
     </div>
     <div class="col-md-3">
@@ -100,7 +101,7 @@ use kartik\widgets\DatePicker;
     </div>
 </div>
 <div class="form-group">
-     <div class="col-md-6">
+    <div class="col-md-6">
         <?= $form->field($model, 'extra_service')->textarea(['rows' => 2]) ?>
     </div>
     <div class="col-md-6">

@@ -58,11 +58,13 @@ WHERE t.office = '$office' order by t.role ";
             <?=
             $form->field($model, 'date_visit')->widget(DatePicker::classname(), [
                 'pickerButton' => [
-                    'icon' => 'ok',
+                    'icon' => 'calendar',
                 ],
+                'language' => 'th',
                 'pluginOptions' => [
                     'autoclose' => true,
-                    'format' => 'yyyy-mm-dd'
+                    'format' => 'yyyy-mm-dd',
+                    'todayHighlight' => true
                 ]
             ])
             ?>

@@ -74,7 +74,7 @@ $form = ActiveForm::begin(['type' => ActiveForm::TYPE_VERTICAL]);
         echo $form->field($model, 'birth')->widget(DatePicker::classname(), [
             'options' => ['placeholder' => 'วดป.เกิด...'],
             'pickerButton' => [
-                'icon' => 'ok',
+                'icon' => 'calendar',
             ],
             'language' => 'th',
             'pluginOptions' => [
