@@ -40,7 +40,8 @@
         "phpoffice/phpexcel":"*",
         "kartik-v/yii2-detail-view": "*",
         "kartik-v/yii2-widget-timepicker": "*",
-        "odaialali/yii2-qrcode-reader": "@dev"
+        "odaialali/yii2-qrcode-reader": "@dev",
+        "johnitvn/yii2-rbac-plus": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -53,17 +53,19 @@ AppAsset::register($this);
                 //$menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
                 $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
             } else {
-                $menuItems[] = '<li>'
-                        . Html::beginForm(['/site/logout'], 'post')
-                        . Html::submitButton(
-                                'Logout (' . Yii::$app->user->identity->username . ')', ['class' => 'btn btn-info logout']
-                        )
-                        . Html::endForm()
-                        . '</li>';
+                 $menuItems[] = [
+                    'label' => '<span class="glyphicon glyphicon-user"></span> ' . \Yii::$app->user->identity->username,
+                    'items' => [
+                        ['label' => '<i class="glyphicon glyphicon-info-sign"></i> ข้อมูลส่วนตัว', 'url' => '#'],
+                        '<li class="divider"></li>',                        
+                        ['label' => '<span class="glyphicon glyphicon-off"></span> Logout','url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']],
+                    ],
+                ];
             }
             echo Nav::widget([
                 'options' => ['class' => 'navbar-nav navbar-right'],
                 'items' => $menuItems,
+                'encodeLabels' => false,
             ]);
 
             echo Nav::widget([
