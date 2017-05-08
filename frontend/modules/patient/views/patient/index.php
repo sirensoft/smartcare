@@ -53,6 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'attribute'=>'class_name',
             //'group'=>true,  // enable grouping,
+            //'groupedRow'=>true,
             
         ],
                
