@@ -1,6 +1,7 @@
 <?php
 
 use yii\widgets\DetailView;
+use yii\bootstrap\Html;
 
 $this->title = 'ข้อมูลผู้ใช้งาน';
 $this->params['breadcrumbs'][] = $this->title;
@@ -23,4 +24,6 @@ echo DetailView::widget([
         ],
     ]
 ]);
+
+echo Html::a('<i class="glyphicon glyphicon-user"></i> เปลี่ยนรหัสผ่าน', '#',['class'=>'btn btn-danger']);
 
