@@ -56,7 +56,7 @@ AppAsset::register($this);
                  $menuItems[] = [
                     'label' => '<span class="glyphicon glyphicon-user"></span> ' . \Yii::$app->user->identity->username,
                     'items' => [
-                        ['label' => '<i class="glyphicon glyphicon-info-sign"></i> ข้อมูลส่วนตัว', 'url' => '#'],
+                        ['label' => '<i class="glyphicon glyphicon-info-sign"></i> ข้อมูลส่วนตัว', 'url' => ['/profile/default/view','id'=>  \Yii::$app->user->id]],
                         '<li class="divider"></li>',                        
                         ['label' => '<span class="glyphicon glyphicon-off"></span> Logout','url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']],
                     ],

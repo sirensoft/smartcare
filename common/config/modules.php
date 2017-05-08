@@ -37,5 +37,8 @@ return [
     'club' => [
         'class' => 'frontend\modules\club\Club',
     ],
+    'profile' => [
+        'class' => 'frontend\modules\profile\Profile',
+    ],
 ];
 
