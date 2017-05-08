@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         [
             'attribute'=>'class_name',
-            'width'=>'160px'
+            'width'=>'120px'
             //'group'=>true,  // enable grouping,
             //'groupedRow'=>true,
             
@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
         //'prename',
         [
             'attribute'=>'name',
-            'width'=>'180px',
+            'width'=>'220px',
             'label'=>'ชื่อ-นามสกุล',
             'value'=>  function($model){
                 return $model->prename.$model->name.' '.$model->lname;
