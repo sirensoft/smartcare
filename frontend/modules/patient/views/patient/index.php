@@ -60,12 +60,12 @@ $this->params['breadcrumbs'][] = $this->title;
         //'prename',
         [
             'attribute'=>'name',
-            'label'=>'ชื่อ',
+            'label'=>'ชื่อ-นามสกุล',
             'value'=>  function($model){
-                return $model->prename.$model->name;
+                return $model->prename.$model->name.' '.$model->lname;
             } 
         ],
-        'lname',
+        //'lname',
         [
             'attribute'=>'age_y',
             'label'=>'อายุ',

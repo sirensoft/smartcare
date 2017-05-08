@@ -94,8 +94,8 @@ class PatientSearch extends Patient {
 
         $query->andFilterWhere(['like', 'cid', $this->cid])
                 ->andFilterWhere(['like', 'prename', $this->prename])
-                ->andFilterWhere(['like', 'name', $this->name])
-                ->andFilterWhere(['like', 'lname', $this->lname])
+                ->andFilterWhere(['like', 'concat(name," ",lname)', $this->name])
+                //->andFilterWhere(['like', 'lname', $this->lname])
                 //->andFilterWhere(['like', 'hospcode', $this->hospcode])
                 ->andFilterWhere(['like', 'refer_from', $this->refer_from])
                 ->andFilterWhere(['like', 'province', $this->province])
