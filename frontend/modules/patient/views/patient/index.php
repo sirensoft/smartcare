@@ -52,6 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
         [
             'attribute'=>'class_name',
+            'width'=>'160px'
             //'group'=>true,  // enable grouping,
             //'groupedRow'=>true,
             
@@ -60,6 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
         //'prename',
         [
             'attribute'=>'name',
+            'width'=>'180px',
             'label'=>'ชื่อ-นามสกุล',
             'value'=>  function($model){
                 return $model->prename.$model->name.' '.$model->lname;
@@ -69,6 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'attribute'=>'age_y',
             'label'=>'อายุ',
+            'width'=>'100px',
             'format'=>'html',
             'value'=>function($model){
                 return "<span class='badge'>$model->age_y ปี</span>";
@@ -77,8 +80,11 @@ $this->params['breadcrumbs'][] = $this->title;
         //'age_y',
      
         'subdistrict',
-        'village_no',
-     
+        //'village_no',
+         [
+             'attribute'=>'village_no',
+             'width'=>'100px'
+         ],     
          [
             'attribute' => 'next_visit_date',
              'format'=>'date',
@@ -92,7 +98,7 @@ $this->params['breadcrumbs'][] = $this->title;
          [
              'visible'=>  !MyHelper::isCg(),
              'attribute' => 'cg_id',
-             'label' => 'CG',
+             'label' => 'ผู้ดูแล',
              'value' => 'user.u_name',
               //'group'=>true,
               //'groupedRow'=>true,  
