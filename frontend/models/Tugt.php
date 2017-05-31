@@ -59,4 +59,17 @@ class Tugt extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+    public function beforeSave($insert) {
+        if(parent::beforeSave($insert)){
+            if($this->walk_time <30){
+                $this->note = '1B1200';
+            }else{
+                $this->note = '1B1201';
+            }            
+            return TRUE;
+        }  else {
+            return FALSE;
+        }
+    }
+   
 }
