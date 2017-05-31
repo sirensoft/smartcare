@@ -2,6 +2,7 @@
 use kartik\tabs\TabsX;
 use common\components\MyHelper;
 use yii\widgets\ActiveForm;
+use yii\helpers\Html;
 
 
 $this->params['breadcrumbs'][] = ['label'=>  MyHelper::ptInfo_($pid),'url'=>['/patient/patient/view','pid'=>$pid]];
@@ -67,7 +68,7 @@ $this->params['breadcrumbs'][] = ['label'=>'การทดสอบสภาพ
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="3">ผลการทดสอบ : <span id="res"></span></td>
+                <td colspan="3">ผลการทดสอบ : <strong><span id="res"></span></strong></td>
             </tr>
         </tfoot>
     </table>
@@ -78,7 +79,12 @@ $this->params['breadcrumbs'][] = ['label'=>'การทดสอบสภาพ
         <input type='hidden' name='patient_id' id="patient_id" value="<?=$pid?>">
         <input type='hidden' name='amt_text' id='amt_text'>
         <input type='hidden' name='specialpp_code' id='specialpp_code'>
-        <p class="pull-right"><button class="btn btn-success" type="submit">บันทึก</button></p>
+        <p class="pull-left">
+            <?=  Html::a('ยกเลิก',['/patient/amt/index','pid'=>$pid],['class'=>'btn btn-default'])?>
+        </p>
+        <p class="pull-right">
+            <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
+        </p>
    <?php ActiveForm::end(); ?>
 </div>
 <?php
