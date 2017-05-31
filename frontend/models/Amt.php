@@ -48,9 +48,9 @@ class Amt extends \yii\db\ActiveRecord {
         return [
             'id' => 'ID',
             'patient_id' => 'Patient ID',
-            'date_serv' => 'Date Serv',
-            'amt_text' => 'Amt Text',
-            'specialpp_code' => 'Specialpp Code',
+            'date_serv' => 'วันที่',
+            'amt_text' => 'ผลทดสอบ',
+            'specialpp_code' => 'Specialpp',
             'created_by' => 'Created By',
             'updated_by' => 'Updated By',
             'created_at' => 'Created At',
