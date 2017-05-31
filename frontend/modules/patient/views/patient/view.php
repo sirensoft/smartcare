@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> ทดสอบสมอง', ['/patient/amt/index', 'pid' => $model->id], ['class' => '']) ?>
                 </li>
                 <li>
-                    <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> ภาวะหกล้ม', ['#', 'pid' => $model->id], ['class' => '']) ?>
+                    <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> ภาวะหกล้ม', ['/patient/tugt/index', 'pid' => $model->id], ['class' => '']) ?>
                 </li>
                 <li class="divider"></li>
                  <li>

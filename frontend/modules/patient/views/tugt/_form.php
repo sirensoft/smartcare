@@ -1,0 +1,32 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $model frontend\models\Tugt */
+/* @var $form yii\widgets\ActiveForm */
+?>
+
+<div class="tugt-form">
+
+    <?php $form = ActiveForm::begin(); ?>
+
+   
+
+    <?= $form->field($model, 'date_serv')->textInput() ?>
+
+    <?= $form->field($model, 'walk_time')->textInput() ?>
+     <?= $form->field($model, 'tugt_text')->dropDownList(['เสี่ยง'=>'เสี่ยง','ไม่เสี่ยง'=>'ไม่เสี่ยง']) ?>
+
+    <?= $form->field($model, 'note')->textInput(['maxlength' => true]) ?>
+
+
+
+    <div class="form-group">
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    </div>
+
+    <?php ActiveForm::end(); ?>
+
+</div>
