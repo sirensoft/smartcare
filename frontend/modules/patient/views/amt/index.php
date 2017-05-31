@@ -2,12 +2,14 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\components\MyHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\AmtSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'การทดสอบสภาพสมอง';
+$this->title = 'ผลการทดสอบสภาพสมอง';
+$this->params['breadcrumbs'][] = ['label'=>  MyHelper::ptInfo_($pid),'url'=>['/patient/patient/view','pid'=>$pid]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="amt-index">
@@ -16,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> ทดสอบ', ['asses', 'pid' => NULL], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> ทดสอบ', ['asses', 'pid' => $pid], ['class' => 'btn btn-success']) ?>
     </p>
     <?=
     GridView::widget([

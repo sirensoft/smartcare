@@ -16,9 +16,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'date_serv')->textInput() ?>
 
-    <?= $form->field($model, 'amt_text')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'amt_text')->dropDownList(['ปกติ'=>'ปกติ','ผิดปกติ'=>'ผิดปกติ']) ?>
 
-    <?= $form->field($model, 'specialpp_code')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'specialpp_code')->hiddenInput()->label('') ?>
 
  
 

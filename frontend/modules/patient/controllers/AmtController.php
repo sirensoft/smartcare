@@ -35,26 +35,28 @@ class AmtController extends AppController {
      * Lists all Amt models.
      * @return mixed
      */
-    public function actionIndex() {
+    public function actionIndex($pid) {
         $searchModel = new AmtSearch();
+        $searchModel->patient_id = $pid;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
                     'searchModel' => $searchModel,
                     'dataProvider' => $dataProvider,
+                    'pid'=>$pid
         ]);
     }
 
-    public function actionAsses($pid=NULL) {
+    public function actionAsses($pid) {
         if (\Yii::$app->request->isPost) {
             $model = new Amt();
-            $model->patient_id = $pid;
+            $model->patient_id = \Yii::$app->request->post('patient_id');
             $model->date_serv = date('Y-m-d');
             $model->amt_text = \Yii::$app->request->post('amt_text');
             $model->specialpp_code = \Yii::$app->request->post('specialpp_code');
             if ($model->save()) {
                 \Yii::$app->session->setFlash('success','บันทึกสำเร็จ');
-                //return $this->redirect(['/patient/amt/index']);
+                return $this->redirect(['/patient/amt/index','pid'=>$model->patient_id]);
             }else{
                 die('eee');
             }
@@ -103,7 +105,7 @@ class AmtController extends AppController {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {
             return $this->render('update', [
                         'model' => $model,

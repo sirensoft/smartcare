@@ -6,8 +6,12 @@ function cal(){
     });
     if(res<=7){
         $("#res").html('คะแนน =  '+res+' แปลผล = ผิดปกติ (1B1221)');
+        $('#amt_text').val('ผิดปกติ');
+        $('#specialpp_code').val('1B1221');
     }else{
         $("#res").html('คะแนน =  '+res+' แปลผล = ปกติ (1B1220)');
+         $('#amt_text').val('ปกติ');
+        $('#specialpp_code').val('1B1220');
     }
     
 }

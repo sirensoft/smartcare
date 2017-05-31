@@ -4,7 +4,7 @@ use common\components\MyHelper;
 use yii\widgets\ActiveForm;
 
 
-$this->params['breadcrumbs'][] = ['label'=>'ย้อนกลับ','url'=>['#']];
+$this->params['breadcrumbs'][] = ['label'=>  MyHelper::ptInfo_($pid),'url'=>['/patient/patient/view','pid'=>$pid]];
 $this->params['breadcrumbs'][] = ['label'=>'การทดสอบสภาพสมอง Abbreviated Mental Test'];
 ?>
 <div>
@@ -76,7 +76,7 @@ $this->params['breadcrumbs'][] = ['label'=>'การทดสอบสภาพ
 <div>
    <?php $form = ActiveForm::begin(); ?>
         <input type='hidden' name='patient_id' id="patient_id" value="<?=$pid?>">
-        <input type='hidden' name='amd_text' id='amd_text'>
+        <input type='hidden' name='amt_text' id='amt_text'>
         <input type='hidden' name='specialpp_code' id='specialpp_code'>
         <p class="pull-right"><button class="btn btn-success" type="submit">บันทึก</button></p>
    <?php ActiveForm::end(); ?>

@@ -1,17 +1,17 @@
 <?php
 
 use yii\helpers\Html;
-
+use common\components\MyHelper;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Amt */
 
 $this->title = 'Update Amt: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Amts', 'url' => ['index']];
-$this->params['breadcrumbs'][] = 'แก้ไข';
+$this->params['breadcrumbs'][] = ['label' => MyHelper::ptInfo_($model->patient_id), 'url' => ['index','pid'=>$model->patient_id]];
+$this->params['breadcrumbs'][] = 'แก้ไขผลทดสอบ';
 ?>
 <div class="amt-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    
 
     <?= $this->render('_form', [
         'model' => $model,
