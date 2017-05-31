@@ -8,7 +8,7 @@ use common\components\MyHelper;
 /* @var $searchModel frontend\models\AmtSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'ผลการทดสอบสภาพสมอง';
+$this->title = 'ผลการทดสอบสภาพสมอง  Abbreviated Mental Test (AMT)';
 $this->params['breadcrumbs'][] = ['label'=>  MyHelper::ptInfo_($pid),'url'=>['/patient/patient/view','pid'=>$pid]];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

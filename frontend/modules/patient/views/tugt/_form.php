@@ -12,16 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-   
-
     <?= $form->field($model, 'date_serv')->textInput() ?>
 
     <?= $form->field($model, 'walk_time')->textInput() ?>
-     <?= $form->field($model, 'tugt_text')->dropDownList(['เสี่ยง'=>'เสี่ยง','ไม่เสี่ยง'=>'ไม่เสี่ยง']) ?>
-
-    <?= $form->field($model, 'note')->textInput(['maxlength' => true]) ?>
-
-
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

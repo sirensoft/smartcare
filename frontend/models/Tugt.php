@@ -2,7 +2,10 @@
 
 namespace frontend\models;
 
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
 use Yii;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "tugt".
@@ -59,12 +62,24 @@ class Tugt extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+    
+    public function behaviors() {
+        return [
+            ['class' => BlameableBehavior::className()],
+            [
+                'class' => TimestampBehavior::className(),
+                'value'=>new Expression('NOW()')
+            ]
+        ];
+    }
     public function beforeSave($insert) {
         if(parent::beforeSave($insert)){
             if($this->walk_time <30){
                 $this->note = '1B1200';
+                $this->tugt_text = 'ไม่เสี่ยง';
             }else{
                 $this->note = '1B1201';
+                $this->tugt_text = 'เสี่ยง';                
             }            
             return TRUE;
         }  else {

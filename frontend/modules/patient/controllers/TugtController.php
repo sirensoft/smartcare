@@ -50,11 +50,7 @@ class TugtController extends Controller {
             $model->patient_id = \Yii::$app->request->post('patient_id');
             $model->date_serv = date('Y-m-d');
             $model->walk_time = \Yii::$app->request->post('walk_time');
-            if($model->walk_time>=30){
-                $model->tugt_text = "เสี่ยง";
-            }  else {
-                $model->tugt_text = "ไม่เสี่ยง";
-            }
+            
             if ($model->save()) {
                 \Yii::$app->session->setFlash('success', 'บันทึกสำเร็จ');               
             }else{

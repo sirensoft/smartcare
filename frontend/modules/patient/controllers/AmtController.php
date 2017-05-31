@@ -55,11 +55,11 @@ class AmtController extends AppController {
             $model->amt_text = \Yii::$app->request->post('amt_text');
             $model->specialpp_code = \Yii::$app->request->post('specialpp_code');
             if ($model->save()) {
-                \Yii::$app->session->setFlash('success','บันทึกสำเร็จ');
-                return $this->redirect(['/patient/amt/index','pid'=>$model->patient_id]);
+                \Yii::$app->session->setFlash('success','บันทึกสำเร็จ');               
             }else{
-                die('eee');
+                \Yii::$app->session->setFlash('danger','บันทึกไม่สำเร็จ');
             }
+             return $this->redirect(['/patient/amt/index','pid'=>$model->patient_id]);
         }
 
         return $this->render('asses', [
