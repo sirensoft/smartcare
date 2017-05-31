@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> ทดสอบ', ['asses', 'pid' => $pid], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ทดสอบ', ['asses', 'pid' => $pid], ['class' => 'btn btn-success']) ?>
     </p>
     <?=
     GridView::widget([

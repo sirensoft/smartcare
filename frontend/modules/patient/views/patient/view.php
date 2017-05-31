@@ -33,18 +33,18 @@ $this->params['breadcrumbs'][] = $this->title;
             </button>
             <ul class="dropdown-menu" role="menu">
                 <li>
-                    <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> ADL', ['/patient/asses/index', 'pid' => $model->id], ['class' => '']) ?>
+                    <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> ประเมิน ADL', ['/patient/asses/index', 'pid' => $model->id], ['class' => '']) ?>
 
                 </li>
                 <li>
-                    <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> 2Q/9Q', ['/patient/assesq/index', 'pid' => $model->id], ['class' => '']) ?>
+                    <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> ประเมิน 2Q/9Q', ['/patient/assesq/index', 'pid' => $model->id], ['class' => '']) ?>
 
-                </li>
-                <li>
-                    <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> หกล้ม', ['#', 'pid' => $model->id], ['class' => '']) ?>
-                </li>
+                </li>                
                 <li>
                     <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> ทดสอบสมอง', ['/patient/amt/index', 'pid' => $model->id], ['class' => '']) ?>
+                </li>
+                <li>
+                    <?= Html::a('<i class="glyphicon glyphicon-list-alt"></i> ภาวะหกล้ม', ['#', 'pid' => $model->id], ['class' => '']) ?>
                 </li>
                 <li class="divider"></li>
                  <li>
