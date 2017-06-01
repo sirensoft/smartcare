@@ -34,7 +34,7 @@ class Amt extends \yii\db\ActiveRecord {
      */
     public function rules() {
         return [
-            [['amt_text'],'required'],
+            [['amt_text'], 'required'],
             [['id', 'patient_id'], 'integer'],
             [['date_serv', 'created_at', 'updated_at'], 'safe'],
             [['amt_text', 'specialpp_code', 'created_by', 'updated_by'], 'string', 'max' => 255],
@@ -63,23 +63,29 @@ class Amt extends \yii\db\ActiveRecord {
             ['class' => BlameableBehavior::className()],
             [
                 'class' => TimestampBehavior::className(),
-                'value'=>new Expression('NOW()')
+                'value' => new Expression('NOW()')
             ]
         ];
     }
-    
+
     public function beforeSave($insert) {
-        if(parent::beforeSave($insert)){
-           if($this->amt_text ==='ปกติ'){
-               $this->specialpp_code = '1B1220';
-           }else{
-               $this->specialpp_code = '1B1221';
-           }
-            
+        if (parent::beforeSave($insert)) {
+            if ($this->amt_text === 'ปกติ') {
+                $this->specialpp_code = '1B1220';
+            } else {
+                $this->specialpp_code = '1B1221';
+            }
+
             return TRUE;
-        }  else {
+        } else {
             return FALSE;
         }
+    }
+
+    public function afterSave($insert, $changedAttributes) {
+
+        parent::afterSave($insert, $changedAttributes);
+        
     }
 
 }
