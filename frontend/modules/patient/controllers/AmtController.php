@@ -62,7 +62,7 @@ class AmtController extends AppController {
              return $this->redirect(['/patient/amt/index','pid'=>$model->patient_id]);
         }
 
-        return $this->render('asses', [
+        return $this->renderAjax('asses', [
             'pid'=>$pid
         ]);
     }

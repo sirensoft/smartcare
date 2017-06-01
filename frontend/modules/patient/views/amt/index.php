@@ -3,6 +3,9 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use common\components\MyHelper;
+use yii\web\JsExpression;
+use yii\bootstrap\Modal;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\AmtSearch */
@@ -18,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ทดสอบ', ['asses', 'pid' => $pid], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ทดสอบ','#', ['class' => 'btn btn-success','id'=>'btn_add']) ?>
     </p>
     <?=
     GridView::widget([
@@ -43,3 +46,23 @@ $this->params['breadcrumbs'][] = $this->title;
     ]);
     ?>
 </div>
+<!--ส่วน modal-->
+<?php Modal::begin([
+    'id'=>'modal',  
+    'header' => 'ประเมิน AMT',
+    'size' => 'modal-lg',
+    'footer'=>'',    
+])?>
+<div id='modalContent'></div>
+<?php Modal::end(); ?>
+
+<?php
+$route_asses = Url::to(['/patient/amt/asses','pid'=>$pid]);
+$js = <<<JS
+        $('#btn_add').click(function(){
+            $('#modal').modal('show').find('#modalContent').load('$route_asses');
+         });
+        
+JS;
+$this->registerJs($js);
+?>

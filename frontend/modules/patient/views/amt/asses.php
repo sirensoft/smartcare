@@ -80,7 +80,11 @@ $this->params['breadcrumbs'][] = ['label'=>'การทดสอบสภาพ
         <input type='hidden' name='amt_text' id='amt_text'>
         <input type='hidden' name='specialpp_code' id='specialpp_code'>
         <p class="pull-left">
-            <?=  Html::a('ยกเลิก',['/patient/amt/index','pid'=>$pid],['class'=>'btn btn-default'])?>
+            <?php 
+            //echo  Html::a('ยกเลิก',['/patient/amt/index','pid'=>$pid],['class'=>'btn btn-default']);
+            echo  Html::a('ยกเลิก','#',['class'=>'btn btn-default', 'data-dismiss'=>'modal']);
+           
+            ?>
         </p>
         <p class="pull-right">
             <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-ok"></i> บันทึก</button>

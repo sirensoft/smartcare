@@ -22,7 +22,10 @@ $this->params['breadcrumbs'][] = ['label'=>'การคัดกรองภา
         <p>การพิจารณา : ถ้าใช้เวลา <b>30</b> วินาทีขึ้นไป เท่ากับ <b>มีความเสี่ยง</b></p>
         
         <p class="pull-left">
-            <?=  Html::a('ยกเลิก',['/patient/tugt/index','pid'=>$pid],['class'=>'btn btn-default'])?>
+            <?php 
+            //echo Html::a('ยกเลิก',['/patient/tugt/index','pid'=>$pid],['class'=>'btn btn-default']);
+            echo  Html::a('ยกเลิก','#',['class'=>'btn btn-default', 'data-dismiss'=>'modal']);
+            ?>
        
             <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
         </p>

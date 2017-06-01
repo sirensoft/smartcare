@@ -59,7 +59,7 @@ class TugtController extends Controller {
              return $this->redirect(['/patient/tugt/index', 'pid' => $model->patient_id]);
         }
 
-        return $this->render('asses', [
+        return $this->renderAjax('asses', [
                     'pid' => $pid
         ]);
     }
