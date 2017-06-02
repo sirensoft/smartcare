@@ -87,7 +87,7 @@ $this->params['breadcrumbs'][] = ['label'=>'การทดสอบสภาพ
             ?>
         </p>
         <p class="pull-right">
-            <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
+            <button class="btn btn-danger" type="submit"><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
         </p>
    <?php ActiveForm::end(); ?>
 </div>
