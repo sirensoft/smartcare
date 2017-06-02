@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use common\components\MyHelper;
 use yii\web\JsExpression;
 use yii\bootstrap\Modal;
@@ -25,6 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?=
     GridView::widget([
+        'responsiveWrap'=>FALSE,
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -49,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--ส่วน modal-->
 <?php Modal::begin([
     'id'=>'modal',  
-    'header' => 'ประเมิน AMT',
+    'header' => 'ประเมิน AMT ทำเครื่องหมายถูกหลังข้อที่ตอบถูก',
     'size' => 'modal-lg',
     'footer'=>'',    
 ])?>

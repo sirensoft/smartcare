@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 use common\components\MyHelper;
 use yii\web\JsExpression;
 use yii\bootstrap\Modal;
@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ประเมิน','#', ['class' => 'btn btn-success','id'=>'btn_add']) ?>
     </p>
     <?= GridView::widget([
+        'responsiveWrap'=>FALSE,
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [

@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = ['label'=>'การทดสอบสภาพ
 <div>
     <table class="table table-bordered table-hover">
         <thead>
-        <th>#</th><th width="600">คำถาม</th><th>ใส่ /เมื่อตอบถูก</th>
+        <th>#</th><th width="600">คำถาม</th><th>ตอบถูก</th>
         </thead>
         <tbody>
             <tr>
@@ -82,7 +82,7 @@ $this->params['breadcrumbs'][] = ['label'=>'การทดสอบสภาพ
         <p class="pull-left">
             <?php 
             //echo  Html::a('ยกเลิก',['/patient/amt/index','pid'=>$pid],['class'=>'btn btn-default']);
-            echo  Html::a('ยกเลิก','#',['class'=>'btn btn-default', 'data-dismiss'=>'modal']);
+            echo  Html::a('<i class="glyphicon glyphicon-remove"></i> ยกเลิก','#',['class'=>'btn btn-default', 'data-dismiss'=>'modal']);
            
             ?>
         </p>

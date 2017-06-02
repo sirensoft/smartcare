@@ -24,9 +24,10 @@ $this->params['breadcrumbs'][] = ['label'=>'การคัดกรองภา
         <p class="pull-left">
             <?php 
             //echo Html::a('ยกเลิก',['/patient/tugt/index','pid'=>$pid],['class'=>'btn btn-default']);
-            echo  Html::a('ยกเลิก','#',['class'=>'btn btn-default', 'data-dismiss'=>'modal']);
+            echo  Html::a('<i class="glyphicon glyphicon-remove"></i> ยกเลิก','#',['class'=>'btn btn-default', 'data-dismiss'=>'modal']);
             ?>
-       
+        </p>
+        <p class="pull-right">
             <button class="btn btn-success" type="submit"><i class="glyphicon glyphicon-ok"></i> บันทึก</button>
         </p>
    <?php ActiveForm::end(); ?>
