@@ -8,18 +8,18 @@ use yii\helpers\Html;
 $this->params['breadcrumbs'][] = ['label'=>  MyHelper::ptInfo_($pid),'url'=>['/patient/patient/view','pid'=>$pid]];
 $this->params['breadcrumbs'][] = ['label'=>'การคัดกรองภาวะหกล้ม Timed Up and Go Test'];
 ?>
-<div>
+<div style="width: 100%">
     <p>ให้ผู้สูงอายุลุกขึ้นจากเก้าอี้ที่มีที่ท้าวแขน เดินเป็นเส้นตรงระยะทาง 3 เมตร หมุนตัวและเดินกลับมานั่งที่เดิม</p>
-   <?=Html::img('./images/tugt.png',['width'=>'500','height'=>'250'])?>
+   <?=Html::img('./images/tugt.png',['class'=>"img-responsive"])?>
     
 </div>
 <div style="margin-top: 15px">
    <?php $form = ActiveForm::begin(); ?>
-        <input type='hidden' name='patient_id' id="patient_id" value="<?=$pid?>">
+        <input type='hidden' name='patient_id' id="patient_id" value="<?=$pid?>"/>
         <p>
-        ใช้เวลา: <input type="number" name='walk_time' id="walk_time"> วินาที
+            ใช้เวลา: <input type="number" name='walk_time' id="walk_time" /> วินาที
         </p>
-        <p>การพิจารณา : ถ้าใช้เวลา <b>30</b> วินาทีขึ้นไป เท่ากับ <b>มีความเสี่ยง</b></p>
+        <p>ถ้าใช้เวลา <b>30</b> วินาทีขึ้นไป เท่ากับ <b>มีความเสี่ยง</b></p>
         
         <p class="pull-left">
             <?php 
