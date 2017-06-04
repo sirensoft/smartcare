@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ทดสอบ','#', ['class' => 'btn btn-success','id'=>'btn_add']) ?>
+        <?= Html::a('<i class="glyphicon glyphicon-plus"></i> ทดสอบ','#', ['class' => 'btn btn-success','id'=>'btn-add']) ?>
     </p>
     <?=
     GridView::widget([
@@ -41,7 +41,16 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'updated_at',
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template'=>'{update} {delete}'
+                'template'=>'{update} {delete}',
+                'buttons'=>[
+                    'update'=>function ($url, $model, $key) {
+                        return Html::a('<span class="glyphicon glyphicon-pencil"></span>','#', [                            
+                            'title' => Yii::t('yii', 'แก้ไข'),                                                    
+                            'class'=>'btn-update',
+                            'data-id'=>$model->id
+                        ]);
+                    }
+                ]
             ],
         ],
     ]);
@@ -56,12 +65,25 @@ $this->params['breadcrumbs'][] = $this->title;
 ])?>
 <div id='modalContent'></div>
 <?php Modal::end(); ?>
+<?php Modal::begin([
+    'id'=>'modal-update',  
+    'header' => 'แก้ไข',
+    'size' => 'modal-md',
+    'footer'=>'',    
+])?>
+<div id='modalContent'></div>
+<?php Modal::end(); ?>
 
 <?php
 $route_asses = Url::to(['/patient/amt/asses','pid'=>$pid]);
+$route_update = Url::to(['/patient/amt/update']);
 $js = <<<JS
-        $('#btn_add').click(function(){
+        $('#btn-add').click(function(){
             $('#modal').modal('show').find('#modalContent').load('$route_asses');
+         });
+        $('.btn-update').click(function(){
+           var id = $(this).attr('data-id');            
+            $('#modal-update').modal('show').find('#modalContent').load('$route_update&id='+id);
          });
         
 JS;

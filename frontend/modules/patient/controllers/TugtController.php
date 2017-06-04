@@ -101,10 +101,11 @@ class TugtController extends Controller {
     public function actionUpdate($id) {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {            
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {  
+            \Yii::$app->session->setFlash('success', 'บันทึกสำเร็จ');   
             return $this->redirect(['index', 'pid' => $model->patient_id]);
         } else {
-            return $this->render('update', [
+            return $this->renderAjax('update', [
                         'model' => $model,
             ]);
         }
