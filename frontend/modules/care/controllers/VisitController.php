@@ -202,6 +202,7 @@ class VisitController extends AppController {
         $excel = $objReader->load($filePath);
 
         // เขียน CELL
+        $this->addCell($excel, 'A1',"บันทึกการเยี่ยม : ".MyHelper::ptInfo_($model->patient_id));
         $this->addCell($excel, 'K1', "เลขที่:".$id);
 
         $this->addCell($excel, 'B2', $fmt->asDate($model->date_visit));
