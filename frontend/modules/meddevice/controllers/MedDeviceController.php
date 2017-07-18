@@ -106,9 +106,12 @@ class MedDeviceController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $pid = $model->patient_id;
+        $model->delete();
+        
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index','pid'=>$pid]);
     }
 
     /**
