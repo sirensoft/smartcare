@@ -40,5 +40,8 @@ return [
     'profile' => [
         'class' => 'frontend\modules\profile\Profile',
     ],
+    'meddevice' => [
+        'class' => 'frontend\modules\meddevice\MedDivice',
+    ],
 ];
 

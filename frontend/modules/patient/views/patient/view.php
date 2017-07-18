@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('<i class="glyphicon glyphicon-edit"></i> แก้ไข', ['update', 'pid' => $model->id], ['class' => 'btn btn-primary']) ?>
 
         <?= Html::a('<i class="glyphicon glyphicon-briefcase"></i> ประวัติ', ['/ehr/default/index', 'pids' => $model->id], ['class' => 'btn btn-danger', 'target' => '_blank']) ?>
-
+        <?= Html::a('<i class="glyphicon glyphicon-briefcase"></i> อุปกรณ์', ['/meddevice/med-device/index', 'pid' => $model->id], ['class' => 'btn btn-orange']) ?>
         <div class="btn-group">
             <button type="button" class="btn btn-blue"><i class="glyphicon glyphicon-check"></i> ประเมิน</button>
             <button type="button" class="btn btn-blue dropdown-toggle" data-toggle="dropdown">
