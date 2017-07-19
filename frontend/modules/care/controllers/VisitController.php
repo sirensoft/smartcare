@@ -145,7 +145,7 @@ class VisitController extends AppController {
             throw new \yii\web\ConflictHttpException('ไม่อนุญาต');
         }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {   
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
