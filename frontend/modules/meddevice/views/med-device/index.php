@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'format' => 'raw',
                 'value' => function($model) {
-                    return Html::a('แก้ไข', '#', ['class' => 'btn btn-blue', 'id' => 'btn-update', 'data-id' => $model->id]);
+                    return Html::a('แก้ไข', '#', ['class' => 'btn btn-blue btn-update', 'data-id' => $model->id]);
                 }
                     ],
                     [
@@ -79,14 +79,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php
                 $route_add = Url::to(['create', 'pid' => $pid]);
-                $route_update = Url::to(['update', 'id' => 1]);
+                $route_update = Url::to(['update']);
                 $js = <<<JS
       $('#btn-add').click(function(){
            $('#modal').modal('show').find('#modalContent').load('$route_add'); 
        });
        
-       $('#btn-update').click(function(){
-           $('#modal').modal('show').find('#modalContent').load('$route_update'); 
+       $('.btn-update').click(function(){
+           var id=$(this).data('id');
+           $('#modal').modal('show').find('#modalContent').load('$route_update&id='+id); 
        }); 
       
 JS;
