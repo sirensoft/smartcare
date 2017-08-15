@@ -75,5 +75,17 @@ WHERE t.discharge=9 ";
                     'searchModel' => $searchModel
         ]);
     }
+    public function actionReport4(){
+        return $this->render('report4');
+    }
+    
+     public function actionReport5(){
+        return $this->render('report5');
+    }
+    
+     public function actionReport6(){
+        return $this->render('report6');
+    }
+    
 
 }
