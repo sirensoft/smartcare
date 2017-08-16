@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = 'รายงาน';
             <?=Html::a('เปรียบเทียบจำนวนผู้สูงอายุแยกรายตำบล',['/report/default/pie2'])?>
         </li>
          <li>
-            <?=Html::a('เปรียบเทียบจำนวน Care Giver แยกรายตำบล',['/report/default/pie3'])?>
+            <?=Html::a('เปรียบเทียบจำนวนบุคคลากรประเภทต่างๆที่ดำเนิงานผู้สูงอายุ',['/report/default/pie3'])?>
         </li>
     </ol>
 </div>

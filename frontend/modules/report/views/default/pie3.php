@@ -12,11 +12,11 @@ HighchartsAsset::register($this)->withScripts([
 
 $this->title = 'รายงาน';
 $this->params['breadcrumbs'][] = ['label' => 'รายงาน', 'url' => ['/report/']];
-$this->params['breadcrumbs'][] = "เปรียบเทียบจำนวน Care Giver แยกรายตำบล";
+$this->params['breadcrumbs'][] = "เปรียบเทียบจำนวนบุคคลากรประเภทต่างๆที่ดำเนิงานผู้สูงอายุ";
 ?>
 <?php
 
-$sql = "select * from pie1";
+$sql = "select * from pie3";
 $raw = \Yii::$app->db->createCommand($sql)->queryAll();
 $data=[];
 foreach ($raw as $value) {
@@ -32,6 +32,7 @@ foreach ($raw as $value) {
             'allModels'=>$data
         ]);
         echo GridView::widget([
+            'responsiveWrap'=>FALSE,
             'dataProvider'=>$dataProvider,
             'layout'=>'{items}',
             'columns'=>[

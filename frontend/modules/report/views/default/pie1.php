@@ -32,6 +32,7 @@ foreach ($raw as $value) {
             'allModels'=>$data
         ]);
         echo GridView::widget([
+            'responsiveWrap'=>FALSE,
             'dataProvider'=>$dataProvider,
             'layout'=>'{items}',
             'columns'=>[
