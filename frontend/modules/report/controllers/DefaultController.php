@@ -75,16 +75,16 @@ WHERE t.discharge=9 ";
                     'searchModel' => $searchModel
         ]);
     }
-    public function actionReport4(){
-        return $this->render('report4');
+    public function actionPie1(){
+        return $this->render('pie1');
     }
     
-     public function actionReport5(){
-        return $this->render('report5');
+     public function actionPie2(){
+        return $this->render('pie2');
     }
     
-     public function actionReport6(){
-        return $this->render('report6');
+     public function actionPie3(){
+        return $this->render('pie3');
     }
     
 

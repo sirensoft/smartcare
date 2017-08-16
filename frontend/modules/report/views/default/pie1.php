@@ -12,13 +12,18 @@ HighchartsAsset::register($this)->withScripts([
 
 $this->title = 'รายงาน';
 $this->params['breadcrumbs'][] = ['label' => 'รายงาน', 'url' => ['/report/']];
-$this->params['breadcrumbs'][] = "เปรียบเทียบจำนวนผู้สูงอายุแยกรายตำบล";
+$this->params['breadcrumbs'][] = "เปรียบเทียบจำนวนผู้สูงอายุแยกรายกลุ่ม";
 ?>
 <?php
+
+$sql = "select * from pie1";
+$raw = \Yii::$app->db->createCommand($sql)->queryAll();
 $data=[];
-$data[]=['name'=>'ติดสังคม','y'=>964,'color'=>'lime'];
-$data[]=['name'=>'ติดบ้าน','y'=>96,'color'=>'blue'];
-$data[]=['name'=>'ติดเตียง','y'=>21,'color'=>'red'];
+foreach ($raw as $value) {
+    $data[]=['name'=>$value['name'],'y'=>$value['y']*1,'color'=>$value['color']];
+}
+
+
 ?>
 <div id="chart"></div>
 <div>
@@ -30,8 +35,8 @@ $data[]=['name'=>'ติดเตียง','y'=>21,'color'=>'red'];
             'dataProvider'=>$dataProvider,
             'layout'=>'{items}',
             'columns'=>[
-                'name:text:กลุ่ม',
-                'y:integer:จำนวน(คน)'
+                'name:text:#',
+                'y:integer:จำนวน'
             ]
         ]);
     

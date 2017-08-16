@@ -15,13 +15,13 @@ $this->params['breadcrumbs'][] = 'รายงาน';
             <?=  Html::a('ความเคลื่อนไหว ADL',['/report/default/report3'])?>
         </li>
         <li>
-            <?=Html::a('เปรียบเทียบจำนวนผู้สูงอายุแยกรายกลุ่ม',['/report/default/report4'])?>
+            <?=Html::a('เปรียบเทียบจำนวนผู้สูงอายุแยกรายกลุ่ม',['/report/default/pie1'])?>
         </li>
          <li>
-            <?=Html::a('เปรียบเทียบจำนวนผู้สูงอายุแยกรายตำบล',['/report/default/report5'])?>
+            <?=Html::a('เปรียบเทียบจำนวนผู้สูงอายุแยกรายตำบล',['/report/default/pie2'])?>
         </li>
          <li>
-            <?=Html::a('เปรียบเทียบจำนวน Care Giver แยกรายตำบล',['/report/default/report6'])?>
+            <?=Html::a('เปรียบเทียบจำนวน Care Giver แยกรายตำบล',['/report/default/pie3'])?>
         </li>
     </ol>
 </div>
